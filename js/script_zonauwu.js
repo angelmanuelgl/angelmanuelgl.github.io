@@ -7,14 +7,19 @@ var Emojis_NoCorazones=Emojis_Noche.concat(Emojis_Flores.concat(Emojis_Dia.conca
 //arrays para poder crear la ARRAY DE CORAZNES
 var Emojis_Corazones=new Array("♥️","❤️","🧡","💛","💚","💙","💜","❣️","💘","💓","💕","💞","💖","💗","💝","💟","🤍");
 var Emojis_Corazones_Reversa=new Array("💟","💝","💗","💖","💞","💕","💓","💘","❣️","💜","💙","💚","💛","🧡","❤️");
-var CorazonesHelp=Emojis_Corazones.concat(Emojis_Corazones_Reversa.concat(Emojis_Corazones));
+var Corazones=Emojis_Corazones.concat(Emojis_Corazones_Reversa.concat(Emojis_Corazones));
 //arrays que si se van a utilizar
-var Corazones=CorazonesHelp.concat(CorazonesHelp.concat(CorazonesHelp.concat(CorazonesHelp)));
 var Emojis_Todos=Emojis_Noche.concat(Emojis_Flores.concat(Emojis_Dia.concat(Emojis_Caras.concat(Emojis_Corazones))));
 var Emojis_Dias=Emojis_Dia.concat(Emojis_Flores.concat(Emojis_Caras));
 var Emojis_Noches=Emojis_Noche.concat(Emojis_Flores.concat(Emojis_Caras));
 // la array que va creando el usuario
 var LaArray=new Array(); 
+
+//nuevas arrays
+var Estrellas=new Array ("✨","⭐","🌟","💫","🌟","⭐","✨","⭐","🌟","💫",);
+var Flores=new Array("🌸","🌺","🌼","🌺","🌸","🌼","🌺");
+var CorazonesRojos=new Array ("❤️","❣️","💘","💓","💘","❣️","❤️","❣️","💘","💓");
+var CorazonesRosas=new Array ("💞","💖","💗","💝","💗","💖","💞","💖","💗","💝");
 
 
 //----------------------------------------------------------------
@@ -74,26 +79,40 @@ function Recrear(LaId){
 	Padre_Elemento.appendChild(Elemento_Nuevo);
 }
 
+
+
 //funcion para escribir en cierto p con id LaId los elementos de cierta Array
 //tomando en cuenta que UwU y WuW va cambiando
 //agregando texto si es que lo hay
 function EscribirArray(Posicion){
-	let pos=parseInt(Posicion);
-	let posatras=Corazones.length-1-pos;
-	let cantidad=LaArray.length;
 	
+	let cantidad=LaArray.length;
 	 for (var i = 0; i < cantidad; i++) {
+	 	
+		
 	 	var ElContenido=LaArray[i];
 	 	if (ElContenido===undefined){
 			//este if usa la desigualdad estricta === para ver si esta indefinido
 			ElContenido=RamdomArray(Emojis_Corazones);
 		}
-	 		if(ElContenido=="UwU"){
-	 			ElContenido=Corazones[pos];
-	 		}
-	 		if(ElContenido=="WuW"){
-	 			ElContenido=Corazones[posatras];
-	 		}
+	 	//revision de UwU y WuW y los botones especiales
+	 	function Revision(unarreglo,palabraclave1,palabraclave2){
+		 	let pos=Posicion%unarreglo.length;
+			let posatras=unarreglo.length-1-pos;
+			 if(ElContenido==palabraclave1){
+			 	ElContenido=unarreglo[pos];
+			 }
+			 if(ElContenido==palabraclave2){
+			 	ElContenido=unarreglo[posatras];
+			 }
+		}
+		Revision(Corazones,"UwU","WuW");
+		Revision(Estrellas,"Estrella"," ");
+		Revision(Flores,"Flor"," ");
+		Revision(CorazonesRojos,"CorazonRojo"," ");
+		Revision(CorazonesRosas,"CorazonRosa"," ");
+		 
+		 //escribir		
 	 	let Elemento=document.getElementById("AgregarCorazones");
 		let Contenido=document.createTextNode(ElContenido);
 		Elemento.appendChild(Contenido);
@@ -178,9 +197,10 @@ function CantidadElementos(){
 		//if se ejecuta si es verdadero, es decir si no tiene un numero y le asigna el 16 porque si
 		Repeticiones=16;
 	}
-	if (Repeticiones >= 195){
+	let total=Corazones.length-1
+	if (Repeticiones >= total*10){
 		//if se ejecuta si es verdadero, es decir si no tiene un numero y le asigna el 16 porque si
-		Repeticiones=195;
+		Repeticiones=total*10;
 	}
 	if (Repeticiones <= 16){
 		//if se ejecuta si es verdadero, es decir si no tiene un numero y le asigna el 16 porque si
@@ -204,14 +224,17 @@ function AgregarEmoji(valor){
 	AgregarALaArray(valor);
 	ElComienzo();//aqui--------------------AQUI SE LLAMA AL INCIO
 }
-function AgregarEmojiUwU(){
-	AgregarALaArray("UwU");
+function AgregarEmojiEspecial(num){
+	if (num==0){AgregarALaArray("Estrella");}
+	if (num==1){AgregarALaArray("Flor");}
+	if (num==2){AgregarALaArray("CorazonRojo");}
+	if (num==3){AgregarALaArray("CorazonRosa");}
+	if (num==4){AgregarALaArray("UwU");}
+	if (num==5){AgregarALaArray("WuW");}
 	ElComienzo();//aqui--------------------AQUI SE LLAMA AL INCIO
 }
-function AgregarEmojiWuW(){
-	AgregarALaArray("WuW");
-	ElComienzo();//aqui--------------------AQUI SE LLAMA AL INCIO
-}
+
+
 //Salto de Linea//
 var Saltar=1;//-----------------------
 function Salta(valor){
@@ -508,18 +531,16 @@ var A1=RamdomArray(Emojis_Corazones);
 var A2=RamdomArray(Emojis_Corazones);
 var E1;
 var E2;
+
 function ObtenerEmojis(){
-	A1=LaArray[0];
-	A2=LaArray[1];
+	A1=LaArray[LaArray.length-1];
+	A2=LaArray[LaArray.length-2];
 	if (A1===undefined){
 		//este if usa la desigualdad estricta === para ver si es una cadena vacia
 		A1=RamdomArrayBorrar(Emojis_Corazones);
 	}
 	if (A2===undefined){
 		//este if usa la desigualdad estricta === para ver si es una cadena vacia
-		A2=RamdomArrayBorrar(Emojis_Corazones);
-	}
-	if (A1==A2){
 		A2=RamdomArrayBorrar(Emojis_Corazones);
 	}
 	//para que me reinicie la array que se estuvo borrrand
@@ -532,23 +553,40 @@ function AgregarLinea(Contenido){
 }
 
 
+// function CambiarUwU(Posicion){
+// 	let pos=parseInt(Posicion);
+// 	let posatras=Corazones.length-1-pos;
+// 	E1=A1
+// 	E2=A2
+// 	if(A1=="UwU"){
+// 	 	E1=Corazones[pos];
+// 	 }
+// 	 if(A1=="WuW"){
+// 		E1=Corazones[posatras];
+// 	 }
+// 	if(A2=="UwU"){
+// 	 	E2=Corazones[pos];
+// 	 }
+// 	 if(A2=="WuW"){
+// 		E2=Corazones[posatras];	 
+// }
 function CambiarUwU(Posicion){
-	let pos=parseInt(Posicion);
-	let posatras=Corazones.length-1-pos;
 	E1=A1
 	E2=A2
-	if(A1=="UwU"){
-	 	E1=Corazones[pos];
-	 }
-	 if(A1=="WuW"){
-		E1=Corazones[posatras];
-	 }
-	if(A2=="UwU"){
-	 	E2=Corazones[pos];
-	 }
-	 if(A2=="WuW"){
-		E2=Corazones[posatras];
-	 }
+	 //revision de UwU y WuW y los botones especiales
+	 function Revision(unarreglo,palabraclave1,palabraclave2){
+		 	let pos=Posicion%unarreglo.length;
+			let posatras=unarreglo.length-1-pos;
+			 if(E1==palabraclave1){E1=unarreglo[pos];}
+			 if(E1==palabraclave2){E1=unarreglo[posatras];}
+			 if(E2==palabraclave1){E2=unarreglo[pos];}
+			 if(E2==palabraclave2){E2=unarreglo[posatras];}			 
+	}
+	Revision(Corazones,"UwU","WuW");
+	Revision(Estrellas,"Estrella"," ");
+	Revision(Flores,"Flor"," ");
+	Revision(CorazonesRojos,"CorazonRojo"," ");
+	Revision(CorazonesRosas,"CorazonRosa"," ");
 }
 
 function CorazonCorazones(){
