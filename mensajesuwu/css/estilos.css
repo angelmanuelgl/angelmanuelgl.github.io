@@ -1,0 +1,64 @@
+body{
+	background-color:#B5BBFF;
+	font-family:Sans-serif;
+}
+h1{
+	font-family:Verdana;
+	color:#A89345;
+	text-align:center;
+	text-shadow:4px 4px 4px #959DF5;
+	font-size:40px;
+}
+.divtexto{
+	background-color:#959DF5;
+	min-height:50px;
+	border-radius:10px;
+	padding:01px 32px;
+}
+
+.parrafos{	   
+	display:block;
+
+}
+.divboton{
+	display:grid;
+	min-height:50px;
+	width:100%;
+	/*background-color:#F29FFF;*/
+	grid-template-columns:1fr 1fr;
+	grid-template-rows:1fr;
+	grid-template-areas: "uno dos";
+}
+.boton{
+	background-color: #F5E095;
+	padding: 12px 0px;
+	border-radius:10px;
+	text-align: center;
+	text-decoration: none;
+	color: #5F63C0;
+	font-size: 20px;
+	width:50%;
+	
+	margin:0% 25%;
+}
+.dia{grid-area:uno;}
+
+.noche{	grid-area:dos;}
+
+
+.boton:hover {
+	transition-duration: 0.4s;
+    background-color: #FFF1BD; 
+    color: #3E4180;
+	padding: 16px 36px;
+}
+
+.boton:active {
+    background-color: #F5E095; 
+	padding: 17px 38px;
+}
+
+
+
+/* Paleta: #51A68F #B0FFEA #8FF2D8 #A65841 #F2A68F */
+/* Paleta: #565DA8 #B5BBFF #959DF5 #A89345 #F5E095 */

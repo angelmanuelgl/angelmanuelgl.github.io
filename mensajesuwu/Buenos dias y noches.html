@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title> mensajes bonitos </title>
+
+<style> 
+			body{
+	background-color:#B5BBFF;
+	font-family:Sans-serif;
+}
+h1{
+	font-family:Verdana;
+	color:#A89345;
+	text-align:center;
+	text-shadow:4px 4px 4px #959DF5;
+	font-size:40px;
+}
+.divtexto{
+	background-color:#959DF5;
+	min-height:50px;
+	border-radius:10px;
+	padding:01px 32px;
+}
+
+.parrafos{	   
+	display:block;
+
+}
+.divboton{
+	display:grid;
+	min-height:50px;
+	width:100%;
+	/*background-color:#F29FFF;*/
+	grid-template-columns:1fr 1fr;
+	grid-template-rows:1fr;
+	grid-template-areas: "uno dos";
+}
+.boton{
+	background-color: #F5E095;
+	padding: 12px 0px;
+	border-radius:10px;
+	text-align: center;
+	text-decoration: none;
+	color: #5F63C0;
+	font-size: 20px;
+	width:50%;
+	
+	margin:0% 25%;
+}
+.dia{grid-area:uno;}
+
+.noche{	grid-area:dos;}
+
+
+.boton:hover {
+	transition-duration: 0.4s;
+    background-color: #FFF1BD; 
+    color: #3E4180;
+	padding: 16px 36px;
+}
+
+.boton:active {
+    background-color: #F5E095; 
+	padding: 17px 38px;
+}
+
+</style>
+
+</head>
+	
+<body id="body">
+	<h1>Crear mensajes de buenos dias aleatorios </h1>
+	
+	<div class="divboton">
+		<button onclick="Buenos_Dias();" class="boton dia "> Buenos dias </button>
+		<button onclick="Buenas_Noches();" class="boton noche"> Buenas Noches </button>
+	</div>
+	
+	</br></br></br>
+	
+	<div class="divtexto" id="divtexto">
+		<p class="texto" id="texto"> 		</p>
+		</br>
+		
+		<button onclick="copiar();" id="boton" class="boton"> Copiar </button>
+		</br></br></br>
+	</div>
+	
+	
+</body>
+<script>
+//array con datos
+	var corazones=new Array("♥️","❤️","🧡","💛","💚","💙","💜","❣️","💘","💓","💕","💞","💖","💗","💝","💟","🤍")
+	var nombres=new Array("mi crush hermosa", "mi niña preciosa", "mi amor", "mi amocito", 
+	"mi amor de mi vida", "mi corazon", "mi corazoncito", "mi Karensita preciosa", "mi Karenchita preciosa", 
+	"mi Karensita", "mi vida", "mi todo", "mi solecito", "mi futura esposa");
+	var adornos=new Array("☀️","🌼","☀️","🌺","🌸","☀️","🌈","🥰","☀️");	
+	var adornos_noche=new Array("✨","⭐","🌟","🌙","💫","✨","⭐","🌟","🌙","💫","🌸","🌺","🌼","🥰")
+	var maybe_min=new Array("ojalá pudiera","me encantaría","me gustaría");
+	var maybe_mas=new Array("Ojalá pudiera","Me encantaría","Me gustaría");
+	var muchos=new Array(" ","mucho","mucho mucho","mucho mucho mucho","muchísimo","muchisisimo","muchisisisimo");
+
+//funcion copiar
+ function copiar(){
+	//elemento de donde vamos a copiar
+	var elemento=document.getElementById("texto");
+	// creamos un input falso que tendra el texto que tiene el elemento
+	var inputFalso=document.createElement("input");
+	inputFalso.setAttribute("Value",elemento.innerHTML);
+	//agregamos el input falso al body
+	document.body.appendChild(inputFalso);	
+	//seleccionamos el input falso
+	inputFalso.select();
+	//ya que tenemos seleccionado el input falso podemos copiarlo con execComand
+	document.execCommand("copy");
+	//borramos el input falso porque no queremos que se vea
+	document.body.removeChild(inputFalso);
+	
+}      
+	
+var letra;
+//borra el p que esta dentro del div y lo vuelve a crear en su lugar
+function reiniciar_p(){
+	//borrar
+	var contenedor=document.getElementById("divtexto");
+	var elemento=document.getElementById("texto");
+	contenedor.removeChild(elemento);
+	//lo vuelve a crear
+	var contenedor=document.getElementById("divtexto");
+	var elemento=document.createElement("p");
+	var boton=document.getElementById("boton");
+	elemento.class="texto";
+	elemento.id="texto";
+	contenedor.insertBefore(elemento,boton);
+	
+	//añadi aqui la funcion que define si es plurar o singular 
+	//ya que tambien se debe activiar cuando se llama esta funcion 
+	letra=getRandomInt(0,2);
+}
+
+// Retorna un entero aleatorio entre min (incluido) y max (excluido)
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min)) + min;
+}
+
+//crear y agregar texto
+var contenedor=document.getElementById("divtexto");
+var contenido;
+				
+function agregar (nodo){
+	var elemento=document.getElementById("texto");
+	var contenido=document.createTextNode(nodo);
+	elemento.appendChild(contenido);
+	var br=document.createElement("br");
+	elemento.appendChild(br);
+	
+}
+
+//decidir que nombres
+function nombrar() {
+	var names=getRandomInt(0,14);
+	var nombre=nombres[names];
+	return nombre;	
+}
+</script>
+
+
+<script>
+
+//INICIAL........
+
+//para elegir los adornos del dia
+var primero;
+var segundo;	
+var a_uno;
+var a_dos;
+function adornamiento_dia(){
+	primero=getRandomInt(0,9);
+	segundo=getRandomInt(0,9);
+	a_uno=adornos[primero];
+	a_dos=adornos[segundo];	
+	
+}
+	
+	
+//añade corazones con los adornos por si los textos no son suficientes	
+function añadir(valor){
+	//poner el corazon correcto
+	var uwu=corazones[valor];
+	var contenido=a_uno+uwu+a_dos;
+	agregar(contenido);
+}
+
+
+	//SECCION UNO---------------------------------------------------------------
+
+		//escribe buenos dias
+		function UNO_UNO (valor){
+			//poner el corazon correcto
+			let uwu=corazones[valor];
+			
+			//poner nombre
+			let nombre=nombrar();
+			
+			//para la letra inicial
+			let letras=new Array("B","b");
+			let laLetra=letras[letra];
+			
+			//para hacer plural
+			let plural=getRandomInt(0,2);
+			let s=new Array("","s");
+			let S= s[plural];
+			let os=new Array("","os");
+			let OS= os[plural];
+			
+			//escribir
+			let contenido=a_uno+uwu+a_dos+laLetra+"uen"+ OS +" dia"+S +" "+ nombre;
+			agregar(contenido);
+			
+		}
+		
+		//pregunta como amaneció
+		function UNO_DOS (valor){
+			//poner el corazon correcto
+			var uwu=corazones[valor];
+			
+			//poner nombre
+			let nombre=nombrar();
+			
+			//para la letra inicial
+			var letras=new Array("C","c");
+			var laLetra=letras[letra];
+			
+			//escribi
+			var contenido=a_uno+uwu+a_dos+"¿"+laLetra+ "ómo amaneció " + nombre + "?";
+			agregar(contenido);
+		}
+		
+		//pregunta si durmio bien
+		function UNO_TRES (valor){
+			//poner el corazon correcto
+			var uwu=corazones[valor];
+			
+			//poner nombre
+			let nombre=nombrar();
+			
+			//para la letra inicial
+			var letras=new Array("D","d");
+			var laLetra=letras[letra];
+			
+			//escribir
+			var contenido=a_uno+uwu+a_dos+"¿"+laLetra+"urmió bien " + nombre + "?";
+			agregar(contenido);
+		}
+		
+		//pregunta si descanso
+		function UNO_CUATRO (valor){
+			//poner el corazon correcto
+			var uwu=corazones[valor];
+			
+			//poner nombre
+			let nombre=nombrar();
+			
+			//para la letra inicial
+			var letras=new Array("D","d");
+			var laLetra=letras[letra];
+			
+			//escribir
+			var contenido=a_uno+uwu+a_dos+"¿"+laLetra+"escansó " + nombre + "?";
+			agregar(contenido);
+		}
+		
+	//SECCION DE ME ENCANTARIA Y OJALA ---------------------------------------------------------
+	//array con las cosas que se pueden decir en el dia
+	var cosas=new Array("amanecer a tu lado", "llenarte de besitos","despertarte con besitos",
+	"despertarte con muchos muchos besitos","ver tu carita preciosa al despertar","verte todas las mañanas",
+	"acariciar tu cabello","decirte lo mucho que te amo", "decirte lo mucho que te quiero",
+	"decirte en persona todo lo que siento por ti");
+		
+		
+		
+		//UNO me gustaria o encantaria 
+		
+		function DOS_UNO (valor){
+			//poner el corazon correcto
+			var uwu=corazones[valor];
+			//elegir la cosa que me gustaria hacer
+			var numcosa=getRandomInt(0,10);
+			var cosa=cosas[numcosa];
+			
+			if (letra>=1){
+				//minuscula
+				//elegir me gustaria encantaria o ojala pudiera
+				var quizas=getRandomInt(0,3);
+				var m=maybe_min[quizas];
+				
+				//escribir
+				var contenido=a_uno+uwu+a_dos+ m +" "+ cosa;
+				agregar(contenido);
+			} else {
+				//Mayuscula
+				//elegir me gustaria encantaria o ojala pudiera
+				var quizas=getRandomInt(0,3);
+				var m=maybe_mas[quizas];
+							
+				//escribir
+				var contenido=a_uno+uwu+a_dos+ m +" "+ cosa;
+				agregar(contenido);
+			}
+		}
+		
+		
+//SECCION Te quiero  te adoro me fasinas me encatas te amo ---------------------------------------------------------
+
+	//decir te... amo  quiero adoro
+	function Te__d (valor1,valor){
+		//poner el corazon correcto
+		var uwu=corazones[valor];
+		
+		//poner nombre
+		let nombre=nombrar();
+		
+		//para la letra inicial
+		var letras=new Array("Te ","te ");
+		var laLetra=letras[letra];
+		
+		//muchos
+		var nummucho=getRandomInt(0,7);
+		var mucho= muchos[nummucho];
+		
+		//escribir
+		var contenido=a_uno+uwu+a_dos+laLetra+ valor1 +" " + mucho +" "+ nombre;
+		agregar(contenido);
+	}
+
+	//me ... encantas 
+	function Me__d (valor1,valor){
+		//poner el corazon correcto
+		var uwu=corazones[valor];
+		
+		//poner nombre
+		let nombre=nombrar();
+		
+		//para la letra inicial
+		var letras=new Array("Me ","me ");
+		var laLetra=letras[letra];
+		
+		//mucho o muchos o mucho mucho o muchsimo o etc
+		var nummucho=getRandomInt(0,7);
+		var mucho= muchos[nummucho];
+		
+		//escribir
+		var contenido=a_uno+uwu+a_dos+laLetra+ valor1 +" " + mucho +" "+ nombre;
+		agregar(contenido);
+	}
+
+	
+	
+	function Buenos_Dias(){
+		reiniciar_p();
+		adornamiento_dia();
+		//llamar funciones para hacer parrafos	
+		UNO_UNO (0);
+		UNO_DOS (1);
+		UNO_TRES (2);
+		UNO_CUATRO(3);
+		DOS_UNO(4);
+		DOS_UNO(5);
+		DOS_UNO(6);
+		DOS_UNO(7);
+		Te__d ("quiero",8);
+		Te__d ("adoro",9);
+		Me__d ("encantas",10);
+		Me__d ("fasinas",11)
+		Te__d ("amo",12);
+		añadir(13);
+		añadir(14);
+		añadir(15);
+		añadir(16);
+	}
+
+</script>
+
+
+<script>
+
+//INICIAL........
+
+//para elegir los adornos de la noche
+var primero_n;
+var segundo_n;
+var n_uno;
+var n_dos;
+function adornamiento_noche(){
+	primero_n=getRandomInt(0,14);
+	segundo_n=getRandomInt(0,14);
+	n_uno=adornos_noche[primero_n];
+	n_dos=adornos_noche[segundo_n];		
+}
+
+function añadir_noche(valor){
+	//poner el corazon correcto
+	var uwu=corazones[valor];
+	var contenido=n_uno+uwu+n_dos;
+	agregar(contenido);
+}
+
+//SECCION 1---------------------
+	
+	//escribe buenas noches
+	function N_UNO (valor){
+		//poner el corazon correcto
+		let uwu=corazones[valor];
+		
+		//poner nombre
+		let nombre=nombrar();
+		
+		//para la letra inicial
+		let letras=new Array("B","b");
+		let laLetra=letras[letra];
+		
+		//no hay para hacer plural o singular porque no hay buenas noches y buena noche	
+		
+		//escribir
+		let contenido=n_uno+uwu+n_dos+laLetra+"uenas noches " + nombre;
+		agregar(contenido);			
+		}
+		
+	//descansa
+	function N_DOS(valor){
+		//poner el corazon correcto
+		let uwu=corazones[valor];
+		
+		//poner nombre
+		let nombre=nombrar();
+		
+		//para la letra inicial
+		let letras=new Array("D","d");
+		let laLetra=letras[letra];
+		
+		//escribir
+		let contenido=n_uno+uwu+n_dos+laLetra+"escansa " + nombre;
+		agregar(contenido);		
+	}
+	
+	//dulces sueños
+	function N_TRES(valor){
+		//poner el corazon correcto
+		let uwu=corazones[valor];
+		
+		//poner nombre
+		let nombre=nombrar();
+		
+		//para la letra inicial
+		let letras=new Array("D","d");
+		let laLetra=letras[letra];
+		
+		//escribir
+		let contenido=n_uno+uwu+n_dos+laLetra+"ulces sueños " + nombre;
+		agregar(contenido);		
+	}
+
+	//descansa
+	function N_CUATRO(valor){
+		//poner el corazon correcto
+		let uwu=corazones[valor];
+		
+		//poner nombre
+		let nombre=nombrar();
+		
+		//para la letra inicial
+		let letras=new Array("D","d");
+		let laLetra=letras[letra];
+		
+		//escribir
+		let contenido=n_uno+uwu+n_dos+laLetra+"escansa " + nombre;
+		agregar(contenido);		
+	}
+
+
+//SECCION Te quiero  te adoro me fasinas me encatas te amo ---------------------------------------------------------
+	
+
+	//decir te... amo  quiero adoro
+	function Te__n (valor1,valor){
+		//poner el corazon correcto
+		var uwu=corazones[valor];
+		
+		//poner nombre
+		let nombre=nombrar();
+		
+		//para la letra inicial
+		var letras=new Array("Te ","te ");
+		var laLetra=letras[letra];
+		
+		//muchos
+		var nummucho=getRandomInt(0,7);
+		var mucho= muchos[nummucho];
+		
+		//escribir
+		var contenido=n_uno+uwu+n_dos+laLetra+ valor1 +" " + mucho +" "+ nombre;
+		agregar(contenido);
+	}
+
+	//me ... encantas 
+	function Me__n (valor1,valor){
+		//poner el corazon correcto
+		var uwu=corazones[valor];
+		
+		//poner nombre
+		let nombre=nombrar();
+		
+		//para la letra inicial
+		var letras=new Array("Me ","me ");
+		var laLetra=letras[letra];
+		
+		//mucho o muchos o mucho mucho o muchsimo o etc
+		var nummucho=getRandomInt(0,7);
+		var mucho= muchos[nummucho];
+		
+		//escribir
+		var contenido=n_uno+uwu+n_dos+laLetra+ valor1 +" " + mucho +" "+ nombre;
+		agregar(contenido);
+	}
+	
+//SECCION DE ME ENCANTARIA Y OJALA ---------------------------------------------------------
+	
+	//ojala pudiera, me encantaria, 
+	var cosa_n=new Array("llenarte de besitos","darte un besito de buenas noches",
+	"dormir a tu lado","acariciar tu cabello mientras nos dormimos", "abrazarte y decirte lo mucho que te amo",
+	"comerte a besitos", "estar siempre a tu lado", "abrazarte y escuchar tu respiracion", 
+	"ver tus hermosos ojos mientras nos quedamos dormidos")
+	
+	function Encantaria_n (valor){
+		//poner el corazon correcto
+		var uwu=corazones[valor];
+						
+			//elejir la cosa que me gustaria hacer
+			let numcosa=getRandomInt(0,9);
+			let lacosa=cosa_n[numcosa];
+				
+		if (letra>=1){
+			//minuscula
+			//elegir me gustaria encantaria o ojala pudiera
+			let quizas=getRandomInt(0,3);
+			let m=maybe_min[quizas];
+
+			//escribir
+			var contenido=n_uno+uwu+n_dos+ m +" "+ lacosa;
+			agregar(contenido);
+		} else {
+			//Mayuscula
+			//elegir me gustaria encantaria o ojala pudiera
+			let quizas=getRandomInt(0,3);
+			let m=maybe_mas[quizas];
+			
+			//escribir
+			var contenido=n_uno+uwu+n_dos+ m +" "+ lacosa;
+			agregar(contenido);
+		}
+	}
+	//ojala pudieramos
+	var cosas_n=new Array("dormirnos abrazaditos","darnos muchos besitos de buenas noches","dormir juntos",
+	"dormir juntos y darnos muchos besitos", "darnos muchos besitos mientras nos quedamos dormidos")		
+	
+	function ojala_n (valor){
+		//poner el corazon correcto
+		let uwu=corazones[valor];
+				
+		//para la letra inicial
+		let letras=new Array("O","o");
+		let laLetra=letras[letra];
+		
+		//elejir la cosa que me gustaria hacer
+		let numcosa=getRandomInt(0,5);
+		let lacosa=cosas_n[numcosa];
+		
+		//escribir
+		let contenido=n_uno+uwu+n_dos+laLetra+"jalá puedieramos " + lacosa;
+		agregar(contenido);
+			
+		}	
+	
+	//ojala sueñe y ojala sueñes conmigo  OJO ESTA HABARCA DOS PARRAFOS
+	function ojalasueñe_n (valor){
+		//poner el corazon correcto
+		let uwu=corazones[valor];				
+		//para la letra inicial
+		let letras=new Array("O","o");
+		let laLetra=letras[letra];		
+		//poner nombre
+		let nombrecito=new Array ("Karensita","Kanrechita","Kanresita preciosa","Kanresita hermosa",
+		"Kanresita preciosisima","Kanresita hermosisima","Kanrechita preciosa","Kanrechita hermosa", 
+		"Kanrechita preciosisima","Kanrechita hermosisima", "futura esposa","amor de mi vida");				
+		let names=getRandomInt(0,12);
+		let nombre=nombrecito[names];
+		//escribir
+		let contenido=n_uno+uwu+n_dos+laLetra+"jalá sueñe con mi " + nombre;
+		agregar(contenido);
+		//segunda escritura
+		valor=valor+1;
+		uwu=corazones[valor];
+		contenido=n_uno+uwu+n_dos+laLetra+"jalá sueñes conmigo";
+		agregar(contenido);			
+		}	
+	
+	
+	
+	
+function Buenas_Noches(){
+	reiniciar_p();
+	adornamiento_noche();
+	N_UNO (0);
+	N_DOS(1);
+	N_TRES(2);
+	N_CUATRO(3);
+	Te__n ("quiero",4);
+	Te__n ("adoro",5);
+	Me__n ("encantas",6);
+	Me__n ("fasinas",7)
+	Te__n ("amo",8);
+	Encantaria_n (9);
+	Encantaria_n (10);
+	Encantaria_n (11);
+	Encantaria_n (12);
+	ojala_n (13);
+	ojalasueñe_n (14);
+	añadir_noche(16);
+}
+</script>
+
+
+
+</html>
