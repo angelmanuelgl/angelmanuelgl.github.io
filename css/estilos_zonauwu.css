@@ -189,11 +189,23 @@ h2{
 }
 
 .invisible{
-	visibility:hidden;
+	display:none;
 }
 .invisible2 button{
-	visibility:hidden;
+	display:none;
 }
+.botones_corazones{
+	min-height: 500px;
+}
+.moji2{
+	min-height: 500px;
+}
+/* estilo para quitar elementos d ebuenos dias y buenas noches en la pagina que va a ver todos*/
+.noesta{
+	display:none;
+}
+
+
 
 /*-----------------Media Query-------------------------*/
 /*408px*/
@@ -222,6 +234,8 @@ h2{
 						
 	grid-gap: 10px;
 	}
+	.botones_corazones{	min-height:100px;}
+	.moji2{	min-height:100px;}
 
 
 }
