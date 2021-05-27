@@ -1,15 +1,23 @@
+/*funcion autoinvocada 
+(function(){
+	todo el contenido
+}())
+*/
+
+
 // crear arrays
 var Emojis_Noche=new Array("✨","⭐","🌟","💫","🌙");
-var Emojis_Flores=new Array("🌸","🌺","🌼");
+var Emojis_Flores=new Array("🌸","🌼","🌷","🌹","🌺","🌻");
 var Emojis_Dia=new Array("☀️","🌈");
 var Emojis_Caras=new Array("🥰","🥺");
+var Emojis_Hot=new Array("🔥","🥵");
 var Emojis_NoCorazones=Emojis_Noche.concat(Emojis_Flores.concat(Emojis_Dia.concat(Emojis_Caras)));
 //arrays para poder crear la ARRAY DE CORAZNES
 var Emojis_Corazones=new Array("♥️","❤️","🧡","💛","💚","💙","💜","❣️","💘","💓","💕","💞","💖","💗","💝","💟","🤍");
 var Emojis_Corazones_Reversa=new Array("💟","💝","💗","💖","💞","💕","💓","💘","❣️","💜","💙","💚","💛","🧡","❤️");
 var Corazones=Emojis_Corazones.concat(Emojis_Corazones_Reversa.concat(Emojis_Corazones));
 //arrays que si se van a utilizar
-var Emojis_Todos=Emojis_Noche.concat(Emojis_Flores.concat(Emojis_Dia.concat(Emojis_Caras.concat(Emojis_Corazones))));
+var Emojis_Todos=Emojis_Noche.concat(Emojis_Flores.concat(Emojis_Dia.concat(Emojis_Caras.concat(Emojis_Corazones.concat(Emojis_Hot)))));
 var Emojis_Dias=Emojis_Dia.concat(Emojis_Flores.concat(Emojis_Caras));
 var Emojis_Noches=Emojis_Noche.concat(Emojis_Flores.concat(Emojis_Caras));
 // la array que va creando el usuario
@@ -17,7 +25,7 @@ var LaArray=new Array();
 
 //nuevas arrays
 var Estrellas=new Array ("✨","⭐","🌟","💫","🌟","⭐","✨","⭐","🌟","💫",);
-var Flores=new Array("🌸","🌺","🌼","🌺","🌸","🌼","🌺");
+var Flores=new Array("🌸","🌼","🌷","🌹","🌺","🌻","🌺","🌹","🌷","🌼","🌸","🌼","🌷","🌹","🌺","🌻");
 var CorazonesRojos=new Array ("❤️","❣️","💘","💓","💘","❣️","❤️","❣️","💘","💓");
 var CorazonesRosas=new Array ("💞","💖","💗","💝","💗","💖","💞","💖","💗","💝");
 
@@ -131,7 +139,7 @@ function getRandomInt(min, max) {
 //funcion para convertir un numero a emoji y agregarlo
 //o si lo que le dan no es numero agregaa eso directamente
 function AgregarALaArray(valor){
-//is na devuelve verdadero si no es un numero y falso si es un numero
+//isNaN devuelve verdadero si no es un numero y falso si es un numero
 	let valores=valor;
 	if (isNaN(valores)){
 		//if se ejecuta si es verdadero 
@@ -309,6 +317,73 @@ function IniciarPatron(){
 	//ahora le damos el valor del repuesto a la array original
 	LaArray=LaArrayRepuesto;
 }
+//----------------------------------------------------------------------------------------
+//----------------FUNCIONES QUE SON LLAMADAS PARAR EL BOTON RANDOM-------------------------------------
+//---------------------------------BOTON RANDOM----------------------------------------
+//-------------------------------------------------------------------------------------------
+var BotonRandom=document.getElementById("EmojiRandom");
+var BTN_mini_estrellas=document.getElementById("miniesp1");
+var BTN_mini_flores=document.getElementById("miniesp2");
+var BTN_mini_corazonesrojos=document.getElementById("miniesp3");
+var BTN_mini_corazonesrosas=document.getElementById("miniesp4");
+var BTN_mini_UwU=document.getElementById("miniesp5");
+var BTN_mini_WuW=document.getElementById("miniesp6");
+
+BotonRandom.onclick=function(){AgregarEmoji(1000);}
+BTN_mini_estrellas.onclick=function(){AgregarEmojiEspecial(0);}
+BTN_mini_flores.onclick=function(){AgregarEmojiEspecial(1);}
+BTN_mini_corazonesrojos.onclick=function(){AgregarEmojiEspecial(2); }
+BTN_mini_corazonesrosas.onclick=function(){AgregarEmojiEspecial(3); }
+BTN_mini_UwU.onclick=function(){AgregarEmojiEspecial(4); }
+BTN_mini_WuW.onclick=function(){AgregarEmojiEspecial(5); }
+
+
+function CambiarEmojiDelBotonRandom(){
+	let UnEmoji=RamdomArray(Emojis_Corazones);
+	BotonRandom.innerHTML=UnEmoji;
+	let AgregarUnEmoji=document.createTextNode(UnEmoji);
+}
+
+setInterval(CambiarEmojiDelBotonRandom,150);
+
+//los otros botones especiales--
+var ContadorSetInterval=0;
+function CambiarEmojiDelBoton(ElBoton,LaArray){
+	//escoje el emoji correspondiente
+	let TotalArray=LaArray.length;
+	let Num=ContadorSetInterval%TotalArray;
+	let UnEmoji=LaArray[Num];
+	let AgregarUnEmoji=document.createTextNode(UnEmoji);
+	//lo agrega
+	ElBoton.innerHTML=UnEmoji;
+}
+//funcion especial para WuW	
+function CambiarEmojiDelBotonWuW (){
+	let TotalArray=Corazones.length;
+	let Nus=ContadorSetInterval%TotalArray;
+	let Num=TotalArray-1-Nus;
+	let UnEmoji=Corazones[Num];
+	let AgregarUnEmoji=document.createTextNode(UnEmoji);
+	//lo agrega
+	BTN_mini_WuW.innerHTML=UnEmoji;
+}
+
+//funciton que va a ser llamada por el set interval para los demas botones
+function HacerLosCambiosDeEmojis(){
+	ContadorSetInterval++
+	CambiarEmojiDelBoton(BTN_mini_estrellas,Estrellas);
+	CambiarEmojiDelBoton(BTN_mini_flores,Flores);
+	CambiarEmojiDelBoton(BTN_mini_corazonesrojos,CorazonesRojos);
+	CambiarEmojiDelBoton(BTN_mini_corazonesrosas,CorazonesRosas);
+	CambiarEmojiDelBoton(BTN_mini_UwU,Corazones);
+	CambiarEmojiDelBotonWuW();
+
+}
+
+setInterval(HacerLosCambiosDeEmojis,500);
+
+
+
 
 //----------------------------------------------------------------------------------------
 //--------------FUNCIONES QUE SERAN LLAMADAS POR FUNCIONES DE BUENOS DIAS Y NOCHES-------------------------------------
@@ -618,9 +693,10 @@ function CorazonCorazones(){
 	CambiarUwU(6);
 	Contenido=E1+E1+E1+E1+E2+E2+E2+E1+E1+E1+E1;
 	AgregarLinea(Contenido);//termina renglon
+	CambiarUwU(7);
 	Contenido=E1+E1+E1+E1+E1+E2+E1+E1+E1+E1+E1;
 	AgregarLinea(Contenido);//termina renglon
-	CambiarUwU(7);
+	CambiarUwU(8);
 	AgregarLinea(Contenido1);//termina renglon
 }
 
@@ -768,4 +844,17 @@ function ElComienzo(){
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
