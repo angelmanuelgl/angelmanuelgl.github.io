@@ -344,7 +344,7 @@ function CambiarEmojiDelBotonRandom(){
 	let AgregarUnEmoji=document.createTextNode(UnEmoji);
 }
 
-setInterval(CambiarEmojiDelBotonRandom,150);
+setInterval(CambiarEmojiDelBotonRandom,100);
 
 //los otros botones especiales--
 var ContadorSetInterval=0;
@@ -380,9 +380,17 @@ function HacerLosCambiosDeEmojis(){
 
 }
 
-setInterval(HacerLosCambiosDeEmojis,500);
+setInterval(HacerLosCambiosDeEmojis,1000);
+//----------------------------------------------------------------------------------------
+//--------------------------FCUNCIONES QUE SIRVEN PARA EL MODO HOT-------------------------------------
+//---------------------------------MODO HOT----------------------------------------
+//-------------------------------------------------------------------------------------------
+var SiNoHot=0;
+function EsHot(num){
+	SiNoHot=num;
+	ElComienzo();//aqui--------------------AQUI SE LLAMA AL INCIO
 
-
+}
 
 
 //----------------------------------------------------------------------------------------
@@ -419,6 +427,8 @@ function ReiniciarArrays(){
 	"despertarte con muchos muchos besitos","ver tu carita preciosa al despertar","verte todas las mañanas",
 	"acariciar tu cabello","decirte lo mucho que te amo", "decirte lo mucho que te quiero",
 	"decirte en persona todo lo que siento por ti");
+	Cosasss_Dia=new Array ("amanecer abrazaditos","darnos muchos besitos","comernos a besitos","estar abrazaditos en la camita todo el dia",
+	"despertarnos hasta tarde","estar juntitos todo el dia")
 	ria=new Array ("ojalá pudiera","me encantaría","me gustaría");
 	Ria=new Array ("Ojalá pudiera","Me encantaría","Me gustaría");
 	Muchos=new Array(" ","mucho","mucho mucho","mucho mucho mucho","muchísimo","muchisisimo","muchisisisimo");
@@ -428,6 +438,25 @@ function ReiniciarArrays(){
 	"ver tus hermosos ojos", "abraarte mientras nos quedamos dormidos", "mimir a tu lado");
 	Cosas_Noche=new Array("dormirnos abrazaditos","darnos muchos besitos de buenas noches","dormir juntos",
 	"dormir juntos y darnos muchos besitos","darnos muchos besitos mientras nos quedamos dormidos");	
+	if (SiNoHot==1){
+		Nombres=new Array("mi chica tetona", "mi chica sexy", "mi amor", "mi niña guapa", 
+		"mi amor de mi vida", "mi novia pervertida", "mi novia tetona", "mi novia sexy",
+		"mi rica novia", "mi novia sabrosa", "mi todo","mi futura esposa","mi niña pervertida");
+		Cosas_Dia=new Array("amanecer a tu lado","despertarte con muchos besitos y hacer el delicioso","llenarte de besitos y de mi se... 🥺👉🏼👈🏼",
+			"ver tu carita hermosa al despertar","darte muchos besitos con agarrones 🥺👉🏼👈🏼","despertarte diciendote cositas bonitas y pervertidas",
+			"comerte a besitos");
+		Cosasss_Dia=new Array ("hacer el amor al despertar🥺👉🏼👈🏼","darnos muchos muchos besos","hacer el delicioso todo el dia","comernos a besitos",
+			"despertarnos a hacer el🥺👉🏼👈🏼");
+		Cosa_Noche=new Array("llenarte de besitos y de 🥺👉🏼👈🏼", "darte un besito de buenas noches y una noche de buneos besos","mimir a tu lado",
+			"recostarme en tus ricos pechos y darles muchos besitos","besar cada rincon de tu hermoso cuerpo","darte besitos ahi abajo🥺👉🏼👈🏼", 
+			"besar toda tu carita preciosa","acurrucarme a tu lado",
+			"hacer el delicioso contigo");
+		Cosas_Noche=new Array("dormirnos abrazaditos","hacer el amor toda la noche🥺👉🏼👈🏼","darnos muchos besitos mientras nos quedamos dormidos","hacer el amor antes de dormir",
+			"besarnos mucho mucho","hacer el delicioso mientras nos quedamos dormidos","darnos besos toda la noche");
+
+
+	}
+
 }
 
 
@@ -503,6 +532,10 @@ function OrdenDia(posicion){
 	else if(posicion==9){DIA_TE("quiero");} else if(posicion==8){DIA_ME("gustas");}
 	else if(posicion==10){DIA_TE("adoro");} else if(posicion==11){DIA_ME("encantas");}
 	else if(posicion==12){DIA_ME("fasinas");} else if(posicion==13){DIA_TE("amo");}
+	else if(posicion==14||posicion==15){OjalaPudieramos(Cosasss_Dia);}
+	if(SiNoHot=1){
+		if(posicion==16){OjalaPudieramos(Cosasss_Dia);}
+	}
 }
 
 ///UNO
@@ -544,17 +577,20 @@ function OrdenNoche(posicion){
 	else if(posicion==8){DIA_ME("fasinas");} else if(posicion==9){DIA_TE("amo");}
 	else if(posicion==10){DIA_ME_RIA(Cosa_Noche);} else if(posicion==11){DIA_ME_RIA(Cosa_Noche);}
 	else if(posicion==12){DIA_ME_RIA(Cosa_Noche);} else if(posicion==13){DIA_ME_RIA(Cosa_Noche);}
-	else if(posicion==14){Noche_0();}	
+	else if(posicion==14){OjalaPudieramos(Cosas_Noche);}
+	if(SiNoHot=1){
+		if(posicion==15||posicion==16){OjalaPudieramos(Cosas_Noche);}
+	}	
 
 }
 
-function Noche_0(){//ojala pudieramos		
+function OjalaPudieramos(UnaArray){//ojala pudieramos		
 		//para la letra inicial
-		let LaLetra=LaPrimeraLetra("Ojalá puedieramos","ojalá puedieramos");		
+		let LaLetra=LaPrimeraLetra("Ojalá puedieramos ","ojalá puedieramos ");		
 		//elejir la cosa que me gustaria hacer
-		let Lacosa=RamdomArrayBorrar(Cosas_Noche);		
+		let Lacosa=RamdomArrayBorrar(UnaArray);		
 		//escribir
-		let Contenido=LaLetra+" "+ Lacosa;
+		let Contenido=LaLetra+ Lacosa;
 		AgregarTexto(Contenido,"AgregarCorazones");			
 }
 
@@ -599,7 +635,7 @@ function DiaNoche(Funcion){
 
 //----------------------------------------------------------------------------------------
 //--------------FUNCION QUE SERAN UTILIZADAS PARA EL BOTON DE CORAZON DE CORAZONES-------------------------------------
-//---------------------------------CORAZON DE CORAZONES----------------------------------------
+//------------------------------CORAZON DE CORAZONES Y ESPECIAL----------------------------------------
 //-------------------------------------------------------------------------------------------
 
 var A1=RamdomArray(Emojis_Corazones);
@@ -714,7 +750,12 @@ function Especial(){
 	LaArray=LaArrayRepuesto;
 }
 
-////////////cosas que tiene que ver mas con diseño y diseño creativo
+
+//----------------------------------------------------------------------------------------
+//--------------FUNCIONES QUE SON UTILIZADAS PARA EL DISEÑO -------------------------------------
+//---------------------------------CORAZON DE CORAZONES----------------------------------------
+//-------------------------------------------------------------------------------------------
+
 //los divid que contiene botones principalesson
 
 const BTN_BuenosDias=document.getElementById("BTN_BuenosDias");
@@ -730,8 +771,8 @@ const btn_otroemoji =document.getElementById("btn_otroemoji");
 const btn_cantidadelementos =document.getElementById("btn_cantidadelementos")
 const btn_textofinal =document.getElementById("btn_textofinal")
 const btn_retroseso =document.getElementById("btn_retroseso");
-const btn_saltolinea =document.getElementById("btn_saltolinea")
-
+const btn_saltolinea =document.getElementById("btn_saltolinea");
+const btn_modohot=document.getElementById("btn_modohot");
 
 //funcion que quita cierta clase de cierto elemento
 function QuitarClase(elemento,LaClase){
@@ -768,6 +809,7 @@ function VolverVisible(){
 	AgregarClase(btn_cantidadelementos,"invisible");
 	AgregarClase(btn_textofinal,"invisible");
 	AgregarClase(btn_saltolinea,"invisible");
+	AgregarClase(btn_modohot,"invisible");
 	QuitarClase(btn_losemojis,"invisible2");
 	QuitarClase(btn_otroemoji,"invisible");
 	QuitarClase(btn_retroseso,"invisible");
@@ -780,6 +822,7 @@ function BTN_F_Dia(){
 	VolverVisible();
 	QuitarClase(btn_definirpatron,"invisible");
 	QuitarClase(btn_cantidadelementos,"invisible");
+	QuitarClase(btn_modohot,"invisible");
 	CualLlamar=0;
 	DiaNoche(OrdenDia);
 }
@@ -789,6 +832,7 @@ function BTN_F_Noche(){
 	VolverVisible();
 	QuitarClase(btn_definirpatron,"invisible");
 	QuitarClase(btn_cantidadelementos,"invisible");
+	QuitarClase(btn_modohot,"invisible");
 	CualLlamar=1;
 	DiaNoche(OrdenNoche);
 

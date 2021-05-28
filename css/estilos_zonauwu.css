@@ -216,6 +216,10 @@ h2{
 	min-width: 37px;
 }
 
+.cambian:active{
+	min-width:0px;
+}
+
 
 /*-----------------Media Query-------------------------*/
 /*408px*/
