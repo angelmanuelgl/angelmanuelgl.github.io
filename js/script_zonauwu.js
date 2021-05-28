@@ -388,6 +388,7 @@ setInterval(HacerLosCambiosDeEmojis,1000);
 var SiNoHot=0;
 function EsHot(num){
 	SiNoHot=num;
+	console.log("SiNoHot", SiNoHot);
 	ElComienzo();//aqui--------------------AQUI SE LLAMA AL INCIO
 
 }
@@ -438,7 +439,8 @@ function ReiniciarArrays(){
 	"ver tus hermosos ojos", "abraarte mientras nos quedamos dormidos", "mimir a tu lado");
 	Cosas_Noche=new Array("dormirnos abrazaditos","darnos muchos besitos de buenas noches","dormir juntos",
 	"dormir juntos y darnos muchos besitos","darnos muchos besitos mientras nos quedamos dormidos");	
-	if (SiNoHot==1){
+	if (SiNoHot===1){
+		console.log("SiNoHot", SiNoHot);
 		Nombres=new Array("mi chica tetona", "mi chica sexy", "mi amor", "mi niña guapa", 
 		"mi amor de mi vida", "mi novia pervertida", "mi novia tetona", "mi novia sexy",
 		"mi rica novia", "mi novia sabrosa", "mi todo","mi futura esposa","mi niña pervertida");
@@ -453,7 +455,6 @@ function ReiniciarArrays(){
 			"hacer el delicioso contigo");
 		Cosas_Noche=new Array("dormirnos abrazaditos","hacer el amor toda la noche🥺👉🏼👈🏼","darnos muchos besitos mientras nos quedamos dormidos","hacer el amor antes de dormir",
 			"besarnos mucho mucho","hacer el delicioso mientras nos quedamos dormidos","darnos besos toda la noche");
-
 
 	}
 
@@ -533,7 +534,7 @@ function OrdenDia(posicion){
 	else if(posicion==10){DIA_TE("adoro");} else if(posicion==11){DIA_ME("encantas");}
 	else if(posicion==12){DIA_ME("fasinas");} else if(posicion==13){DIA_TE("amo");}
 	else if(posicion==14||posicion==15){OjalaPudieramos(Cosasss_Dia);}
-	if(SiNoHot=1){
+	if(SiNoHot==1){
 		if(posicion==16){OjalaPudieramos(Cosasss_Dia);}
 	}
 }
@@ -578,7 +579,7 @@ function OrdenNoche(posicion){
 	else if(posicion==10){DIA_ME_RIA(Cosa_Noche);} else if(posicion==11){DIA_ME_RIA(Cosa_Noche);}
 	else if(posicion==12){DIA_ME_RIA(Cosa_Noche);} else if(posicion==13){DIA_ME_RIA(Cosa_Noche);}
 	else if(posicion==14){OjalaPudieramos(Cosas_Noche);}
-	if(SiNoHot=1){
+	if(SiNoHot==1){
 		if(posicion==15||posicion==16){OjalaPudieramos(Cosas_Noche);}
 	}	
 
