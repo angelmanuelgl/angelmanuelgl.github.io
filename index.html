@@ -16,7 +16,7 @@
 
 
 		<section class="section tiene_boton_emoji moji2 invisible2" id="btn_losemojis">
-						<button class="botones mini" onclick="AgregarEmoji(0);">✨</button> 
+			<button class="botones mini" onclick="AgregarEmoji(0);">✨</button> 
 			<button class="botones mini" onclick="AgregarEmoji(1);">⭐</button>
 			<button class="botones mini" onclick="AgregarEmoji(2);">🌟</button>
 			<button class="botones mini" onclick="AgregarEmoji(3);">💫</button>
@@ -63,6 +63,7 @@
 
 		<!--------------------------- botones principales ------------------>
 		<section class="section botones_principales" >
+			<!-- buenos dias y noches -->
 			<div class="contiene flex noesta" id="BTN_BuenosDias">
 				<button class="botones boton_con_texto" onclick="BTN_F_Dia();">
 					<p class="texto">Buenos dias</p>
@@ -74,22 +75,29 @@
 					<p class="texto">Buenas Noches</p>
 				</button>				
 			</div>
-			<!-- ---------- -->
+			<!-- patron de corazones -->
 			<div class="contiene flex" id="BTN_PatronCorazonces">
 				<button class="botones boton_con_texto" onclick="BTN_F_IniciarPatron();">
 					<p class="texto">Patrones Corazones</p>
 				</button>
 			</div>		
 
+			<!-- especial -->
 			<div class="contiene flex" id="BTN_Especial">
 				<button class="botones boton_con_texto" onclick="BTN_F_Especial();">
 					<p class="texto">Especial</p>
 				</button>
 			</div>
-
+			<!-- corazon con corazones -->
 			<div class="contiene flex" id="BTN_CorazonCorazon">
 				<button class="botones boton_con_texto" onclick="BTN_F_CorazonCorazones();">
 					<p class="texto">Corazon de Corazones</p>
+				</button>
+			</div>
+			<!-- texto de corazones -->
+			<div class="contiene flex noesta" id="BTN_TextoCorazon">
+				<button class="botones boton_con_texto" onclick="BTN_F_TextoCorazones();">
+					<p class="texto">Texto de Corazones</p>
 				</button>
 			</div>
 
@@ -125,6 +133,13 @@
 				<input type="button" value="✔"class="botones mini min2"  onclick="F_TextoFinal();"> </input>
 			</div>
 
+			<!-- el texto de corazones-->
+			<div class="contiene invisible"  id="btn_textocorazones">
+				<p class="texto"> Texto Corazones </p>
+				<input class="text" name="Texto_Corazones" id="Texto_Corazones" placeholder="TE QUIERO"> </input>
+				<input type="button" value="✔"class="botones mini min2"  onclick="CualTextoDeCorazones();"> </input>
+			</div>
+
 			<!-- Borrar y retroseso -->
 			<div class="contiene  flex invisible" id="btn_retroseso">
 				<button class="botones boton_con_texto " onclick=" Retroseso();">
@@ -158,6 +173,16 @@
 					<p class="texto">❌</p>
 				</button>				
 			</div>
+
+			<!-- adelante y retroseso  -->
+			<div class="contiene  flex invisible" id="btn_adelante">
+				<button class="botones boton_con_texto " onclick="TexCo_Adelante();">
+					<p class="texto">Adelante</p>
+				</button>
+				<button class="botones boton_con_texto " onclick="TexCo_Atras();">
+					<p class="texto">Retroseso</p>
+				</button>
+			</div>
 			
 		</section>
 
@@ -167,6 +192,7 @@
 		</section>
 
 	</div>
+
 
 </body>
 <script type="text/javascript" src="js/script_zonauwu.js"> </script>

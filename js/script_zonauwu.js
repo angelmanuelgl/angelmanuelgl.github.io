@@ -318,8 +318,8 @@ function IniciarPatron(){
 	LaArray=LaArrayRepuesto;
 }
 //----------------------------------------------------------------------------------------
-//----------------FUNCIONES QUE SON LLAMADAS PARAR EL BOTON RANDOM-------------------------------------
-//---------------------------------BOTON RANDOM----------------------------------------
+//----------------FUNCIONES QUE SON LLAMADAS PARAR LOS BOTONES ESPECIALES-------------------------------------
+//---------------------------------BOTONES ESPECIALES----------------------------------------
 //-------------------------------------------------------------------------------------------
 var BotonRandom=document.getElementById("EmojiRandom");
 var BTN_mini_estrellas=document.getElementById("miniesp1");
@@ -753,8 +753,8 @@ function Especial(){
 
 
 //----------------------------------------------------------------------------------------
-//--------------FUNCIONES QUE SON UTILIZADAS PARA EL DISEÑO -------------------------------------
-//---------------------------------CORAZON DE CORAZONES----------------------------------------
+//---------------------FUNCIONES QUE SON UTILIZADAS PARA EL DISEÑO -------------------------------------
+//---------------------------------	DISEÑO DE BOTONES----------------------------------------
 //-------------------------------------------------------------------------------------------
 
 //los divid que contiene botones principalesson
@@ -764,16 +764,20 @@ const BTN_BuenasNoches=document.getElementById("BTN_BuenasNoches");
 const BTN_PatronCorazonces= document.getElementById("BTN_PatronCorazonces");
 const BTN_Especial=document.getElementById("BTN_Especial");
 const BTN_CorazonCorazon=document.getElementById("BTN_CorazonCorazon");
+const BTN_TextoCorazon=document.getElementById("BTN_TextoCorazon");
 
 //los div que contienen botones para personalizar son:
 const btn_losemojis =document.getElementById("btn_losemojis");
-const btn_definirpatron =document.getElementById("btn_definirpatron")
+const btn_definirpatron =document.getElementById("btn_definirpatron");
 const btn_otroemoji =document.getElementById("btn_otroemoji");
-const btn_cantidadelementos =document.getElementById("btn_cantidadelementos")
-const btn_textofinal =document.getElementById("btn_textofinal")
+const btn_cantidadelementos =document.getElementById("btn_cantidadelementos");
+const btn_textofinal =document.getElementById("btn_textofinal");
+const btn_textocorazones =document.getElementById("btn_textocorazones");
+
 const btn_retroseso =document.getElementById("btn_retroseso");
 const btn_saltolinea =document.getElementById("btn_saltolinea");
 const btn_modohot=document.getElementById("btn_modohot");
+const btn_adelante=document.getElementById("btn_adelante");
 
 //funcion que quita cierta clase de cierto elemento
 function QuitarClase(elemento,LaClase){
@@ -800,7 +804,7 @@ function QuitarClaseAgregar(elemento){
 	QuitarClase(BTN_BuenasNoches,"activado");
 	QuitarClase(BTN_Especial,"activado");
 	QuitarClase(BTN_CorazonCorazon,"activado");
-
+	QuitarClase(BTN_TextoCorazon,"activado");
 	elemento.classList.add("activado");
 }
 //funcion que vuelve a todos invivisibles y luego
@@ -809,8 +813,10 @@ function VolverVisible(){
 	AgregarClase(btn_definirpatron,"invisible");
 	AgregarClase(btn_cantidadelementos,"invisible");
 	AgregarClase(btn_textofinal,"invisible");
+	AgregarClase(btn_textocorazones,"invisible");
 	AgregarClase(btn_saltolinea,"invisible");
 	AgregarClase(btn_modohot,"invisible");
+	AgregarClase(btn_adelante,"invisible");
 	QuitarClase(btn_losemojis,"invisible2");
 	QuitarClase(btn_otroemoji,"invisible");
 	QuitarClase(btn_retroseso,"invisible");
@@ -864,7 +870,16 @@ function BTN_F_CorazonCorazones(){
 	VolverVisible();
 	CualLlamar=4;
 	CorazonCorazones();
+}
 
+function BTN_F_TextoCorazones(){
+	QuitarClaseAgregar(BTN_TextoCorazon);
+	VolverVisible();
+	AgregarClase(btn_retroseso,"invisible");
+	QuitarClase(btn_adelante,"invisible");
+	QuitarClase(btn_textocorazones,"invisible");
+	CualLlamar=5;
+	TextoDeCorazones('clave');
 }
 // Las funciones de los botones son:
 // DiaNoche(OrdenDia);
@@ -873,8 +888,9 @@ function BTN_F_CorazonCorazones(){
 // Especial();
 // CorazonCorazones();
 
+
+
 function ElComienzo(){
-	
 	if (CualLlamar==0){
 		DiaNoche(OrdenDia);
 	}else if(CualLlamar==1){
@@ -882,17 +898,260 @@ function ElComienzo(){
 	}else if (CualLlamar==3){
 		Especial();
 	}else if(CualLlamar==4){
-		
 		CorazonCorazones();	
-	} else{
+	}else if(CualLlamar==5){
+		TextoDeCorazones();
+	}else{
 		IniciarPatron();	
 	}
 
 }
 
 
+//----------------------------------------------------------------------------------------
+//--------------FUNCIONES QUE SON UTILIZADAS PARA TEXTO DE CORAZONES-------------------------------------
+//---------------------------------TEXTO DE CORAZONES----------------------------------------
+//-------------------------------------------------------------------------------------------
 
 
+//funcion que toma elultimo elemeto de la array LaArary y lo pone en nuestra nueva array de solo 12 elementos
+var LaArrayCorazonesParaTexto=new Array("🤍","🤍","🤍","🤍","🤍","🤍","🤍","❤️","❤️","❤️","❤️","❤️");
+
+function F_LaArrayCorazonesParaTexto(){
+	LaArrayCorazonesParaTexto[ContadorTexCo]=LaArray[LaArray.length-1];
+	//despues de tomar el elemento de la array que me borre su ultimo elemeto para que quede tal cual
+	LaArray.pop();
+	console.log("LaArrayCorazonesParaTexto", LaArrayCorazonesParaTexto);
+	console.log(LaArray);	
+}
+
+//funcion que es llamada por el  boton del tipo text y tomara el texto
+var ElTextoDeCorazones="Te amo"
+function CualTextoDeCorazones(){
+	ElTextoDeCorazones=document.getElementById("Texto_Corazones").value;	
+	if (ElTextoDeCorazones==null){
+		ElTextoDeCorazones="Te amo";
+	}
+
+	TextoDeCorazones('clave2');
+}
+
+//funcion que vuelve le ContadroTexco a su residuo modulo 12
+function ResiduoMod13Contador(){
+	if(ContadorTexCo<0){
+		ContadorTexCo=ContadorTexCo+12;
+	}
+	ContadorTexCo=ContadorTexCo%12;
+}
+
+
+
+//funcion que  escribe lineas
+var ElementoAoX;
+var ContadorLineas=0;
+function EscribirLineasCorazones(UnaCadena){
+	//solo se va a repetir siete porque en un principio se supone que todas las string necesarias son de 7
+	for(var i=0; i<7; i++){
+		let AoX=UnaCadena.substr(i,1);
+		if(AoX=="a"){ElementoAoX=LaArrayCorazonesParaTexto[i];}
+		if(AoX=="x"){ElementoAoX=LaArrayCorazonesParaTexto[i+6];}
+		
+		//esto es para revuisar sobre los botones especiales
+		function Revision(unarreglo,palabraclave1,palabraclave2){
+			let pos=ContadorLineas%unarreglo.length;
+			let posatras=unarreglo.length-1-pos;
+			if(ElementoAoX==palabraclave1){ElementoAoX=unarreglo[pos];}
+			if(ElementoAoX==palabraclave2){ElementoAoX=unarreglo[posatras];}			 
+		}
+		Revision(Corazones,"UwU","WuW");
+		Revision(Estrellas,"Estrella"," ");
+		Revision(Flores,"Flor"," ");
+		Revision(CorazonesRojos,"CorazonRojo"," ");
+		Revision(CorazonesRosas,"CorazonRosa"," ");
+
+		//ahora si agrega el texto
+		AgregarTexto(ElementoAoX,"AgregarCorazones");	
+	}
+
+	//al fnal de escribir la linea escribe un espacio
+	AgregarTexto("br","AgregarCorazones");
+	ContadorLineas++;	
+}
+
+
+
+//funcion que escrbe letras usando la que escribe lineas
+function EscribirTextoCorazones(LaLetra){
+	EscribirLineasCorazones("aaaaaaa");
+	if (LaLetra=="A"||LaLetra=="a"){
+		EscribirLineasCorazones("aaaxaaa");
+		EscribirLineasCorazones("aaxaxaa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axxxxxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+
+	}
+	if (LaLetra=="D"||LaLetra=="d"){
+		EscribirLineasCorazones("axxxaa");
+		EscribirLineasCorazones("axaaxaa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaxaa");
+		EscribirLineasCorazones("axxxaa");
+	}	
+
+	if (LaLetra=="E"||LaLetra=="e"){
+		EscribirLineasCorazones("axxxxxa");
+		EscribirLineasCorazones("axaaaaa");
+		EscribirLineasCorazones("axaaaaa");
+		EscribirLineasCorazones("axxxaaa");
+		EscribirLineasCorazones("axaaaaa");
+		EscribirLineasCorazones("axaaaaa");	
+		EscribirLineasCorazones("axxxxxa");
+
+	}
+	if(LaLetra=="M"||LaLetra=="m"){
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axxaxxa");
+		EscribirLineasCorazones("axaxaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");		
+	}
+	if(LaLetra=="O"||LaLetra=="o"){
+		EscribirLineasCorazones("aaxxxaa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("aaxxxaa");
+	}
+	if(LaLetra=="R"||LaLetra=="r"){
+		EscribirLineasCorazones("axxxxaa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axxxxaa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+	}
+	if(LaLetra=="S"||LaLetra=="s"){
+		EscribirLineasCorazones("aaxxxxa");
+		EscribirLineasCorazones("axaaaaa");
+		EscribirLineasCorazones("aaxaaaa");
+		EscribirLineasCorazones("aaaxaaa");
+		EscribirLineasCorazones("aaaaxaa");
+		EscribirLineasCorazones("aaaaaxa");
+		EscribirLineasCorazones("axxxxaa");
+	}	
+	if(LaLetra=="T"||LaLetra=="t"){
+		EscribirLineasCorazones("axxxxxa");
+		EscribirLineasCorazones("aaaxaaa");
+		EscribirLineasCorazones("aaaxaaa");
+		EscribirLineasCorazones("aaaxaaa");
+		EscribirLineasCorazones("aaaxaaa");
+		EscribirLineasCorazones("aaaxaaa");
+	}
+	if(LaLetra=="Z"||LaLetra=="z"){
+		EscribirLineasCorazones("aaaaaaa");
+		EscribirLineasCorazones("aaaaaaa");
+		EscribirLineasCorazones("aaaaaaa");
+		EscribirLineasCorazones("aaaaaaa");
+		EscribirLineasCorazones("aaaaaaa");
+		EscribirLineasCorazones("aaaaaaa");
+	}	
+
+
+
+	if(LaLetra==" "){
+		for(let i=0; i<1; i++){EscribirLineasCorazones("aaaaaaa");}
+	}
+
+
+
+	
+	EscribirLineasCorazones("aaaaaaa");
+
+}
+
+
+
+
+//funciones de los botones
+function TexCo_Adelante(){
+	ContadorTexCo++;
+	ResiduoMod13Contador();
+	TextoDeCorazones();
+}
+function TexCo_Atras(){
+	ContadorTexCo--;
+	ResiduoMod13Contador();
+	TextoDeCorazones('clave2');
+}
+
+//eESTA ES LA QUE INICIA TODO
+var ContadorTexCo=0;
+//clave es para las llamadas princiaples
+//clave2 es para los botones de regreso
+//si no tiene clave lo llamo un emoji
+function TextoDeCorazones(parametro){
+	//si lo llama un boton principal
+	if(parametro=='clave'){
+	ContadorTexCo=0;
+	LaArrayCorazonesParaTexto=new Array("🤍","🤍","🤍","🤍","🤍","🤍","🤍","❤️","❤️","❤️","❤️","❤️");
+	}
+
+	//vacia lo que tenga el p 
+	Recrear("AgregarCorazones");
+	//cambiar justificado
+	Justificado("Centro");
+	ContadorLineas=0;
+
+	//si lo llama un emoji
+		if(parametro!='clave' && parametro!='clave2'){
+			F_LaArrayCorazonesParaTexto();
+			ContadorTexCo++;
+			ResiduoMod13Contador();
+		}
+
+	//me dice en que posicion estoy
+	let cuentisTexCo=ContadorTexCo+1;
+	let AgregaEsto = "La posicion " + cuentisTexCo;
+	AgregarTexto(AgregaEsto,"AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");
+	AgregarTexto(".1.","AgregarCorazones"); 
+	AgregarTexto(".2.","AgregarCorazones");
+	AgregarTexto(".3.","AgregarCorazones");
+	AgregarTexto(".4.","AgregarCorazones");
+	AgregarTexto(".5.","AgregarCorazones");
+	AgregarTexto(".6.","AgregarCorazones");
+	AgregarTexto(".7.","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");
+	AgregarTexto(" 8 ","AgregarCorazones");
+	AgregarTexto(" 9 ","AgregarCorazones");
+	AgregarTexto(" 10 ","AgregarCorazones");
+	AgregarTexto(" 11 ","AgregarCorazones");
+	AgregarTexto(" 12 ","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");
+
+	//aqui ya empieza a llamar
+	for (var i = 0 ; i < ElTextoDeCorazones.length; i++) {
+		let UnaLetra=ElTextoDeCorazones.substr(i,1);
+		console.log("UnaLetra", UnaLetra);
+
+		EscribirTextoCorazones(UnaLetra);
+	}
+			
+
+
+
+
+}
 
 
 
