@@ -1021,13 +1021,13 @@ function EscribirTextoCorazones(LaLetra){
 		EscribirLineasCorazones("aaaxxxa");
 	}
 	if (LaLetra=="D"||LaLetra=="d"){
-		EscribirLineasCorazones("axxxaa");
+		EscribirLineasCorazones("axxxaaa");
 		EscribirLineasCorazones("axaaxaa");
 		EscribirLineasCorazones("axaaaxa");
 		EscribirLineasCorazones("axaaaxa");
 		EscribirLineasCorazones("axaaaxa");
 		EscribirLineasCorazones("axaaxaa");
-		EscribirLineasCorazones("axxxaa");
+		EscribirLineasCorazones("axxxaaa");
 	}	
 
 	if (LaLetra=="E"||LaLetra=="e"){
@@ -1113,6 +1113,15 @@ function EscribirTextoCorazones(LaLetra){
 		EscribirLineasCorazones("axaaxxa");
 		EscribirLineasCorazones("axaaaxa");		
 	}
+	if(LaLetra=="Ñ"||LaLetra=="ñ"){
+		EscribirLineasCorazones("axxxxxa");
+		EscribirLineasCorazones("aaaaaaa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axxaaxa");
+		EscribirLineasCorazones("axaxaxa");
+		EscribirLineasCorazones("axaaxxa");
+		EscribirLineasCorazones("axaaaxa");		
+	}
 	if(LaLetra=="O"||LaLetra=="o"){
 		EscribirLineasCorazones("aaxxxaa");
 		EscribirLineasCorazones("axaaaxa");
@@ -1165,6 +1174,22 @@ function EscribirTextoCorazones(LaLetra){
 		EscribirLineasCorazones("aaaxaaa");
 		EscribirLineasCorazones("aaaxaaa");
 	}
+	if(LaLetra=="U"||LaLetra=="u"){
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("aaxxxaa");	
+	}
+		if(LaLetra=="V"||LaLetra=="v"){
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("aaxaxaa");
+		EscribirLineasCorazones("aaaxaaa");	
+	}
+
+
 	if(LaLetra=="Z"||LaLetra=="z"){
 		EscribirLineasCorazones("aaaaaaa");
 		EscribirLineasCorazones("aaaaaaa");
