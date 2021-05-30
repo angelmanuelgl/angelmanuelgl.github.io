@@ -635,124 +635,6 @@ function DiaNoche(Funcion){
 }
 
 //----------------------------------------------------------------------------------------
-//--------------FUNCION QUE SERAN UTILIZADAS PARA EL BOTON DE CORAZON DE CORAZONES-------------------------------------
-//------------------------------CORAZON DE CORAZONES Y ESPECIAL----------------------------------------
-//-------------------------------------------------------------------------------------------
-
-var A1=RamdomArray(Emojis_Corazones);
-var A2=RamdomArray(Emojis_Corazones);
-var E1;
-var E2;
-
-function ObtenerEmojis(){
-	A1=LaArray[LaArray.length-1];
-	A2=LaArray[LaArray.length-2];
-	if (A1===undefined){
-		//este if usa la desigualdad estricta === para ver si es una cadena vacia
-		A1=RamdomArrayBorrar(Emojis_Corazones);
-	}
-	if (A2===undefined){
-		//este if usa la desigualdad estricta === para ver si es una cadena vacia
-		A2=RamdomArrayBorrar(Emojis_Corazones);
-	}
-	//para que me reinicie la array que se estuvo borrrand
-	Emojis_Corazones=new Array("♥️","❤️","🧡","💛","💚","💙","💜","❣️","💘","💓","💕","💞","💖","💗","💝","💟","🤍");
-
-}
-function AgregarLinea(Contenido){
-	AgregarTexto(Contenido,"AgregarCorazones");
-	AgregarTexto("br","AgregarCorazones");
-}
-
-
-// function CambiarUwU(Posicion){
-// 	let pos=parseInt(Posicion);
-// 	let posatras=Corazones.length-1-pos;
-// 	E1=A1
-// 	E2=A2
-// 	if(A1=="UwU"){
-// 	 	E1=Corazones[pos];
-// 	 }
-// 	 if(A1=="WuW"){
-// 		E1=Corazones[posatras];
-// 	 }
-// 	if(A2=="UwU"){
-// 	 	E2=Corazones[pos];
-// 	 }
-// 	 if(A2=="WuW"){
-// 		E2=Corazones[posatras];	 
-// }
-function CambiarUwU(Posicion){
-	E1=A1
-	E2=A2
-	 //revision de UwU y WuW y los botones especiales
-	 function Revision(unarreglo,palabraclave1,palabraclave2){
-		 	let pos=Posicion%unarreglo.length;
-			let posatras=unarreglo.length-1-pos;
-			 if(E1==palabraclave1){E1=unarreglo[pos];}
-			 if(E1==palabraclave2){E1=unarreglo[posatras];}
-			 if(E2==palabraclave1){E2=unarreglo[pos];}
-			 if(E2==palabraclave2){E2=unarreglo[posatras];}			 
-	}
-	Revision(Corazones,"UwU","WuW");
-	Revision(Estrellas,"Estrella"," ");
-	Revision(Flores,"Flor"," ");
-	Revision(CorazonesRojos,"CorazonRojo"," ");
-	Revision(CorazonesRosas,"CorazonRosa"," ");
-}
-
-function CorazonCorazones(){
-	let LaArrayRepuesto=[].concat(LaArray);	
-	//vacia lo que tenga el p 
-	Recrear("AgregarCorazones");
-	//cambiar justificado
-	Justificado("Centro");
-	ObtenerEmojis();
-
-	CambiarUwU(0); 
-	let Contenido1=E1+E1+E1+E1+E1+E1+E1+E1+E1+E1+E1;
-	AgregarLinea(Contenido1);//termina renglon
-	CambiarUwU(1);
-	let Contenido=E1+E1+E1+E2+E1+E1+E1+E2+E1+E1+E1;
-	AgregarLinea(Contenido);//termina renglon
-	CambiarUwU(2);
-	Contenido=E1+E1+E2+E2+E2+E1+E2+E2+E2+E1+E1;
-	AgregarLinea(Contenido);//termina renglon
-	CambiarUwU(3);
-	Contenido=E1+E2+E2+E2+E2+E2+E2+E2+E2+E2+E1;
-	AgregarLinea(Contenido);//termina renglon
-	CambiarUwU(4);
-	Contenido=E1+E1+E2+E2+E2+E2+E2+E2+E2+E1+E1;
-	AgregarLinea(Contenido);//termina renglon
-	CambiarUwU(5);
-	Contenido=E1+E1+E1+E2+E2+E2+E2+E2+E1+E1+E1;
-	AgregarLinea(Contenido);//termina renglon
-	CambiarUwU(6);
-	Contenido=E1+E1+E1+E1+E2+E2+E2+E1+E1+E1+E1;
-	AgregarLinea(Contenido);//termina renglon
-	CambiarUwU(7);
-	Contenido=E1+E1+E1+E1+E1+E2+E1+E1+E1+E1+E1;
-	AgregarLinea(Contenido);//termina renglon
-	CambiarUwU(8);
-	AgregarLinea(Contenido1);//termina renglon
-}
-
-function Especial(){
-	//quiero que lo primero que haga me haga un repuesto de la array para el final
-	let LaArrayRepuesto=[].concat(LaArray);	
-	//vacia lo que tenga el p 
-	Recrear("AgregarCorazones");
-	//cambiar justificado
-	Justificado("izquierda");
-
-	//aquiva el codigo que pues debe poner
-	alert("aun no esta disponible este boton");
-
-	LaArray=LaArrayRepuesto;
-}
-
-
-//----------------------------------------------------------------------------------------
 //---------------------FUNCIONES QUE SON UTILIZADAS PARA EL DISEÑO -------------------------------------
 //---------------------------------	DISEÑO DE BOTONES----------------------------------------
 //-------------------------------------------------------------------------------------------
@@ -868,8 +750,10 @@ function BTN_F_Especial(){
 function BTN_F_CorazonCorazones(){
 	QuitarClaseAgregar(BTN_CorazonCorazon);
 	VolverVisible();
+	AgregarClase(btn_retroseso,"invisible");
+	QuitarClase(btn_adelante,"invisible");
 	CualLlamar=4;
-	CorazonCorazones();
+	CorazonCorazones('clave');
 }
 
 function BTN_F_TextoCorazones(){
@@ -906,6 +790,100 @@ function ElComienzo(){
 	}
 
 }
+//----------------------------------------------------------------------------------------
+//--------------FUNCION QUE ES DE PATRONES Y ES EL PATRON ESPECIAL-----------------------------
+//------------------------------------PATRON ESPECIAL----------------------------------------
+//-------------------------------------------------------------------------------------------
+
+function Especial(){
+	//quiero que lo primero que haga me haga un repuesto de la array para el final
+	let LaArrayRepuesto=[].concat(LaArray);	
+	//vacia lo que tenga el p 
+	Recrear("AgregarCorazones");
+	//cambiar justificado
+	Justificado("izquierda");
+
+	//aquiva el codigo que pues debe poner
+	alert("aun no esta disponible este boton");
+
+	LaArray=LaArrayRepuesto;
+}
+
+
+//----------------------------------------------------------------------------------------
+//--------------FUNCION QUE SERAN UTILIZADAS PARA EL BOTON DE CORAZON DE CORAZONES-------------------------------------
+//--------------------------------CORAZON DE CORAZONES-------------------------------------------
+//-------------------------------------------------------------------------------------------
+
+//eESTA ES LA QUE INICIA TODO
+
+//clave es para las llamadas princiaples
+//clave2 es para los botones de regreso
+//si no tiene clave lo llamo un emoji
+function CorazonCorazones(parametro){
+	//si lo llama un boton principal
+	if(parametro=='clave'){
+	ContadorTexCo=0;
+	LaArrayCorazonesParaCorazon=new Array("🤍","🤍","🤍","🤍","🤍","🤍","🤍","🤍","🤍","🤍","🤍","❤️","❤️","❤️","❤️","❤️","❤️","❤️","❤️","❤️");
+	}
+
+	//vacia lo que tenga el p 
+	Recrear("AgregarCorazones");
+	//cambiar justificado
+	Justificado("Centro");
+	ContadorLineas=0;
+
+	//si lo llama un emoji
+		if(parametro!='clave' && parametro!='clave2'){
+			F_LaArrayCorazonesParaTexto(LaArrayCorazonesParaCorazon);
+			ContadorTexCo++;
+			ResiduoModContador(21);
+		}
+	//me dice en que posicion estoy
+	let cuentisTexCo=ContadorTexCo+1;
+	let AgregaEsto = "---La posicion Es " + cuentisTexCo+" ---";
+	AgregarTexto(AgregaEsto,"AgregarCorazones");	
+	AgregarTexto("br","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");
+	AgregarTexto("①.","AgregarCorazones"); 
+	AgregarTexto("②.","AgregarCorazones"); 
+	AgregarTexto("③.","AgregarCorazones");
+	AgregarTexto("④.","AgregarCorazones");
+	AgregarTexto("⑤.","AgregarCorazones");
+	AgregarTexto("⑥.","AgregarCorazones");
+	AgregarTexto("⑦.","AgregarCorazones");
+	AgregarTexto("⑧.","AgregarCorazones");
+	AgregarTexto("⑨.","AgregarCorazones"); 
+	AgregarTexto("⑩.","AgregarCorazones");
+	AgregarTexto("⑪","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");
+	AgregarTexto("⑫.","AgregarCorazones");
+	AgregarTexto("⑬.","AgregarCorazones");
+	AgregarTexto("⑭.","AgregarCorazones");
+	AgregarTexto("⑮.","AgregarCorazones");
+	AgregarTexto("⑯.","AgregarCorazones");
+	AgregarTexto("⑰.","AgregarCorazones");
+	AgregarTexto("⑱.","AgregarCorazones");
+	AgregarTexto("⑲.","AgregarCorazones");
+	AgregarTexto("⑳.","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");
+		
+	EscribirLineasCorazones("aaaaaaaaaaa");
+	EscribirLineasCorazones("aaaxaaaxaaa");
+	EscribirLineasCorazones("aaxxxaxxxaa");
+	EscribirLineasCorazones("axxxxxxxxxa");
+	EscribirLineasCorazones("aaxxxxxxxaa");
+	EscribirLineasCorazones("aaaxxxxxaaa");
+	EscribirLineasCorazones("aaaaxxxaaaa");
+	EscribirLineasCorazones("aaaaaxaaaaa");
+	EscribirLineasCorazones("aaaaaaaaaaa");
+
+
+
+
+}
+
 
 
 //----------------------------------------------------------------------------------------
@@ -913,35 +891,43 @@ function ElComienzo(){
 //---------------------------------TEXTO DE CORAZONES----------------------------------------
 //-------------------------------------------------------------------------------------------
 
-
+//---compartidas
 //funcion que toma elultimo elemeto de la array LaArary y lo pone en nuestra nueva array de solo 12 elementos
 var LaArrayCorazonesParaTexto=new Array("🤍","🤍","🤍","🤍","🤍","🤍","🤍","❤️","❤️","❤️","❤️","❤️");
-
-function F_LaArrayCorazonesParaTexto(){
-	LaArrayCorazonesParaTexto[ContadorTexCo]=LaArray[LaArray.length-1];
-	//despues de tomar el elemento de la array que me borre su ultimo elemeto para que quede tal cual
-	LaArray.pop();
-	console.log("LaArrayCorazonesParaTexto", LaArrayCorazonesParaTexto);
-	console.log(LaArray);	
-}
-
-//funcion que es llamada por el  boton del tipo text y tomara el texto
-var ElTextoDeCorazones="Te amo"
-function CualTextoDeCorazones(){
-	ElTextoDeCorazones=document.getElementById("Texto_Corazones").value;	
-	if (ElTextoDeCorazones==null){
-		ElTextoDeCorazones="Te amo";
-	}
-
-	TextoDeCorazones('clave2');
-}
+var LaArrayCorazonesParaCorazon=new Array("🤍","🤍","🤍","🤍","🤍","🤍","🤍","🤍","🤍","🤍","🤍","❤️","❤️","❤️","❤️","❤️","❤️","❤️","❤️","❤️");
 
 //funcion que vuelve le ContadroTexco a su residuo modulo 12
-function ResiduoMod13Contador(){
+function ResiduoModContador(mod){
+	elmod=mod-1;
 	if(ContadorTexCo<0){
-		ContadorTexCo=ContadorTexCo+12;
+		ContadorTexCo=ContadorTexCo+elmod;
 	}
-	ContadorTexCo=ContadorTexCo%12;
+	ContadorTexCo=ContadorTexCo%elmod;
+}
+
+
+//funciones de los botones
+var ContadorTexCo=0;
+function TexCo_Adelante(){
+	ContadorTexCo++;
+	ResiduoModContador(13);
+	if (CualLlamar==4){CorazonCorazones('clave2');ResiduoModContador(13);}
+	if (CualLlamar==5){TextoDeCorazones('clave2');ResiduoModContador(13);}
+
+}
+function TexCo_Atras(){
+	ContadorTexCo--;
+	ResiduoModContador(13);
+	if (CualLlamar==4){CorazonCorazones('clave2');ResiduoModContador(21);}
+	if (CualLlamar==5){TextoDeCorazones('clave2');ResiduoModContador(21);}
+}
+
+//funcion que toma el ultimo elemento de LaArray y lo pone en la array que le pasan de parametro
+function F_LaArrayCorazonesParaTexto(UnaArray){
+	UnaArray[ContadorTexCo]=LaArray[LaArray.length-1];
+	//despues de tomar el elemento de la array que me borre su ultimo elemeto para que quede tal cual
+	LaArray.pop();
+	console.log("LaArrayCorazonesParaTexto", UnaArray);
 }
 
 
@@ -949,12 +935,21 @@ function ResiduoMod13Contador(){
 //funcion que  escribe lineas
 var ElementoAoX;
 var ContadorLineas=0;
+var Desfase=6;
+var ArrayCorazonesOTexto=LaArrayCorazonesParaCorazon;
 function EscribirLineasCorazones(UnaCadena){
 	//solo se va a repetir siete porque en un principio se supone que todas las string necesarias son de 7
-	for(var i=0; i<7; i++){
+	for(var i=0; i<UnaCadena.length; i++){
+		
+		//si es llamada por corazon de corazones
+		if (CualLlamar==4){Desfase=10;ArrayCorazonesOTexto=LaArrayCorazonesParaCorazon;}
+		//si es llamada por texto de corazones
+		if (CualLlamar==5){Desfase=6;ArrayCorazonesOTexto= LaArrayCorazonesParaTexto;}
+
+
 		let AoX=UnaCadena.substr(i,1);
-		if(AoX=="a"){ElementoAoX=LaArrayCorazonesParaTexto[i];}
-		if(AoX=="x"){ElementoAoX=LaArrayCorazonesParaTexto[i+6];}
+		if(AoX=="a"){ElementoAoX=ArrayCorazonesOTexto[i];}
+		if(AoX=="x"){ElementoAoX=ArrayCorazonesOTexto[i+Desfase];}
 		
 		//esto es para revuisar sobre los botones especiales
 		function Revision(unarreglo,palabraclave1,palabraclave2){
@@ -969,6 +964,11 @@ function EscribirLineasCorazones(UnaCadena){
 		Revision(CorazonesRojos,"CorazonRojo"," ");
 		Revision(CorazonesRosas,"CorazonRosa"," ");
 
+		if (ElementoAoX===undefined){
+			//este if usa la desigualdad estricta === para ver si esta indefinido
+			ElementoAoX=RamdomArray(Emojis_Corazones);
+		}
+
 		//ahora si agrega el texto
 		AgregarTexto(ElementoAoX,"AgregarCorazones");	
 	}
@@ -977,7 +977,18 @@ function EscribirLineasCorazones(UnaCadena){
 	AgregarTexto("br","AgregarCorazones");
 	ContadorLineas++;	
 }
+//--termina compartidas
 
+//funcion que es llamada por el  boton del tipo text y tomara el texto
+var ElTextoDeCorazones="Te amo"
+function CualTextoDeCorazones(){
+	ElTextoDeCorazones=document.getElementById("Texto_Corazones").value;	
+	if (ElTextoDeCorazones==null){
+		ElTextoDeCorazones="Te amo";
+	}
+
+	TextoDeCorazones('clave2');
+}
 
 
 //funcion que escrbe letras usando la que escribe lineas
@@ -1119,6 +1130,15 @@ function EscribirTextoCorazones(LaLetra){
 		EscribirLineasCorazones("axaaaaa");
 		EscribirLineasCorazones("axaaaaa");
 	}
+	if(LaLetra=="Q"||LaLetra=="q"){
+		EscribirLineasCorazones("aaxxxaa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaxaxa");
+		EscribirLineasCorazones("aaxxxaa");
+		EscribirLineasCorazones("aaaaaxa");
+	}
 	if(LaLetra=="R"||LaLetra=="r"){
 		EscribirLineasCorazones("axxxxaa");
 		EscribirLineasCorazones("axaaaxa");
@@ -1192,21 +1212,8 @@ function EscribirTextoCorazones(LaLetra){
 
 
 
-
-//funciones de los botones
-function TexCo_Adelante(){
-	ContadorTexCo++;
-	ResiduoMod13Contador();
-	TextoDeCorazones();
-}
-function TexCo_Atras(){
-	ContadorTexCo--;
-	ResiduoMod13Contador();
-	TextoDeCorazones('clave2');
-}
-
 //eESTA ES LA QUE INICIA TODO
-var ContadorTexCo=0;
+
 //clave es para las llamadas princiaples
 //clave2 es para los botones de regreso
 //si no tiene clave lo llamo un emoji
@@ -1225,38 +1232,36 @@ function TextoDeCorazones(parametro){
 
 	//si lo llama un emoji
 		if(parametro!='clave' && parametro!='clave2'){
-			F_LaArrayCorazonesParaTexto();
+			F_LaArrayCorazonesParaTexto( LaArrayCorazonesParaTexto);
 			ContadorTexCo++;
-			ResiduoMod13Contador();
+			ResiduoModContador(13);
 		}
 
 	//me dice en que posicion estoy
 	let cuentisTexCo=ContadorTexCo+1;
-	let AgregaEsto = "La posicion " + cuentisTexCo;
-	AgregarTexto(AgregaEsto,"AgregarCorazones");
+	let AgregaEsto = "---La posicion Es " + cuentisTexCo+" ---";
+	AgregarTexto(AgregaEsto,"AgregarCorazones");	
 	AgregarTexto("br","AgregarCorazones");
 	AgregarTexto("br","AgregarCorazones");
-	AgregarTexto(".1.","AgregarCorazones"); 
-	AgregarTexto(".2.","AgregarCorazones");
-	AgregarTexto(".3.","AgregarCorazones");
-	AgregarTexto(".4.","AgregarCorazones");
-	AgregarTexto(".5.","AgregarCorazones");
-	AgregarTexto(".6.","AgregarCorazones");
-	AgregarTexto(".7.","AgregarCorazones");
-	AgregarTexto("br","AgregarCorazones");
-	AgregarTexto(" 8 ","AgregarCorazones");
-	AgregarTexto(" 9 ","AgregarCorazones");
-	AgregarTexto(" 10 ","AgregarCorazones");
-	AgregarTexto(" 11 ","AgregarCorazones");
-	AgregarTexto(" 12 ","AgregarCorazones");
+	AgregarTexto("①.","AgregarCorazones"); 
+	AgregarTexto("②.","AgregarCorazones"); 
+	AgregarTexto("③.","AgregarCorazones");
+	AgregarTexto("④.","AgregarCorazones");
+	AgregarTexto("⑤.","AgregarCorazones");
+	AgregarTexto("⑥.","AgregarCorazones");
+	AgregarTexto("⑦.","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");	
+	AgregarTexto("⑧.","AgregarCorazones");
+	AgregarTexto("⑨.","AgregarCorazones"); 
+	AgregarTexto("⑩.","AgregarCorazones");
+	AgregarTexto("⑪.","AgregarCorazones");
+	AgregarTexto("⑫.","AgregarCorazones");
 	AgregarTexto("br","AgregarCorazones");
 	AgregarTexto("br","AgregarCorazones");
 
 	//aqui ya empieza a llamar
 	for (var i = 0 ; i < ElTextoDeCorazones.length; i++) {
 		let UnaLetra=ElTextoDeCorazones.substr(i,1);
-		console.log("UnaLetra", UnaLetra);
-
 		EscribirTextoCorazones(UnaLetra);
 	}
 			
