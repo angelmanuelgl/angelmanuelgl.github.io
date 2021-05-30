@@ -28,7 +28,7 @@ var Estrellas=new Array ("✨","⭐","🌟","💫","🌟","⭐","✨","⭐","�
 var Flores=new Array("🌸","🌼","🌷","🌹","🌺","🌻","🌺","🌹","🌷","🌼","🌸","🌼","🌷","🌹","🌺","🌻");
 var CorazonesRojos=new Array ("❤️","❣️","💘","💓","💘","❣️","❤️","❣️","💘","💓");
 var CorazonesRosas=new Array ("💞","💖","💗","💝","💗","💖","💞","💖","💗","💝");
-
+var CorazonesArcoiris=new Array ("❤️","🧡","💛","💚","💙","💜");
 
 //----------------------------------------------------------------
 //---------------------FUNCIONES BASICAS------------------------------------------------
@@ -89,6 +89,7 @@ function Recrear(LaId){
 
 
 
+
 //funcion para escribir en cierto p con id LaId los elementos de cierta Array
 //tomando en cuenta que UwU y WuW va cambiando
 //agregando texto si es que lo hay
@@ -119,6 +120,7 @@ function EscribirArray(Posicion){
 		Revision(Flores,"Flor"," ");
 		Revision(CorazonesRojos,"CorazonRojo"," ");
 		Revision(CorazonesRosas,"CorazonRosa"," ");
+		Revision(CorazonesArcoiris,"CorrazonArcoIris"," ");
 		 
 		 //escribir		
 	 	let Elemento=document.getElementById("AgregarCorazones");
@@ -232,6 +234,7 @@ function AgregarEmoji(valor){
 	AgregarALaArray(valor);
 	ElComienzo();//aqui--------------------AQUI SE LLAMA AL INCIO
 }
+//Botones Emojis Especiales//
 function AgregarEmojiEspecial(num){
 	if (num==0){AgregarALaArray("Estrella");}
 	if (num==1){AgregarALaArray("Flor");}
@@ -239,6 +242,7 @@ function AgregarEmojiEspecial(num){
 	if (num==3){AgregarALaArray("CorazonRosa");}
 	if (num==4){AgregarALaArray("UwU");}
 	if (num==5){AgregarALaArray("WuW");}
+	if (num==6){AgregarALaArray("CorrazonArcoIris");}
 	ElComienzo();//aqui--------------------AQUI SE LLAMA AL INCIO
 }
 
@@ -277,6 +281,7 @@ function Salta(valor){
 		EscribirArray(0);
 		
 	}
+
 //la funcion delos tres botones que son patron
 var Patron="1";//--------------------------------------
 function F_Patron (valor) {
@@ -286,16 +291,8 @@ function F_Patron (valor) {
 	ElComienzo();//aqui--------------------AQUI SE LLAMA AL INCIO
 }
 
-//LA Funcion del boton que dice iniciar
-
-function IniciarPatron(){
-	//quiero que lo primero que haga me haga un repuesto de la array para el final
-	let LaArrayRepuesto=[].concat(LaArray);
-	//vacia lo que tenga el p 
-	Recrear("AgregarCorazones");
-	//cambiar justificado
-	Justificado("derecha");
-	//los diferentes patrones
+//la funcion que hace patrones
+function HacerElPatron(){
 	if (Patron==3) {
 		for (var i = 0; i <= Repeticiones; i++) {
 			EscribirArray(i);
@@ -314,9 +311,94 @@ function IniciarPatron(){
 			if (Saltar==1){AgregarTexto("br","AgregarCorazones");}
 		}
 	}
+}
+
+
+
+//LA Funcion del boton que dice iniciar
+function IniciarPatron(){
+	//quiero que lo primero que haga me haga un repuesto de la array para el final
+	let LaArrayRepuesto=[].concat(LaArray);
+	//vacia lo que tenga el p 
+	Recrear("AgregarCorazones");
+	//cambiar justificado
+	Justificado("derecha");
+	
+	//los diferentes patrones
+	HacerElPatron();
+
 	//ahora le damos el valor del repuesto a la array original
 	LaArray=LaArrayRepuesto;
 }
+
+//----------------------------------------------------------------------------------------
+//--------------FUNCION QUE ES DE PATRONES Y ES EL PATRON ESPECIAL-----------------------------
+//------------------------------------PATRON ESPECIAL----------------------------------------
+//-------------------------------------------------------------------------------------------
+
+function Especial(){
+	console.log("Repeticiones", Repeticiones);
+	//vacia lo que tenga el p 
+	Recrear("AgregarCorazones");
+	//cambiar justificado
+	Justificado("centro");
+	//hacer copias
+	let LaArrayRepuesto=[].concat(LaArray);
+	let CopiaDeRepeticiones=Repeticiones
+
+	//verificar cuantas veces de debe repetir
+	let eltotaldelaArray=LaArray.length+LaArray.length-2;
+	if(eltotaldelaArray<=1){eltotaldelaArray=1};
+	console.log("eltotaldelaArray", eltotaldelaArray);
+	Repeticiones--
+	let cuantasveces=Repeticiones/eltotaldelaArray;
+	console.log("cuantasveces", cuantasveces);
+	console.log("Repeticiones", Repeticiones);
+	
+	//imprimir cuantas veces realmente se puso
+	let vecescuantas=Math.ceil(cuantasveces)*eltotaldelaArray+1;
+	let Contenido="se repitieron "+vecescuantas+" veces";
+	AgregarTexto(Contenido,"AgregarCorazones");	
+	AgregarTexto("br","AgregarCorazones");	
+
+	//repeticiones	
+	 for (let i = 0; i < cuantasveces; i++) {
+	 	//hacer copias
+	 	let LaArrayRepuesto=[].concat(LaArray);
+	 	let CopiaDeRepeticiones=Repeticiones	
+		//solo para la primera linea
+		if (i==0){
+			EscribirArray(0);
+			AgregarTexto("br","AgregarCorazones");
+		}
+		//el patron que siempre se repite
+		Repeticiones=LaArray.length-1;
+		Repeticiones--
+		MoverDerecha();
+		Patron=2
+		HacerElPatron();
+		Patron=3
+		MoverIzquierda();MoverIzquierda();
+		HacerElPatron();
+		//poner los valores en su lugar
+		Repeticiones=CopiaDeRepeticiones;
+		LaArray=LaArrayRepuesto;
+	}
+	
+
+	//poner el valor a las copias
+	Repeticiones=CopiaDeRepeticiones;
+	LaArray=LaArrayRepuesto;
+}
+
+
+
+
+
+
+
+
+
 //----------------------------------------------------------------------------------------
 //----------------FUNCIONES QUE SON LLAMADAS PARAR LOS BOTONES ESPECIALES-------------------------------------
 //---------------------------------BOTONES ESPECIALES----------------------------------------
@@ -328,6 +410,7 @@ var BTN_mini_corazonesrojos=document.getElementById("miniesp3");
 var BTN_mini_corazonesrosas=document.getElementById("miniesp4");
 var BTN_mini_UwU=document.getElementById("miniesp5");
 var BTN_mini_WuW=document.getElementById("miniesp6");
+var BTN_mini_CorazonesArcoiris=document.getElementById("miniesp7");
 
 BotonRandom.onclick=function(){AgregarEmoji(1000);}
 BTN_mini_estrellas.onclick=function(){AgregarEmojiEspecial(0);}
@@ -336,7 +419,7 @@ BTN_mini_corazonesrojos.onclick=function(){AgregarEmojiEspecial(2); }
 BTN_mini_corazonesrosas.onclick=function(){AgregarEmojiEspecial(3); }
 BTN_mini_UwU.onclick=function(){AgregarEmojiEspecial(4); }
 BTN_mini_WuW.onclick=function(){AgregarEmojiEspecial(5); }
-
+BTN_mini_CorazonesArcoiris.onclick=function(){AgregarEmojiEspecial(6); }
 
 function CambiarEmojiDelBotonRandom(){
 	let UnEmoji=RamdomArray(Emojis_Corazones);
@@ -348,11 +431,11 @@ setInterval(CambiarEmojiDelBotonRandom,100);
 
 //los otros botones especiales--
 var ContadorSetInterval=0;
-function CambiarEmojiDelBoton(ElBoton,LaArray){
+function CambiarEmojiDelBoton(ElBoton,UnaArray){
 	//escoje el emoji correspondiente
-	let TotalArray=LaArray.length;
+	let TotalArray=UnaArray.length;
 	let Num=ContadorSetInterval%TotalArray;
-	let UnEmoji=LaArray[Num];
+	let UnEmoji=UnaArray[Num];
 	let AgregarUnEmoji=document.createTextNode(UnEmoji);
 	//lo agrega
 	ElBoton.innerHTML=UnEmoji;
@@ -376,15 +459,19 @@ function HacerLosCambiosDeEmojis(){
 	CambiarEmojiDelBoton(BTN_mini_corazonesrojos,CorazonesRojos);
 	CambiarEmojiDelBoton(BTN_mini_corazonesrosas,CorazonesRosas);
 	CambiarEmojiDelBoton(BTN_mini_UwU,Corazones);
+	CambiarEmojiDelBoton(BTN_mini_CorazonesArcoiris,CorazonesArcoiris);
 	CambiarEmojiDelBotonWuW();
 
 }
 
 setInterval(HacerLosCambiosDeEmojis,1000);
+
 //----------------------------------------------------------------------------------------
-//--------------------------FCUNCIONES QUE SIRVEN PARA EL MODO HOT-------------------------------------
-//---------------------------------MODO HOT----------------------------------------
+//--------------FUNCIONES QUE SERAN LLAMADAS POR FUNCIONES DE BUENOS DIAS Y NOCHES-------------------------------------
+//---------------------------------FUNCIONES BASICAS----------------------------------------
 //-------------------------------------------------------------------------------------------
+
+//DEFINE EL MODO HOT
 var SiNoHot=0;
 function EsHot(num){
 	SiNoHot=num;
@@ -394,10 +481,6 @@ function EsHot(num){
 }
 
 
-//----------------------------------------------------------------------------------------
-//--------------FUNCIONES QUE SERAN LLAMADAS POR FUNCIONES DE BUENOS DIAS Y NOCHES-------------------------------------
-//---------------------------------FUNCIONES BASICAS----------------------------------------
-//-------------------------------------------------------------------------------------------
 
 //funcion que le das una array y te devuelve una cosa aleatoria, la otra hace lo mismo pero borra
 function RamdomArray (arreglo){
@@ -436,7 +519,7 @@ function ReiniciarArrays(){
 	Cosa_Noche=new Array("llenarte de besitos","darte un besito de buenas noches",
 	"dormir a tu lado","acariciar tu hermoso cabello mientras nos dormimos", "abrazarte y decirte lo mucho que te amo",
 	"comerte a besitos", "estar siempre a tu lado", "acurrucarme a tu lado y abrazarte", 
-	"ver tus hermosos ojos", "abraarte mientras nos quedamos dormidos", "mimir a tu lado");
+	"ver tus hermosos ojos", "abrazarte mientras nos quedamos dormidos", "mimir a tu lado");
 	Cosas_Noche=new Array("dormirnos abrazaditos","darnos muchos besitos de buenas noches","dormir juntos",
 	"dormir juntos y darnos muchos besitos","darnos muchos besitos mientras nos quedamos dormidos");	
 	if (SiNoHot===1){
@@ -655,7 +738,6 @@ const btn_otroemoji =document.getElementById("btn_otroemoji");
 const btn_cantidadelementos =document.getElementById("btn_cantidadelementos");
 const btn_textofinal =document.getElementById("btn_textofinal");
 const btn_textocorazones =document.getElementById("btn_textocorazones");
-
 const btn_retroseso =document.getElementById("btn_retroseso");
 const btn_saltolinea =document.getElementById("btn_saltolinea");
 const btn_modohot=document.getElementById("btn_modohot");
@@ -742,6 +824,7 @@ function BTN_F_Especial(){
 	QuitarClaseAgregar(BTN_Especial);
 	VolverVisible();
 	QuitarClase(btn_cantidadelementos,"invisible");
+	QuitarClase(btn_textofinal,"invisible");
 	CualLlamar=3;
 	Especial();
 
@@ -790,32 +873,13 @@ function ElComienzo(){
 	}
 
 }
-//----------------------------------------------------------------------------------------
-//--------------FUNCION QUE ES DE PATRONES Y ES EL PATRON ESPECIAL-----------------------------
-//------------------------------------PATRON ESPECIAL----------------------------------------
-//-------------------------------------------------------------------------------------------
-
-function Especial(){
-	//quiero que lo primero que haga me haga un repuesto de la array para el final
-	let LaArrayRepuesto=[].concat(LaArray);	
-	//vacia lo que tenga el p 
-	Recrear("AgregarCorazones");
-	//cambiar justificado
-	Justificado("izquierda");
-
-	//aquiva el codigo que pues debe poner
-	alert("aun no esta disponible este boton");
-
-	LaArray=LaArrayRepuesto;
-}
-
 
 //----------------------------------------------------------------------------------------
 //--------------FUNCION QUE SERAN UTILIZADAS PARA EL BOTON DE CORAZON DE CORAZONES-------------------------------------
 //--------------------------------CORAZON DE CORAZONES-------------------------------------------
 //-------------------------------------------------------------------------------------------
 
-//eESTA ES LA QUE INICIA TODO
+//ESTA ES LA QUE INICIA TODO
 
 //clave es para las llamadas princiaples
 //clave2 es para los botones de regreso
@@ -839,48 +903,31 @@ function CorazonCorazones(parametro){
 			ContadorTexCo++;
 			ResiduoModContador(21);
 		}
+
 	//me dice en que posicion estoy
 	let cuentisTexCo=ContadorTexCo+1;
 	let AgregaEsto = "---La posicion Es " + cuentisTexCo+" ---";
 	AgregarTexto(AgregaEsto,"AgregarCorazones");	
-	AgregarTexto("br","AgregarCorazones");
-	AgregarTexto("br","AgregarCorazones");
-	AgregarTexto("①.","AgregarCorazones"); 
-	AgregarTexto("②.","AgregarCorazones"); 
-	AgregarTexto("③.","AgregarCorazones");
-	AgregarTexto("④.","AgregarCorazones");
-	AgregarTexto("⑤.","AgregarCorazones");
-	AgregarTexto("⑥.","AgregarCorazones");
-	AgregarTexto("⑦.","AgregarCorazones");
-	AgregarTexto("⑧.","AgregarCorazones");
-	AgregarTexto("⑨.","AgregarCorazones"); 
-	AgregarTexto("⑩.","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");AgregarTexto("br","AgregarCorazones");
+	AgregarTexto("①.","AgregarCorazones");AgregarTexto("②.","AgregarCorazones"); 
+	AgregarTexto("③.","AgregarCorazones");AgregarTexto("④.","AgregarCorazones");
+	AgregarTexto("⑤.","AgregarCorazones");AgregarTexto("⑥.","AgregarCorazones");
+	AgregarTexto("⑦.","AgregarCorazones");AgregarTexto("⑧.","AgregarCorazones");
+	AgregarTexto("⑨.","AgregarCorazones");AgregarTexto("⑩.","AgregarCorazones");
 	AgregarTexto("⑪","AgregarCorazones");
-	AgregarTexto("br","AgregarCorazones");
-	AgregarTexto("⑫.","AgregarCorazones");
-	AgregarTexto("⑬.","AgregarCorazones");
-	AgregarTexto("⑭.","AgregarCorazones");
-	AgregarTexto("⑮.","AgregarCorazones");
-	AgregarTexto("⑯.","AgregarCorazones");
-	AgregarTexto("⑰.","AgregarCorazones");
-	AgregarTexto("⑱.","AgregarCorazones");
-	AgregarTexto("⑲.","AgregarCorazones");
-	AgregarTexto("⑳.","AgregarCorazones");
-	AgregarTexto("br","AgregarCorazones");
-	AgregarTexto("br","AgregarCorazones");
-		
+	AgregarTexto("br","AgregarCorazones");AgregarTexto("⑫.","AgregarCorazones");
+	AgregarTexto("⑬.","AgregarCorazones");AgregarTexto("⑭.","AgregarCorazones");
+	AgregarTexto("⑮.","AgregarCorazones");AgregarTexto("⑯.","AgregarCorazones");
+	AgregarTexto("⑰.","AgregarCorazones");AgregarTexto("⑱.","AgregarCorazones");
+	AgregarTexto("⑲.","AgregarCorazones");AgregarTexto("⑳.","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");AgregarTexto("br","AgregarCorazones");
+	
+	//ESCRIBIR CORAZON
+	EscribirLineasCorazones("aaaaaaaaaaa");EscribirLineasCorazones("aaaxaaaxaaa");
+	EscribirLineasCorazones("aaxxxaxxxaa");EscribirLineasCorazones("axxxxxxxxxa");
+	EscribirLineasCorazones("aaxxxxxxxaa");EscribirLineasCorazones("aaaxxxxxaaa");
+	EscribirLineasCorazones("aaaaxxxaaaa");EscribirLineasCorazones("aaaaaxaaaaa");
 	EscribirLineasCorazones("aaaaaaaaaaa");
-	EscribirLineasCorazones("aaaxaaaxaaa");
-	EscribirLineasCorazones("aaxxxaxxxaa");
-	EscribirLineasCorazones("axxxxxxxxxa");
-	EscribirLineasCorazones("aaxxxxxxxaa");
-	EscribirLineasCorazones("aaaxxxxxaaa");
-	EscribirLineasCorazones("aaaaxxxaaaa");
-	EscribirLineasCorazones("aaaaaxaaaaa");
-	EscribirLineasCorazones("aaaaaaaaaaa");
-
-
-
 
 }
 
@@ -930,8 +977,6 @@ function F_LaArrayCorazonesParaTexto(UnaArray){
 	console.log("LaArrayCorazonesParaTexto", UnaArray);
 }
 
-
-
 //funcion que  escribe lineas
 var ElementoAoX;
 var ContadorLineas=0;
@@ -963,6 +1008,7 @@ function EscribirLineasCorazones(UnaCadena){
 		Revision(Flores,"Flor"," ");
 		Revision(CorazonesRojos,"CorazonRojo"," ");
 		Revision(CorazonesRosas,"CorazonRosa"," ");
+		Revision(CorazonesArcoiris,"CorrazonArcoIris"," ");
 
 		if (ElementoAoX===undefined){
 			//este if usa la desigualdad estricta === para ver si esta indefinido
@@ -980,11 +1026,11 @@ function EscribirLineasCorazones(UnaCadena){
 //--termina compartidas
 
 //funcion que es llamada por el  boton del tipo text y tomara el texto
-var ElTextoDeCorazones="Te amo"
+var ElTextoDeCorazones="HOLA"
 function CualTextoDeCorazones(){
 	ElTextoDeCorazones=document.getElementById("Texto_Corazones").value;	
 	if (ElTextoDeCorazones==null){
-		ElTextoDeCorazones="Te amo";
+		ElTextoDeCorazones="HOLA";
 	}
 
 	TextoDeCorazones('clave2');
@@ -995,200 +1041,75 @@ function CualTextoDeCorazones(){
 function EscribirTextoCorazones(LaLetra){
 	EscribirLineasCorazones("aaaaaaa");
 	if (LaLetra=="A"||LaLetra=="a"){
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaxaxaa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axxxxxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaxaxaa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axxxxxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");
 	}
 	if (LaLetra=="B"||LaLetra=="b"){
-		EscribirLineasCorazones("axxxxaa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axxxxaa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axxxxaa");
+		EscribirLineasCorazones("axxxxaa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axxxxaa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axxxxaa");
 	}
 	if(LaLetra=="C"||LaLetra=="c"){
-		EscribirLineasCorazones("aaaxxxa");
-		EscribirLineasCorazones("aaxaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("aaxaaaa");
-		EscribirLineasCorazones("aaaxxxa");
+		EscribirLineasCorazones("aaaxxxa");EscribirLineasCorazones("aaxaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("aaxaaaa");EscribirLineasCorazones("aaaxxxa");
 	}
 	if (LaLetra=="D"||LaLetra=="d"){
-		EscribirLineasCorazones("axxxaaa");
-		EscribirLineasCorazones("axaaxaa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaxaa");
-		EscribirLineasCorazones("axxxaaa");
+		EscribirLineasCorazones("axxxaaa");EscribirLineasCorazones("axaaxaa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaxaa");EscribirLineasCorazones("axxxaaa");
 	}	
 
 	if (LaLetra=="E"||LaLetra=="e"){
-		EscribirLineasCorazones("axxxxxa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axxxaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");	
-		EscribirLineasCorazones("axxxxxa");
+		EscribirLineasCorazones("axxxxxa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axxxaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");	EscribirLineasCorazones("axxxxxa");
 	}
 	if (LaLetra=="F"||LaLetra=="f"){
-		EscribirLineasCorazones("axxxxxa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axxxaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");	
-		EscribirLineasCorazones("axaaaaa");
+		EscribirLineasCorazones("axxxxxa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axxxaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");	EscribirLineasCorazones("axaaaaa");
 	}
 	if(LaLetra=="G"||LaLetra=="g"){
-		EscribirLineasCorazones("aaaxxxa");
-		EscribirLineasCorazones("aaxaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaxxa");
-		EscribirLineasCorazones("aaxaaxa");
-		EscribirLineasCorazones("aaaxxaa");
+		EscribirLineasCorazones("aaaxxxa");EscribirLineasCorazones("aaxaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaxxa");EscribirLineasCorazones("aaxaaxa");EscribirLineasCorazones("aaaxxaa");
 	}
-	if(LaLetra=="H"||LaLetra=="h"){//aquu me quede
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axxxxxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
+	if(LaLetra=="H"||LaLetra=="h"){
+		EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axxxxxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");
 	}
 	if(LaLetra=="I"||LaLetra=="i"){
-		EscribirLineasCorazones("axxxxxa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("axxxxxa");
+		EscribirLineasCorazones("axxxxxa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("axxxxxa");
 	}
 	if(LaLetra=="J"||LaLetra=="j"){
-		EscribirLineasCorazones("axxxxxa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("axaxaaa");
-		EscribirLineasCorazones("aaxaaaa");
+		EscribirLineasCorazones("axxxxxa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("axaxaaa");EscribirLineasCorazones("aaxaaaa");
 	}
 	if(LaLetra=="K"||LaLetra=="k"){
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaxaa");
-		EscribirLineasCorazones("axaxaaa");
-		EscribirLineasCorazones("axxaaaa");
-		EscribirLineasCorazones("axaxaaa");
-		EscribirLineasCorazones("axaaxaa");
-		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaxaa");EscribirLineasCorazones("axaxaaa");EscribirLineasCorazones("axxaaaa");EscribirLineasCorazones("axaxaaa");EscribirLineasCorazones("axaaxaa");EscribirLineasCorazones("axaaaxa");
 	}
 	if(LaLetra=="L"||LaLetra=="l"){
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axxxxaa");
+		EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axxxxaa");
 	}
 	if(LaLetra=="M"||LaLetra=="m"){
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axxaxxa");
-		EscribirLineasCorazones("axaxaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");		
+		EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axxaxxa");EscribirLineasCorazones("axaxaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");		
 	}
 	if(LaLetra=="N"||LaLetra=="n"){
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axxaaxa");
-		EscribirLineasCorazones("axaxaxa");
-		EscribirLineasCorazones("axaaxxa");
-		EscribirLineasCorazones("axaaaxa");		
+		EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axxaaxa");EscribirLineasCorazones("axaxaxa");EscribirLineasCorazones("axaaxxa");EscribirLineasCorazones("axaaaxa");		
 	}
 	if(LaLetra=="Ñ"||LaLetra=="ñ"){
-		EscribirLineasCorazones("axxxxxa");
-		EscribirLineasCorazones("aaaaaaa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axxaaxa");
-		EscribirLineasCorazones("axaxaxa");
-		EscribirLineasCorazones("axaaxxa");
-		EscribirLineasCorazones("axaaaxa");		
+		EscribirLineasCorazones("axxxxxa");EscribirLineasCorazones("aaaaaaa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axxaaxa");EscribirLineasCorazones("axaxaxa");EscribirLineasCorazones("axaaxxa");EscribirLineasCorazones("axaaaxa");		
 	}
 	if(LaLetra=="O"||LaLetra=="o"){
-		EscribirLineasCorazones("aaxxxaa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("aaxxxaa");
+		EscribirLineasCorazones("aaxxxaa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("aaxxxaa");
 	}
 	if(LaLetra=="P"||LaLetra=="p"){
-		EscribirLineasCorazones("axxxaaa");
-		EscribirLineasCorazones("axaaxaa");
-		EscribirLineasCorazones("axaaxaa");
-		EscribirLineasCorazones("axxxaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("axaaaaa");
+		EscribirLineasCorazones("axxxaaa");EscribirLineasCorazones("axaaxaa");EscribirLineasCorazones("axaaxaa");EscribirLineasCorazones("axxxaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("axaaaaa");
 	}
 	if(LaLetra=="Q"||LaLetra=="q"){
-		EscribirLineasCorazones("aaxxxaa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaxaxa");
-		EscribirLineasCorazones("aaxxxaa");
-		EscribirLineasCorazones("aaaaaxa");
+		EscribirLineasCorazones("aaxxxaa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaxaxa");EscribirLineasCorazones("aaxxxaa");EscribirLineasCorazones("aaaaaxa");
 	}
 	if(LaLetra=="R"||LaLetra=="r"){
-		EscribirLineasCorazones("axxxxaa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axxxxaa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
+		EscribirLineasCorazones("axxxxaa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axxxxaa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");
 	}
 	if(LaLetra=="S"||LaLetra=="s"){
-		EscribirLineasCorazones("aaxxxxa");
-		EscribirLineasCorazones("axaaaaa");
-		EscribirLineasCorazones("aaxaaaa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaaxaa");
-		EscribirLineasCorazones("aaaaaxa");
-		EscribirLineasCorazones("axxxxaa");
+		EscribirLineasCorazones("aaxxxxa");EscribirLineasCorazones("axaaaaa");EscribirLineasCorazones("aaxaaaa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaaxaa");EscribirLineasCorazones("aaaaaxa");EscribirLineasCorazones("axxxxaa");
 	}	
 	if(LaLetra=="T"||LaLetra=="t"){
-		EscribirLineasCorazones("axxxxxa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaxaaa");
-		EscribirLineasCorazones("aaaxaaa");
+		EscribirLineasCorazones("axxxxxa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaxaaa");EscribirLineasCorazones("aaaxaaa");
 	}
 	if(LaLetra=="U"||LaLetra=="u"){
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("aaxxxaa");	
+		EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("aaxxxaa");	
 	}
 		if(LaLetra=="V"||LaLetra=="v"){
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("axaaaxa");
-		EscribirLineasCorazones("aaxaxaa");
-		EscribirLineasCorazones("aaaxaaa");	
+		EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("axaaaxa");EscribirLineasCorazones("aaxaxaa");EscribirLineasCorazones("aaaxaaa");	
 	}
-
 
 	if(LaLetra=="Z"||LaLetra=="z"){
 		EscribirLineasCorazones("aaaaaaa");
@@ -1221,18 +1142,10 @@ function EscribirTextoCorazones(LaLetra){
 		EscribirLineasCorazones("aaaxaaa");
 		EscribirLineasCorazones("axxxxxa");
 	}
-
-
-
 	if(LaLetra==" "){
 		for(let i=0; i<1; i++){EscribirLineasCorazones("aaaaaaa");}
 	}
-
-
-
-	
 	EscribirLineasCorazones("aaaaaaa");
-
 }
 
 
@@ -1266,22 +1179,15 @@ function TextoDeCorazones(parametro){
 	let cuentisTexCo=ContadorTexCo+1;
 	let AgregaEsto = "---La posicion Es " + cuentisTexCo+" ---";
 	AgregarTexto(AgregaEsto,"AgregarCorazones");	
-	AgregarTexto("br","AgregarCorazones");
-	AgregarTexto("br","AgregarCorazones");
-	AgregarTexto("①.","AgregarCorazones"); 
-	AgregarTexto("②.","AgregarCorazones"); 
-	AgregarTexto("③.","AgregarCorazones");
-	AgregarTexto("④.","AgregarCorazones");
-	AgregarTexto("⑤.","AgregarCorazones");
-	AgregarTexto("⑥.","AgregarCorazones");
+	AgregarTexto("br","AgregarCorazones");AgregarTexto("br","AgregarCorazones");
+	AgregarTexto("①.","AgregarCorazones");AgregarTexto("②.","AgregarCorazones"); 
+	AgregarTexto("③.","AgregarCorazones");AgregarTexto("④.","AgregarCorazones");
+	AgregarTexto("⑤.","AgregarCorazones");AgregarTexto("⑥.","AgregarCorazones");
 	AgregarTexto("⑦.","AgregarCorazones");
 	AgregarTexto("br","AgregarCorazones");	
-	AgregarTexto("⑧.","AgregarCorazones");
-	AgregarTexto("⑨.","AgregarCorazones"); 
-	AgregarTexto("⑩.","AgregarCorazones");
-	AgregarTexto("⑪.","AgregarCorazones");
-	AgregarTexto("⑫.","AgregarCorazones");
-	AgregarTexto("br","AgregarCorazones");
+	AgregarTexto("⑧.","AgregarCorazones");AgregarTexto("⑨.","AgregarCorazones"); 
+	AgregarTexto("⑩.","AgregarCorazones");AgregarTexto("⑪.","AgregarCorazones");
+	AgregarTexto("⑫.","AgregarCorazones");AgregarTexto("br","AgregarCorazones");
 	AgregarTexto("br","AgregarCorazones");
 
 	//aqui ya empieza a llamar
@@ -1291,13 +1197,5 @@ function TextoDeCorazones(parametro){
 	}
 			
 }
-
-
-
-
-
-
-
-
 
 
