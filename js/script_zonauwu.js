@@ -337,7 +337,6 @@ function IniciarPatron(){
 //-------------------------------------------------------------------------------------------
 
 function Especial(){
-	console.log("Repeticiones", Repeticiones);
 	//vacia lo que tenga el p 
 	Recrear("AgregarCorazones");
 	//cambiar justificado
@@ -346,23 +345,26 @@ function Especial(){
 	let LaArrayRepuesto=[].concat(LaArray);
 	let CopiaDeRepeticiones=Repeticiones
 
-	//verificar cuantas veces de debe repetir
+	//---verificar cuantas veces de debe repetir
+	//obtiene cuantas lineas ocupa el patron, si es menor de uno tomara como 1
 	let eltotaldelaArray=LaArray.length+LaArray.length-2;
 	if(eltotaldelaArray<=1){eltotaldelaArray=1};
-	console.log("eltotaldelaArray", eltotaldelaArray);
+	//las repeticiones se le resta uno porque la primer linea de todas no forma parte del patron
 	Repeticiones--
-	let cuantasveces=Repeticiones/eltotaldelaArray;
-	console.log("cuantasveces", cuantasveces);
-	console.log("Repeticiones", Repeticiones);
+	//obtiene cuantasdebe repetirlo
+	let cuantasveces=Math.ceil(Repeticiones/eltotaldelaArray);
 	
-	//imprimir cuantas veces realmente se puso
-	let vecescuantas=Math.ceil(cuantasveces)*eltotaldelaArray+1;
+	//--calcula e imprime imprimir cuantas veces realmente se puso
+	let vecescuantas=cuantasveces*eltotaldelaArray+1;
 	let Contenido="se repitieron "+vecescuantas+" veces";
-	AgregarTexto(Contenido,"AgregarCorazones");	
-	AgregarTexto("br","AgregarCorazones");	
+	if(LaArray.length>1){
+		AgregarTexto(Contenido,"AgregarCorazones");	
+		AgregarTexto("br","AgregarCorazones");	
+	}
 
 	//repeticiones	
-	 for (let i = 0; i < cuantasveces; i++) {
+	 for (let i = 0; i <cuantasveces; i++) {
+	 	console.log("cuantasveces", cuantasveces);
 	 	//hacer copias
 	 	let LaArrayRepuesto=[].concat(LaArray);
 	 	let CopiaDeRepeticiones=Repeticiones	
@@ -373,16 +375,22 @@ function Especial(){
 		}
 		//el patron que siempre se repite
 		Repeticiones=LaArray.length-1;
-		Repeticiones--
+		Repeticiones--;	
+		if(LaArray.length<=2){Repeticiones=0;}
+		console.log("Repeticione", Repeticiones);
 		MoverDerecha();
 		Patron=2
 		HacerElPatron();
+		
 		Patron=3
 		MoverIzquierda();MoverIzquierda();
+		
 		HacerElPatron();
 		//poner los valores en su lugar
 		Repeticiones=CopiaDeRepeticiones;
 		LaArray=LaArrayRepuesto;
+		
+		
 	}
 	
 
@@ -901,12 +909,18 @@ function CorazonCorazones(parametro){
 		if(parametro!='clave' && parametro!='clave2'){
 			F_LaArrayCorazonesParaTexto(LaArrayCorazonesParaCorazon);
 			ContadorTexCo++;
-			ResiduoModContador(21);
+			ResiduoModContador(20);
 		}
 
+	//sirve para decirme en que posicion estoy 
+	let cuentisTexCo=ContadorTexCo;
+	if(cuentisTexCo<=0){
+		cuentisTexCo=cuentisTexCo+20;
+	}
+	cuentisTexCo=cuentisTexCo%20;
+	cuentisTexCo++;
 	//me dice en que posicion estoy
-	let cuentisTexCo=ContadorTexCo+1;
-	let AgregaEsto = "---La posicion Es " + cuentisTexCo+" ---";
+	let AgregaEsto = "---La posicion Es " + cuentisTexCo + " ---";
 	AgregarTexto(AgregaEsto,"AgregarCorazones");	
 	AgregarTexto("br","AgregarCorazones");AgregarTexto("br","AgregarCorazones");
 	AgregarTexto("①.","AgregarCorazones");AgregarTexto("②.","AgregarCorazones"); 
@@ -945,11 +959,11 @@ var LaArrayCorazonesParaCorazon=new Array("🤍","🤍","🤍","🤍","🤍","�
 
 //funcion que vuelve le ContadroTexco a su residuo modulo 12
 function ResiduoModContador(mod){
-	elmod=mod-1;
-	if(ContadorTexCo<0){
-		ContadorTexCo=ContadorTexCo+elmod;
+	if(ContadorTexCo<=0){
+		ContadorTexCo=ContadorTexCo+mod;
 	}
-	ContadorTexCo=ContadorTexCo%elmod;
+	ContadorTexCo=ContadorTexCo%mod;
+	console.log("ContadorTexCo", ContadorTexCo);
 }
 
 
@@ -957,16 +971,15 @@ function ResiduoModContador(mod){
 var ContadorTexCo=0;
 function TexCo_Adelante(){
 	ContadorTexCo++;
-	ResiduoModContador(13);
-	if (CualLlamar==4){CorazonCorazones('clave2');ResiduoModContador(13);}
-	if (CualLlamar==5){TextoDeCorazones('clave2');ResiduoModContador(13);}
+	
+	if (CualLlamar==4){CorazonCorazones('clave2');ResiduoModContador(20);}
+	if (CualLlamar==5){TextoDeCorazones('clave2');ResiduoModContador(12);}
 
 }
 function TexCo_Atras(){
 	ContadorTexCo--;
-	ResiduoModContador(13);
-	if (CualLlamar==4){CorazonCorazones('clave2');ResiduoModContador(21);}
-	if (CualLlamar==5){TextoDeCorazones('clave2');ResiduoModContador(21);}
+	if (CualLlamar==4){CorazonCorazones('clave2');ResiduoModContador(20);}
+	if (CualLlamar==5){TextoDeCorazones('clave2');ResiduoModContador(12);}
 }
 
 //funcion que toma el ultimo elemento de LaArray y lo pone en la array que le pasan de parametro
@@ -1175,8 +1188,14 @@ function TextoDeCorazones(parametro){
 			ResiduoModContador(13);
 		}
 
+		//sirve para decirme en que posicion estoy 
+	let cuentisTexCo=ContadorTexCo;
+	if(cuentisTexCo<=0){
+		cuentisTexCo=cuentisTexCo+12;
+	}
+	cuentisTexCo=cuentisTexCo%12;
+	cuentisTexCo++;
 	//me dice en que posicion estoy
-	let cuentisTexCo=ContadorTexCo+1;
 	let AgregaEsto = "---La posicion Es " + cuentisTexCo+" ---";
 	AgregarTexto(AgregaEsto,"AgregarCorazones");	
 	AgregarTexto("br","AgregarCorazones");AgregarTexto("br","AgregarCorazones");
