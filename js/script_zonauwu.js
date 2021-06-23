@@ -678,7 +678,7 @@ function OrdenNoche(posicion){
 
 function OjalaPudieramos(UnaArray){//ojala pudieramos		
 		//para la letra inicial
-		let LaLetra=LaPrimeraLetra("Ojalá puedieramos ","ojalá puedieramos ");		
+		let LaLetra=LaPrimeraLetra("Ojalá pudieramos ","ojalá pudieramos ");		
 		//elejir la cosa que me gustaria hacer
 		let Lacosa=RamdomArrayBorrar(UnaArray);		
 		//escribir
