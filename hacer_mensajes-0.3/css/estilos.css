@@ -2,18 +2,52 @@
 	margin:0px;
 	padding:0px;
 	text-decoration: none;
+	font-family: Verdana;
 }
 
 body{
 	font-size: 16px;
 
 }
+/*---------------titulo----------------------*/
+.header>h2{
+	background: rgb(223,93,162);
+	background: linear-gradient(167deg, rgba(223,93,162,1) 24%, rgba(190, 30,114,1)72%, rgba(223,93,162,1) 87%);
+	font-size: 5rem;
+	font-weight: 900;
+	-webkit-text-fill-color:transparent;
+	-webkit-background-clip:text;
+}
+/*---------------Algunos estilos generales----------------------*/
+.flexcentrado{	
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.flexespaciado{	
+	width: 100%;
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.flexespvert{	
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+
+
+
+
+
 
 /*---------------la grid----------------------*/
 .contenedor{
 	width:600px;
 	min-width: 98%;
-	border: 3px dashed red;
+	/*border: 3px dashed red;*/
 	background-color: #7E61C9;
 	padding:3.1em 0em;
 	width: 95%;
@@ -29,36 +63,40 @@ body{
 	grid-gap: 0.6em;
 }
 
-
+.header{grid-area:"n0" }
 .nivel1{grid-area:"n1" }
 .nivel2{grid-area:"n2" }
 .nivel3{grid-area:"n3" }
 .nivel4{grid-area:"n4" }
 
-/*---------------Contenedores yetc----------------------*/
+/*---------------Contenedores y etc----------------------*/
 .linea{
-	width:200px;
+	width:100px;
 	min-width: 98%;
 	min-height: 2.8em;
-	border: 3px dashed black;
+	/*border: 3px dashed black;*/
 	display: flex;
 	flex-wrap: nowrap;
 	
 	justify-content: space-between;
 }
+/*linea v2 es para las lineas de botones especiales  de extras*/
+.lineav2{
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
 
 
-
-
-/*---------------Botones----------------------*/
+/*---------------------------Botones------------------------------------*/
 .boton{
 	background-color: #DF5DA2;
-	width: 500px;
+	width: 1000px;
 	border:none;
 	padding: 5px 5px 5px 5px;
 	margin:0px 0px 0px 0px;
 	font-size: 1em;
-	border-radius:0.5em;
+	border-radius:0.2em;
+	border:0.1em solid white;
 }
 
 .boton p{
@@ -77,15 +115,133 @@ body{
 	transition-duration: 0.2s;	
 }
 
-.siboton:hover{ background-color: #7AC8D7 }
-.siboton { background-color: #52ACBD}
-.siboton:active { background-color: #328EA0 }
-.siboton p{ color:#4928A0}
-@media (max-width: 750px) {
+.botonazul:hover{ background-color: #7AC8D7 }
+.botonazul { background-color: #52ACBD}
+.botonazul:active { background-color: #328EA0 }
+.botonazul p{ color:#4928A0}
 
+.botonrosa {background-color: #DF5DA2}
+.botonrosa:hover {background-color: #EC84BB}
+.botonrosa:active {background-color: #D13E8C}
+
+
+
+/*------los botones que son de extras--------*/
+.cont_botones{
+	background-color: #52ACBD;
+	padding: 0.8em;
+	border-radius: 1.2em;
+	width: 11em;
+}
+.cont_botones>p{
+	text-align: center;
+	color:#4928A0;
+	font-weight: 600 ;
+}
+
+
+
+input[type=text] {
+  color: #4928A0;
+  width: 5.5em;
+}
+
+.cont_botones button{
+	width: 1.8em;
+	height: 1.8em;
+	border:none;
+	padding: 1px;
+	margin:0px;
+	font-size: 1em;
+	border-radius:50%;
+	border:0.1em solid white;
+	color:#4928A0;
+
+}
+/*el cont especial es para los div que contiene los botones de retroseso y borrar*/
+.cont_especial>button{
+	width: 5.2em;
+	height: 1.6em;
+	border:none;
+	padding: 1px;
+	margin:0.3em 0em;
+	font-size: 1em;
+	border-radius:0.2em;
+	border:0.1em solid white;
+	overflow: hidden;
+}
+
+.cont_especial{
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+
+
+
+/*---------------------------------------------Cosas JS--------------------------------*/
+.desaparecer{
+	display:none;
+}
+
+.estaactivado{background-color:#D13E8C;}
+.estaactivado:hover{background-color: #D13E8C;}
+.estaactivado:active{background-color: #BE1E72;}
+
+/*eston no sirven de nada solo es para identificarlos*/
+.lin2{}
+.lin2{}
+.lin3{}
+.bin2{}
+
+
+
+
+/*----------------------------------Media query-------------------------*/
+@media (max-width: 750px) {
 	body{
 		font-size: 14px;	
 	}
+	.cont_botones{
+		width: 7.5em;
+	}
+	.btn{
+		font-size: 0.9em;
+	}
+	input[type=text] {
+  		width: 5em;
+	}
+	.header>h2{
+		font-size: 4rem;
+	}
+	.cont_especial{
+		width: 6em;
+		display:flex;
+		flex-direction: column;
+	}
+
+
+
+
 
 
 }
+
+/*@media (max-width: 500px) {
+
+	body{
+		font-size: 12px;	
+	}
+	input[type=text] {
+  		width: 4em;
+	}
+	.cont_botones{
+	width: 7em;
+	}
+	.header>h2{
+		font-size: 3.5rem;
+	}
+
+
+}*/
