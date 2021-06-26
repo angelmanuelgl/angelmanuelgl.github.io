@@ -23,6 +23,7 @@ body{
 	display:flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 }
 .flexespaciado{	
 	width: 100%;
@@ -37,9 +38,18 @@ body{
 	justify-content: space-around;
 }
 
+.botonazul:hover{ background-color: #7AC8D7 }
+.botonazul { background-color: #52ACBD}
+.botonazul:active { background-color: #328EA0 }
+.botonazul p{ color:#4928A0}
 
+.botonrosa {background-color: #DF5DA2}
+.botonrosa:hover {background-color: #EC84BB}
+.botonrosa:active {background-color: #D13E8C}
 
-
+.morado{background-color: #7E61C9;}
+.morado:hover{transition-duration: 0.4s; background-color:#9F87DE;}
+.morado:active{transition-duration: 0.2s; background-color:#6142B1;}
 
 
 
@@ -53,21 +63,18 @@ body{
 	width: 95%;
 	margin:auto;
 	display:grid;
-	grid-template-columns: 1fr;
-	grid-template-areas:"n0 "
-						"n1"
-						"n2"
-						"n3"
-						"n4"
-						"si";
-	grid-gap: 0.6em;
-}
+	grid-template-columns: 1fr 4fr;
+	grid-template-areas: "a a" "b b" "c c" "d d" "e f" ;
+ 	grid-gap: 0.6em;
 
-.header{grid-area:"n0" }
-.nivel1{grid-area:"n1" }
-.nivel2{grid-area:"n2" }
-.nivel3{grid-area:"n3" }
-.nivel4{grid-area:"n4" }
+}
+.header{grid-area:a; }
+.nivel1{grid-area:b; }
+.nivel2{grid-area:c;}
+.nivel3{grid-area:d; }
+#contEmojis{grid-area:e;}
+#conprincipal{grid-area:f;}
+
 
 /*---------------Contenedores y etc----------------------*/
 .linea{
@@ -115,14 +122,6 @@ body{
 	transition-duration: 0.2s;	
 }
 
-.botonazul:hover{ background-color: #7AC8D7 }
-.botonazul { background-color: #52ACBD}
-.botonazul:active { background-color: #328EA0 }
-.botonazul p{ color:#4928A0}
-
-.botonrosa {background-color: #DF5DA2}
-.botonrosa:hover {background-color: #EC84BB}
-.botonrosa:active {background-color: #D13E8C}
 
 
 
@@ -132,6 +131,7 @@ body{
 	padding: 0.8em;
 	border-radius: 1.2em;
 	width: 11em;
+	margin: 0em 0em 0.3em 0em;
 }
 .cont_botones>p{
 	text-align: center;
@@ -177,6 +177,30 @@ input[type=text] {
 	justify-content: space-around;
 }
 
+/*---------------------------------------------Contenedor de Emojis Y el otro--------------------------------*/
+.cajis{
+	background-color: #FFE86B;
+	border-radius: 2em;
+}
+
+#contprincipal{
+	min-height: 500px;
+
+}
+#contEmojis{
+
+}
+.mini{
+	height:1.5em;
+	width: 1.5em;
+	/*padding: 0.3rem 0.3rem;*/
+	margin:0.5em 0.3em;
+	font-size: 1.2em;
+	text-decoration: none;
+	color: #5F63C0;
+	border-radius: 50%;
+	border:none;
+}
 
 
 
@@ -221,14 +245,19 @@ input[type=text] {
 		flex-direction: column;
 	}
 
+	.contenedor{
+		grid-template-columns: 1fr;
+		grid-template-areas: "a a" "b b" "c c" "d d" "e e" "f f";
+	}
 
-
-
+	.min{
+		font-size: 1em;
+	}
 
 
 }
 
-/*@media (max-width: 500px) {
+@media (max-width: 420px) {
 
 	body{
 		font-size: 12px;	
@@ -237,11 +266,11 @@ input[type=text] {
   		width: 4em;
 	}
 	.cont_botones{
-	width: 7em;
+	width: 5.3rem;
 	}
 	.header>h2{
 		font-size: 3.5rem;
 	}
 
 
-}*/
+}
