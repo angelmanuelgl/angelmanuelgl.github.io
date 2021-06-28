@@ -105,6 +105,11 @@ nivel2_Extras_TextoCorazones.onclick=function(){DesapareceYColor(nivel3_Extras_T
 //---------------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------
 
+//------------------------------------------------Nivel0-----------------------------------------------------
+
+
+
+
 //------------------------------------------------Extras_PatronCorazones-----------------------------------------------------
 //-----------------
 var Ext_Ptr_Direc_Normal =document.getElementById("Ext_Ptr_Direc_Normal");
@@ -123,12 +128,6 @@ var Ext_Ptr_Borrar =document.getElementById("Ext_Ptr_Borrar");
 var Ext_Ptr_SaltoLinea_Si =document.getElementById("Ext_Ptr_SaltoLinea_Si");
 var Ext_Ptr_SaltoLinea_No =document.getElementById("Ext_Ptr_SaltoLinea_No");
 //------------
-
-
-
-
-
-
 
 
 
