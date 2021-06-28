@@ -52,3 +52,32 @@
 .rgba-complement-2 { color: rgba(255,237,143,1) }
 .rgba-complement-3 { color: rgba(255,227, 76,1) }
 .rgba-complement-4 { color: rgba(233,203, 37,1) }
+
+
+
+:root{
+	--color-p-0 : rgba(126, 97,201,1) ; /* Main Primary color */
+	--color-p-1 : rgba(198,182,241,1) ;
+	--color-p-2 : rgba(159,135,222,1) ;
+	--color-p-3 : rgba( 97, 66,177,1) ;
+	--color-p-4 : rgba( 73, 40,160,1) ;
+
+	--color-s1-0 : rgba(223, 93,162,1) ;	/* Main Secondary color (1) */
+	--color-s1-1 : rgba(246,180,215,1) ;
+	--color-s1-2 : rgba(236,132,187,1) ;
+	--color-s1-3 : rgba(209, 62,140,1) ;
+	--color-s1-4 : rgba(190, 30,114,1) ;
+
+	--color-s2-0 : rgba( 82,172,189,1) ;/* Main Secondary color (2) */
+	--color-s2-1 : rgba(174,227,237,1) ;
+	--color-s2-2 : rgba(122,200,215,1) ;
+	--color-s2-3 : rgba( 50,142,160,1) ;
+	--color-s2-4 : rgba( 26,125,144,1) ;
+
+	--color-c-0 : rgba(255,232,107,1) ; /* Main Complement color */
+	--color-c-1 : rgba(255,244,186,1) ;
+	--color-c-2 : rgba(255,237,143,1) ;
+	--color-c-3 : rgba(255,227, 76,1) ;
+	--color-c-4 : rgba(233,203, 37,1) ;
+
+}

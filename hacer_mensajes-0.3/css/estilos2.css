@@ -9,7 +9,8 @@ body{
 	font-size: 16px;
 	background-color: #7E61C9;
 }
-/*---------------titulo----------------------*/
+
+/*--------------------------------------titulo-------------------------------------------*/
 .header>h2{
 	background: rgb(223,93,162);
 	background: linear-gradient(167deg, rgba(223,93,162,1) 24%, rgba(190, 30,114,1)72%, rgba(223,93,162,1) 87%);
@@ -20,42 +21,64 @@ body{
 }
 .header{
 	margin:0em 0em 2em 0em;
-
 }
-/*---------------Algunos estilos generales----------------------*/
-.flexcentrado{	
+
+
+/*------------------------------Algunos estilos Flex--------------------------------*/
+.f-centrado{	
 	display:flex;
 	justify-content: center;
 	align-items: center;
-	flex-wrap: wrap;
+	flex-wrap: wrap; 
 }
-.flexespaciado{	
-	width: 100%;
-	display:flex;
-	align-items: center;
+.f-nw-between{ 
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	/*align-items: center;*/
+}
+.f-nw-around{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	/*align-items: center;*/
+}
+.f-w-around{
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 }
-.flexespvert{	
+.f-espaciado{	
+	width: 100%;
+	display:flex;
+	justify-content: space-around;
+	align-items: center;
+	
+}
+
+.f-v-espaciado{	
 	display:flex;
 	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	
+}
+
+.f-v-h-espaciado{
+	display:flex;
 	align-items: center;
 	justify-content: space-around;
 }
 
-.flexespecial{
-	display:flex;
-	align-items: center;
-	justify-content: space-around;
-}
-@media (max-width: 750px) {
-.flexespecial{
-		width: 6em;
+
+@media (max-width: 720px) {
+.f-v-h-espaciado{
 		display:flex;
 		flex-direction: column;
 	}
 }
 
-/*---------------la grid----------------------*/
+/*--------------------------------------Contenedores---------------------------------------*/
 .contenedor{
 	width:600px;
 	min-width: 98%;
@@ -79,28 +102,17 @@ body{
 #conprincipal{grid-area:prin;}
 
 
-/*---------------Contenedores y etc----------------------*/
+/*--------------------------------------Estilos particualres---------------------------------------*/
+/*el menu desplegable y sus botones*/
 .linea{
 	width:100px;
 	min-width: 98%;
 	min-height: 2.8em;
 	/*border: 3px dashed black;*/
-	display: flex;
-	flex-wrap: nowrap;
-	
-	justify-content: space-between;
-}
-/*linea v2 es para las lineas de botones especiales  de extras*/
-.lineav2{
-	justify-content: space-around;
-	flex-wrap: wrap;
-}
-.nowrap{
-	flex-wrap: nowrap;
 }
 
-/*---------------------------Botones------------------------------------*/
-.boton{
+.boton{ /*particular*/
+	min-height: 2.8em;
 	background-color: #DF5DA2;
 	width: 1000px;
 	border:none;
@@ -109,6 +121,23 @@ body{
 	font-size: 1em;
 	border-radius:0.2em;
 	border:0.1em solid white;
+}
+
+/*--------------------------------------Botones---------------------------------------*/
+.btn{
+	border:none;
+	margin: 0.2em 0.4em;
+	border-radius:0.5em;
+	padding: 0.4em 0.5em;
+	border:0.1em solid white;
+}
+.btn p{
+	text-align: center;
+	color:#4928A0;
+	font-size: 1.2em;
+}
+@media (max-width: 750px) {
+	.btn p{	font-size: 1em;}
 }
 
 .boton p{
@@ -127,6 +156,21 @@ body{
 	transition-duration: 0.2s;	
 }
 
+.circulo{
+	height:2em;
+	width: 2em;
+	border:none;
+	border-radius: 50%;	
+	background-color: #7AC8D7;
+	overflow: hidden;
+	margin: 0.3em;
+	border:0.1em solid white;
+}
+.circuclo p{
+	text-align: center;
+	color:#4928A0;
+}
+
 
 .botonazul:hover{ background-color: #7AC8D7 }
 .botonazul { background-color: #52ACBD}
@@ -143,15 +187,33 @@ body{
 
 
 
+
+/*--------------------------------------Estilos particualres---------------------------------------*/
 /*------los botones que son de extras--------*/
+
+.mini{	/*particular*/
+	border:none;
+	border-radius: 50%;	
+	overflow: hidden;
+	height:1.5em;
+	width: 1.5em;
+	/*padding: 0.3rem 0.3rem;*/
+	margin:0.5em 0.3em;
+	font-size: 1.2em;
+	color: #5F63C0;
+}
+
+
 .cont_botones{
 	background-color: #52ACBD;
 	padding: 0.8em;
 	border-radius: 1.2em;
-	width: 11em;
+	width: 13em;
 	margin: 0em 0em 0.3em 0em;
 	/*border: 3px dashed black;*/
 }
+
+
 .cont_botones>p{
 	text-align: center;
 	color:#4928A0;
@@ -161,41 +223,10 @@ body{
 
 input[type=text] {
   color: #4928A0;
-  width: 5.5em;
+  width: 75%;
 }
 
-.cont_botones button{
-	width: 1.8em;
-	height: 1.8em;
-	border:none;
-	padding: 1px;
-	margin:0px;
-	font-size: 1em;
-	border-radius:50%;
-	border:0.1em solid white;
-	color:#4928A0;
-
-}
-/*el cont especial es para los div que contiene los botones de retroseso y borrar*/
-.cont_especial>button{
-	width: 5.2em;
-	height: 1.6em;
-	border:none;
-	padding: 1px;
-	margin:0.3em 0em;
-	font-size: 1em;
-	border-radius:0.2em;
-	border:0.1em solid white;
-	overflow: hidden;
-}
-
-.cont_especial{
-	display:flex;
-	align-items: center;
-	justify-content: space-around;
-}
-
-/*---------------------------------------------Contenedor de Emojis Y el otro--------------------------------*/
+/*el lugar donde se agregara el texto*/
 .cajis{
 	background-color: #FFE86B;
 	border-radius: 2em;
@@ -206,19 +237,29 @@ input[type=text] {
 
 }
 
-.mini{
-	height:1.5em;
-	width: 1.5em;
-	/*padding: 0.3rem 0.3rem;*/
-	margin:0.5em 0.3em;
-	font-size: 1.2em;
-	text-decoration: none;
-	color: #5F63C0;
-	border-radius: 50%;
-	border:none;
+/*la linea 0*/
+.textoparrafo{
+	padding: 0.8em;
+	border-radius: 1.2em;
+	background-color: #52ACBD;
+	min-width: 220px;
+	width: 40%;
+}
+@media (max-width: 510px) {
+	.textoparrafo{
+	min-width: 220px;
+	width: 100%;
+	}
 }
 
-
+.textoparrafo>div{
+	width: 100%;
+}
+.textoparrafo>p{
+	text-align: center;
+	color:#4928A0;
+	font-weight: 600 ;
+}
 
 /*---------------------------------------------Cosas JS--------------------------------*/
 .desaparecer{
@@ -236,51 +277,13 @@ input[type=text] {
 .bin2{}
 
 
-/*---------------------------------------------Nivel0--------------------------------*/
-#padretextoparrafo{
-
-}
-
-.textoparrafo{
-	min-width: 150px;
-	width: 40%;
-
-}
-
-.textoparrafo input[type=text] {
-  width: 80%;
-}
-.textoparrafo>div{
-	width: 100%;
-}
-.flexvertyhort{
-	display:flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-}
-
 /*----------------------------------Media query-------------------------*/
 @media (max-width: 750px) {
 	body{
 		font-size: 14px;	
 	}
-	.cont_botones{
-		width: 7.5em;
-	}
-	.btn{
-		font-size: 0.9em;
-	}
-	input[type=text] {
-  		width: 5em;
-	}
 	.header>h2{
 		font-size: 4rem;
-	}
-	.cont_especial{
-		width: 6em;
-		display:flex;
-		flex-direction: column;
 	}
 
 	.contenedor{
@@ -288,15 +291,14 @@ input[type=text] {
 		grid-template-areas: "he" "n0" "n1" "n2" "n3" "emojis" "prin";
 	}
 
-	.min{
+/*	.mini{
 		font-size: 1em;
 	}
-	.flexvertyhort{
-		display:flex;
-		flex-direction: column;
+*/
+	input[type=text] {
+  		color: #4928A0;
+  		width: 65%;
 	}
-
-
 }
 
 @media (max-width: 420px) {
@@ -304,15 +306,15 @@ input[type=text] {
 	body{
 		font-size: 12px;	
 	}
-	input[type=text] {
-  		width: 4em;
-	}
-	.cont_botones{
-	width: 5.3rem;
-	}
 	.header>h2{
 		font-size: 3.5rem;
 	}
-
+	input[type=text] {
+  		color: #4928A0;
+  		width: 63%;
+	}
+	.cont_botones{
+		width: 9em;
+	}
 
 }
