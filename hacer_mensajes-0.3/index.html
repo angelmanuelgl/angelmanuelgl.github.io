@@ -19,13 +19,13 @@
 					<!-- Borrar y retroseso -->
 					<div class="f-espaciado textoparrafo ">
 						<div class=" f-centrado ">
-							<button class="morado circulo" >⏪</button> 
-							<button class="morado circulo " >⏩</button>
+							<button class="morado circulo" id="nivel0_Anterior">⏪</button> 
+							<button class="morado circulo " id="nivel0_Siguiente">⏩</button>
 						</div>	
 					
 						<!-- Borrar y retroseso -->
-						<div class="f-v-h-espaciado ">
-							<button class="btn botonrosa" id="Enivel0_Borrar">
+						<div class="f-v-h-espaciado">
+							<button class="btn botonrosa" id="nivel0_Borrar">
 								<p> Borrar </p>
 							</button>
 							<button class="btn botonrosa" id="nivel0_BorrarTodos">
@@ -34,8 +34,13 @@
 						</div>
 
 						<div class=" f-centrado">
-							<button class="morado circulo" >⏮️</button>
-							<button class="morado circulo" >⏭️</button>
+							<button class="morado circulo" id="nivel0_Primero">⏮️</button>
+							<button class="morado circulo" id="nivel0_Final"> ⏭️</button>
+						</div>
+
+						<div class=" f-centrado">
+							<p> Posicion </p>
+							<p id="nivel0_LaPosicion"> 1 de 20 </p>
 						</div>
 
 					</div>
@@ -43,7 +48,7 @@
 					<div class="textoparrafo ">
 						<p> Texto para Parrafos </p>
 						<div class="f-centrado">
-							<input type="text" id="nivel0_Texto" placeholder="Desde que te conoci me enamore de ti"> </input>
+							<input type="text" class="input-text-g" id="nivel0_Texto" placeholder="Desde que te conoci me enamore de ti"> </input>
 							<button class="botonrosa circulo"  id="nivel0_Texto_btn">✔</button>
 						</div> 
 					</div>
@@ -277,7 +282,7 @@
 					<div class="cont_botones f-v-espaciado">
 						<p> Otro Emoji </p>
 						<div>
-							<input type="text" id="Ext_Ptr_OtroEmoji" placeholder="🌠"> </input>
+							<input type="text" class="input-text-ch" id="Ext_Ptr_OtroEmoji" placeholder="🌠"> </input>
 							<button class="circulo botonrosa" id="Ext_Ptr_OtroEmoji_btn">✔</button>
 						</div>
 					</div>
@@ -285,13 +290,13 @@
 					<div class="cont_botones f-v-espaciado">
 						<p> Cantidad de Elementos </p>
 						<div>
-							<input type="text" id="Ext_Ptr_CantidadElementos" placeholder="20" > </input>
+							<input type="text" class="input-text-ch" id="Ext_Ptr_CantidadElementos" placeholder="20" > </input>
 							<button class="circulo botonrosa"  id="Ext_Ptr_CantidadElementos_btn">✔</button>
 						</div>
 					</div>
 
 					<!-- Borrar y retroseso -->
-					<div class="cont_botones f-v-h-espaciado">
+					<div class="cont_botones f-w-around">
 						<button class="btn botonrosa" id="Ext_Ptr_Retroseso">
 							<p>Retroseso</p>
 						</button>
@@ -320,12 +325,12 @@
 					<div class="cont_botones f-v-espaciado">
 						<p> Otro Emoji </p>
 						<div>
-							<input type="text"  id="Ext_Cora_OtroEmoji" placeholder="🌠"> </input>
+							<input type="text" class="input-text-ch"  id="Ext_Cora_OtroEmoji" placeholder="🌠"> </input>
 							<button class="circulo botonrosa"  id="Ext_Cora_OtroEmoji_btn">✔</button>
 						</div>
 					</div>
 					<!-- adelante y retroseso  -->
-					<div class="cont_botones f-v-h-espaciado">
+					<div class="cont_botones f-w-around">
 						<button class="btn botonrosa"  id="Ext_Cora_Retroseso">
 							<p>Retroseso</p>
 						</button>
@@ -343,7 +348,7 @@
 					<div class="cont_botones f-v-espaciado">
 						<p> Otro Emoji </p>
 						<div>
-							<input type="text"  id="Ext_Text_OtroEmoji" placeholder="🌠"> </input>
+							<input type="text" class="input-text-ch"  id="Ext_Text_OtroEmoji" placeholder="🌠"> </input>
 							<button class="circulo botonrosa"  id="Ext_Text_OtroEmoji_btn">✔</button>
 						</div>
 					</div>
@@ -351,12 +356,12 @@
 					<div class="cont_botones f-v-espaciado"  id="">
 						<p> Texto Corazones </p>
 						<div>
-							<input type="text" id="Ext_Text_Texto" placeholder="HOLA"> </input>
+							<input type="text" class="input-text-ch" id="Ext_Text_Texto" placeholder="HOLA"> </input>
 							<button class="circulo botonrosa"  id="Ext_Text_Texto_btn">✔</button>
 						</div>
 					</div>
 					<!-- adelante y retroseso  -->
-					<div class="cont_botones f-v-h-espaciado" >
+					<div class="cont_botones f-w-around" >
 						<button class="btn botonrosa"  id="Ext_Text_Retroseso">
 							<p>Retroseso</p>
 						</button>

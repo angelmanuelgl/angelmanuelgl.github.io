@@ -107,7 +107,15 @@ nivel2_Extras_TextoCorazones.onclick=function(){DesapareceYColor(nivel3_Extras_T
 
 //------------------------------------------------Nivel0-----------------------------------------------------
 
-
+var nivel0_Anterior=document.getElementById("nivel0_Anterior");
+var nivel0_Siguiente=document.getElementById("nivel0_Siguiente");
+var nivel0_Borrar=document.getElementById("nivel0_Borrar");
+var nivel0_BorrarTodos=document.getElementById("nivel0_BorrarTodos");
+var nivel0_Primero=document.getElementById("nivel0_Primero");
+var nivel0_Final=document.getElementById("nivel0_Final");
+var nivel0_Texto=document.getElementById("nivel0_Texto");
+var nivel0_Texto_btn=document.getElementById("nivel0_Texto_btn");
+var nivel0_LaPosicion=document.getElementById("nivel0_LaPosicion");
 
 
 //------------------------------------------------Extras_PatronCorazones-----------------------------------------------------

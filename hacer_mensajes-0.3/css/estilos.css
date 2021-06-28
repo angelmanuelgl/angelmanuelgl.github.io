@@ -19,7 +19,7 @@ body{
 	-webkit-background-clip:text;
 }
 .header{
-	margin:0em 0em 2em 0em;
+	margin:0em 0em 3em 0em;
 
 }
 /*---------------Algunos estilos generales----------------------*/
@@ -156,6 +156,7 @@ body{
 	text-align: center;
 	color:#4928A0;
 	font-weight: 600 ;
+
 }
 
 
