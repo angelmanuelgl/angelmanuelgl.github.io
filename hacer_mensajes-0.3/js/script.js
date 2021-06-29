@@ -30,6 +30,7 @@ var nivel3_Alagos_Hot=document.getElementById("nivel3_Alagos_Hot");
 var nivel3_Extras_PatronCorazones=document.getElementById("nivel3_Extras_PatronCorazones");
 var nivel3_Extras_CorazonCorazones=document.getElementById("nivel3_Extras_CorazonCorazones");
 var nivel3_Extras_TextoCorazones=document.getElementById("nivel3_Extras_TextoCorazones");
+var nivel3_Extras_EmojisSeries=document.getElementById("nivel3_Extras_EmojisSeries");
 
 //botones que llaman 
 var nivel2_Dias_Ojala=document.getElementById("nivel2_Dias_Ojala");
@@ -43,6 +44,7 @@ var nivel2_Alagos_Hot=document.getElementById("nivel2_Alagos_Hot");
 var nivel2_Extras_PatronCorazones=document.getElementById("nivel2_Extras_PatronCorazones");
 var nivel2_Extras_CorazonCorazones=document.getElementById("nivel2_Extras_CorazonCorazones");
 var nivel2_Extras_TextoCorazones=document.getElementById("nivel2_Extras_TextoCorazones");
+var nivel2_Extras_EmojisSeries=document.getElementById("nivel2_Extras_EmojisSeries");
 
 
 //funcion que hace que desaparezcan todos los que excepto el que le piden
@@ -98,6 +100,7 @@ nivel2_Alagos_Hot.onclick=function(){DesapareceYColor(nivel3_Alagos_Hot,"lin3",t
 nivel2_Extras_PatronCorazones.onclick=function(){DesapareceYColor(nivel3_Extras_PatronCorazones,"lin3",this,"bin2");}
 nivel2_Extras_CorazonCorazones.onclick=function(){DesapareceYColor(nivel3_Extras_CorazonCorazones,"lin3",this,"bin2");}
 nivel2_Extras_TextoCorazones.onclick=function(){DesapareceYColor(nivel3_Extras_TextoCorazones,"lin3",this,"bin2");}
+nivel2_Extras_EmojisSeries.onclick=function(){DesapareceYColor(nivel3_Extras_EmojisSeries,"lin3",this,"bin2");}
 
 //---------------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -118,14 +121,20 @@ var nivel0_Texto_btn=document.getElementById("nivel0_Texto_btn");
 var nivel0_LaPosicion=document.getElementById("nivel0_LaPosicion");
 
 
+
+//------------------------------------------------Extras_EmojisSeries-----------------------------------------------------
+
+var Ext_EmojisSeries_OtroEmoji=document.getElementById("Ext_EmojisSeries_OtroEmoji");
+var Ext_EmojisSeries_OtroEmoji_btn=document.getElementById("Ext_EmojisSeries_OtroEmoji_btn");
+
+var Ext_EmojisSeries_OtraSerie=document.getElementById("Ext_EmojisSeries_OtraSerie");
+var Ext_EmojisSeries_OtroSerie_btn=document.getElementById("Ext_EmojisSeries_OtraSerie_btn");
+
 //------------------------------------------------Extras_PatronCorazones-----------------------------------------------------
 //-----------------
 var Ext_Ptr_Direc_Normal =document.getElementById("Ext_Ptr_Direc_Normal");
 var Ext_Ptr_Direc_Derecha =document.getElementById("Ext_Ptr_Direc_Derecha");
 var Ext_Ptr_Direc_Izquierda =document.getElementById("Ext_Ptr_Direc_Izquierda");
-
-var Ext_Ptr_OtroEmoji =document.getElementById("Ext_Ptr_OtroEmoji");
-var Ext_Ptr_OtroEmoji_btn =document.getElementById("Ext_Ptr_OtroEmoji_btn");
 
 var Ext_Ptr_CantidadElementos =document.getElementById("Ext_Ptr_CantidadElementos");
 var Ext_Ptr_CantidadElementos_btn =document.getElementById("Ext_Ptr_CantidadElementos_btn");
@@ -135,10 +144,6 @@ var Ext_Ptr_Borrar =document.getElementById("Ext_Ptr_Borrar");
 
 var Ext_Ptr_SaltoLinea_Si =document.getElementById("Ext_Ptr_SaltoLinea_Si");
 var Ext_Ptr_SaltoLinea_No =document.getElementById("Ext_Ptr_SaltoLinea_No");
-//------------
-
-
-
 
 
 //----------------------------Extras_CorazonCorazones--y -------Extras_TextoCorazones--------------------------------------------
@@ -149,6 +154,12 @@ var Ext_Cora_OtroEmoji_btn =document.getElementById("Ext_Cora_OtroEmoji_btn");
 var Ext_Cora_Retroseso =document.getElementById("Ext_Cora_Retroseso");
 var Ext_Cora_Adelante =document.getElementById("Ext_Cora_Adelante");
 
+var Ext_Cora_OtraSerie=document.getElementById("Ext_Cora_OtraSerie")
+var Ext_Cora_OtraSerie_btn=document.getElementById("Ext_Cora_OtraSerie_btn")
+
+
+var Ext_Text_Texto =document.getElementById("Ext_Text_Texto");
+var Ext_Text_Texto_btn =document.getElementById("Ext_Text_Texto_btn");
 
 var Ext_Text_OtroEmoji =document.getElementById("Ext_Text_OtroEmoji");
 var Ext_Text_OtroEmoji_btn =document.getElementById("Ext_Text_OtroEmoji_btn");
@@ -156,6 +167,8 @@ var Ext_Text_OtroEmoji_btn =document.getElementById("Ext_Text_OtroEmoji_btn");
 var Ext_Text_Retroseso =document.getElementById("Ext_Text_Retroseso");
 var Ext_Text_Adelante =document.getElementById("Ext_Text_Adelante");
 
+var Ext_Text_OtraSerie=document.getElementById("Ext_Text_OtraSerie");
+var Ext_Text_OtraSerie_btn=document.getElementById("Ext_Text_OtraSerie_btn");
 // ----------------------------------------------Dias------------------------------------------------------
 
 var nivel2_Dias_BuenosDias =document.getElementById("nivel2_Dias_BuenosDias");

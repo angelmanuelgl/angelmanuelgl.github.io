@@ -14,7 +14,7 @@
 
 		<!----------------------------------linea f-nw-between 1--------------------------------->
 		<div class="nivel0">
-			<div class="linea f-nw-around" id="">
+			<div class="linea f-w-around" id="">
 					
 					<!-- Borrar y retroseso -->
 					<div class="f-espaciado textoparrafo ">
@@ -38,7 +38,7 @@
 							<button class="morado circulo" id="nivel0_Final"> ⏭️</button>
 						</div>
 
-						<div class=" f-centrado">
+						<div class=" f-v-espaciado">
 							<p> Posicion </p>
 							<p id="nivel0_LaPosicion"> 1 de 20 </p>
 						</div>
@@ -55,7 +55,7 @@
 			</div>
 		</div>
 
-		<!----------------------------------linea f-nw-between 1--------------------------------->
+		<!----------------------------------linea  1--------------------------------->
 		<div class="nivel1">
 				<div class="linea f-nw-between" id="nivel1_linea f-nw-between1">
 					<button class="boton" id="nivel1_Dias">
@@ -76,7 +76,7 @@
 				</div>
 		</div>
 
-		<!------------------------------linea f-nw-between 2----------------------------------->
+		<!------------------------------linea 2----------------------------------->
 		<div class="nivel2">
 			<!-- Dias -->
 			<div class="linea f-nw-between lin2 desaparecer" id="nivel2_Dias">
@@ -136,6 +136,9 @@
 
 			<!-- Extras -->
 			<div class="linea f-nw-between lin2 desaparecer" id="nivel2_Extras">
+					<button class="boton bin2 " id="nivel2_Extras_EmojisSeries">
+						<p>Emojis Extras para Patron</p>
+					</button>
 					<button class="boton bin2" id="nivel2_Extras_PatronCorazones">
 						<p>Patron Corazones</p>
 					</button>
@@ -144,13 +147,13 @@
 					</button>
 					<button class="boton bin2 " id="nivel2_Extras_TextoCorazones">
 						<p>Texto Corazones</p>
-					</button>
+					</button>				
 			</div>
 
 		</div>
 		
 
-		<!-------------------------------linea f-nw-between 3-------------------------------->
+		<!-------------------------------linea 3-------------------------------->
 		<div class="nivel3">
 			<!-- Dias/Ojala -->
 			<div class="linea f-nw-between lin3 desaparecer" id="nivel3_Dias_Ojala">
@@ -277,15 +280,6 @@
 							<button class="circulo botonrosa" id="Ext_Ptr_Direc_Izquierda">⏪</button>
 						</div>							
 					</div>
-
-					<!--otro emoji  -->
-					<div class="cont_botones f-v-espaciado">
-						<p> Otro Emoji </p>
-						<div>
-							<input type="text" class="input-text-ch" id="Ext_Ptr_OtroEmoji" placeholder="🌠"> </input>
-							<button class="circulo botonrosa" id="Ext_Ptr_OtroEmoji_btn">✔</button>
-						</div>
-					</div>
 					<!-- Cantidad de Elementos -->
 					<div class="cont_botones f-v-espaciado">
 						<p> Cantidad de Elementos </p>
@@ -296,7 +290,7 @@
 					</div>
 
 					<!-- Borrar y retroseso -->
-					<div class="cont_botones f-w-around">
+					<div class="cont_botones f-w-around f-alingitems-centro">
 						<button class="btn botonrosa" id="Ext_Ptr_Retroseso">
 							<p>Retroseso</p>
 						</button>
@@ -330,7 +324,7 @@
 						</div>
 					</div>
 					<!-- adelante y retroseso  -->
-					<div class="cont_botones f-w-around">
+					<div class="cont_botones f-w-around f-alingitems-centro">
 						<button class="btn botonrosa"  id="Ext_Cora_Retroseso">
 							<p>Retroseso</p>
 						</button>
@@ -338,39 +332,81 @@
 							<p>Adelante</p>
 						</button>
 					</div>
-
-
+					<!--otra serie  -->
+					<div class=" f-v-espaciado textoparrafo">
+						<p> Una Serie de Emojis </p>
+						<div class="f-centrado">
+							<input type="text" class="input-text-g"  id="Ext_Cora_OtraSerie" placeholder="🪐☀️🌈🌹💍⛱️🌕☄️🌟"> </input>
+							<button class="circulo botonrosa"  id="Ext_Cora_OtraSerie_btn">✔</button>
+						</div>
+					</div>
 			</div>
 
 			<!---Extras/Texto Corazones-->
 			<div class="linea f-w-around lin3 desaparecer" id="nivel3_Extras_TextoCorazones">
-					<!--otro emoji  -->
+					<div class="f-nw-around undivtetocorazones">
+						<!-- el texto de corazones-->
+						<div class="cont_botones f-v-espaciado" >
+							<p> Texto Corazones </p>
+							<div class="f-centrado">
+								<input type="text" class="input-text-ch" id="Ext_Text_Texto" placeholder="HOLA"> </input>
+								<button class="circulo botonrosa"  id="Ext_Text_Texto_btn">✔</button>
+							</div>
+						</div>
+						<!-- otro emoji-->
+						<div class="cont_botones f-v-espaciado">
+							<p> Otro Emoji </p>
+							<div class="f-centrado">
+								<input type="text" class="input-text-ch"  id="Ext_Text_OtroEmoji" placeholder="🌠"> </input>
+								<button class="circulo botonrosa"  id="Ext_Text_OtroEmoji_btn">✔</button>
+							</div>
+						</div>
+						<!-- adelante y retroseso  -->
+						<div class="cont_botones f-w-around f-alingitems-centro" >
+							<button class="btn botonrosa"  id="Ext_Text_Retroseso">
+								<p>Retroseso</p>
+							</button>
+							<button class="btn botonrosa"  id="Ext_Text_Adelante">
+								<p>Adelante</p>
+							</button>
+						</div>
+					</div>
+					<!--otra serie  -->
+					<div class=" f-v-espaciado textoparrafo">
+						<p> Una Serie de Emojis </p>
+						<div class="f-centrado">
+							<input type="text" class="input-text-g"  id="Ext_Text_OtraSerie" placeholder="🪐☀️🌈🌹💍⛱️🌕☄️🌟"> </input>
+							<button class="circulo botonrosa"  id="Ext_Text_OtraSerie_btn">✔</button>
+						</div>
+					</div>
+								
+			</div>
+
+			<!---Extras/Emojis estras para patrones-->
+			<div class="linea f-w-around lin3 desaparecer" id="nivel3_Extras_EmojisSeries">
+				<!--otro emoji  -->
 					<div class="cont_botones f-v-espaciado">
 						<p> Otro Emoji </p>
-						<div>
-							<input type="text" class="input-text-ch"  id="Ext_Text_OtroEmoji" placeholder="🌠"> </input>
-							<button class="circulo botonrosa"  id="Ext_Text_OtroEmoji_btn">✔</button>
+						<div class="f-centrado">
+							<input type="text" class="input-text-ch"  id="Ext_EmojisSeries_OtroEmoji" placeholder="🌠"> </input>
+							<button class="circulo botonrosa"  id="Ext_EmojisSeries_OtroEmoji_btn">✔</button>
 						</div>
 					</div>
-					<!-- el texto de corazones-->
-					<div class="cont_botones f-v-espaciado"  id="">
-						<p> Texto Corazones </p>
-						<div>
-							<input type="text" class="input-text-ch" id="Ext_Text_Texto" placeholder="HOLA"> </input>
-							<button class="circulo botonrosa"  id="Ext_Text_Texto_btn">✔</button>
-						</div>
+
+				<!--otra serie  -->
+				<div class="f-v-espaciado textoparrafo">
+					<p> Una Serie de Emojis </p>
+					<div class="f-centrado">
+						<input type="text" class="input-text-g"  id="Ext_EmojisSeries_OtraSerie" placeholder="🪐☀️🌈🌹💍⛱️🌕☄️🌟"> </input>
+						<button class="circulo botonrosa"  id="Ext_EmojisSeries_OtraSerie_btn">✔</button>
 					</div>
-					<!-- adelante y retroseso  -->
-					<div class="cont_botones f-w-around" >
-						<button class="btn botonrosa"  id="Ext_Text_Retroseso">
-							<p>Retroseso</p>
-						</button>
-						<button class="btn botonrosa"  id="Ext_Text_Adelante">
-							<p>Adelante</p>
-						</button>
-					</div>
+				</div>
+
 			</div>
-		</div> <!-- cierre linea f-nw-between 3 -->
+
+
+
+		</div> <!-- cierre linea  3 -->
 
 	<div class="cajis f-centrado" id="contEmojis">
 			<button class="morado mini" onclick="AgregarEmoji(0);">✨</button> 
