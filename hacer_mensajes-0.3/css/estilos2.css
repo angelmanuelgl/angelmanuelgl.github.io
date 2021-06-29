@@ -96,7 +96,7 @@ p{
 	margin:auto;
 	display:grid;
 	grid-template-columns: 1fr 4fr;
-	grid-template-areas: "he he" "n0 n0" "n1 n1" "n2 n2" "n3 n3" "emojis prin" ;
+	grid-template-areas: "he he" "n0 n0" "n1 n1" "n2 n2" "n3 n3" "emojis prin" "algo prin";
  	grid-gap: 0.6em;
 
 }
@@ -178,10 +178,10 @@ p{
 	font-weight: 600;
 }
 
-.botonazul:hover{ background-color: #7AC8D7 }
-.botonazul { background-color: #52ACBD}
-.botonazul:active { background-color: #328EA0 }
-.botonazul p{ color:#4928A0}
+.azul:hover{ background-color: #7AC8D7 }
+.azul { background-color: #52ACBD}
+.azul:active { background-color: #328EA0 }
+.azul p{ color:#4928A0}
 
 .botonrosa {background-color: #DF5DA2}
 .botonrosa:hover {background-color: #EC84BB}
@@ -255,10 +255,12 @@ p{
 .cajis{
 	background-color: #FFE86B;
 	border-radius: 2em;
+	max-height: 500px;
 }
 
 #contprincipal{
 	min-height: 500px;
+	max-height: none;
 
 }
 
