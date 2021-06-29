@@ -273,14 +273,14 @@ function AgregarContenido(algoqueagregar){
 function  NumeroRandom(min, max) {
 	return Math.floor(Math.random() * (max - min)) + min;
 }
-
 //Elemento de Array Random
 function RandomArray(UnaArray){
 	return UnaArray[NumeroRandom(0, UnaArray.length)]
 }
 
-//revision de Palabras Claves
+//revision de Palabras Claves------------------------------------------------------
 function RevisarPalabrasClaves(algoquerevisar,posicion){
+	
 	//funcion de apoyo
 	function PonerEmojiCorrecto(UnaArray,pos){
 		while(pos>UnaArray.length-1){
@@ -288,7 +288,17 @@ function RevisarPalabrasClaves(algoquerevisar,posicion){
 		}
 		return UnaArray[pos];
 	}
+
 	let LoQueRegresa;
+	
+	//revisa los emojis especiales personalizados
+	for (let i =0 ; i<=EmojisSeries_Array_Arrays.length-1; i++) {
+		if((algoquerevisar==EmojisSeries_Elementos[i].id)&&(LoQueRegresa===undefined||LoQueRegresa=="")){
+			LoQueRegresa=PonerEmojiCorrecto(EmojisSeries_Array_Arrays[i],posicion)	
+		}
+	}
+	
+	//revisas mis emojis especiales
 	if (algoquerevisar=="Todo"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Cora_Todos,posicion);}
 	else if (algoquerevisar=="TodoR"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Cora_Todos_Reversa,posicion);}
 	else if (algoquerevisar=="Rosa"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Cora_Rosas,posicion);}
@@ -297,10 +307,13 @@ function RevisarPalabrasClaves(algoquerevisar,posicion){
 	else if (algoquerevisar=="Rojo"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Cora_Rojos,posicion);}
 	else if (algoquerevisar=="Colores"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Cora_Colores,posicion);}
 	else if (algoquerevisar=="Random"){ LoQueRegresa=RandomArray(Emojis_Corazones_Todos);}
-	else { LoQueRegresa=algoquerevisar;}
+	
+	if (LoQueRegresa===undefined|| LoQueRegresa==""){ 
+		LoQueRegresa=algoquerevisar;		
+	}
 
 	return LoQueRegresa;
-}
+}//--------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------
@@ -470,4 +483,78 @@ Ext_Ptr_Borrar .onclick=function(){
 
 Ext_Ptr_SaltoLinea_Si.onclick=function(){Patron_Renglones=true;EscribirArray();}
 Ext_Ptr_SaltoLinea_No.onclick=function(){Patron_Renglones=false;EscribirArray();}
+
+//------------------------------------------------Extras_EmojisSeries-----------------------------------------------------
+
+var Ext_EmojisSeries_OtroEmoji_Contador=0;
+Ext_EmojisSeries_OtroEmoji_btn.onclick=function(){
+
+	let boton=document.createElement("button")
+	let LaId="z_"+Ext_EmojisSeries_OtroEmoji_Contador;
+	boton.classList.add("morado"); 
+	boton.classList.add("mini"); 
+	boton.innerHTML=Ext_EmojisSeries_OtroEmoji.value;
+	boton.setAttribute("id",LaId);	
+	document.getElementById("contEmojis").appendChild(boton);
+	
+	document.getElementById(LaId).onclick=function(){
+		Patron_Array.push(document.getElementById(LaId).innerHTML);
+		EscribirArray();
+	}
+		
+	Ext_EmojisSeries_OtroEmoji.value="";
+	Ext_EmojisSeries_OtroEmoji_Contador++;
+	EscribirArray();
+
+}
+
+var EmojisSeries_Array_Arrays=new Array();
+var EmojisSeries_Elementos=new Array();
+
+var Ext_EmojisSeries_OtroSerie_Contador=0;
+
+Ext_EmojisSeries_OtroSerie_btn.onclick=function(){	
+	let Algo=Array.from(Ext_EmojisSeries_OtraSerie.value);	
+	let LaClase="";
+	
+	if(Algo[0]==","||Algo[0]=="$"||Algo[0]=="."){			
+		Algo.shift();
+		let otro= ArrayCreator(Algo);
+		EmojisSeries_Array_Arrays.push(otro);
+		LaClase="estaactivado"
+	}else{
+		EmojisSeries_Array_Arrays.push(Algo);
+		LaClase="botonrosa"
+	}
+
+	let LaId="btn_serie_"+Ext_EmojisSeries_OtroSerie_Contador;
+	let boton=document.createElement("button")
+	boton.classList.add(LaClase); 
+	boton.classList.add("mini"); 
+	boton.setAttribute("id",LaId);
+	boton.innerHTML=EmojisSeries_Array_Arrays[Ext_EmojisSeries_OtroSerie_Contador][0];	
+	document.getElementById("contEmojis").appendChild(boton);
+
+	let Elemento=document.getElementById(LaId)
+	EmojisSeries_Elementos.push(Elemento);
+	console.log("EmojisSeries_Elementos", EmojisSeries_Elementos);
+
+	//se agrega el onclick
+	EmojisSeries_Elementos[Ext_EmojisSeries_OtroSerie_Contador].onclick=function(){
+		Patron_Array.push(LaId);
+		EscribirArray();
+	} 
+
+	Ext_EmojisSeries_OtraSerie.value="";
+	Ext_EmojisSeries_OtroSerie_Contador++;
+	EscribirArray();
+}
+
+
+
+
+
+
+
+
 

@@ -129,90 +129,6 @@ p{
 	border-radius:0.2em;
 	border:0.1em solid white;
 }
-
-/*--------------------------------------Botones---------------------------------------*/
-.btn{
-	border:none;
-	margin: 0.2em 0.4em;
-	border-radius:0.5em;
-	padding: 0.4em 0.5em;
-	border:0.1em solid white;
-
-}
-.btn p{
-	text-align: center;
-	color:#4928A0;
-	font-size: 1.2em;
-}
-@media (max-width: 750px) { .btn p{	font-size: 1.1em;} }
-@media (max-width: 420px) { .btn p{	font-size: 1em;} } 
-@media (max-width: 320px) { .btn p{	font-size: 0.8em;} }
-
-
-.boton p{
-	text-align: center;
-	color:#4928A0;
-	font-weight: 700 ;
-}
-
-.boton:hover{
-	background-color: #EC84BB ;
-	transition-duration: 0.4s;
-}
-
-.boton:active{
-	background-color: #D13E8C;
-	transition-duration: 0.2s;	
-}
-
-.circulo{
-	height:2em;
-	width: 2em;
-	border:none;
-	border-radius: 50%;	
-	background-color: #7AC8D7;
-	overflow: hidden;
-	margin: 0.3em;
-	border:0.1em solid white;
-	color:#4928A0;
-	font-weight: 600;
-}
-
-.azul:hover{ background-color: #7AC8D7 }
-.azul { background-color: #52ACBD}
-.azul:active { background-color: #328EA0 }
-.azul p{ color:#4928A0}
-
-.botonrosa {background-color: #DF5DA2}
-.botonrosa:hover {background-color: #EC84BB}
-.botonrosa:active {background-color: #D13E8C}
-
-.morado{background-color: #7E61C9;}
-.morado:hover{transition-duration: 0.4s; background-color:#9F87DE;}
-.morado:active{transition-duration: 0.2s; background-color:#6142B1;}
-
-
-/*--------------------------------------Input Text y Texto---------------------------------------*/
-.input-text-g{
-	color: #4928A0;
-  	width: 80%;
-}
-.input-text-ch{
-  color: #4928A0;
-  width: 75%;
-}
-@media (max-width: 750px) {.input-text-ch {width: 65%;} }
-@media (max-width: 420px) {.input-text-ch {width: 60%;} }
-@media (max-width: 320px) {.input-text-ch {width: 50%;} }
-
-.TextoChiquito{
-	text-align: center;
-	color:#4928A0;
-	font-size: 0.9em;
-}
-
-
-
 /*--------------------------------------Estilos particualres---------------------------------------*/
 
 /*------los botones con emojis--------*/
@@ -292,6 +208,95 @@ p{
 @media (max-width: 1300px) {.undivtetocorazones{width: 100%;}  }
 
 @media (max-width: 870px)  {.undivtetocorazones{width: 100%;}  }
+
+
+
+
+/*--------------------------------------Botones---------------------------------------*/
+.btn{
+	border:none;
+	margin: 0.2em 0.4em;
+	border-radius:0.5em;
+	padding: 0.4em 0.5em;
+	border:0.1em solid white;
+
+}
+.btn p{
+	text-align: center;
+	color:#4928A0;
+	font-size: 1.2em;
+}
+@media (max-width: 750px) { .btn p{	font-size: 1.1em;} }
+@media (max-width: 420px) { .btn p{	font-size: 1em;} } 
+@media (max-width: 320px) { .btn p{	font-size: 0.8em;} }
+
+
+.boton p{
+	text-align: center;
+	color:#4928A0;
+	font-weight: 700 ;
+}
+
+.boton:hover{
+	background-color: #EC84BB ;
+	transition-duration: 0.4s;
+}
+
+.boton:active{
+	background-color: #D13E8C;
+	transition-duration: 0.2s;	
+}
+
+.circulo{
+	height:2em;
+	width: 2em;
+	border:none;
+	border-radius: 50%;	
+	background-color: #7AC8D7;
+	overflow: hidden;
+	margin: 0.3em;
+	border:0.1em solid white;
+	color:#4928A0;
+	font-weight: 600;
+}
+
+.azul:hover{ background-color: #7AC8D7 }
+.azul { background-color: #52ACBD}
+.azul:active { background-color: #328EA0 }
+.azul p{ color:#4928A0}
+
+.botonrosa {background-color: #DF5DA2}
+.botonrosa:hover {background-color: #EC84BB}
+.botonrosa:active {background-color: #D13E8C}
+
+.morado{background-color: #7E61C9;}
+.morado:hover{transition-duration: 0.4s; background-color:#9F87DE;}
+.morado:active{transition-duration: 0.2s; background-color:#6142B1;}
+.morado {color:#FFF4BA; text-align: center;
+}
+
+/*--------------------------------------Input Text y Texto---------------------------------------*/
+.input-text-g{
+	color: #4928A0;
+  	width: 80%;
+}
+.input-text-ch{
+  color: #4928A0;
+  width: 75%;
+}
+@media (max-width: 750px) {.input-text-ch {width: 65%;} }
+@media (max-width: 420px) {.input-text-ch {width: 60%;} }
+@media (max-width: 320px) {.input-text-ch {width: 50%;} }
+
+.TextoChiquito{
+	text-align: center;
+	color:#4928A0;
+	font-size: 0.9em;
+}
+
+
+
+
 
 /*---------------------------------------------Cosas JS--------------------------------*/
 .desaparecer{
