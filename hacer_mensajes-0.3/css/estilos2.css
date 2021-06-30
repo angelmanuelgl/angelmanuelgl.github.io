@@ -314,6 +314,14 @@ p{
 .bin2{}
 
 
+.justificadocentro{
+	text-align: center;
+}
+.justificadoizquierda{
+	text-align: left;
+}
+
+
 /*----------------------------------Media query-------------------------*/
 @media (max-width: 750px) {
 	body{

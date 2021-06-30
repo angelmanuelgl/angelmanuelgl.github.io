@@ -248,23 +248,19 @@ emoj_esp_Random.onclick=function(){EmojisEspeciales(8);}
 //---------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------Funciones Apoyo----------------------------------------------------------------------
 
-//agregegar Un elemento al final de una Array
-function Arr_AgregarFinal(){}
-
 //funcion que agrega lo que le piden a el parrafo
 function AgregarContenido(algoqueagregar){
 	var ElParrafo=document.getElementById("ElParrafo");
 	if (algoqueagregar=="br"){
 		let BR=document.createElement("br");
 		ElParrafo.appendChild(BR);
-		
 	
 	}else{
 		var contenido_para_escribir=document.createTextNode(algoqueagregar);
-			if (algoqueagregar===undefined){
-				contenido_para_escribir="xd";
-				console.log("contenido_para_escribir", contenido_para_escribir);
-			}
+		if (algoqueagregar===undefined){
+			contenido_para_escribir="xd";
+			console.log("contenido_para_escribir", contenido_para_escribir);
+		}
 		ElParrafo.appendChild(contenido_para_escribir);
 	}
 }
@@ -277,6 +273,20 @@ function  NumeroRandom(min, max) {
 function RandomArray(UnaArray){
 	return UnaArray[NumeroRandom(0, UnaArray.length)]
 }
+
+//funcion que cambia el centrado del texto
+function justificacion(nombre){
+	let ElParrafo=document.getElementById("ElParrafo");
+	if(nombre=="centro"){
+		ElParrafo.classList.remove("justificadoizquierda");
+		ElParrafo.classList.add("justificadocentro");
+
+	}else{
+		ElParrafo.classList.remove("justificadocentro");
+		ElParrafo.classList.add("justificadoizquierda");
+	}
+}
+
 
 //revision de Palabras Claves------------------------------------------------------
 function RevisarPalabrasClaves(algoquerevisar,posicion){
@@ -313,8 +323,8 @@ function RevisarPalabrasClaves(algoquerevisar,posicion){
 	}
 
 	return LoQueRegresa;
-}//--------------------------------------------------------------------------------
-
+}
+//--------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------Array de Emojis----------------------------------------------------------------------
@@ -359,8 +369,56 @@ var Arr_Flores=ArrayCreator(Emojis_Flores);
 var Arr_Estrellas=Emojis_Estrellas;
 var Arr_Cora_Rojos=Emojis_Corazones_Rojos;
 var Arr_Cora_Colores=Emojis_Corazones_Colores;
+//------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------Textos Basico nivel0----------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
+//funcion de los textos
+var Textos_Array=new Array("si","prueba","dos","pan");
+var nivel0_contador=0;
 
+nivel0_Anterior.onclick=function(){nivel0_contador--;nivel0_actualizar();}
+nivel0_Siguiente.onclick=function(){nivel0_contador++;nivel0_actualizar();}
+
+nivel0_Borrar.onclick=function(){
+	Textos_Array[nivel0_contador]="";
+	nivel0_contador++;
+	nivel0_actualizar()
+}
+nivel0_BorrarTodos.onclick=function(){Textos_Array=new Array();nivel0_actualizar();}
+
+nivel0_Primero.onclick=function(){nivel0_contador=0;nivel0_actualizar();}
+nivel0_Final.onclick=function(){nivel0_contador=Patron_CantidadElementos-1;nivel0_actualizar();}
+
+
+
+nivel0_Texto_btn.onclick=function(){
+	Textos_Array[nivel0_contador]=nivel0_Texto.value;
+	nivel0_contador++;
+	nivel0_actualizar()
+}
+
+
+
+function nivel0_actualizar(){
+	console.log("nivel0_contador", nivel0_contador);
+	while(Patron_CantidadElementos<=nivel0_contador){
+		nivel0_contador=nivel0_contador-Patron_CantidadElementos;
+		
+	}
+	while(nivel0_contador<0){
+		nivel0_contador=nivel0_contador+Patron_CantidadElementos;
+		
+	}
+	console.log("nivel0_contador", nivel0_contador);
+	nivel0_LaPosicion.innerHTML=nivel0_contador+1+" de "+Patron_CantidadElementos;
+	console.log(Textos_Array[nivel0_contador]);
+	EscribirArray();
+}
+
+
+//------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------Patron Emojis----------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
 //varibles 
 var Patron_Array=new Array();
 var Patron_Direccion="normal";
@@ -375,6 +433,7 @@ function Mover_Patron_Array(direccion){
 	  		Patron_Array[i]=Patron_Array[i+1]; 
 		}
 		Patron_Array[Patron_Array.length-1]=aux;
+	
 	}else if (Patron_Direccion=="derecha"){
 		let aux=Patron_Array[Patron_Array.length-1];
 		for (var i =Patron_Array.length-1; i >0; i--) {
@@ -396,15 +455,23 @@ function HacerCadena_Patron_Array(posicion){
 	return UnaCadena;
 }
 
-//escribir array varias veces dependiendo del patron--ESTA ES LA BUENA
+//ES LA QUE INICIA TODO/////////////////////////////////////////////////////////
 function EscribirArray(){
-	document.getElementById("ElParrafo").innerHTML="";;
+	justificacion("izq");	
+	document.getElementById("ElParrafo").innerHTML="";
+
 	var Repuesto_Patron_Array=new Array().concat(Patron_Array);
 	
-	for ( var contador=0; contador <= Patron_CantidadElementos; contador++) {
+	for ( var contador=0; contador < Patron_CantidadElementos; contador++) {
 		
-		let EsCadena= HacerCadena_Patron_Array(contador)	
-		AgregarContenido(EsCadena);
+		let EsCadena= HacerCadena_Patron_Array(contador);
+		let OtraCadena=Textos_Array[contador];
+		if(OtraCadena===undefined){
+			OtraCadena="";
+		}
+
+		let CadenaEscribir=EsCadena+OtraCadena	
+		AgregarContenido(CadenaEscribir);
 
 		if(Patron_Direccion=="derecha"){			
 			Mover_Patron_Array("derecha"); 
@@ -419,7 +486,7 @@ function EscribirArray(){
 
 	
 	Patron_Array=Repuesto_Patron_Array;
-}
+}////////////////////////////////////////////////////////////////////////
 
 //funcion de los botones de emojis /-/--/-/
 function AgregarEmoji(NumArray,NumPos){
@@ -433,8 +500,7 @@ function AgregarEmoji(NumArray,NumPos){
 	if(NumArray==7){AlgunaArray=Emojis_Corazones_Rosas;}
 	if(NumArray==8){AlgunaArray=Emojis_Corazones_Otros;}
 
-	Patron_Array.push(AlgunaArray[NumPos]);
-	
+	Patron_Array.push(AlgunaArray[NumPos]);	
 	EscribirArray();
 }
 function EmojisEspeciales(num){
@@ -452,14 +518,6 @@ function EmojisEspeciales(num){
 }
 
 
-
-
-//funcion de los textos
- var Textos_Array=new Array();
-function AgregarTexto(){
-
-
-}
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //------------------------------------------------Extras_PatronCorazones-----------------------------------------------------
@@ -484,8 +542,14 @@ Ext_Ptr_Borrar .onclick=function(){
 Ext_Ptr_SaltoLinea_Si.onclick=function(){Patron_Renglones=true;EscribirArray();}
 Ext_Ptr_SaltoLinea_No.onclick=function(){Patron_Renglones=false;EscribirArray();}
 
-//------------------------------------------------Extras_EmojisSeries-----------------------------------------------------
 
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//------------------------------------------------Extras_EmojisSeries-----------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+
+//emoji nuevo
 var Ext_EmojisSeries_OtroEmoji_Contador=0;
 Ext_EmojisSeries_OtroEmoji_btn.onclick=function(){
 
@@ -500,14 +564,13 @@ Ext_EmojisSeries_OtroEmoji_btn.onclick=function(){
 	document.getElementById(LaId).onclick=function(){
 		Patron_Array.push(document.getElementById(LaId).innerHTML);
 		EscribirArray();
-	}
-		
+	}		
 	Ext_EmojisSeries_OtroEmoji.value="";
 	Ext_EmojisSeries_OtroEmoji_Contador++;
 	EscribirArray();
 
 }
-
+//emoji especial nuevo
 var EmojisSeries_Array_Arrays=new Array();
 var EmojisSeries_Elementos=new Array();
 
