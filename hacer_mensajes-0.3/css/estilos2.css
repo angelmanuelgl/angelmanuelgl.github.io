@@ -177,6 +177,7 @@ p{
 #contprincipal{
 	min-height: 500px;
 	max-height: none;
+	padding: 0em 1em
 
 }
 
@@ -184,7 +185,7 @@ p{
 .textoparrafo{
 	background-color: #52ACBD;
 	min-width: 220px;
-	width: 40%;
+	width: 30%;
 	padding: 0.8em 0.0em;
 	margin: 0.2em 0em;
 	border-radius: 1.2em;

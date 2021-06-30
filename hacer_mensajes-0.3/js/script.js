@@ -1,111 +1,6 @@
-
-
-
-
-// -----------------------------------MENU DESPLEGABLE------------------------------------------------
-
-//botones que despliegan
-var nivel1_Dias=document.getElementById("nivel1_Dias");
-var nivel1_Noches =document.getElementById("nivel1_Noches");
-var nivel1_Ojala=document.getElementById("nivel1_Ojala");
-var nivel1_Alagos=document.getElementById("nivel1_Alagos");
-var nivel1_Extras=document.getElementById("nivel1_Extras");
-
-//div de los nivel 2
-var nivel2_Dias=document.getElementById("nivel2_Dias");
-var nivel2_Noches=document.getElementById("nivel2_Noches");
-var nivel2_Ojala=document.getElementById("nivel2_Ojala");
-var nivel2_Alagos=document.getElementById("nivel2_Alagos");
-var nivel2_Extras=document.getElementById("nivel2_Extras");
-
-//div de los del nivel 3
-var nivel3_Dias_Ojala=document.getElementById("nivel3_Dias_Ojala");
-var nivel3_Dias_OjalaHot=document.getElementById("nivel3_Dias_OjalaHot");
-var nivel3_Noches_Ojala=document.getElementById("nivel3_Noches_Ojala");
-var nivel3_Noches_OjalaHot=document.getElementById("nivel3_Noches_OjalaHot");
-var nivel3_Ojala_Wonitos=document.getElementById("nivel3_Ojala_Wonitos");
-var nivel3_Ojala_Hot=document.getElementById("nivel3_Ojala_Hot");
-var nivel3_Alagos_Wonitos=document.getElementById("nivel3_Alagos_Wonitos");
-var nivel3_Alagos_Hot=document.getElementById("nivel3_Alagos_Hot");
-var nivel3_Extras_PatronCorazones=document.getElementById("nivel3_Extras_PatronCorazones");
-var nivel3_Extras_CorazonCorazones=document.getElementById("nivel3_Extras_CorazonCorazones");
-var nivel3_Extras_TextoCorazones=document.getElementById("nivel3_Extras_TextoCorazones");
-var nivel3_Extras_EmojisSeries=document.getElementById("nivel3_Extras_EmojisSeries");
-
-//botones que llaman 
-var nivel2_Dias_Ojala=document.getElementById("nivel2_Dias_Ojala");
-var nivel2_Dias_OjalaHot=document.getElementById("nivel2_Dias_OjalaHot");
-var nivel2_Noches_Ojala=document.getElementById("nivel2_Noches_Ojala");
-var nivel2_Noches_OjalaHot=document.getElementById("nivel2_Noches_OjalaHot");
-var nivel2_Ojala_Wonitos=document.getElementById("nivel2_Ojala_Wonitos");
-var nivel2_Ojala_Hot=document.getElementById("nivel2_Ojala_Hot");
-var nivel2_Alagos_Wonitos=document.getElementById("nivel2_Alagos_Wonitos");
-var nivel2_Alagos_Hot=document.getElementById("nivel2_Alagos_Hot");
-var nivel2_Extras_PatronCorazones=document.getElementById("nivel2_Extras_PatronCorazones");
-var nivel2_Extras_CorazonCorazones=document.getElementById("nivel2_Extras_CorazonCorazones");
-var nivel2_Extras_TextoCorazones=document.getElementById("nivel2_Extras_TextoCorazones");
-var nivel2_Extras_EmojisSeries=document.getElementById("nivel2_Extras_EmojisSeries");
-
-
-//funcion que hace que desaparezcan todos los que excepto el que le piden
-function HacerQueDesaparezca(elemento,lin){	
-	//crea una especie de array llamada elementos que contiene todos los elementos con la clase lin
-	let elementos=document.getElementsByClassName(lin);
-	// a cada elemento de la array le agrega la clase desapercer
-	for (let i = 0; i < elementos.length; i++) {
-		elementos[i].classList.add("desaparecer");
-	}	
-	
-	//este if es porque si es lin2 tambien quiero que se quite lin 3 (nota:pero no viseversa)
-	if(lin=="lin2"){
-		let elementos=document.getElementsByClassName("lin3");
-		for (let i = 0; i < elementos.length; i++) {
-			elementos[i].classList.add("desaparecer");
-		}
-	}
-	//le quita la clase desaparecer al elemento que le pases como parametro
-	elemento.classList.remove("desaparecer");
-}
-
-//funcion que "desactiva" a todos y "activa" el que le piden
-function ActivarColorBoton(elemento,lin){
-	let elementos=document.getElementsByClassName(lin);
-	for (let i = 0; i < elementos.length; i++) {
-		elementos[i].classList.remove("estaactivado");
-	}	
-	elemento.classList.add("estaactivado");
-}
-
-//funcion que sirve de apoyo para las llamadas ya que esta es llamada por los botons que despliegan
-function DesapareceYColor(elemento1,lin1,elemento2,lin2){
-	HacerQueDesaparezca(elemento1,lin1);
-	ActivarColorBoton(elemento2,lin2);
-}
-
-//los botones hacen sus llamadas
-nivel1_Dias.onclick=function(){DesapareceYColor(nivel2_Dias,"lin2",this,"boton");}
-nivel1_Noches.onclick=function(){DesapareceYColor(nivel2_Noches,"lin2",this,"boton");}
-nivel1_Ojala.onclick=function(){DesapareceYColor(nivel2_Ojala,"lin2",this,"boton");}
-nivel1_Alagos.onclick=function(){DesapareceYColor(nivel2_Alagos,"lin2",this,"boton");}
-nivel1_Extras.onclick=function(){DesapareceYColor(nivel2_Extras,"lin2",this,"boton");}
-
-nivel2_Dias_Ojala.onclick=function(){DesapareceYColor(nivel3_Dias_Ojala,"lin3",this,"bin2");}
-nivel2_Dias_OjalaHot.onclick=function(){DesapareceYColor(nivel3_Dias_OjalaHot,"lin3",this,"bin2");}
-nivel2_Noches_Ojala.onclick=function(){DesapareceYColor(nivel3_Noches_Ojala,"lin3",this,"bin2");}
-nivel2_Noches_OjalaHot.onclick=function(){DesapareceYColor(nivel3_Noches_OjalaHot,"lin3",this,"bin2");}
-nivel2_Ojala_Wonitos.onclick=function(){DesapareceYColor(nivel3_Ojala_Wonitos,"lin3",this,"bin2");}
-nivel2_Ojala_Hot.onclick=function(){DesapareceYColor(nivel3_Ojala_Hot,"lin3",this,"bin2");}
-nivel2_Alagos_Wonitos.onclick=function(){DesapareceYColor(nivel3_Alagos_Wonitos,"lin3",this,"bin2");}
-nivel2_Alagos_Hot.onclick=function(){DesapareceYColor(nivel3_Alagos_Hot,"lin3",this,"bin2");}
-nivel2_Extras_PatronCorazones.onclick=function(){DesapareceYColor(nivel3_Extras_PatronCorazones,"lin3",this,"bin2");}
-nivel2_Extras_CorazonCorazones.onclick=function(){DesapareceYColor(nivel3_Extras_CorazonCorazones,"lin3",this,"bin2");}
-nivel2_Extras_TextoCorazones.onclick=function(){DesapareceYColor(nivel3_Extras_TextoCorazones,"lin3",this,"bin2");}
-nivel2_Extras_EmojisSeries.onclick=function(){DesapareceYColor(nivel3_Extras_EmojisSeries,"lin3",this,"bin2");}
-
 //---------------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------Variables----------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------Nivel0-----------------------------------------------------
@@ -119,8 +14,9 @@ var nivel0_Final=document.getElementById("nivel0_Final");
 var nivel0_Texto=document.getElementById("nivel0_Texto");
 var nivel0_Texto_btn=document.getElementById("nivel0_Texto_btn");
 var nivel0_LaPosicion=document.getElementById("nivel0_LaPosicion");
-
-
+var nivel0_Clave=document.getElementById("nivel0_Clave");
+var nivel0_Clave_btn=document.getElementById("nivel0_Clave_btn");
+nivel0_Clave.value="";
 //------------------------------------------------Extras_EmojisSeries-----------------------------------------------------
 
 var Ext_EmojisSeries_OtroEmoji=document.getElementById("Ext_EmojisSeries_OtroEmoji");
@@ -198,7 +94,7 @@ var nivel3_Noches_OjalaHot_Besarnos =document.getElementById("nivel3_Noches_Ojal
 var nivel3_Noches_OjalaHot_Manosearnos =document.getElementById("nivel3_Noches_OjalaHot_Manosearnos");
 var nivel3_Noches_OjalaHot_Hacerlo =document.getElementById("nivel3_Noches_OjalaHot_Hacerlo");
 
-//-----------------------------------Dias Y Noche------------------------------------------------
+//-----------------------------------Ojala------------------------------------------------
 var nivel2_Ojala_Futuro =document.getElementById("nivel2_Ojala_Futuro");
  
 var nivel3_Ojala_Wonitos_Besarnos =document.getElementById("nivel3_Ojala_Wonitos_Besarnos");
@@ -245,8 +141,9 @@ emoj_esp_Random.onclick=function(){EmojisEspeciales(8);}
 
 //---------------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------Funciones Apoyo----------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------
+
 
 //funcion que agrega lo que le piden a el parrafo
 function AgregarContenido(algoqueagregar){
@@ -324,10 +221,12 @@ function RevisarPalabrasClaves(algoquerevisar,posicion){
 
 	return LoQueRegresa;
 }
-//--------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------Array de Emojis----------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+
+
 //funcion que me crea las array que quiero
 function ArrayCreator(UnaArray){
 	let UnaArrayDePaso=new Array();
@@ -369,22 +268,33 @@ var Arr_Flores=ArrayCreator(Emojis_Flores);
 var Arr_Estrellas=Emojis_Estrellas;
 var Arr_Cora_Rojos=Emojis_Corazones_Rojos;
 var Arr_Cora_Colores=Emojis_Corazones_Colores;
+
+
 //------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------Textos Basico nivel0----------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------
-//funcion de los textos
-var Textos_Array=new Array("si","prueba","dos","pan");
+//variables
+var Textos_Array=new Array();
 var nivel0_contador=0;
+var Textos_Codigo_Array=new Array();
 
+//funciones de los botones
 nivel0_Anterior.onclick=function(){nivel0_contador--;nivel0_actualizar();}
 nivel0_Siguiente.onclick=function(){nivel0_contador++;nivel0_actualizar();}
 
 nivel0_Borrar.onclick=function(){
 	Textos_Array[nivel0_contador]="";
+	Textos_Codigo_Array[nivel0_contador]="0";
 	nivel0_contador++;
 	nivel0_actualizar()
 }
-nivel0_BorrarTodos.onclick=function(){Textos_Array=new Array();nivel0_actualizar();}
+
+nivel0_BorrarTodos.onclick=function(){
+	Textos_Array=new Array();
+	Textos_Codigo_Array=new Array();
+	nivel0_contador=1;
+	nivel0_actualizar();
+}
 
 nivel0_Primero.onclick=function(){nivel0_contador=0;nivel0_actualizar();}
 nivel0_Final.onclick=function(){nivel0_contador=Patron_CantidadElementos-1;nivel0_actualizar();}
@@ -393,27 +303,78 @@ nivel0_Final.onclick=function(){nivel0_contador=Patron_CantidadElementos-1;nivel
 
 nivel0_Texto_btn.onclick=function(){
 	Textos_Array[nivel0_contador]=nivel0_Texto.value;
+	//si ya estamos en la ultima linea quiero que me agreges otra line
+	if(nivel0_contador==Patron_CantidadElementos-1){
+		Patron_CantidadElementos++;
+	}
+
+	Textos_Codigo_Array[nivel0_contador]="0";
 	nivel0_contador++;
-	nivel0_actualizar()
+	nivel0_actualizar();
 }
 
 
-
+//la funcion que da inicio
 function nivel0_actualizar(){
-	console.log("nivel0_contador", nivel0_contador);
+	console.log("Textos_Codigo_Array", Textos_Codigo_Array);
+	console.log("Textos_Array", Textos_Array);
+	
+	
+	//hacer que el contador sea ciclico
 	while(Patron_CantidadElementos<=nivel0_contador){
 		nivel0_contador=nivel0_contador-Patron_CantidadElementos;
-		
 	}
 	while(nivel0_contador<0){
 		nivel0_contador=nivel0_contador+Patron_CantidadElementos;
-		
 	}
-	console.log("nivel0_contador", nivel0_contador);
+	//si la Array Codigo Tiene Espacios Vacios los vuelve espacios ""
+	for (let i =0; i < Patron_CantidadElementos; i++) {
+		if(Textos_Codigo_Array[i]===undefined||Textos_Codigo_Array[i]===""){
+			Textos_Codigo_Array[i]="0";
+		}
+	}
+
+	//me pone la array de codigo en codigo
+	var nivel0_UnaCadena="";
+	for (let i =0 ; i <=Textos_Codigo_Array.length-1; i++) {	
+		let AgregarCadena=Textos_Codigo_Array[i];
+		nivel0_UnaCadena=nivel0_UnaCadena+AgregarCadena;
+	
+	}
+	nivel0_Clave.value=nivel0_UnaCadena;
+
+	//la array de codigo lo pasa a la array detexto
+		console.log("Textos_Codigo_Array-1", Textos_Codigo_Array.length-1);
+
+	for (let i =0; i < Textos_Codigo_Array.length-1; i++) {
+		let bolini=(Textos_Codigo_Array[i]=="0")
+		console.log("bolini", bolini);
+		if(!bolini){
+			console.log("sisisi");
+			Textos_Array[i]=nivel0_revision_codigo(Textos_Codigo_Array[i]);
+		}
+	}
+
+
+	//me escribe la posicion en que estoy y ya inicia
 	nivel0_LaPosicion.innerHTML=nivel0_contador+1+" de "+Patron_CantidadElementos;
-	console.log(Textos_Array[nivel0_contador]);
+	
+	console.log("Textos_Codigo_Array", Textos_Codigo_Array);
 	EscribirArray();
 }
+
+//la funcion que me pasa de codigo a array
+var nivel0_Clave=document.getElementById("nivel0_Clave");
+
+nivel0_Clave_btn.onclick=function(){
+	
+	Textos_Codigo_Array=Array.from(nivel0_Clave.value);
+
+	nivel0_revision_codigo();
+
+}
+
+
 
 
 //------------------------------------------------------------------------------------------------------------------------
@@ -519,17 +480,28 @@ function EmojisEspeciales(num){
 
 
 //-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
 //------------------------------------------------Extras_PatronCorazones-----------------------------------------------------
-//-----------------
+//-----------------------------------------------------------------------------------------------------
+
 Ext_Ptr_Direc_Normal .onclick=function(){Patron_Direccion="normal";EscribirArray();}
 Ext_Ptr_Direc_Derecha .onclick=function(){Patron_Direccion="derecha";EscribirArray();}
 Ext_Ptr_Direc_Izquierda .onclick=function(){Patron_Direccion="izquierda";EscribirArray();}
 
 
 Ext_Ptr_CantidadElementos_btn .onclick=function(){
-	Patron_CantidadElementos=parseInt(Ext_Ptr_CantidadElementos.value)-1;
-	EscribirArray();
+	if(999<Ext_Ptr_CantidadElementos.value){
+		Ext_Ptr_CantidadElementos.value=999;		
+	}
+	if(Ext_Ptr_CantidadElementos.value<=0){
+		Ext_Ptr_CantidadElementos.value=10;		
+	}
+	if(isNaN(Ext_Ptr_CantidadElementos.value) ){
+		Ext_Ptr_CantidadElementos.value=10;
+		console.log("no es numero");
+	}		
+	
+	Patron_CantidadElementos=parseInt(Ext_Ptr_CantidadElementos.value);
+	nivel0_actualizar();
 }
 
 Ext_Ptr_Retroseso .onclick=function(){
@@ -543,8 +515,6 @@ Ext_Ptr_SaltoLinea_Si.onclick=function(){Patron_Renglones=true;EscribirArray();}
 Ext_Ptr_SaltoLinea_No.onclick=function(){Patron_Renglones=false;EscribirArray();}
 
 
-//-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //------------------------------------------------Extras_EmojisSeries-----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
@@ -614,10 +584,98 @@ Ext_EmojisSeries_OtroSerie_btn.onclick=function(){
 }
 
 
+//-----------------------------------------------------------------------------------------------------
+//------------------------------------------------Mas Texto-----------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+
+//funcion que revisa a quien estan llamando los
+
+function nivel0_revision_codigo(revisame){
+	var Algo=""
+	switch (revisame) {
+		case '0': 
+		Algo="algoandamal"
+
+		break;
+		case '1': 
+		Algo="buenos dias amorcito"
+
+
+		break;
+		case '2': 
+		Algo="buenos dias mi novia chichona";
+
+
+		break;
+		case '3': 
+		Algo="ojala pudieera llenarte de muchos besitos al despertar";
+
+
+		break;
+		case '4': 
+		Algo="ojala pudieramos estar abrazaditos en la camita todo el dia";
+
+
+		break;										
+		case '5':
+		Algo="ojala pudieramos estar juntitos todo el dia";
+		
+		break;
+		case '6': 
+		Algo="ojala pudieramos dormir hasta tarde"
+
+		break;
+		case '7': 
+		Algo="me encataria despertarte con muchos besitos"
+
+
+		break;
+		case '8': 
+		Algo="ojala pudiera llenar toido tu cuerpo de besos al despertar";
+
+
+		break;
+		case '9': 
+		Algo="ojala pudieramos manosearnos al despertarnos";
+
+
+		break;
+		case 'A': 
+		Algo="ojala pudieramos hacerlo todas las mañanas";
+
+
+		break;										
+		case 'B':
+		Algo="ojala pudieramos estar juntitos todo el dia";
 
 
 
+		default:
+		Algo="buenas noches mi Karensita";
+		}
+	return Algo;
+}
+//funcion para facilitar la llamadas
+function Text_Llama(codigo){
+	Textos_Codigo_Array[nivel0_contador]=codigo;
+	
+	//si ya estamos en la ultima linea quiero que me agreges otra line
+	if(nivel0_contador==Patron_CantidadElementos-1){
+		Patron_CantidadElementos++;
+	}
+
+	nivel0_contador++;
+	nivel0_actualizar();
+}
 
 
-
-
+nivel2_Dias_BuenosDias.onclick=function(){Text_Llama("1")}
+nivel2_Dias_BuenosDiasHot.onclick=function(){Text_Llama("2")}
+nivel3_Dias_Ojala_Besarnos.onclick=function(){Text_Llama("3")}
+nivel3_Dias_Ojala_Abrazarnos.onclick=function(){Text_Llama("4")}
+nivel3_Dias_Ojala_EstarJuntos.onclick=function(){Text_Llama("5")}
+nivel3_Dias_Ojala_Dormir.onclick=function(){Text_Llama("6")}
+nivel3_Dias_Ojala_Despertarte.onclick=function(){Text_Llama("7")}
+nivel3_Dias_OjalaHot_Besarnos.onclick=function(){Text_Llama("8")}
+nivel3_Dias_OjalaHot_Manosearnos.onclick=function(){Text_Llama("9")}
+nivel3_Dias_OjalaHot_Hacerlo.onclick=function(){Text_Llama("A")}
