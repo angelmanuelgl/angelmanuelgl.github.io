@@ -580,73 +580,107 @@ Ext_EmojisSeries_OtroSerie_btn.onclick=function(){
 //------------------------------------------------Array ORACIONES-----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 var Apodos_Norm_ConAdj=new Array("crush","niña","novia","Karensita","Karenchita");
-var Apodos_Norm_SinAdj=new Array("futura esposa","solecito","corazoncio","amor","amorcito","amor de mi vida","todo","cielo","bomboncito","corazon");
+var Apodos_Norm_SinAdj=new Array("futura esposa","solecito","corazon","amor","amor de mi vida","todo","cielo","bomboncito");
 var Apodos_Norm_ConAdj_c=new Array().concat(Apodos_Norm_ConAdj);
 var Apodos_Norm_SinAdj_c=new Array().concat(Apodos_Norm_SinAdj);
+var Apodos_Norm_Adj=new Array("hermosa","preciosa");
+
 
 //-----------------------------------------------------------------------------------------------------
-//------------------------------------------------FORMAR ORACIONES-----------------------------------------------------
+//-------------------------------------------FORMAR ORACIONES APOYOS DE APOYOS-----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
+
+//funcion que le pass una array con opciones y ella elije por ti "exponencialmente"
+
+function ElegirLog2(UnaArray){
+	//si su posicion es mas cercana a 0 es mas probable,
+	//mientras su posicion es mas cercana a .lenght es menos probable
+	let Total=(2**UnaArray.length);
+	var ParaRegresar="";
+	let UnNum=NumeroRandom(1,Total);
+	
+	for (let i = 0; i < UnaArray.length; i++) {
+		let LaPotencia=2**i;		
+		if(LaPotencia<=UnNum){
+			ParaRegresar=UnaArray[UnaArray.length-1-i];
+		}
+	}
+	return ParaRegresar;
+}
+
+
 //funcion que hace sisisisisisima
 function sisisis(algo){
-	
-	console.log("algo", algo);
 	//algo debe ser una string
 	let iniciocadena=algo.slice(0,-1);//desde el principio hasta antes del -1
 	let fincadena=algo.slice(-1);//cuando se omite el segundo valor es hasta el final
 	let isipisi="xd"
 	var regresame=regresame=iniciocadena+isipisi+fincadena;
 	
-	let unnum=NumeroRandom(1, 64);
-	if(32<=unnum){
-		isipisi="";
-	}else if (16<=unnum) {
-		isipisi="isím"	
-	}else if (8<=unnum) {
-		isipisi="isisim"			
-	}else if(4<=unnum){
-		isipisi="isisisim"		
-	}else if(2<=unnum){
-		isipisi="isisisisim"
-	}else{
-		isipisi="isisisisisim"
-	}
+	let ArrayDeSiS=new Array("","isím","isisim","isisisim", "isisisisim", "isisisisisim");
+	isipisi=ElegirLog2(ArrayDeSiS);
+	
 	regresame=iniciocadena+isipisi+fincadena;
-	console.log("regresame", regresame);
-
+	return regresame;
 }
-sisisis("mucho");
-sisisis("linda");
-sisisis("preciosa");
-sisisis("chula");
-sisisis("lindo");
+//funcion que hace terminacion en cito
+function cito(UnaString){
+	let Regresame=UnaString;
+	if(UnaString=="amor"||UnaString=="corazon"||UnaString=="beso"){
+		let UnNum=NumeroRandom(0,2);
+		if(UnNum==0){
+		 	Regresame=UnaString+"cito";
+		}
+	}
+	return Regresame;
+}
+
+
+//-----------------------------------------------------------------------------------------------------
+//-------------------------------------------FORMAR ORACIONES APOYOS-----------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 
 //funcion que da apodos normales
 function ApodosNormales(){
-	var Regresame="amor";
+	var Regresame="mi amor";
 	//si las arrays estan vacias me las recreas plox
 	if(Apodos_Norm_ConAdj.length==0 && Apodos_Norm_SinAdj.length==0){
 		Apodos_Norm_ConAdj=new Array().concat(Apodos_Norm_ConAdj_c);
 		Apodos_Norm_SinAdj=new Array().concat(Apodos_Norm_SinAdj_c);
 	}
 
-	//elejeir si llevara o no llevara apodo
+	//elejeir si llevara o no llevara adejtivo------
 	let unnum=NumeroRandom(1, Apodos_Norm_ConAdj.length + Apodos_Norm_SinAdj.length+1);	
-	if(unnum<=Apodos_Norm_ConAdj.length){//con adjetivos
-		Regresame=RandomArrayBorrar(Apodos_Norm_ConAdj);
+	
+	if(unnum<=Apodos_Norm_ConAdj.length){ //----con adjetivos---
+		let UnApodo=RandomArrayBorrar(Apodos_Norm_ConAdj);
+		let UnAdj=sisisis(RandomArray(Apodos_Norm_Adj));
+		Regresame="mi "+UnApodo+" "+UnAdj;
 
-	}else if(unnum>Apodos_Norm_ConAdj.length){//sin adjetivos
-		Regresame=RandomArrayBorrar(Apodos_Norm_SinAdj);
+	}else if(unnum>Apodos_Norm_ConAdj.length){//-----sin adjetivos---
+		let UnApodo=RandomArrayBorrar(Apodos_Norm_SinAdj);
+		let ElAPodo=cito(UnApodo);
 
+		Regresame="mi "+ElAPodo;
 	}
-
+	
 	console.log("Regresame", Regresame);
-
 	return Regresame;
 }
+
+
+
 for (var i = 1; i <=0; i++) {
 	ApodosNormales();
 }
+
+//-----------------------------------------------------------------------------------------------------
+//-------------------------------------------FORMAR ORACIONES -----------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+
+
+
+
 //-----------------------------------------------------------------------------------------------------
 //------------------------------------------------lA REVISION-----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
@@ -711,109 +745,132 @@ function nivel0_revision_codigo(revisame){
 		case 'B'://--------------------------------------------------------
 		Algo="ojala pudieramos estar juntitos todo el dia";
 
+
 		Algo="";
 		break;
 		case 'C': //--------------------------------------------------------  
+
 
 		Algo="";
 		break;
 		case 'D': //--------------------------------------------------------  
 
+
 		Algo="";
 		break;
 		case 'E': //--------------------------------------------------------  
+
 
 		Algo="";
 		break;
 		case 'F': //--------------------------------------------------------  
 
+
 		Algo="";
 		break;
 		case 'G': //--------------------------------------------------------  
+
 
 		Algo="";
 		break;
 		case 'H': //--------------------------------------------------------  
 
+
 		Algo="";
 		break;
 		case 'I': //--------------------------------------------------------  
+
 
 		Algo="";
 		break;
 		case 'J': //--------------------------------------------------------  
 
+
 		Algo="";
 		break;
 		case 'K': //--------------------------------------------------------  
+
 
 		Algo="";
 		break;
 		case 'L': //--------------------------------------------------------  
 
+
 		Algo="";
 		break;
 		case 'N': //--------------------------------------------------------  
+
 
 		Algo="";
 		break;
 		case 'Ñ': //--------------------------------------------------------  
 
+
 		Algo="";
 		break;
 		case 'O': //--------------------------------------------------------  
+
 
 		Algo="";
 		break;
 		case 'P': //--------------------------------------------------------  
 
+
 		Algo="";
 		break;
 		case 'Q': //--------------------------------------------------------  
+
 
 		Algo="";
 		break;
 		case 'R': //--------------------------------------------------------  
 
+
 		Algo="";
 		break;
 		case 'S': //--------------------------------------------------------  
+
 
 		Algo="";
 		break;
 		case 'T': //--------Alagos_Teamo------------------------------------------------  
 
+
 		Algo="";
 		break;
 		case 'U': //--------Alagos_Wonitos_EstasBien------------------------------------------------  
 
+
 		Algo="";
 		break;
-
 		case 'V': //--------Alagos_Wonitos_Eres------------------------------------------------  
 
-		Algo="";
-		break;
-		case 'W': //-------Alagos_Wonitos_MeEncantaTu-------------------------------------------------  
 
 		Algo="";
+		break;
+		case 'w': //-------Alagos_Wonitos_MeEncantaTu-------------------------------------------------  
+
+
+		Algo=ApodosNormales();
 		break;
 		case 'X': //--------Alagos_Hot_Estas------------------------------------------------  
 
-		Algo="";
-		break;
 
-		default:
+		Algo=ApodosNormales();
+		break;
 		case 'Y': //--------Alagos_Hot_MeEncantaQueSeas------------------------------------------------  
 
 
+		Algo=ApodosNormales();
 		break;
 		case 'Z': //--------Alagos_Hot_MeEncantaTu------------------------------------------------  
 
 
+		Algo=ApodosNormales();
 		break;
-		Algo=",";
+		default://--------Defaul------------------------------------------------  
 		
+		Algo=" ";
 		}
 	return Algo;
 }
