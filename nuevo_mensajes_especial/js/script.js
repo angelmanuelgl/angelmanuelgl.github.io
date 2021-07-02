@@ -585,6 +585,12 @@ var Apodos_Norm_ConAdj_c=new Array().concat(Apodos_Norm_ConAdj);
 var Apodos_Norm_SinAdj_c=new Array().concat(Apodos_Norm_SinAdj);
 var Apodos_Norm_Adj=new Array("hermosa","preciosa");
 
+var Apodos_Hot=new Array("chica","novia","niña");
+var Apodos_Hot_copi=new Array().concat(Apodos_Hot);
+var Apodos_Hot_Adjetivos=new Array("nalgona","tetona","chichona","sabrosa","rica","culona","sexy","hot","horny","pervertida","caliente","delciosa","exquisita","mala");
+var Apodos_Hot_Adjetivos_copi=new Array().concat(Apodos_Hot_Adjetivos);
+
+
 
 //-----------------------------------------------------------------------------------------------------
 //-------------------------------------------FORMAR ORACIONES APOYOS DE APOYOS-----------------------------------------------------
@@ -614,15 +620,26 @@ function sisisis(algo){
 	//algo debe ser una string
 	let iniciocadena=algo.slice(0,-1);//desde el principio hasta antes del -1
 	let fincadena=algo.slice(-1);//cuando se omite el segundo valor es hasta el final
+	let UltimaLetra=iniciocadena.slice(-1);
 	let isipisi="xd"
 	var regresame=regresame=iniciocadena+isipisi+fincadena;
 	
 	let ArrayDeSiS=new Array("","isím","isisim","isisisim", "isisisisim", "isisisisisim");
 	isipisi=ElegirLog2(ArrayDeSiS);
 	
+
+	//lo que pasa si termina en r por ejemplo rica ->riquisima   que lleva qu el lugar de c
+	if(UltimaLetra=="c" && isipisi!=""){
+		let principiocadena=iniciocadena.slice(0,-1);
+		iniciocadena=principiocadena+"qu"
+	}
+	
+
 	regresame=iniciocadena+isipisi+fincadena;
 	return regresame;
 }
+
+
 //funcion que hace terminacion en cito
 function cito(UnaString){
 	let Regresame=UnaString;
@@ -634,7 +651,6 @@ function cito(UnaString){
 	}
 	return Regresame;
 }
-
 
 //-----------------------------------------------------------------------------------------------------
 //-------------------------------------------FORMAR ORACIONES APOYOS-----------------------------------------------------
@@ -668,10 +684,32 @@ function ApodosNormales(){
 	return Regresame;
 }
 
+//funcion que me da los apodos hot
+function ApodosHot(){
+	var Regresame="mi novia pervertida";
+	//si las arrays estan vacias me las recreas plox
+	// Apodos_Hot=RecrearArray(Apodos_Hot,Apodos_Hot_copi);
+	// Apodos_Hot_Adjetivos=RecrearArray(Apodos_Hot_Adjetivos,Apodos_Hot_Adjetivos_copi);
+	if(Apodos_Hot.length==0){
+		Apodos_Hot=new Array().concat(Apodos_Hot_copi);
+	}
+	if(Apodos_Hot_Adjetivos.length==0){
+		Apodos_Hot_Adjetivos=new Array().concat(Apodos_Hot_Adjetivos_copi);
+	}
 
+	let UnApodo=RandomArrayBorrar(Apodos_Hot);
+	let UnAdj=RandomArrayBorrar(Apodos_Hot_Adjetivos);
+	let ElAdj=UnAdj;
+	if (UnAdj=="nalgona"||UnAdj=="tetona"||UnAdj=="chichona"||UnAdj=="rica") {
+		ElAdj=sisisis(UnAdj);
+	}
+	Regresame="mi "+UnApodo+" "+ElAdj;
+	console.log("Regresame", Regresame);
+	return Regresame;
+}
 
-for (var i = 1; i <=0; i++) {
-	ApodosNormales();
+for (var i = 1; i <=10; i++) {
+	ApodosHot();
 }
 
 //-----------------------------------------------------------------------------------------------------
