@@ -107,7 +107,10 @@ var nivel3_Ojala_Hot_Hacerlo =document.getElementById("nivel3_Ojala_Hot_Hacerlo"
 var nivel3_Ojala_Hot_Eyacular =document.getElementById("nivel3_Ojala_Hot_Eyacular");
 
 //-----------------------------------Alagos------------------------------------------------
-var nivel2_Alagos_Teamo =document.getElementById("nivel2_Alagos_Teamo");
+var nivel3_Alagos_Teamo_Teamo =document.getElementById("nivel3_Alagos_Teamo_Teamo");
+var nivel3_Alagos_Teamo_Megustas =document.getElementById("nivel3_Alagos_Teamo_Megustas");
+var nivel3_Alagos_Teamo_TeamoHot =document.getElementById("nivel3_Alagos_Teamo_TeamoHot");
+var nivel3_Alagos_Teamo_MegustasHot =document.getElementById("nivel3_Alagos_Teamo_MegustasHot");
 
 var nivel3_Alagos_Wonitos_EstasBien =document.getElementById("nivel3_Alagos_Wonitos_EstasBien");
 var nivel3_Alagos_Wonitos_Eres =document.getElementById("nivel3_Alagos_Wonitos_Eres");
@@ -176,7 +179,18 @@ function RandomArrayBorrar(UnaArray){
 	UnaArray.splice(Numerito, 1);	
 	return ElementoRandom;
 }
+//funcion que devuelve verdadero o falso aleatoriamente
+function RandomBolini(){
+	let UnNum=NumeroRandom(0,2);
+	let UnBool=true;
+	if(UnNum==0){
+		UnBool=false;
+	}else if(UnNum==1){
+		UnBool=true;
+	}
+	return UnBool;
 
+}
 //funcion que cambia el centrado del texto
 function justificacion(nombre){
 	let ElParrafo=document.getElementById("ElParrafo");
@@ -417,7 +431,7 @@ function EscribirArray(){
 	document.getElementById("ElParrafo").innerHTML="";
 
 	var Repuesto_Patron_Array=new Array().concat(Patron_Array);
-	
+	ReiniciarFormarOraciones();
 	for ( var contador=0; contador < Patron_CantidadElementos; contador++) {
 		
 		let EsCadena= HacerCadena_Patron_Array(contador);
@@ -639,6 +653,14 @@ function sisisis(algo){
 	return regresame;
 }
 
+//funcion que devuelve nada mucho o muchisimo o muchisismo
+function muchoo(){
+	let ArrayMucho=new Array("","mucho","muchísimo","muchisisimo", "muchisisisimo", "muchisisisisimo", "muchisisisisisimo");
+	let regresame=ElegirLog2(ArrayMucho);
+	return regresame;
+}
+
+
 
 //funcion que hace terminacion en cito
 function cito(UnaString){
@@ -677,10 +699,8 @@ function ApodosNormales(){
 		let UnApodo=RandomArrayBorrar(Apodos_Norm_SinAdj);
 		let ElAPodo=cito(UnApodo);
 
-		Regresame="mi "+ElAPodo;
+		Regresame=" mi "+ElAPodo;
 	}
-	
-	console.log("Regresame", Regresame);
 	return Regresame;
 }
 
@@ -703,20 +723,84 @@ function ApodosHot(){
 	if (UnAdj=="nalgona"||UnAdj=="tetona"||UnAdj=="chichona"||UnAdj=="rica") {
 		ElAdj=sisisis(UnAdj);
 	}
-	Regresame="mi "+UnApodo+" "+ElAdj;
+	Regresame=" mi "+UnApodo+" "+ElAdj;
 	console.log("Regresame", Regresame);
 	return Regresame;
 }
 
-for (var i = 1; i <=10; i++) {
+for (var i = 1; i <=0; i++) {
 	ApodosHot();
 }
 
+//funcion que me dice me devuelve mayuscula o minuscula
+function MinMayus(UnaString){
+	let regresame="xd";
+	let PrimerLetra=UnaString.substr(0,1);//inicia en 0 y longitud 1
+	let Resto=UnaString.slice(1);//incia en 1, y cuando el segundo parametro falta es hasta el final
+	let LaPrimeraLetra="xd";
+	if(Mayuscula){
+		LaPrimeraLetra=PrimerLetra.toUpperCase();
+	}else{
+		LaPrimeraLetra=PrimerLetra.toLowerCase();
+	}
+
+	return LaPrimeraLetra+Resto;
+
+}
+//funcion que le das opciones y elije una aleatoriamente
+//pero ademas toma en cuenta si es mayuscula o minuscula al principio
+function RandomOpciones(UnaArray,SiMayus){
+	
+
+
+}
+
+//esta funcion necesito que sea llamada cada vez que se valla a iniciar desde 0
+function ReiniciarFormarOraciones(){
+	//generales
+	Mayuscula=RandomBolini();
+	//Megustas y teAmo
+	contador_TEAMO=0;
+	contador_Megustas=0;
+	LlevaApodo_Te_Me=RandomBolini();
+}
 //-----------------------------------------------------------------------------------------------------
 //-------------------------------------------FORMAR ORACIONES -----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 
+//variables universables
+var Mayuscula=true;
 
+
+//funcion TE AMO
+var contador_TEAMO=0;
+var contador_Megustas=0;
+var LlevaApodo_Te_Me=true;
+function TEAMO_TEQUIERO(UnNum,EsHot){ //--------Alagos_Teamo caso T
+
+	let ArrayAlgo;
+	let Residuo;
+	if(UnNum==1){//si es me gustas
+		ArrayAlgo=new Array("Me gustas ","Te quiero ","Me encantas ","Me fasinas ","Te adoro ","Te amo ");
+		Residuo=contador_Megustas%(ArrayAlgo.length);
+	}else{//si es te amo
+		ArrayAlgo=new Array("Te amo ","Te adoro ","Me fasinas ","Me encantas ","Te quiero ","Me gustas ");
+		Residuo=contador_TEAMO%(ArrayAlgo.length);
+	}
+
+	let Algo= MinMayus(ArrayAlgo[Residuo]);
+	let Mucho=muchoo();
+	let OtraCosa="";
+	if(LlevaApodo_Te_Me){OtraCosa=ApodosNormales();}
+	if(LlevaApodo_Te_Me&&EsHot){OtraCosa=ApodosHot();}
+	if(UnNum==1){//si es me gustas
+		contador_Megustas++;	
+	}else{//si es te amo
+		contador_TEAMO++;
+	}
+	
+	return Algo+Mucho+OtraCosa;
+}
 
 
 //-----------------------------------------------------------------------------------------------------
@@ -727,185 +811,197 @@ for (var i = 1; i <=10; i++) {
 
 function nivel0_revision_codigo(revisame){
 	var Algo=""
+	
 	switch (revisame) {
 		case '0'://-------------------------------------------------------- 
-		Algo="algoandamal"
+			Algo="algoandamal"
 
-		break;
+			break;
 		case '1': //--------------------------------------------------------
-		Algo="buenos dias amorcito"
+			Algo="buenos dias amorcito"
 
 
-		break;
+			break;
 		case '2': //--------------------------------------------------------
-		Algo="buenos dias mi novia chichona";
+			Algo="buenos dias mi novia chichona";
 
 
-		break;
+			break;
 		case '3': //--------------------------------------------------------
-		Algo="ojala pudieera llenarte de muchos besitos al despertar";
+			Algo="ojala pudieera llenarte de muchos besitos al despertar";
 
 
-		break;
+			break;
 		case '4': //--------------------------------------------------------
-		Algo="ojala pudieramos estar abrazaditos en la camita todo el dia";
+			Algo="ojala pudieramos estar abrazaditos en la camita todo el dia";
 
 
-		break;										
+			break;										
 		case '5'://--------------------------------------------------------
-		Algo="ojala pudieramos estar juntitos todo el dia";
-		
-		break;
+			Algo="ojala pudieramos estar juntitos todo el dia";
+			
+			break;
 		case '6': //--------------------------------------------------------
-		Algo="ojala pudieramos dormir hasta tarde"
+			Algo="ojala pudieramos dormir hasta tarde"
 
-		break;
+			break;
 		case '7': //--------------------------------------------------------
-		Algo="me encataria despertarte con muchos besitos"
+			Algo="me encataria despertarte con muchos besitos"
 
 
-		break;
+			break;
 		case '8': //--------------------------------------------------------
-		Algo="ojala pudiera llenar toido tu cuerpo de besos al despertar";
+			Algo="ojala pudiera llenar toido tu cuerpo de besos al despertar";
 
 
-		break;
+			break;
 		case '9': //--------------------------------------------------------
-		Algo="ojala pudieramos manosearnos al despertarnos";
+			Algo="ojala pudieramos manosearnos al despertarnos";
 
 
-		break;
+			break;
 		case 'A': //--------------------------------------------------------
-		Algo="ojala pudieramos hacerlo todas las mañanas";
+			Algo="ojala pudieramos hacerlo todas las mañanas";
 
 
-		break;										
+			break;										
 		case 'B'://--------------------------------------------------------
-		Algo="ojala pudieramos estar juntitos todo el dia";
+			Algo="ojala pudieramos estar juntitos todo el dia";
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'C': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'D': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'E': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'F': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'G': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'H': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'I': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'J': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'K': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'L': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'N': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'Ñ': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'O': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'P': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'Q': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'R': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'S': //--------------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'T': //--------Alagos_Teamo------------------------------------------------  
+			Algo=TEAMO_TEQUIERO(2,false);
+			break;
 
+		case 't': //--------Alagos_Tequiero------------------------------------------------  
+			Algo=TEAMO_TEQUIERO(1,false);
+			break;
 
-		Algo="";
-		break;
+		case 'u': //--------Alagos_Teamo------------------------------------------------  
+			Algo=TEAMO_TEQUIERO(2,true);
+			break;
+
+		case 'v': //--------Alagos_Tequiero------------------------------------------------  
+			Algo=TEAMO_TEQUIERO(1,true);
+			break;
+
 		case 'U': //--------Alagos_Wonitos_EstasBien------------------------------------------------  
 
 
-		Algo="";
-		break;
+			Algo="";
+			break;
 		case 'V': //--------Alagos_Wonitos_Eres------------------------------------------------  
 
 
-		Algo="";
-		break;
-		case 'w': //-------Alagos_Wonitos_MeEncantaTu-------------------------------------------------  
+			Algo="";
+			break;
+		case 'W': //-------Alagos_Wonitos_MeEncantaTu-------------------------------------------------  
 
 
-		Algo=ApodosNormales();
-		break;
+			Algo=ApodosNormales();
+			break;
 		case 'X': //--------Alagos_Hot_Estas------------------------------------------------  
 
 
-		Algo=ApodosNormales();
-		break;
+			Algo=ApodosNormales();
+			break;
 		case 'Y': //--------Alagos_Hot_MeEncantaQueSeas------------------------------------------------  
 
 
-		Algo=ApodosNormales();
-		break;
+			Algo=ApodosNormales();
+			break;
 		case 'Z': //--------Alagos_Hot_MeEncantaTu------------------------------------------------  
 
 
-		Algo=ApodosNormales();
-		break;
+			Algo=ApodosNormales();
+			break;
 		default://--------Defaul------------------------------------------------  
 		
 		Algo=" ";
@@ -919,6 +1015,7 @@ function nivel0_revision_codigo(revisame){
 
 //funcion para facilitar la llamadas
 function Text_Llama(codigo){
+	console.log("codigo", codigo);
 	Textos_Codigo_Array[nivel0_contador]=codigo;
 	//si ya estamos en la ultima linea quiero que me agreges otra line
 	if(nivel0_contador==Patron_CantidadElementos-1){
@@ -959,7 +1056,10 @@ nivel3_Ojala_Hot_Manosear.onclick=function(){Text_Llama("Q");}
 nivel3_Ojala_Hot_Hacerlo.onclick=function(){Text_Llama("R");}
 nivel3_Ojala_Hot_Eyacular.onclick=function(){Text_Llama("S");}
 
-nivel2_Alagos_Teamo.onclick=function(){Text_Llama("T");}
+nivel3_Alagos_Teamo_Teamo.onclick=function(){Text_Llama("T");}
+nivel3_Alagos_Teamo_Megustas.onclick=function(){Text_Llama("t");}
+nivel3_Alagos_Teamo_TeamoHot.onclick=function(){Text_Llama("u");}
+nivel3_Alagos_Teamo_MegustasHot.onclick=function(){Text_Llama("v");}
 nivel3_Alagos_Wonitos_EstasBien.onclick=function(){Text_Llama("U");}
 nivel3_Alagos_Wonitos_Eres.onclick=function(){Text_Llama("V");}
 nivel3_Alagos_Wonitos_MeEncantaTu .onclick=function(){Text_Llama("W");}
