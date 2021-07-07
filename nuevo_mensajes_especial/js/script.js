@@ -590,21 +590,6 @@ Ext_EmojisSeries_OtroSerie_btn.onclick=function(){
 	Ext_EmojisSeries_OtroSerie_Contador++;
 	EscribirArray();
 }
-//-----------------------------------------------------------------------------------------------------
-//------------------------------------------------Array ORACIONES-----------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
-var Apodos_Norm_ConAdj=new Array("crush","niña","novia","Karensita","Karenchita");
-var Apodos_Norm_SinAdj=new Array("futura esposa","solecito","corazon","amor","amor de mi vida","todo","cielo","bomboncito");
-var Apodos_Norm_ConAdj_c=new Array().concat(Apodos_Norm_ConAdj);
-var Apodos_Norm_SinAdj_c=new Array().concat(Apodos_Norm_SinAdj);
-var Apodos_Norm_Adj=new Array("hermosa","preciosa");
-
-var Apodos_Hot=new Array("chica","novia","niña");
-var Apodos_Hot_copi=new Array().concat(Apodos_Hot);
-var Apodos_Hot_Adjetivos=new Array("nalgona","tetona","chichona","sabrosa","rica","culona","sexy","hot","horny","pervertida","caliente","delciosa","exquisita","mala");
-var Apodos_Hot_Adjetivos_copi=new Array().concat(Apodos_Hot_Adjetivos);
-
-
 
 //-----------------------------------------------------------------------------------------------------
 //-------------------------------------------FORMAR ORACIONES APOYOS DE APOYOS-----------------------------------------------------
@@ -647,7 +632,9 @@ function sisisis(algo){
 		let principiocadena=iniciocadena.slice(0,-1);
 		iniciocadena=principiocadena+"qu"
 	}
-	
+	if(algo=="divina"){
+		isipisi="";
+	}
 
 	regresame=iniciocadena+isipisi+fincadena;
 	return regresame;
@@ -659,7 +646,11 @@ function muchoo(){
 	let regresame=ElegirLog2(ArrayMucho);
 	return regresame;
 }
-
+function muymuymuy(){
+	let ArrayMucho=new Array("muy","muy muy","muy muy muy", "muy muy muy muy", "muy muy muy muy muy", "muy muy muy muy muy muy");
+	let regresame=ElegirLog2(ArrayMucho);
+	return regresame;
+}
 
 
 //funcion que hace terminacion en cito
@@ -699,7 +690,7 @@ function ApodosNormales(){
 		let UnApodo=RandomArrayBorrar(Apodos_Norm_SinAdj);
 		let ElAPodo=cito(UnApodo);
 
-		Regresame=" mi "+ElAPodo;
+		Regresame="mi "+ElAPodo;
 	}
 	return Regresame;
 }
@@ -723,7 +714,7 @@ function ApodosHot(){
 	if (UnAdj=="nalgona"||UnAdj=="tetona"||UnAdj=="chichona"||UnAdj=="rica") {
 		ElAdj=sisisis(UnAdj);
 	}
-	Regresame=" mi "+UnApodo+" "+ElAdj;
+	Regresame="mi "+UnApodo+" "+ElAdj;
 	console.log("Regresame", Regresame);
 	return Regresame;
 }
@@ -747,13 +738,10 @@ function MinMayus(UnaString){
 	return LaPrimeraLetra+Resto;
 
 }
-//funcion que le das opciones y elije una aleatoriamente
-//pero ademas toma en cuenta si es mayuscula o minuscula al principio
-function RandomOpciones(UnaArray,SiMayus){
-	
 
-
-}
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 
 //esta funcion necesito que sea llamada cada vez que se valla a iniciar desde 0
 function ReiniciarFormarOraciones(){
@@ -763,7 +751,63 @@ function ReiniciarFormarOraciones(){
 	contador_TEAMO=0;
 	contador_Megustas=0;
 	LlevaApodo_Te_Me=RandomBolini();
+	//alagos_wonitos_Estas bien_caso U
+	Arr_AlagosWonitos_adj=new Array("hermosa","preciosa","chula","linda","divina","guapa");
+	Arr_AlagosWonitos_adj_p=new Array().concat(Arr_AlagosWonitos_adj);
 }
+
+//funcion que me crea las opciones
+function Opciones(Tipo,UnaArray,Unbolini){
+	this.tipo=Tipo;
+	this.unaarray=UnaArray;
+	this.essis=Unbolini;
+}
+
+//esta funcion es para crear parrafaos
+function HacedorOraciones(UnaArrayDeArrays){
+	var regresame="";
+	for (let i = 0; i < UnaArrayDeArrays.length; i++) {
+		let apoyopararegresar="xd";
+		if(UnaArrayDeArrays[i].tipo=="random"){
+			apoyopararegresar=RandomArray(UnaArrayDeArrays[i].unaarray)
+		}
+		else if(UnaArrayDeArrays[i].tipo=="borrar"){
+			apoyopararegresar=RandomArrayBorrar(UnaArrayDeArrays[i].unaarray)
+		}
+		else if(UnaArrayDeArrays[i].tipo=="log"){
+			apoyopararegresar=ElegirLog2(UnaArrayDeArrays[i].unaarray)
+		}
+		
+		if(i == 0){
+			apoyopararegresar=MinMayus(apoyopararegresar);
+		}
+		if(UnaArrayDeArrays[i].essis){
+			apoyopararegresar=sisisis(apoyopararegresar);			
+		}
+		regresame=regresame+" "+apoyopararegresar;
+
+
+	}
+	console.log("regresame", regresame);
+	console.log("terminafor------------");
+	return regresame;
+}
+//-----------------------------------------------------------------------------------------------------
+//------------------------------------------------Array ORACIONES-----------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+var Apodos_Norm_ConAdj=new Array("crush","niña","novia","Karensita","Karenchita");
+var Apodos_Norm_SinAdj=new Array("futura esposa","solecito","corazon","amor","amor de mi vida","todo","cielo","bomboncito");
+var Apodos_Norm_ConAdj_c=new Array().concat(Apodos_Norm_ConAdj);
+var Apodos_Norm_SinAdj_c=new Array().concat(Apodos_Norm_SinAdj);
+var Apodos_Norm_Adj=new Array("hermosa","preciosa");
+
+var Apodos_Hot=new Array("chica","novia","niña");
+var Apodos_Hot_copi=new Array().concat(Apodos_Hot);
+var Apodos_Hot_Adjetivos=new Array("nalgona","tetona","chichona","sabrosa","rica","culona","sexy","hot","horny","pervertida","caliente","delciosa","exquisita","mala");
+var Apodos_Hot_Adjetivos_copi=new Array().concat(Apodos_Hot_Adjetivos);
+
+var Arr_AlagosWonitos_adj=new Array("hermosa","preciosa","chula","linda","divina","guapa");
+var Arr_AlagosWonitos_adj_p=new Array().concat(Arr_AlagosWonitos_adj);
 //-----------------------------------------------------------------------------------------------------
 //-------------------------------------------FORMAR ORACIONES -----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
@@ -792,17 +836,26 @@ function TEAMO_TEQUIERO(UnNum,EsHot){ //--------Alagos_Teamo caso T
 	let Mucho=muchoo();
 	let OtraCosa="";
 	if(LlevaApodo_Te_Me){OtraCosa=ApodosNormales();}
-	if(LlevaApodo_Te_Me&&EsHot){OtraCosa=ApodosHot();}
+	if(EsHot){OtraCosa=ApodosHot();}
 	if(UnNum==1){//si es me gustas
 		contador_Megustas++;	
 	}else{//si es te amo
 		contador_TEAMO++;
 	}
-	
-	return Algo+Mucho+OtraCosa;
+
+	return Algo+Mucho+""+OtraCosa;
 }
 
-
+function AlagoWonitosEstasbien(){//-----Alagos_Wonitos_EstasBien-----Caso U
+	if(Arr_AlagosWonitos_adj.length==0){Arr_AlagosWonitos_adj=new Array().concat(Arr_AlagosWonitos_adj_p);}
+	
+	let Eres=new Opciones("random",["eres","estas"],false);
+	let Muys=new Opciones("random",["bien",muymuymuy()],false);
+	let Alago=new Opciones("borrar",Arr_AlagosWonitos_adj,true);
+	let Unapodo= new Opciones ("random",["",ApodosNormales()],false);
+	
+	return HacedorOraciones([Eres,Muys,Alago,Unapodo]);
+}
 //-----------------------------------------------------------------------------------------------------
 //------------------------------------------------lA REVISION-----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
@@ -973,10 +1026,9 @@ function nivel0_revision_codigo(revisame){
 			break;
 
 		case 'U': //--------Alagos_Wonitos_EstasBien------------------------------------------------  
-
-
-			Algo="";
+			Algo=AlagoWonitosEstasbien();
 			break;
+
 		case 'V': //--------Alagos_Wonitos_Eres------------------------------------------------  
 
 
@@ -1060,6 +1112,7 @@ nivel3_Alagos_Teamo_Teamo.onclick=function(){Text_Llama("T");}
 nivel3_Alagos_Teamo_Megustas.onclick=function(){Text_Llama("t");}
 nivel3_Alagos_Teamo_TeamoHot.onclick=function(){Text_Llama("u");}
 nivel3_Alagos_Teamo_MegustasHot.onclick=function(){Text_Llama("v");}
+
 nivel3_Alagos_Wonitos_EstasBien.onclick=function(){Text_Llama("U");}
 nivel3_Alagos_Wonitos_Eres.onclick=function(){Text_Llama("V");}
 nivel3_Alagos_Wonitos_MeEncantaTu .onclick=function(){Text_Llama("W");}
