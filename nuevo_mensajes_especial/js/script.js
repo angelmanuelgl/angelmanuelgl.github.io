@@ -619,6 +619,11 @@ function sisisis(algo){
 	//algo debe ser una string
 	let iniciocadena=algo.slice(0,-1);//desde el principio hasta antes del -1
 	let fincadena=algo.slice(-1);//cuando se omite el segundo valor es hasta el final
+	//lo que pasa si le dan algo en plural
+	if(fincadena=="s"){
+		fincadena=algo.slice(-2);
+		iniciocadena=algo.slice(0,-2);
+	}
 	let UltimaLetra=iniciocadena.slice(-1);
 	let isipisi="xd"
 	var regresame=regresame=iniciocadena+isipisi+fincadena;
@@ -632,6 +637,8 @@ function sisisis(algo){
 		let principiocadena=iniciocadena.slice(0,-1);
 		iniciocadena=principiocadena+"qu"
 	}
+
+	//no quiero que divina sea isisisisi
 	if(algo=="divina"){
 		isipisi="";
 	}
@@ -639,10 +646,9 @@ function sisisis(algo){
 	regresame=iniciocadena+isipisi+fincadena;
 	return regresame;
 }
-
 //funcion que devuelve nada mucho o muchisimo o muchisismo
 function muchoo(){
-	let ArrayMucho=new Array("","mucho","muchísimo","muchisisimo", "muchisisisimo", "muchisisisisimo", "muchisisisisisimo");
+	let ArrayMucho=new Array("","mucho ","muchísimo ","muchisisimo ", "muchisisisimo ", "muchisisisisimo ", "muchisisisisisimo ");
 	let regresame=ElegirLog2(ArrayMucho);
 	return regresame;
 }
@@ -738,60 +744,6 @@ function MinMayus(UnaString){
 	return LaPrimeraLetra+Resto;
 
 }
-
-//-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
-
-//esta funcion necesito que sea llamada cada vez que se valla a iniciar desde 0
-function ReiniciarFormarOraciones(){
-	//generales
-	Mayuscula=RandomBolini();
-	//Megustas y teAmo
-	contador_TEAMO=0;
-	contador_Megustas=0;
-	LlevaApodo_Te_Me=RandomBolini();
-	//alagos_wonitos_Estas bien_caso U
-	Arr_AlagosWonitos_adj=new Array("hermosa","preciosa","chula","linda","divina","guapa");
-	Arr_AlagosWonitos_adj_p=new Array().concat(Arr_AlagosWonitos_adj);
-}
-
-//funcion que me crea las opciones
-function Opciones(Tipo,UnaArray,Unbolini){
-	this.tipo=Tipo;
-	this.unaarray=UnaArray;
-	this.essis=Unbolini;
-}
-
-//esta funcion es para crear parrafaos
-function HacedorOraciones(UnaArrayDeArrays){
-	var regresame="";
-	for (let i = 0; i < UnaArrayDeArrays.length; i++) {
-		let apoyopararegresar="xd";
-		if(UnaArrayDeArrays[i].tipo=="random"){
-			apoyopararegresar=RandomArray(UnaArrayDeArrays[i].unaarray)
-		}
-		else if(UnaArrayDeArrays[i].tipo=="borrar"){
-			apoyopararegresar=RandomArrayBorrar(UnaArrayDeArrays[i].unaarray)
-		}
-		else if(UnaArrayDeArrays[i].tipo=="log"){
-			apoyopararegresar=ElegirLog2(UnaArrayDeArrays[i].unaarray)
-		}
-		
-		if(i == 0){
-			apoyopararegresar=MinMayus(apoyopararegresar);
-		}
-		if(UnaArrayDeArrays[i].essis){
-			apoyopararegresar=sisisis(apoyopararegresar);			
-		}
-		regresame=regresame+" "+apoyopararegresar;
-
-
-	}
-	console.log("regresame", regresame);
-	console.log("terminafor------------");
-	return regresame;
-}
 //-----------------------------------------------------------------------------------------------------
 //------------------------------------------------Array ORACIONES-----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
@@ -808,6 +760,72 @@ var Apodos_Hot_Adjetivos_copi=new Array().concat(Apodos_Hot_Adjetivos);
 
 var Arr_AlagosWonitos_adj=new Array("hermosa","preciosa","chula","linda","divina","guapa");
 var Arr_AlagosWonitos_adj_p=new Array().concat(Arr_AlagosWonitos_adj);
+var Arra_AlagosWonitos_Eres=new Array("asombrosa","perfecta","increible","fantastica","espectacular","maravillosa");
+var Arra_AlagosWonitos_Eres_p=new Array().concat(Arra_AlagosWonitos_Eres);
+var Arr_AlagosWonitos_MeEncanta=new Array("cabello","cuello","voz","carita","boquita","sonrisa","ojitos","labios","cachetitos");
+var Arr_AlagosWonitos_MeEncanta_p=new Array().concat(Arr_AlagosWonitos_MeEncanta);
+
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+
+//esta funcion necesito que sea llamada cada vez que se valla a iniciar desde 0
+function ReiniciarFormarOraciones(){
+	//generales
+	Mayuscula=RandomBolini();
+	//Megustas y teAmo
+	contador_TEAMO=0;
+	contador_Megustas=0;
+	LlevaApodo_Te_Me=RandomBolini();
+	//alagos_wonitos_Estas bien_caso U
+	Arr_AlagosWonitos_adj=new Array("hermosa","preciosa","chula","linda","divina","guapa");
+	Arr_AlagosWonitos_adj_p=new Array().concat(Arr_AlagosWonitos_adj);
+	//alagos_wonitos_eresmuy
+	Arra_AlagosWonitos_Eres=new Array("asombrosa","perfecta","increible","fantastica","espectacular","maravillosa");
+	Arra_AlagosWonitos_Eres_p=new Array().concat(Arra_AlagosWonitos_Eres);
+	//alagos_wonitos_me encanta tu
+	Arr_AlagosWonitos_MeEncanta=new Array("cabello","cuello","voz","carita","boquita","sonrisa","ojitos","labios","cachetitos");
+	Arr_AlagosWonitos_MeEncanta_p=new Array().concat(Arr_AlagosWonitos_MeEncanta);
+}
+
+//funcion que me crea las opciones
+function Opciones(Tipo,UnaArray,Unbolini){
+	this.tipo=Tipo;
+	this.unaarray=UnaArray;
+	this.essis=Unbolini;
+}
+//esta funcion es para crear parrafaos
+function HacedorOraciones(UnaArrayDeArrays){
+	var regresame="";
+	for (let i = 0; i < UnaArrayDeArrays.length; i++) {
+		let apoyopararegresar="xd";
+		if(UnaArrayDeArrays[i].tipo=="random"){
+			apoyopararegresar=RandomArray(UnaArrayDeArrays[i].unaarray)
+		}
+		else if(UnaArrayDeArrays[i].tipo=="borrar"){
+			apoyopararegresar=RandomArrayBorrar(UnaArrayDeArrays[i].unaarray)
+		}
+		else if(UnaArrayDeArrays[i].tipo=="log"){
+			apoyopararegresar=ElegirLog2(UnaArrayDeArrays[i].unaarray)
+		}	
+		if(i == 0){//al orimer elemento se le pone mayusculas si asi toca
+			apoyopararegresar=MinMayus(apoyopararegresar);
+		}
+		if(UnaArrayDeArrays[i].essis){//si .essis=true es porque quiero que me lo ahga tipo linda->lindisisima etc
+			apoyopararegresar=sisisis(apoyopararegresar);			
+		}
+		regresame=regresame+" "+apoyopararegresar;
+
+
+	}
+	console.log("regresame", regresame);
+	console.log("terminafor------------");
+	return regresame;
+}
+
+//le das una array con objetos y aleeatoriamente elije uno de ellos y toma su valor y le pone un elemento al azar de la array que tiene el objeto
+
+
 //-----------------------------------------------------------------------------------------------------
 //-------------------------------------------FORMAR ORACIONES -----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
@@ -843,10 +861,10 @@ function TEAMO_TEQUIERO(UnNum,EsHot){ //--------Alagos_Teamo caso T
 		contador_TEAMO++;
 	}
 
-	return Algo+Mucho+""+OtraCosa;
+	return Algo+Mucho+OtraCosa;
 }
 
-function AlagoWonitosEstasbien(){//-----Alagos_Wonitos_EstasBien-----Caso U
+function FAlagoWonitosEstasbien(){//-----Alagos_Wonitos_EstasBien-----Caso U
 	if(Arr_AlagosWonitos_adj.length==0){Arr_AlagosWonitos_adj=new Array().concat(Arr_AlagosWonitos_adj_p);}
 	
 	let Eres=new Opciones("random",["eres","estas"],false);
@@ -855,6 +873,39 @@ function AlagoWonitosEstasbien(){//-----Alagos_Wonitos_EstasBien-----Caso U
 	let Unapodo= new Opciones ("random",["",ApodosNormales()],false);
 	
 	return HacedorOraciones([Eres,Muys,Alago,Unapodo]);
+}
+function FAlagosWonitosEresMuy(){//--------Alagos_Wonitos_Eres--caso V
+	if(Arra_AlagosWonitos_Eres.length==0){Arra_AlagosWonitos_Eres=new Array().concat(Arra_AlagosWonitos_Eres_p);}
+	
+	let Eres=new Opciones("log",["eres","eres muy","eres muy","eres muy muy"]);
+	let Alago=new Opciones("borrar",Arra_AlagosWonitos_Eres);
+	let Unapodo= new Opciones ("random",["",ApodosNormales()]);
+
+	return HacedorOraciones([Eres,Alago,Unapodo]);
+}
+
+function FAlagosWonitosMeEncantaTu(){//--------Alagos_Wonitos_Eres--caso V
+	if(Arr_AlagosWonitos_MeEncanta.length==0){Arr_AlagosWonitos_MeEncanta=new Array().concat(Arr_AlagosWonitos_MeEncanta_p);}
+	let Cosa=RandomArrayBorrar(Arr_AlagosWonitos_MeEncanta);
+
+	let Me=new Opciones("log",["me encanta tu","me fasina tu","adoro tu","amo tu"]);
+	if(Cosa.slice(-1)=="s"){//osea si esta en plural
+		Me=new Opciones("log",["me encantan tus","me fasinan tus","adoro tus","amo tus"]);		
+	}
+	let Alago=new Opciones("random",["preciosa","hermosa"]);
+	if(Cosa.slice(-2)=="os"){//osea si esta en plural y es masculino
+		Alago=new Opciones("random",["preciosos","hermosos"]);	
+	}
+	if(Cosa.slice(-1)=="o"){//osea si es masculino
+		Alago=new Opciones("random",["precioso","hermoso"]);	
+	}
+	let LaCosa=new Opciones("random",[Cosa]);
+
+	let regresame=HacedorOraciones([Me,Alago,LaCosa]);
+	if(RandomBolini()){
+		regresame=HacedorOraciones([Me,LaCosa,Alago]);
+	}
+	return regresame;
 }
 //-----------------------------------------------------------------------------------------------------
 //------------------------------------------------lA REVISION-----------------------------------------------------
@@ -920,10 +971,8 @@ function nivel0_revision_codigo(revisame){
 			break;										
 		case 'B'://--------------------------------------------------------
 			Algo="ojala pudieramos estar juntitos todo el dia";
-
-
-			Algo="";
 			break;
+
 		case 'C': //--------------------------------------------------------  
 
 
@@ -1026,19 +1075,17 @@ function nivel0_revision_codigo(revisame){
 			break;
 
 		case 'U': //--------Alagos_Wonitos_EstasBien------------------------------------------------  
-			Algo=AlagoWonitosEstasbien();
+			Algo=FAlagoWonitosEstasbien();
 			break;
 
 		case 'V': //--------Alagos_Wonitos_Eres------------------------------------------------  
-
-
-			Algo="";
+			Algo= FAlagosWonitosEresMuy();
 			break;
+
 		case 'W': //-------Alagos_Wonitos_MeEncantaTu-------------------------------------------------  
-
-
-			Algo=ApodosNormales();
+			Algo=FAlagosWonitosMeEncantaTu();
 			break;
+
 		case 'X': //--------Alagos_Hot_Estas------------------------------------------------  
 
 
