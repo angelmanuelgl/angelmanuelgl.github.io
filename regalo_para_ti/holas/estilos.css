@@ -11,10 +11,14 @@ body{
 	justify-content: center;
 	align-items: center;
 	font-size: 16px;
-	background: rgb(250,0,84);
-background: -moz-radial-gradient(circle, rgba(250,0,84,1) 0%, rgba(77,1,16,1) 89%);
-background: -webkit-radial-gradient(circle, rgba(250,0,84,1) 0%, rgba(77,1,16,1) 89%);
-background: radial-gradient(circle, rgba(250,0,84,1) 0%, rgba(77,1,16,1) 89%);
+	/*background: rgb(250,0,84);
+	background: -moz-radial-gradient(circle, rgba(250,0,84,1) 0%, rgba(77,1,16,1) 89%);
+	background: -webkit-radial-gradient(circle, rgba(250,0,84,1) 0%, rgba(77,1,16,1) 89%);
+	background: radial-gradient(circle, rgba(250,0,84,1) 0%, rgba(77,1,16,1) 89%);*/
+	background: rgb(207,0,94);
+background: -moz-radial-gradient(circle, rgba(207,0,94,1) 0%, rgba(48,0,20,1) 80%);
+background: -webkit-radial-gradient(circle, rgba(207,0,94,1) 0%, rgba(48,0,20,1) 80%);
+background: radial-gradient(circle, rgba(207,0,94,1) 0%, rgba(48,0,20,1) 80%);
 }
 .contieneletras span{
 	font-size: 10em;
@@ -22,7 +26,7 @@ background: radial-gradient(circle, rgba(250,0,84,1) 0%, rgba(77,1,16,1) 89%);
 	position:relative;
 	font-family: "Fredoka One";
 	cursor:pointer;
-	transition: all 300ms ease-in-out;
+	transition: all 2000ms ease-in-out;
 }
 
 .contieneletras span::before{
@@ -42,16 +46,18 @@ background: radial-gradient(circle, rgba(250,0,84,1) 0%, rgba(77,1,16,1) 89%);
 }
 
 .contieneletras span:hover{
-	filter: contrast(250%);
+	filter: contrast(500%);
+	transition: all 800ms ease-in-out;
 }
 .contieneletras span:active{
-	filter: contrast(350%);
+	filter: contrast(800%);
+	transition: all 100ms ease-in-out;
 }
-.contieneletras span:nth-child(1){	color:#AB47BC;}
-.contieneletras span:nth-child(2){	color:#42A5F5 ;}
-.contieneletras span:nth-child(3){	color:#9CCC65 ;}
-.contieneletras span:nth-child(4){	color:#FFEE58;}
-.contieneletras span:nth-child(5){	color:#FF7043 ;}
+.contieneletras span:nth-child(1){	color:#EF5350;}
+.contieneletras span:nth-child(2){	color:#D500F9 ;}
+.contieneletras span:nth-child(3){	color:#42A5F5 ;}
+.contieneletras span:nth-child(4){	color:#9CCC65;}
+.contieneletras span:nth-child(5){	color:#FFEE58 ;}
 
 
 @media (max-width: 550px) { .contieneletras span{font-size:8em; }}
