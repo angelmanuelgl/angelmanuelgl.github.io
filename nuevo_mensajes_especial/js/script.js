@@ -129,6 +129,8 @@ var emoj_esp_Rojo=document.getElementById("emoj_esp_Rojo");
 var emoj_esp_Rosa=document.getElementById("emoj_esp_Rosa");
 var emoj_esp_Colores=document.getElementById("emoj_esp_Colores");
 var emoj_esp_Random=document.getElementById("emoj_esp_Random");
+var emoj_esp_Numeracion=document.getElementById("emoj_esp_Numeracion");
+
 
 
 emoj_esp_Todo.onclick=function(){EmojisEspeciales(1);}
@@ -242,7 +244,7 @@ function RevisarPalabrasClaves(algoquerevisar,posicion){
 		}
 		LoQueRegresa=RandomArrayBorrar(Emojis_Corazones_Todos_C);
 	}
-	else if (algoquerevisar=="Numeracion"){ LoQueRegresa=RandomArray(Arr_Numeros);}
+	else if (algoquerevisar=="Numeracion"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Numeros,posicion);}
 	
 	if (LoQueRegresa===undefined|| LoQueRegresa==""){ 
 		LoQueRegresa=algoquerevisar;		
