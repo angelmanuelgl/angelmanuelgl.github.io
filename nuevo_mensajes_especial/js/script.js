@@ -139,6 +139,8 @@ emoj_esp_Rojo.onclick=function(){EmojisEspeciales(5);}
 emoj_esp_Rosa.onclick=function(){EmojisEspeciales(6);}
 emoj_esp_Colores.onclick=function(){EmojisEspeciales(7);}
 emoj_esp_Random.onclick=function(){EmojisEspeciales(8);}
+emoj_esp_Numeracion.onclick=function(){EmojisEspeciales(9);}
+
 
 
 
@@ -179,6 +181,7 @@ function RandomArrayBorrar(UnaArray){
 	UnaArray.splice(Numerito, 1);	
 	return ElementoRandom;
 }
+
 //funcion que devuelve verdadero o falso aleatoriamente
 function RandomBolini(){
 	let UnNum=NumeroRandom(0,2);
@@ -233,7 +236,13 @@ function RevisarPalabrasClaves(algoquerevisar,posicion){
 	else if (algoquerevisar=="Estrella"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Estrellas,posicion);}
 	else if (algoquerevisar=="Rojo"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Cora_Rojos,posicion);}
 	else if (algoquerevisar=="Colores"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Cora_Colores,posicion);}
-	else if (algoquerevisar=="Random"){ LoQueRegresa=RandomArray(Emojis_Corazones_Todos);}
+	else if (algoquerevisar=="Random"){ 
+		if(Emojis_Corazones_Todos_C.length==0){
+			Emojis_Corazones_Todos_C=new Array().concat(Emojis_Corazones_Todos);	
+		}
+		LoQueRegresa=RandomArrayBorrar(Emojis_Corazones_Todos_C);
+	}
+	else if (algoquerevisar=="Numeracion"){ LoQueRegresa=RandomArray(Arr_Numeros);}
 	
 	if (LoQueRegresa===undefined|| LoQueRegresa==""){ 
 		LoQueRegresa=algoquerevisar;		
@@ -261,14 +270,16 @@ function ArrayCreator(UnaArray){
 var Emojis_Estrellas=new Array ("✨","⭐","🌟","💫");
 var Emojis_Espacio=new Array ("☄️","🌙","🌕","🪐");
 var Emojis_Flores=new Array ("🌸","🌼","🌷","🌹","🌺","🌻");
-var Emojis_Otros=new Array ("☀️","🌈","⛱️","☁️","💎","💍","🥰","🥺","♥️");
+var Emojis_Dias=new Array("☀️","🌤️","🌅","🌄","🌈","☁️");
+var Emojis_Otros=new Array ("⛱️","💎","💍","🥰","🥺","♥️");
 var Emoji_Co=new Array("♥️");
 var Emojis_Corazones_Colores=new Array("❤️","🧡","💛","💚","💙","💜");
 var Emojis_Corazones_Rojos=new Array("💘","❣️","💓");
 var Emojis_Corazones_Rosas=new Array("💕","💞","💖","💗","💝");
-var Emojis_Corazones_Otros=new Array("💟","🤍","💌");
+var Emojis_Corazones_Otros=new Array("💟","🤍","💌",);
+var Emojis_Hot=new Array("🔥");
 var Emojis_Corazones_Todos=new Array().concat(Emoji_Co.concat(Emojis_Corazones_Colores.concat(Emojis_Corazones_Rojos.concat(Emojis_Corazones_Rosas.concat(Emojis_Corazones_Otros)))));
-
+var Emojis_Corazones_Todos_C=new Array().concat(Emojis_Corazones_Todos);
 
 function InvertirArray(UnaArray){
 	let OtraArray=new Array();
@@ -288,7 +299,7 @@ var Arr_Flores=ArrayCreator(Emojis_Flores);
 var Arr_Estrellas=Emojis_Estrellas;
 var Arr_Cora_Rojos=Emojis_Corazones_Rojos;
 var Arr_Cora_Colores=Emojis_Corazones_Colores;
-
+var Arr_Numeros=new Array("1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟");
 
 //------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------Textos Basico nivel0----------------------------------------------------------------------
@@ -464,11 +475,13 @@ function AgregarEmoji(NumArray,NumPos){
 	if(NumArray==1){AlgunaArray=Emojis_Estrellas;}
 	if(NumArray==2){AlgunaArray=Emojis_Espacio;}
 	if(NumArray==3){AlgunaArray=Emojis_Flores;}
+	if(NumArray==10){AlgunaArray=Emojis_Dias;}
 	if(NumArray==4){AlgunaArray=Emojis_Otros;}
 	if(NumArray==5){AlgunaArray=Emojis_Corazones_Colores;}
 	if(NumArray==6){AlgunaArray=Emojis_Corazones_Rojos;}
 	if(NumArray==7){AlgunaArray=Emojis_Corazones_Rosas;}
 	if(NumArray==8){AlgunaArray=Emojis_Corazones_Otros;}
+	if(NumArray==9){AlgunaArray=Emojis_Hot;}
 
 	Patron_Array.push(AlgunaArray[NumPos]);	
 	EscribirArray();
@@ -482,6 +495,7 @@ function EmojisEspeciales(num){
 	if(num==6){Patron_Array.push("Rosa");}
 	if(num==7){Patron_Array.push("Colores");}
 	if(num==8){Patron_Array.push("Random");}
+	if(num==9){Patron_Array.push("Numeracion");}
 	console.log("Patron_Array", Patron_Array);
 
 	EscribirArray();
@@ -590,6 +604,52 @@ Ext_EmojisSeries_OtroSerie_btn.onclick=function(){
 	Ext_EmojisSeries_OtroSerie_Contador++;
 	EscribirArray();
 }
+
+//-----------------------------------------------------------------------------------------------------
+//-------------------------------------------Diseño de los botones de emojis especiales-----------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+
+var Contador_SetInterval=0;
+function CambiarEmojiDeBoton(UnBoton,UnaArray){
+	let TotalArray=UnaArray.length;
+	let Num=Contador_SetInterval%TotalArray;
+	let UnEmoji=UnaArray[Num];
+	let AgregarUnEmoji=document.createTextNode(UnEmoji);
+	//lo agrega
+	UnBoton.innerHTML=UnEmoji;
+}
+//para todo excepto el boton random
+function HacerLosCambiosDeEmojis(){
+	CambiarEmojiDeBoton(emoj_esp_Todo,Arr_Cora_Todos)
+	CambiarEmojiDeBoton(emoj_esp_TodoR,Arr_Cora_Todos_Reversa)
+	CambiarEmojiDeBoton(emoj_esp_Estrella,Arr_Estrellas)
+	CambiarEmojiDeBoton(emoj_esp_Flor,Arr_Flores)
+	CambiarEmojiDeBoton(emoj_esp_Rojo,Arr_Cora_Rojos)
+	CambiarEmojiDeBoton(emoj_esp_Rosa,Arr_Cora_Rosas)
+	CambiarEmojiDeBoton(emoj_esp_Colores,Arr_Cora_Colores)
+	// CambiarEmojiDeBoton(emoj_esp_Random,Emojis_Corazones_Todos)
+	CambiarEmojiDeBoton(emoj_esp_Numeracion,Arr_Numeros)
+	Contador_SetInterval++	
+	//revisa los emojis especiales personalizados
+	for (let i =0 ; i<=EmojisSeries_Array_Arrays.length-1; i++) {
+		CambiarEmojiDeBoton(EmojisSeries_Elementos[i],EmojisSeries_Array_Arrays[i])
+	}
+}
+setInterval(HacerLosCambiosDeEmojis,1000);
+
+//para el boton random
+function CambiarEmojiDelBotonRandom(){
+	if(Emojis_Corazones_Todos_C.length==0){
+		Emojis_Corazones_Todos_C=new Array().concat(Emojis_Corazones_Todos);	
+	}
+	let UnEmoji=RandomArrayBorrar(Emojis_Corazones_Todos_C);
+	emoj_esp_Random.innerHTML=UnEmoji;
+	let AgregarUnEmoji=document.createTextNode(UnEmoji);
+}
+
+setInterval(CambiarEmojiDelBotonRandom,1000);
+
+
 
 //-----------------------------------------------------------------------------------------------------
 //-------------------------------------------FORMAR ORACIONES APOYOS DE APOYOS-----------------------------------------------------
