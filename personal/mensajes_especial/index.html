@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="img/iconouwu.ico" >
+	<link rel="stylesheet" href="css/estilos_zonauwu.css">
+	<title>Zona UwU</title>
+</head>
+<body>
+	<div class="contenedor">
+		<!-- -------------------- -->
+		<!-- -------------------------------------- -->
+		<header class="header hed_dos"> <h2>Mensajes y patrones muy UwU </h2></header>
+		
+
+
+		<section class="section tiene_boton_emoji moji2 invisible2" id="btn_losemojis">
+			<button class="botones mini" onclick="AgregarEmoji(0);">✨</button> 
+			<button class="botones mini" onclick="AgregarEmoji(1);">⭐</button>
+			<button class="botones mini" onclick="AgregarEmoji(2);">🌟</button>
+			<button class="botones mini" onclick="AgregarEmoji(3);">💫</button>
+			<button class="botones mini" onclick="AgregarEmoji(4);">🌙</button>
+			<button class="botones mini" onclick="AgregarEmoji(5);">🌸</button>	
+			<button class="botones mini" onclick="AgregarEmoji(6);">🌼</button>	
+			<button class="botones mini" onclick="AgregarEmoji(7);">🌷</button>
+			<button class="botones mini" onclick="AgregarEmoji(8);">🌹</button>
+			<button class="botones mini" onclick="AgregarEmoji(9);">🌺</button>
+			<button class="botones mini" onclick="AgregarEmoji(10);">🌻</button>
+			<button class="botones mini" onclick="AgregarEmoji(11);">☀️</button>
+			<button class="botones mini" onclick="AgregarEmoji(12);">🌈</button>
+			<button class="botones mini" onclick="AgregarEmoji(13);">🥰</button>
+			<button class="botones mini" onclick="AgregarEmoji(14);">🥺</button>
+			<button class="botones mini" onclick="AgregarEmoji(15);">♥️</button>
+			<button class="botones mini" onclick="AgregarEmoji(16);">❤️</button>
+			<button class="botones mini" onclick="AgregarEmoji(17);">🧡</button>
+			<button class="botones mini" onclick="AgregarEmoji(18);">💛</button>
+			<button class="botones mini" onclick="AgregarEmoji(19);">💚</button>
+			<button class="botones mini" onclick="AgregarEmoji(20);">💙</button>
+			<button class="botones mini" onclick="AgregarEmoji(21);">💜</button>
+			<button class="botones mini" onclick="AgregarEmoji(22);">❣️</button> 
+			<button class="botones mini" onclick="AgregarEmoji(23);">💘</button>
+			<button class="botones mini" onclick="AgregarEmoji(24);">💓</button>
+			<button class="botones mini" onclick="AgregarEmoji(25);">💕</button>
+			<button class="botones mini" onclick="AgregarEmoji(26);">💞</button>
+			<button class="botones mini" onclick="AgregarEmoji(27);">💖</button>
+			<button class="botones mini" onclick="AgregarEmoji(28);">💗</button>
+			<button class="botones mini" onclick="AgregarEmoji(29);">💝</button>
+			<button class="botones mini" onclick="AgregarEmoji(30);">💟</button>
+			<button class="botones mini" onclick="AgregarEmoji(31);">🤍</button>
+			<button class="botones mini" onclick="AgregarEmoji(32);">🔥</button>
+			<button class="botones mini" onclick="AgregarEmoji(33);">🥵</button>
+
+			<button class="botones mini miniespecial cambian" id="miniesp1" >✨</button>
+			<button class="botones mini miniespecial cambian" id="miniesp2" >🌸</button>
+			<button class="botones mini miniespecial cambian" id="miniesp3" >❣️</button>
+			<button class="botones mini miniespecial cambian" id="miniesp4" >💕</button>
+			<button class="botones mini miniespecial cambian" id="miniesp5" >♥️</button>
+			<button class="botones mini miniespecial cambian" id="miniesp6" >🤍</button>
+			<button class="botones mini miniespecial cambian" id="miniesp7" >♥️</button>
+
+			<!-- el emoji randon da un numero cualqueira porque ya tenia que si el numero
+			no era un elemento de la array fuera aleatorio -->
+			<button class="botones mini miniespecial cambian" id="EmojiRandom">5</button>
+		</section>
+
+		<!--------------------------- botones principales ------------------>
+		<section class="section botones_principales" >
+			<!-- buenos dias y noches -->
+			<div class="contiene flex " id="BTN_BuenosDias">
+				<button class="botones boton_con_texto" onclick="BTN_F_Dia();">
+					<p class="texto">Buenos dias</p>
+				</button>
+			</div>
+			
+			<div class="contiene flex" id="BTN_BuenasNoches">
+				<button class="botones boton_con_texto" onclick="BTN_F_Noche();">
+					<p class="texto">Buenas Noches</p>
+				</button>				
+			</div>
+			<!-- patron de corazones -->
+			<div class="contiene flex" id="BTN_PatronCorazonces">
+				<button class="botones boton_con_texto" onclick="BTN_F_IniciarPatron();">
+					<p class="texto">Patrones Corazones</p>
+				</button>
+			</div>		
+
+			<!-- especial -->
+			<div class="contiene flex" id="BTN_Especial">
+				<button class="botones boton_con_texto" onclick="BTN_F_Especial();">
+					<p class="texto">Especial</p>
+				</button>
+			</div>
+			<!-- corazon con corazones -->
+			<div class="contiene flex" id="BTN_CorazonCorazon">
+				<button class="botones boton_con_texto" onclick="BTN_F_CorazonCorazones();">
+					<p class="texto">Corazon de Corazones</p>
+				</button>
+			</div>
+			<!-- texto de corazones -->
+			<div class="contiene flex" id="BTN_TextoCorazon">
+				<button class="botones boton_con_texto" onclick="BTN_F_TextoCorazones();">
+					<p class="texto">Texto de Corazones</p>
+				</button>
+			</div>
+
+
+
+		</section>
+
+		<!-------------------- botones para personalizar -------------------->
+
+		<section class="section botones_corazones" >
+			<!--definir patron  -->
+			<div class="contiene invisible" id="btn_definirpatron">
+				<p class="texto"> Definir Patron </p>
+				<button class="botones min2" onclick="F_Patron(1);">⏬</button>
+				<button class="botones min2" onclick="F_Patron(2);">⏩</button>
+				<button class="botones min2" onclick="F_Patron(3);">⏪</button>
+			</div>
+			<!--otro emoji  -->
+			<div class="contiene invisible" id="btn_otroemoji">
+				<p class="texto"> Otro Emoji </p>
+				<input class="text" name="OtroEmoji" id="OtroEmoji" placeholder="🌠"> </input>
+				<input type="button" value="✔"class="botones mini min2"  onclick="OtroEmoji()"></input>
+			</div>
+			<!-- Cantidad de Elementos -->
+			<div class="contiene invisible"  id="btn_cantidadelementos">
+				<p class="texto"> Cantidad de Elementos </p>
+				<input class="text" name="CantidadElementos" id="CantidadElementos" placeholder="min:16 max:195" > </input>
+				<input type="button" value="✔"class="botones mini min2" onclick="CantidadElementos()"></input>
+			</div>
+			<!-- el texto final -->
+			<div class="contiene invisible"  id="btn_textofinal">
+				<p class="texto"> Texto Final </p>
+				<input class="text" name="TextoFinal" id="Texto_Final" placeholder="Me encanta tu"> </input>
+				<input type="button" value="✔"class="botones mini min2"  onclick="F_TextoFinal();"> </input>
+			</div>
+			<!-- el texto de corazones-->
+			<div class="contiene invisible"  id="btn_textocorazones">
+				<p class="texto"> Texto Corazones </p>
+				<input class="text" name="TextoCorazones" id="Texto_Corazones" placeholder="HOLA"> </input>
+				<input type="button" value="✔"class="botones mini min2"  onclick="CualTextoDeCorazones();"> </input>
+			</div>
+
+			<!-- Borrar y retroseso -->
+			<div class="contiene  flex invisible" id="btn_retroseso">
+				<button class="botones boton_con_texto " onclick=" Retroseso();">
+					<p class="texto">Retroseso</p>
+				</button>
+				<button class="botones boton_con_texto " onclick=" Borrar();">
+					<p class="texto">Borrar</p>
+				</button>
+			</div>
+
+			<!-- salto de linea -->
+			<div class="contiene flex invisible"  id="btn_saltolinea">
+				<p class="texto"> Renglones </p>
+				
+				<button class="botones boton_con_texto " onclick="Salta(1);">
+					<p class="texto">✔</p>
+				</button>
+				<button class="botones boton_con_texto " onclick="Salta(0);">
+					<p class="texto">❌</p>
+				</button>				
+			</div>
+
+			<!-- Modo Hot -->
+			<div class="contiene flex invisible"  id="btn_modohot">
+				<p class="texto"> Modo Hot </p>
+				
+				<button class="botones boton_con_texto " onclick="EsHot(1);">
+					<p class="texto">✔</p>
+				</button>
+				<button class="botones boton_con_texto " onclick="EsHot(0);">
+					<p class="texto">❌</p>
+				</button>				
+			</div>
+
+			<!-- adelante y retroseso  -->
+			<div class="contiene  flex invisible" id="btn_adelante">
+				<button class="botones boton_con_texto " onclick="TexCo_Adelante();">
+					<p class="texto">Adelante</p>
+				</button>
+				<button class="botones boton_con_texto " onclick="TexCo_Atras();">
+					<p class="texto">Retroseso</p>
+				</button>
+			</div>
+			
+		</section>
+
+		
+		<section class="section agrega_texto PadreAgregarCorazones" id="">
+			<div class="undiv"><p class="texto" id="AgregarCorazones">  </p> 	</div>
+		</section>
+
+	</div>
+
+</body>
+<script type="text/javascript" src="js/script_zonauwu.js"> </script>
+
+</html>

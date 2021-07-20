@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="img/logoAX.ico" >
+	<link rel="stylesheet" href="404estilos.css">
+	<title>PaginaNoEncontrada</title>
+</head>
+<body>
+	<div class="contenedor" id="contenedor">
+		<div class="contiene">
+			<h2> 404</h2>
+			<h4>Pagina No Encontrada</h4>
+			<p>La pagina que estas buscando no existe. Puede que la hayas escrito mal o que se haya movido</p>
+			<a href="index.html">Volver a Incio</a>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	var contenedor=document.getElementById('contenedor');
+	window.onmousemove=function(e){
+		var x=-e.clientX/5;
+		var y=-e.clientY/5;
+		contenedor.style.backgroundPositionX= x + "px";
+		contenedor.style.backgroundPositionY= y + "px";
+	}
+
+
+</script>
+
+</body>
+</html>
