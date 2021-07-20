@@ -101,9 +101,12 @@ var nivel3_Ojala_Wonitos_Besarnos =document.getElementById("nivel3_Ojala_Wonitos
 var nivel3_Ojala_Wonitos_Abrazarnos =document.getElementById("nivel3_Ojala_Wonitos_Abrazarnos");
 var nivel3_Ojala_Wonitos_EstarJuntos =document.getElementById("nivel3_Ojala_Wonitos_EstarJuntos");
 
-var nivel3_Ojala_Hot_Besar =document.getElementById("nivel3_Ojala_Hot_Besar");
-var nivel3_Ojala_Hot_Manosear =document.getElementById("nivel3_Ojala_Hot_Manosear");
-var nivel3_Ojala_Hot_Hacerlo =document.getElementById("nivel3_Ojala_Hot_Hacerlo");
+var nivel3_Ojala_Hot2_Besarnos =document.getElementById("nivel3_Ojala_Hot2_Besarnos");
+var nivel3_Ojala_Hot2_Manosearnos =document.getElementById("nivel3_Ojala_Hot2_Manosearnos");
+var nivel3_Ojala_Hot2_Hacerlo =document.getElementById("nivel3_Ojala_Hot2_Hacerlo");
+
+var nivel3_Ojala_Hot_Lamerte =document.getElementById("nivel3_Ojala_Hot_Lamerte");
+var nivel3_Ojala_Hot_Tocarte =document.getElementById("nivel3_Ojala_Hot_Tocarte");
 var nivel3_Ojala_Hot_Eyacular =document.getElementById("nivel3_Ojala_Hot_Eyacular");
 
 //-----------------------------------Alagos------------------------------------------------
@@ -129,6 +132,8 @@ var emoj_esp_Rojo=document.getElementById("emoj_esp_Rojo");
 var emoj_esp_Rosa=document.getElementById("emoj_esp_Rosa");
 var emoj_esp_Colores=document.getElementById("emoj_esp_Colores");
 var emoj_esp_Random=document.getElementById("emoj_esp_Random");
+var emoj_esp_Numeracion=document.getElementById("emoj_esp_Numeracion");
+
 
 
 emoj_esp_Todo.onclick=function(){EmojisEspeciales(1);}
@@ -242,7 +247,7 @@ function RevisarPalabrasClaves(algoquerevisar,posicion){
 		}
 		LoQueRegresa=RandomArrayBorrar(Emojis_Corazones_Todos_C);
 	}
-	else if (algoquerevisar=="Numeracion"){ LoQueRegresa=RandomArray(Arr_Numeros);}
+	else if (algoquerevisar=="Numeracion"){ LoQueRegresa=PonerEmojiCorrecto(Arr_Numeros,posicion);}
 	
 	if (LoQueRegresa===undefined|| LoQueRegresa==""){ 
 		LoQueRegresa=algoquerevisar;		
@@ -708,9 +713,16 @@ function sisisis(algo){
 }
 
 //funcion que devuelve nada mucho o muchisimo o muchisismo
-function muchoo(){
+function muchoo(algoquehacer){
 	let ArrayMucho=new Array("","mucho ","muchísimo ","muchisisimo ", "muchisisisimo ", "muchisisisisimo ", "muchisisisisisimo ");
+	if(algoquehacer=="nonada"){
+		ArrayMucho.shift();
+	}
 	let regresame=ElegirLog2(ArrayMucho);
+	
+	if(algoquehacer=="plural"&&regresame!=""){
+		regresame=regresame.slice(0,-1)+"s "
+	}
 	return regresame;
 }
 function muymuymuy(){
@@ -866,6 +878,14 @@ var Arra_AlagosHot_MeEncataQueSeas=new Array("hot","horny","caliente","pervertid
 var Arra_AlagosHot_MeEncataQueSeas_c=new Array().concat(Arra_AlagosHot_MeEncataQueSeas);
 var Arr_AlagosHot_MeEncantaTu=new Array("vagina","cintura","nalgas","piernas","tetas","muslos","pechos","pezones");
 var Arr_AlagosHot_MeEncantaTu_c=new Array().concat(Arr_AlagosHot_MeEncantaTu);
+
+var Arr_Ojala_Besarnos=new Array("besar","comer","dar","llenar");
+var Arr_Ojala_Besarnos_c=new Array().concat(Arr_Ojala_Besarnos);
+var Arr_Ojala_Abrazarnos=new Array();
+var Arr_Ojala_Abrazarnos_c=new Array().concat(Arr_Ojala_Abrazarnos);
+var Arr_Ojala_EstarJuntos=new Array();
+var Arr_Ojala_EstarJuntos_c=new Array().concat(Arr_Ojala_EstarJuntos);
+
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
@@ -874,6 +894,8 @@ var Arr_AlagosHot_MeEncantaTu_c=new Array().concat(Arr_AlagosHot_MeEncantaTu);
 function ReiniciarFormarOraciones(){
 	//generales
 	Mayuscula=RandomBolini();
+	
+	//------------------------------------Alagos------------------------------------------------  
 	//Megustas y teAmo
 	contador_TEAMO=0;
 	contador_Megustas=0;
@@ -890,6 +912,9 @@ function ReiniciarFormarOraciones(){
 	Arra_AlagosHot_MeEncataQueSeas=new Array("hot","horny","caliente","pervertida","sucia");
 	//Algos_Hot_MeEncantanTu
 	Arr_AlagosHot_MeEncantaTu=new Array("vagina","cintura","nalgas","piernas","tetas","muslos","pechos","pezones");
+
+	//------------------------------------Alagos------------------------------------------------  
+	Arr_Ojala_Besarnos=new Array("besar","comer","dar","llenar");
 
 }
 
@@ -939,7 +964,7 @@ function HacedorOraciones(UnaArrayDeArrays){
 //variables universables
 var Mayuscula=true;
 
-
+//-------------------------------------------Alagos-----------------------------------------------------
 //funcion TE AMO
 var contador_TEAMO=0;
 var contador_Megustas=0;
@@ -1026,12 +1051,36 @@ function FAlagosHotMeEncantaQueSeas(){//--------Alagos_Hot_MeEncantaQueSeas--cas
 	let Bien= new Opciones ("random",["","bien","muy"]);
 	let Alago=new Opciones("borrar",Arra_AlagosHot_MeEncataQueSeas);
 	let Unapodo= new Opciones ("log",["",ApodosHot(true),ApodosHot(true),"conmigo","solo conmigo"]);
-
-	return HacedorOraciones([Eres,Bien,Alago,Unapodo]);
 	
+	return HacedorOraciones([Eres,Bien,Alago,Unapodo]);
 }
 
+//-------------------------------------------Ojala-----------------------------------------------------
+
+function FOjalaBesos(){
+	if(Arr_Ojala_Besarnos.length==0){Arr_Ojala_Besarnos=new Array().concat(Arr_Ojala_Besarnos_c);}
+	let Besar=RandomArrayBorrar(Arr_Ojala_Besarnos);
+	let regresame;
+
+	if(RandomBolini()){
+		regresame="ojala pudieramos "+Besar+"nos "
+	}
+	else{
+	 	let Algo=RandomArray(["ojala pudiera ","me encantaria ","quiero ","me fasinaria "]) 
+		regresame=Algo+Besar+"te "
+	}
 	
+	if(Besar=="llenar"){regresame=regresame+"de "}
+	if(Besar=="comer"){regresame=regresame+"a "}
+
+	if(Besar=="besar"){regresame=regresame+muchoo("nonada");}
+	if(Besar=="dar"||Besar=="llenar"){regresame=regresame+muchoo("plural")}
+	
+	if(Besar=="comer"||Besar=="dar"||Besar=="llenar"){regresame=regresame+"besitos";}
+
+	return regresame;
+}
+
 
 //-----------------------------------------------------------------------------------------------------
 //------------------------------------------------lA REVISION-----------------------------------------------------
@@ -1045,188 +1094,128 @@ function nivel0_revision_codigo(revisame){
 	switch (revisame) {
 		case '0'://-------------------------------------------------------- 
 			Algo="algoandamal"
-
 			break;
 		case '1': //--------------------------------------------------------
 			Algo="buenos dias amorcito"
-
-
 			break;
 		case '2': //--------------------------------------------------------
 			Algo="buenos dias mi novia chichona";
-
-
 			break;
 		case '3': //--------------------------------------------------------
 			Algo="ojala pudieera llenarte de muchos besitos al despertar";
-
-
 			break;
 		case '4': //--------------------------------------------------------
 			Algo="ojala pudieramos estar abrazaditos en la camita todo el dia";
-
-
 			break;										
 		case '5'://--------------------------------------------------------
 			Algo="ojala pudieramos estar juntitos todo el dia";
-			
 			break;
 		case '6': //--------------------------------------------------------
 			Algo="ojala pudieramos dormir hasta tarde"
-
 			break;
 		case '7': //--------------------------------------------------------
 			Algo="me encataria despertarte con muchos besitos"
-
-
 			break;
 		case '8': //--------------------------------------------------------
 			Algo="ojala pudiera llenar toido tu cuerpo de besos al despertar";
-
-
 			break;
 		case '9': //--------------------------------------------------------
 			Algo="ojala pudieramos manosearnos al despertarnos";
-
-
 			break;
 		case 'A': //--------------------------------------------------------
 			Algo="ojala pudieramos hacerlo todas las mañanas";
-
-
 			break;										
 		case 'B'://--------------------------------------------------------
 			Algo="ojala pudieramos estar juntitos todo el dia";
 			break;
-
 		case 'C': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'D': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'E': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'F': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'G': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'H': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'I': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'J': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'K': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
+		//------------------------------------Ojala-----------------------------------------------  
 		case 'L': //--------------------------------------------------------  
-
-
 			Algo="";
+			break;
+		case 'M': //--------------------------------------------------------  
+			Algo=FOjalaBesos();
 			break;
 		case 'N': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'Ñ': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'O': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'P': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'Q': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'R': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
 		case 'S': //--------------------------------------------------------  
-
-
 			Algo="";
 			break;
+		//------------------------------------Alagos------------------------------------------------  
 		case 'T': //--------Alagos_Teamo------------------------------------------------  
 			Algo=TEAMO_TEQUIERO(2,false);
 			break;
-
 		case 't': //--------Alagos_Tequiero------------------------------------------------  
 			Algo=TEAMO_TEQUIERO(1,false);
 			break;
-
 		case 'u': //--------Alagos_Teamo------------------------------------------------  
 			Algo=TEAMO_TEQUIERO(2,true);
 			break;
-
 		case 'v': //--------Alagos_Tequiero------------------------------------------------  
 			Algo=TEAMO_TEQUIERO(1,true);
 			break;
-
 		case 'U': //--------Alagos_Wonitos_EstasBien------------------------------------------------  
 			Algo=FAlagoWonitosEstasbien(false);
 			break;
-
 		case 'V': //--------Alagos_Wonitos_Eres------------------------------------------------  
 			Algo= FAlagosWonitosEresMuy();
 			break;
-
 		case 'W': //-------Alagos_Wonitos_MeEncantaTu-------------------------------------------------  
 			Algo=FAlagosWonitosMeEncantaTu(false);
 			break;
-
 		case 'X': //--------Alagos_Hot_Estas------------------------------------------------  
 			Algo=FAlagoWonitosEstasbien(true);
 			break;
-
 		case 'Y': //--------Alagos_Hot_MeEncantaQueSeas------------------------------------------------  
 			Algo=FAlagosHotMeEncantaQueSeas();
 			break;
-
 		case 'Z': //--------Alagos_Hot_MeEncantaTu------------------------------------------------  
 			Algo=FAlagosWonitosMeEncantaTu(true);
 			break;
-
-		default://--------Defaul------------------------------------------------  
-		
-		Algo=" ";
+		default://--------Defaul------------------------------------------------  		
+			Algo=" ";
 		}
 	return Algo;
 }
@@ -1273,10 +1262,12 @@ nivel2_Ojala_Futuro.onclick=function(){Text_Llama("L");}
 nivel3_Ojala_Wonitos_Besarnos.onclick=function(){Text_Llama("M");}
 nivel3_Ojala_Wonitos_Abrazarnos.onclick=function(){Text_Llama("N");}
 nivel3_Ojala_Wonitos_EstarJuntos.onclick=function(){Text_Llama("O");}
-nivel3_Ojala_Hot_Besar.onclick=function(){Text_Llama("P");}
-nivel3_Ojala_Hot_Manosear.onclick=function(){Text_Llama("Q");}
-nivel3_Ojala_Hot_Hacerlo.onclick=function(){Text_Llama("R");}
-nivel3_Ojala_Hot_Eyacular.onclick=function(){Text_Llama("S");}
+nivel3_Ojala_Hot2_Besarnos.onclick=function(){Text_Llama("P");}
+nivel3_Ojala_Hot2_Manosearnos.onclick=function(){Text_Llama("Q");}
+nivel3_Ojala_Hot2_Hacerlo.onclick=function(){Text_Llama("R");}
+nivel3_Ojala_Hot_Lamerte.onclick=function(){Text_Llama("p"); }
+nivel3_Ojala_Hot_Tocarte.onclick=function(){Text_Llama("q");}
+nivel3_Ojala_Hot_Eyacular.onclick=function(){Text_Llama("r");}
 
 nivel3_Alagos_Teamo_Teamo.onclick=function(){Text_Llama("T");}
 nivel3_Alagos_Teamo_Megustas.onclick=function(){Text_Llama("t");}
@@ -1289,6 +1280,7 @@ nivel3_Alagos_Wonitos_MeEncantaTu .onclick=function(){Text_Llama("W");}
 nivel3_Alagos_Hot_Estas.onclick=function(){Text_Llama("X");}
 nivel3_Alagos_Hot_MeEncantaQueSeas.onclick=function(){Text_Llama("Y");}
 nivel3_Alagos_Hot_MeEncantaTu.onclick=function(){Text_Llama("Z");}
+
 
 
 
