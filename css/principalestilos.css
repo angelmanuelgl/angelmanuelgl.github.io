@@ -1,6 +1,7 @@
 *{
 	padding:0;
 	margin:0;
+	box-sizing: border-box;
 }
 .color1 {color: #5c2d4b;}
 .color2 {color: #7d3a55;}
@@ -9,12 +10,22 @@
 .color5 {color: #ffb38f;}
 
 body{
-	font-size:45px;
+	font-size:16px;
+	/*background-color: #03001e;  */
+	background-color: linear-gradient(43deg, #fdeff9, #ec38bc, #7303c0);
+	background-repeat: repeat-x;
+	
 }
+@keyframes CambioFondo{
+	0%{background-position: 0% 50%;}
+	50%{background-position: 99% 50%;}
+	100%{background-position: 0% 50%;}
+}
+
 .elcontiene{
-	position: fixed;
-	width: 100vw;
-	height: 100vh;
+	position: absolute;
+	width: 100%;
+	/*min-height: 100vh;*/
 	background: #03001e;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(43deg, #fdeff9, #ec38bc, #7303c0);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(43deg, #fdeff9, #ec38bc, #7303c0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -22,11 +33,6 @@ body{
 	animation: CambioFondo 5s ease infinite;
 }
 
-@keyframes CambioFondo{
-	0%{background-position: 0% 50%;}
-	50%{background-position: 100% 50%;}
-	100%{background-position: 0% 50%;}
-}
 
 /*---------estilos generale------------------*/
 .fcentrado{
@@ -34,13 +40,19 @@ body{
 	justify-content:center;
 	align-items: center;
 }
-
+.fvcentrado{
+	display:flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
 .transparente{
 	background: none;
 	background: rgba(255,255,255,0.1);
 	border-radius:10px;
-	backdrop-filter:blur(100px);
-	-webkit-backdrop-filter: blur(100px);
+	backdrop-filter:blur(5px);
+	-webkit-backdrop-filter: blur(5px);
 	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
 	border-right:3px solid rgba(255,255,255,0.2);
 	border-bottom:3px solid rgba(255,255,255,0.2);
@@ -50,8 +62,35 @@ body{
 
 
 .header{
-	width: 100vw;
-	/*height: 100vh;*/
+	width: 80vw;
+	height: 90px;
+	z-index: 10;
+	margin-bottom: 40px;
 }
 
+.caja{
+	width: 80vw;
+	height: 70vh;
+	position: relative;
+	margin-bottom:40px;
+	padding: 50px;
 
+}
+.elcontiene div:first-child{
+	visibility: hidden;
+}
+
+.elcontiene> header{
+	position: fixed;
+	z-index: 50;
+	top:0;
+	background: -webkit-linear-gradient(43deg, #f592da, #ec38bc, #b821be);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(43deg, #f592da, #ec38bc, #b821be); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-size: 400% 300%;
+	animation: CambioFondo 5s ease infinite;
+
+}
+.elcontiene article:nth-child(6){
+	color:red;
+	position:static;
+}
