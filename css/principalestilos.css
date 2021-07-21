@@ -1,0 +1,57 @@
+*{
+	padding:0;
+	margin:0;
+}
+.color1 {color: #5c2d4b;}
+.color2 {color: #7d3a55;}
+.color3 {color: #af5265;}
+.color4 {color: #f3797a;}
+.color5 {color: #ffb38f;}
+
+body{
+	font-size:45px;
+}
+.elcontiene{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background: #03001e;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(43deg, #fdeff9, #ec38bc, #7303c0);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(43deg, #fdeff9, #ec38bc, #7303c0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-size: 400% 300%;
+	animation: CambioFondo 5s ease infinite;
+}
+
+@keyframes CambioFondo{
+	0%{background-position: 0% 50%;}
+	50%{background-position: 100% 50%;}
+	100%{background-position: 0% 50%;}
+}
+
+/*---------estilos generale------------------*/
+.fcentrado{
+	display:flex;
+	justify-content:center;
+	align-items: center;
+}
+
+.transparente{
+	background: none;
+	background: rgba(255,255,255,0.1);
+	border-radius:10px;
+	backdrop-filter:blur(100px);
+	-webkit-backdrop-filter: blur(100px);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border-right:3px solid rgba(255,255,255,0.2);
+	border-bottom:3px solid rgba(255,255,255,0.2);
+}
+
+/*---------simpre se usan ------------------*/
+
+
+.header{
+	width: 100vw;
+	/*height: 100vh;*/
+}
+
+
