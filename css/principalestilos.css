@@ -134,7 +134,7 @@ body{
 
 .vueltas{
 	max-height: 150px;
-	max-width: : 150px;
+	max-width: 150px;
 	box-shadow: 2px 25px 45px rgba(0,0,0,0.2);
 	border-right:4px solid rgba(255,255,255,0.2);
 	border-bottom:4px solid rgba(255,255,255,0.2);
@@ -202,28 +202,30 @@ figure .trasera{
    ------------------------------------------------------------------------- */
 @media (min-width: 1800px) {
 	.medallero img{	max-height: 200px;}
-	.vueltas{max-height: 200px;	max-width: : 200px;}
+	.vueltas{max-height: 200px;	max-width: 200px;}
 }
 /* Tablets en horizonal y escritorios normales
    ------------------------------------------------------------------------- */
 @media (max-width: 1199px) {
 	.medallero img{	max-height: 120px;}
-	.vueltas{max-height: 120px;	max-width: : 120px;}
+	.vueltas{max-height: 120px;	max-width: 120px;}
 }
  
 /* Móviles en horizontal o tablets en vertical
    ------------------------------------------------------------------------- */
 @media (max-width: 767px) { 
 	.medallero img{	max-height: 100px;}
-	.vueltas{max-height: 100px;	max-width: : 100px;}
+	.vueltas{max-height: 100px;	max-width: 100px;}
 }
  
 /* Móviles en vertical
    ------------------------------------------------------------------------- */
 @media (max-width: 480px) {
+	.header{width: 90vw;}
+	.caja{	width: 90vw;}
 	html{font-size:14px}
-	.medallero img{	max-height: 80px; margin:5px 0px;}
-	.vueltas{max-height: 80px;	max-width:80px; margin:5px 0px;}
+	/*.medallero img{	max-height: 80px; margin:5px 0px;}
+	.vueltas{max-height: 80px;	max-width:80px; margin:5px 0px;}*/
 	figure .trasera p{font-size:0.9rem; line-height : 1.3rem;}
 
 }
