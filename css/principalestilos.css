@@ -15,28 +15,25 @@
 
 body{
 	font-size:16px;
-	/*background-color: #03001e;  */
-	background-color: linear-gradient(43deg, #fdeff9, #ec38bc, #7303c0);
-	background-repeat: repeat-x;
-	
+}
+
+
+
+.elcontiene{
+	position: absolute;
+	width: 100%;
+	/*min-height: 100vh;*/
+	background: rgb(254,172,94);  
+	background: linear-gradient(90deg, rgb(75,192,200), rgb(199,121,208), rgb(254,172,94)); 
+
+	background-size: 400% 300%;
+	animation: CambioFondo 5s ease infinite;
 }
 @keyframes CambioFondo{
 	0%{background-position: 0% 50%;}
 	50%{background-position: 99% 50%;}
 	100%{background-position: 0% 50%;}
 }
-
-.elcontiene{
-	position: absolute;
-	width: 100%;
-	/*min-height: 100vh;*/
-	background: #03001e;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(43deg, #fdeff9, #ec38bc, #7303c0);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(43deg, #fdeff9, #ec38bc, #7303c0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	background-size: 400% 300%;
-	animation: CambioFondo 5s ease infinite;
-}
-
 
 /*---------estilos generale------------------*/
 .fcentrado{
@@ -95,6 +92,12 @@ body{
 	font-size: 1.1rem;
 	text-align: center;
 }
+.caja h3{
+	font-size: 1.5rem;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
 .headercopia{
 	visibility: hidden;
 }
@@ -103,15 +106,11 @@ body{
 	position: fixed;
 	z-index: 50;
 	top:0;
-	background: -webkit-linear-gradient(43deg, #f592da, #ec38bc, #b821be);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(43deg, #f592da, #ec38bc, #b821be); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: rgb(254,172,94);  
+	background: linear-gradient(90deg, rgb(75,192,200), rgb(199,121,208), rgb(254,172,94)); 
 	background-size: 400% 300%;
 	animation: CambioFondo 5s ease infinite;
 
-}
-.elcontiene article:nth-child(6){
-	color:red;
-	position:static;
 }
 
 /*-----------------------------------yo soy-----------------------------------*/
@@ -125,12 +124,10 @@ body{
 }
 
 .yosoy p{
-	max-width: 500px;
+	max-width: 550px;
 }
 /*---------------------------------medallero------------------------------------*/
-.medallero img{
-	max-height: 150px;
-}
+
 
 .vueltas{
 	max-height: 150px;
@@ -188,8 +185,10 @@ figure .trasera{
 	backface-visibility: 
 	overflow: hidden;
 	backface-visibility: hidden;
-	background: rgb(66,1,121);
-	background: linear-gradient(43deg, rgba(66,1,121,0.3) 0%, rgba(115,3,192,0.4) 36%, rgba(236,56,188,0.5) 65%, rgba(253,239,249,0.3) 100%);
+	background: rgba(254,172,94,0.7);  
+	background: linear-gradient(45deg, rgba(75,192,200,0.7), rgba(199,121,208,0.7), rgba(254,172,94,0.7)); 
+	background-size: 400% 300%;
+	animation: CambioFondo 5s ease infinite;
 }
 
 
@@ -201,20 +200,17 @@ figure .trasera{
 /* escritorios grandes
    ------------------------------------------------------------------------- */
 @media (min-width: 1800px) {
-	.medallero img{	max-height: 200px;}
 	.vueltas{max-height: 200px;	max-width: 200px;}
 }
 /* Tablets en horizonal y escritorios normales
    ------------------------------------------------------------------------- */
 @media (max-width: 1199px) {
-	.medallero img{	max-height: 120px;}
 	.vueltas{max-height: 120px;	max-width: 120px;}
 }
  
 /* Móviles en horizontal o tablets en vertical
    ------------------------------------------------------------------------- */
 @media (max-width: 767px) { 
-	.medallero img{	max-height: 100px;}
 	.vueltas{max-height: 100px;	max-width: 100px;}
 }
  

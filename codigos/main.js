@@ -1,3 +1,5 @@
-function hola{
+function hola(){
 	console.log("hola");
 }
+
+
