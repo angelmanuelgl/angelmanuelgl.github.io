@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
 	padding:0;
 	margin:0;
 	box-sizing: border-box;
+	font-family: "Poppins",sans-serif;
+	color: #eee;
 }
 .color1 {color: #5c2d4b;}
 .color2 {color: #7d3a55;}
@@ -47,6 +51,12 @@ body{
 	align-items: center;
 	justify-content: space-between;
 }
+.fwrapcentrado{
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
 .transparente{
 	background: none;
 	background: rgba(255,255,255,0.1);
@@ -57,7 +67,12 @@ body{
 	border-right:3px solid rgba(255,255,255,0.2);
 	border-bottom:3px solid rgba(255,255,255,0.2);
 }
-
+.borde{
+	border-radius:10px;
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border-right:3px solid rgba(255,255,255,0.2);
+	border-bottom:3px solid rgba(255,255,255,0.2);
+}
 /*---------simpre se usan ------------------*/
 
 
@@ -70,13 +85,17 @@ body{
 
 .caja{
 	width: 80vw;
-	height: 70vh;
+	min-height: 70vh;
 	position: relative;
 	margin-bottom:40px;
 	padding: 50px;
 
 }
-.elcontiene div:first-child{
+.caja p{
+	font-size: 1.1rem;
+	text-align: center;
+}
+.headercopia{
 	visibility: hidden;
 }
 
@@ -93,4 +112,118 @@ body{
 .elcontiene article:nth-child(6){
 	color:red;
 	position:static;
+}
+
+/*-----------------------------------yo soy-----------------------------------*/
+.yosoy img{
+	height: 300px;
+	border-radius:10px;
+	box-shadow: 2px 25px 45px rgba(0,0,0,0.3);
+	border-right:4px solid rgba(255,255,255,0.2);
+	border-bottom:4px solid rgba(255,255,255,0.2);
+	margin-bottom: 20px;
+}
+
+.yosoy p{
+	max-width: 500px;
+}
+/*---------------------------------medallero------------------------------------*/
+.medallero img{
+	max-height: 150px;
+}
+
+.vueltas{
+	max-height: 150px;
+	max-width: : 150px;
+	box-shadow: 2px 25px 45px rgba(0,0,0,0.2);
+	border-right:4px solid rgba(255,255,255,0.2);
+	border-bottom:4px solid rgba(255,255,255,0.2);
+	margin:5px 10px;
+	border-radius: 50%;
+
+}
+.vueltas figure{
+	position: relative;
+	transition: all ease .5s;
+	transform-style: preserve-3d;
+	transform: perspective(600px) rotateY(0deg);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.vueltas:hover figure,
+.vueltas:active figure{
+	-webkit-transform: perspective(600px) rotateY(180deg);
+	-ms-transform: perspective(600px) rotateY(180deg);
+	-o-transform: perspective(600px) rotateY(180deg);
+	transform: perspective(600px) rotateY(180deg);
+}
+.vueltas:hover img,
+.vueltas:active img{
+	filter: blur(2px);
+}
+
+
+figure .frontal{
+	width: 100%;
+	height: 100%;
+	border-radius:5px;
+	transition: all ease .5s;
+
+	display: block;
+	/*backface-visibility: hidden;*/
+}
+figure .trasera{
+	width: 100%;
+	height: 100%;
+	border-radius:5px;
+	transition: all ease .5s;
+
+	position: absolute;
+	top:0%;
+	border-radius: 50%;
+	transform: perspective(600px) rotateY(180deg);
+	backface-visibility: 
+	overflow: hidden;
+	backface-visibility: hidden;
+	background: rgb(66,1,121);
+	background: linear-gradient(43deg, rgba(66,1,121,0.3) 0%, rgba(115,3,192,0.4) 36%, rgba(236,56,188,0.5) 65%, rgba(253,239,249,0.3) 100%);
+}
+
+
+
+
+
+/* RESPONSIVE
+   ========================================================================= */
+/* escritorios grandes
+   ------------------------------------------------------------------------- */
+@media (min-width: 1800px) {
+	.medallero img{	max-height: 200px;}
+	.vueltas{max-height: 200px;	max-width: : 200px;}
+}
+/* Tablets en horizonal y escritorios normales
+   ------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+	.medallero img{	max-height: 120px;}
+	.vueltas{max-height: 120px;	max-width: : 120px;}
+}
+ 
+/* Móviles en horizontal o tablets en vertical
+   ------------------------------------------------------------------------- */
+@media (max-width: 767px) { 
+	.medallero img{	max-height: 100px;}
+	.vueltas{max-height: 100px;	max-width: : 100px;}
+}
+ 
+/* Móviles en vertical
+   ------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+	html{font-size:14px}
+	.medallero img{	max-height: 80px; margin:5px 0px;}
+	.vueltas{max-height: 80px;	max-width:80px; margin:5px 0px;}
+	figure .trasera p{font-size:0.9rem; line-height : 1.3rem;}
+
 }
