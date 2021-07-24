@@ -17,7 +17,9 @@ body{
 	font-size:16px;
 }
 
-
+a{
+	text-decoration:none;
+}
 
 .elcontiene{
 	position: absolute;
@@ -92,7 +94,7 @@ body{
 	font-size: 1.1rem;
 	text-align: center;
 }
-.caja h3{
+.caja h2{
 	font-size: 1.5rem;
 	width: 100%;
 	text-align: center;
@@ -110,10 +112,15 @@ body{
 	background: linear-gradient(90deg, rgb(75,192,200), rgb(199,121,208), rgb(254,172,94)); 
 	background-size: 400% 300%;
 	animation: CambioFondo 5s ease infinite;
-
 }
 
-/*-----------------------------------yo soy-----------------------------------*/
+.fondocambio{
+	background: rgba(254,172,94,0.7);  
+	background: linear-gradient(45deg, rgba(75,192,200,0.7), rgba(199,121,208,0.7), rgba(254,172,94,0.7)); 
+	background-size: 400% 300%;
+	animation: CambioFondo 5s ease infinite;
+}
+/*=======================================yo soy=======================================*/
 .yosoy img{
 	height: 300px;
 	border-radius:10px;
@@ -126,9 +133,8 @@ body{
 .yosoy p{
 	max-width: 550px;
 }
-/*---------------------------------medallero------------------------------------*/
 
-
+/*=======================================medallero=======================================*/
 .vueltas{
 	max-height: 150px;
 	max-width: 150px;
@@ -190,6 +196,67 @@ figure .trasera{
 	background-size: 400% 300%;
 	animation: CambioFondo 5s ease infinite;
 }
+/*=======================================algunos trabajos=======================================*/
+
+.misproyectos .targeta{
+	width:350px;
+	min-height: 420px;
+	margin:15px 5px;
+	padding: 1.5rem;
+	display:flex;
+	flex-flow: column;
+	align-items: center;
+	position: relative;
+
+}
+.misproyectos h3{
+	font-size: 1.3rem;
+	text-align: center;
+	margin-bottom: 1.3rem;
+}
+.misproyectos p{
+	font-size: 1rem;
+	text-align: center;
+	margin-bottom: 1.3rem;
+}
+.misproyectos .targeta .unaafter{
+	content: "";
+	position: absolute;
+	top:0;
+	left:0;
+	width: 50%;
+	height: 100%;
+	background:rgba(255,255,255,0.06);
+	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
+	transition:all 3s ease;
+}
+
+.targeta:hover .unaafter{
+	/*animation: EmpujeDerecha 5s ease infinite;*/
+	left:50%;
+		border-top-left-radius:0px;
+		border-bottom-left-radius:0px;
+		border-top-right-radius:10px;
+		border-bottom-right-radius:10px;
+}
+
+.targeta a{
+	display: inline-block;
+	text-align: center;
+	font-size:1.1rem;
+	min-width: 180px;
+	padding: 20px 0px;
+	position: absolute;
+	bottom: 2.2rem;
+	perspective(1000px);
+	translateZ(100px);
+}
+
+
+
 
 
 

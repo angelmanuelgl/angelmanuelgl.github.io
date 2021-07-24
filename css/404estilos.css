@@ -20,7 +20,7 @@ body{
 	right: 10%;
 	bottom:10%;
 	border-radius:10px;
-	background: url(img/p404.png) rgba(15, 4, 76,0.2);
+	background: url("https://angelmanuelgl.github.io/img/p404.png") rgba(15, 4, 76,0.2);
 	display:flex;
 	justify-content:center;
 	align-items: center;
