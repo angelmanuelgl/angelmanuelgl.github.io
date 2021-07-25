@@ -37,7 +37,7 @@ a{
 	100%{background-position: 0% 50%;}
 }
 
-/*---------estilos generale------------------*/
+/*----------------------------------felx---------------------------------*/
 .fcentrado{
 	display:flex;
 	justify-content:center;
@@ -56,6 +56,8 @@ a{
 	justify-content: space-around;
 	align-items: center;
 }
+/*----------------------------------estilos generale---------------------------------*/
+
 .transparente{
 	background: none;
 	background: rgba(255,255,255,0.1);
@@ -67,11 +69,36 @@ a{
 	border-bottom:3px solid rgba(255,255,255,0.2);
 }
 .borde{
+
 	border-radius:10px;
 	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
 	border-right:3px solid rgba(255,255,255,0.2);
 	border-bottom:3px solid rgba(255,255,255,0.2);
 }
+.aparece{
+	padding: 20px 30px;
+	max-width: 60%;
+	transition: all 1s;
+	border-radius:10px;
+	border-right:3px solid rgba(255,255,255,0.1);
+	border-bottom:3px solid rgba(255,255,255,0.1);
+	background:none;
+}
+@media (max-width: 790px) { 
+	.aparece{min-width: 350px;}
+}@media (max-width: 500px) { 
+	.aparece{min-width: 95%;}
+}
+.aparece:hover{
+	background: rgba(255,255,255,0.1);
+	border-right:3px solid rgba(255,255,255,0.2);
+	border-bottom:3px solid rgba(255,255,255,0.2);
+	backdrop-filter:blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+}
+
+
 /*---------simpre se usan ------------------*/
 
 
@@ -83,19 +110,21 @@ a{
 }
 
 .caja{
-	width: 80vw;
+	width: 80%;
 	min-height: 70vh;
 	position: relative;
 	margin-bottom:40px;
 	padding: 50px;
-
+}
+@media (max-width: 540px) { 
+	.caja{width: 98%}
 }
 .caja p{
 	font-size: 1.1rem;
 	text-align: center;
 }
 .caja h2{
-	font-size: 1.5rem;
+	font-size: 1.4rem;
 	width: 100%;
 	text-align: center;
 	margin-bottom: 20px;
@@ -198,7 +227,7 @@ figure .trasera{
 }
 /*=======================================algunos trabajos=======================================*/
 
-.misproyectos .targeta{
+.targeta{
 	width:350px;
 	min-height: 420px;
 	margin:15px 5px;
@@ -207,7 +236,13 @@ figure .trasera{
 	flex-flow: column;
 	align-items: center;
 	position: relative;
-
+}
+@media (max-width: 1050px) { 
+	.targeta{min-height:unset;}
+}@media (max-width: 540px) { 
+	.targeta{width: 95%;}
+}@media (max-width: 340px) { 
+	.targeta{width: 99%;}
 }
 .misproyectos h3{
 	font-size: 1.3rem;
@@ -234,7 +269,7 @@ figure .trasera{
 	transition:all 3s ease;
 }
 
-.targeta:hover .unaafter{
+.misproyectos .targeta:hover .unaafter{
 	/*animation: EmpujeDerecha 5s ease infinite;*/
 	left:50%;
 		border-top-left-radius:0px;
@@ -243,25 +278,36 @@ figure .trasera{
 		border-bottom-right-radius:10px;
 }
 
-.targeta a{
+.misproyectos .targeta a{
+	margin-top: 10px;
 	display: inline-block;
 	text-align: center;
 	font-size:1.1rem;
-	min-width: 180px;
+	min-width: 50%;
 	padding: 20px 0px;
 	position: absolute;
 	bottom: 2.2rem;
 	perspective(1000px);
 	translateZ(100px);
 }
+.misproyectos .targeta .falso{
+	position: static;
+	background: red;
+	visibility: hidden;
+}
+/*===================================habilidades===========================================*/
 
+.habilidades div:nth-child(1){
+	width:55%;
+}
+.habilidades div:nth-child(2){
+	width:40%;
+}
 
-
-
-
-
-
-
+.habilidades .aparece{
+	max-width: 90%;
+	font-size: 1.1rem;
+}
 /* RESPONSIVE
    ========================================================================= */
 /* escritorios grandes
@@ -285,10 +331,14 @@ figure .trasera{
    ------------------------------------------------------------------------- */
 @media (max-width: 480px) {
 	.header{width: 90vw;}
-	.caja{	width: 90vw;}
+	/*.caja{	width: 90vw;}*/
 	html{font-size:14px}
 	/*.medallero img{	max-height: 80px; margin:5px 0px;}
 	.vueltas{max-height: 80px;	max-width:80px; margin:5px 0px;}*/
 	figure .trasera p{font-size:0.9rem; line-height : 1.3rem;}
-
+}
+/* Móviles en vertical
+   ------------------------------------------------------------------------- */
+@media (max-width: 370px) {
+	html{font-size:12px}
 }
