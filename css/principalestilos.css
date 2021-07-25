@@ -97,7 +97,21 @@ a{
 	-webkit-backdrop-filter: blur(5px);
 	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
 }
-
+.aparecesutil{
+	transition: all 1s;
+	border-radius:10px;
+	border-right:3px solid rgba(255,255,255,0.0);
+	border-bottom:3px solid rgba(255,255,255,0.0);
+	background:none;
+}
+.aparecesutil:hover{
+	background: rgba(255,255,255,0.1);
+	border-right:3px solid rgba(255,255,255,0.2);
+	border-bottom:3px solid rgba(255,255,255,0.2);
+	backdrop-filter:blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+}
 
 /*---------simpre se usan ------------------*/
 
@@ -116,8 +130,13 @@ a{
 	margin-bottom:40px;
 	padding: 50px;
 }
+@media (max-width: 1199px) {
+	.caja{width: 90%; padding: 30px;}
+	.header{width: 90%;}
+}
 @media (max-width: 540px) { 
-	.caja{width: 98%}
+	.caja{width: 90%; padding: 20px;}
+	.header{width: 95%;}
 }
 .caja p{
 	font-size: 1.1rem;
@@ -151,12 +170,15 @@ a{
 }
 /*=======================================yo soy=======================================*/
 .yosoy img{
-	height: 300px;
+	height: 350px;
 	border-radius:10px;
 	box-shadow: 2px 25px 45px rgba(0,0,0,0.3);
 	border-right:4px solid rgba(255,255,255,0.2);
 	border-bottom:4px solid rgba(255,255,255,0.2);
 	margin-bottom: 20px;
+}
+@media (max-width:430px){
+	.yosoy img{height:unset; width:70%;}
 }
 
 .yosoy p{
@@ -164,6 +186,16 @@ a{
 }
 
 /*=======================================medallero=======================================*/
+.medallero {
+	display:flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+ .contenedormedallas{
+ 	background: #000;
+ }
 .vueltas{
 	max-height: 150px;
 	max-width: 150px;
@@ -226,7 +258,9 @@ figure .trasera{
 	animation: CambioFondo 5s ease infinite;
 }
 /*=======================================algunos trabajos=======================================*/
-
+.contienegeneral{
+	width:100%;
+}
 .targeta{
 	width:350px;
 	min-height: 420px;
@@ -297,17 +331,72 @@ figure .trasera{
 }
 /*===================================habilidades===========================================*/
 
-.habilidades div:nth-child(1){
-	width:55%;
-}
-.habilidades div:nth-child(2){
+.habilidades .tecnicas{
 	width:40%;
+	height: 80%;
 }
-
+.habilidades .profesionales{
+	width:55%;
+	height: 80%;
+}
+@media (max-width: 930px) {
+	.habilidades .tecnicas{	width:80%;}
+	.habilidades .profesionales{width:80%;}
+}
+@media (max-width:500px) {
+	.habilidades .tecnicas{	width:95%;}
+	.habilidades .profesionales{width:95%;}
+}
 .habilidades .aparece{
 	max-width: 90%;
-	font-size: 1.1rem;
+	font-size: 1.3rem;
+
 }
+
+.lashabilidades{
+	width: 80%;
+	padding: 0px 20px;
+
+}
+@media (max-width: 350px) {
+	.lashabilidades{width: 90%}
+}
+
+
+.lashabilidades .barra{
+	height: 10px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.lashabilidades .progreso{
+	height: 10px;
+	width: var(--l);
+	animation: Barra 5s ease;
+	border-radius: 10px;
+	border:2px solid rgba(255,255,255,0.5);
+}
+.lashabilidades:active .progreso{
+	animation: Barrad 5s ease ;
+}
+@keyframes Barra{
+	0%{width:0%}
+	100%{width: var(--l)}
+}
+@keyframes Barrad{
+	0%{width:0%}
+	100%{width: var(--l)}
+	/*100%{width:0%}*/
+}
+.lashabilidades h3{
+	font-size: 1rem;
+}
+
+
+
+
+
+
+
 /* RESPONSIVE
    ========================================================================= */
 /* escritorios grandes
@@ -318,13 +407,13 @@ figure .trasera{
 /* Tablets en horizonal y escritorios normales
    ------------------------------------------------------------------------- */
 @media (max-width: 1199px) {
-	.vueltas{max-height: 120px;	max-width: 120px;}
+	.vueltas{max-height: 160px;	max-width: 160px;}
 }
  
 /* Móviles en horizontal o tablets en vertical
    ------------------------------------------------------------------------- */
 @media (max-width: 767px) { 
-	.vueltas{max-height: 100px;	max-width: 100px;}
+	.vueltas{max-height: 120px;	max-width: 120px;}
 }
  
 /* Móviles en vertical
@@ -341,4 +430,8 @@ figure .trasera{
    ------------------------------------------------------------------------- */
 @media (max-width: 370px) {
 	html{font-size:12px}
+}
+@media (max-width: 270px) {
+	html{font-size:10px}
+	.vueltas{max-height: 100px;	max-width: 100px;}
 }

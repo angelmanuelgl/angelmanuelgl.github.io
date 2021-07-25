@@ -24,7 +24,7 @@
 			</div>	
 		</article>
 		
-		<article class="caja transparente fvcentrado fondocambio medallero">	
+		<article class="caja transparente fondocambio medallero">	
 			<h2 class="aparece">Medallas de Matemáticas y Física</h2>
 			<div class="fwrapcentrado">
 				<div class="vueltas"> <figure>
@@ -84,12 +84,53 @@
 			</div>
 		</article>
 		
-		<article class="caja transparente fwrapcentrado habilidades">	
-			<div class="targeta transparente">
-				<h2 class="aparece">Habilidades Tecnicas</h2>
-
+		<article class="caja transparente fwrapcentrado habilidades fondocambio">	
+			<div class="targeta transparente tecnicas fondocambio">
+				<h2 class="aparece ">Habilidades Tecnicas</h2>
+				<div class="lashabilidades aparecesutil ">
+					<h3>HTML</h3>
+					<div class="barra transparente">
+						<div class="progreso" style="--l:65%"></div>
+					</div>
+				</div>
+				<div class="lashabilidades aparecesutil">
+					<h3>CSS</h3>
+					<div class="barra transparente">
+						<div class="progreso" style="--l:60%"></div>
+					</div>
+				</div>
+				<div class="lashabilidades aparecesutil">
+					<h3>JavaScript</h3>
+					<div class="barra transparente">
+						<div class="progreso" style="--l:70%"></div>
+					</div>
+				</div>
+				<div class="lashabilidades aparecesutil">
+					<h3>Matemáticas Escolares</h3>
+					<div class="barra transparente">
+						<div class="progreso" style="--l:100%"></div>
+					</div>
+				</div>
+				<div class="lashabilidades aparecesutil">
+					<h3>Matemáticas Olimpiada</h3>
+					<div class="barra transparente">
+						<div class="progreso" style="--l:60%"></div>
+					</div>
+				</div>
+				<div class="lashabilidades aparecesutil">
+					<h3>Física Olimpiada</h3>
+					<div class="barra transparente">
+						<div class="progreso" style="--l:35%"></div>
+					</div>
+				</div>
+				<div class="lashabilidades aparecesutil">
+					<h3>Diseño y Creatividad</h3>
+					<div class="barra transparente">
+						<div class="progreso" style="--l:45%"></div>
+					</div>
+				</div>
 			</div>
-			<div class="targeta transparente">
+			<div class="targeta transparente profesionales fondocambio">
 				<h2 class="aparece">Habilidades Profesionales</h2>
 			</div>
 
@@ -100,33 +141,33 @@
 		<article class="caja transparente fvcentrado misproyectos fondocambio">	
 			<h2 class="aparece">Algunos Proyectos </h2>
 			<div class="fwrapcentrado">
-				<div class="targeta transparente hovermueve fondocambio">
+				<div class="targeta transparente hm-poco fondocambio">
 					<div class="unaafter"></div>
 					<h3>Patrones De Emojis</h3>
 					<p>Este proyeto personal lo realize usando codigo JavaScript para poner aprueba mis conocimeintos y habilidades sobre elementos del DOM, objetos, metodos, propiedades y estructuras condicionales e iterativas  </p>
 					<a href="" class="falso">Ver mas</a> 
-					<a href="https://angelmanuelgl.github.io/regalo_para_ti/patrones_emojis/" target="_blank" class="transparente hovermueve fondocambio">Ver más</a>
+					<a href="https://angelmanuelgl.github.io/regalo_para_ti/patrones_emojis/" target="_blank" class="transparente hm-poco fondocambio">Ver más</a>
 				</div>
-				<div class="targeta transparente hovermueve fondocambio">
+				<div class="targeta transparente hm-poco fondocambio">
 					<div class="unaafter"></div>
 					<h3>Pagina 404</h3>
 					<p>Realmente fue un proyecto muy pequeño y rapido de terminar, pero devido a que no tengo otros proyectos que mostrar este se quedará aqui de mientras hago mas cosas</p>
 					<a href="" class="falso">Ver mas</a> 
-					<a href="https://angelmanuelgl.github.io/404.html" class="transparente hovermueve fondocambio" target="_blank">Ver más</a>
+					<a href="https://angelmanuelgl.github.io/404.html" class="transparente hm-poco fondocambio" target="_blank">Ver más</a>
 				</div>
-				<div class="targeta transparente hovermueve fondocambio">
+				<div class="targeta transparente hm-poco fondocambio">
 					<div class="unaafter"></div>
 					<h3>Patrones de Mojis 2.0</h3>
 					<p>Es la version mejorada de mi otra pagina debido a que en en proceso de elaboración adquiri mas conocimientos y habilidades lo cual me permitio mejorarla, sin embargo aun no esta terminada</p>
 					<a href="" class="falso">Ver mas</a> 
-					<a href="https://angelmanuelgl.github.io/regalo_para_ti/nuevo_patrones_emojis/" target="_blank" class="transparente hovermueve fondocambio">Ver más</a>
+					<a href="https://angelmanuelgl.github.io/regalo_para_ti/nuevo_patrones_emojis/" target="_blank" class="transparente hm-poco fondocambio">Ver más</a>
 				</div>
-				<div class="targeta transparente hovermueve fondocambio">
+				<div class="targeta transparente hm-poco fondocambio">
 					<div class="unaafter"></div>
 					<h3>Mi presentación</h3>
 					<p>Antes me habia dedicado a proyectos personales para mejorar mis habilidades en JS pero me di cuenta que practicaba muy poco CSS, debido a eso tome la desicion de hacerme una pagina de presenetación (la cual es esta página) en la cual aplicar mis habilidades</p>
 					<a href="" class="falso">Ver mas</a> 
-					<a href="#" target="_blank" class="transparente hovermueve fondocambio">Ver más</a>
+					<a href="#" target="_blank" class="transparente hm-poco fondocambio">Ver más</a>
 				</div>
 			</div>
 		</article>
@@ -150,6 +191,13 @@
 	<script type="text/javascript">
 	VanillaTilt.init(document.querySelectorAll(".hovermueve"),{
 		reverse:true,
+		max:40,
+		speed:1000,
+		glare:true,
+		"max-glare":0,
+	});
+	VanillaTilt.init(document.querySelectorAll(".hm-poco"),{
+		reverse:true,
 		max:15,
 		speed:1000,
 		glare:true,
@@ -157,7 +205,14 @@
 	});
 	VanillaTilt.init(document.querySelectorAll(".aparece"),{
 		reverse:true,
-		max:8,
+		max:20,
+		speed:1000,
+		glare:true,
+		"max-glare":0,
+	});
+	VanillaTilt.init(document.querySelectorAll(".aparecesutil"),{
+		reverse:true,
+		max:10,
 		speed:1000,
 		glare:true,
 		"max-glare":0,
