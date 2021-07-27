@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+:root{
+	--FondoDegradado:linear-gradient(45deg, rgb(75,192,200), rgb(199,121,208), rgb(254,172,94));
+	--FondoDegradadoBajito:linear-gradient(45deg, rgba(75,192,200,0.7), rgba(199,121,208,0.7), rgba(254,172,94,0.7)); 
+	/*--FondoDegradado:linear-gradient(35deg,  #ed4264, #ffedbc);
+	--FondoDegradadoBajito:linear-gradient(35deg,  #ed4264, #ffedbc);*/
+	color: re;
+}
 *{
 	padding:0;
 	margin:0;
@@ -25,8 +32,8 @@ a{
 	position: absolute;
 	width: 100%;
 	/*min-height: 100vh;*/
-	background: rgb(254,172,94);  
-	background: linear-gradient(90deg, rgb(75,192,200), rgb(199,121,208), rgb(254,172,94)); 
+	/*background: rgb(254,172,94);  */
+	background: var(--FondoDegradado); /*---------------------------------------------------------*/
 
 	background-size: 400% 300%;
 	animation: CambioFondo 5s ease infinite;
@@ -157,14 +164,14 @@ a{
 	z-index: 50;
 	top:0;
 	background: rgb(254,172,94);  
-	background: linear-gradient(90deg, rgb(75,192,200), rgb(199,121,208), rgb(254,172,94)); 
+	background: var(--FondoDegradado); /*---------------------------------------------------------*/
 	background-size: 400% 300%;
 	animation: CambioFondo 5s ease infinite;
 }
 
 .fondocambio{
 	background: rgba(254,172,94,0.7);  
-	background: linear-gradient(45deg, rgba(75,192,200,0.7), rgba(199,121,208,0.7), rgba(254,172,94,0.7)); 
+	background: var(--FondoDegradadoBajito); /*---------------------------------------------------------*/
 	background-size: 400% 300%;
 	animation: CambioFondo 5s ease infinite;
 }
@@ -253,7 +260,7 @@ figure .trasera{
 	overflow: hidden;
 	backface-visibility: hidden;
 	background: rgba(254,172,94,0.7);  
-	background: linear-gradient(45deg, rgba(75,192,200,0.7), rgba(199,121,208,0.7), rgba(254,172,94,0.7)); 
+	background: var(--FondoDegradadoBajito); /*---------------------------------------------------------*/ 
 	background-size: 400% 300%;
 	animation: CambioFondo 5s ease infinite;
 }
@@ -338,6 +345,9 @@ figure .trasera{
 .habilidades .profesionales{
 	width:55%;
 	height: 80%;
+	display:flex;
+	align-items: center;
+	justify-content: center;
 }
 @media (max-width: 930px) {
 	.habilidades .tecnicas{	width:80%;}
@@ -350,51 +360,170 @@ figure .trasera{
 .habilidades .aparece{
 	max-width: 90%;
 	font-size: 1.3rem;
-
+}
+.tecnicas .lashabilidades .eltitulohabilidad{
+	width: 100%;
+	display:flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
 }
 
-.lashabilidades{
-	width: 80%;
-	padding: 0px 20px;
-
+.tecnicas .lashabilidades{
+	width: 90%;
+	padding: 0px 10px;
+	margin-bottom: 3px;
 }
-@media (max-width: 350px) {
-	.lashabilidades{width: 90%}
+.tecnicas .lashabilidades span{
+	color:#eee;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800;
+	font-size: 1rem;
 }
 
 
-.lashabilidades .barra{
-	height: 10px;
+.tecnicas .lashabilidades .barra{
+	height: 15px;
 	width: 100%;
 	margin-bottom: 10px;
 }
-.lashabilidades .progreso{
-	height: 10px;
+.tecnicas .lashabilidades .progreso{
+	height: 100%;
 	width: var(--l);
 	animation: Barra 5s ease;
 	border-radius: 10px;
 	border:2px solid rgba(255,255,255,0.5);
 }
-.lashabilidades:active .progreso{
-	animation: Barrad 5s ease ;
+.tecnicas .lashabilidades:active .progreso{
+	animation: BarraDos 5s ease ;
 }
 @keyframes Barra{
 	0%{width:0%}
 	100%{width: var(--l)}
 }
-@keyframes Barrad{
+@keyframes Barra2{
 	0%{width:0%}
 	100%{width: var(--l)}
-	/*100%{width:0%}*/
 }
+
 .lashabilidades h3{
 	font-size: 1rem;
 }
+.profesionales>.fwrapcentrado{
+	width: 100%;
+}
+.profesionales .lashabilidades{
+	position: relative;
+	width: 200px;
+	height: 200px;
+	padding: 0;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	flex-direction: column;
+	margin: 0px 5px 10px 5px;
+	/*border:2px solid red;*/
+}
+@media (max-width: 730px){
+	.profesionales .lashabilidades{margin: 0px 2px 10px 2px;}
+}
+@media (max-width: 290px){
+	.profesionales .lashabilidades{width: 150px;height: 150px;}
+}
+@media (max-width: 250px){
+	.profesionales .lashabilidades{width: 100px;height: 100px;}
+}
+@media (max-width: 180px){
+	.profesionales .lashabilidades{width: 50px;height: 50px;}
+}
+.profesionales .lashabilidades .porcentaje{
+	/*border:2px solid black;*/
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+.profesionales .porcentaje svg{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	/*border:2px solid blue;*/
+	transform: rotate(-90deg);
+	padding: 0;
+}
+.profesionales .porcentaje circle{
+	width: 100%;
+	height: 100%;
+	fill:none;
+	stroke-width:10;
+	stroke: #000;
+	/*transform: translate(5px,5px);*/
+	stroke-dasharray: 510;
+	stroke-dashoffset:510;
 
+}
+.profesionales .porcentaje svg circle:nth-child(1){
+	stroke-dashoffset:0;
+	stroke: rgba(255,255,255,0.2);
+}
+.profesionales .porcentaje svg circle:nth-child(2){
+	stroke-dashoffset:var(--l);
+	stroke: rgba(255,255,255,0.5);
+	animation: BarraCircular 5s ease;
+}
+.profesionales .lashabilidades:active circle:nth-child(2){
+	animation: BarraCircularDos 5s ease;
+}
+@keyframes BarraCircular{
+	0%{stroke-dashoffset:510;}
+	100%{stroke-dashoffset:var(--l);}
+}
+@keyframes BarraCircularDos{
+	0%{stroke-dashoffset:510;}
+	100%{stroke-dashoffset:var(--l);}
+}
 
+.profesionales .porcentaje .numero{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	color:#999;
+	/*border:2px solid green;*/
+}
 
+.profesionales h2,
+.profesionales .porcentaje .numero h2 span{
+	font-size: 1rem;
 
+}
+.profesionales .porcentaje .numero h2{
+	font-size: 2.5rem;
+	width: 90%;
+	/*border:2px solid orange;*/
+	line-height : 2rem;
+}
 
+.profesionales .porcentaje .numero .habilidadtitulo{
+	/*border:2px solid green;*/
+	padding: 0.5rem 0.8rem;
+	transition: all 1s ease;
+	border-radius: 10px;
+	border-right:3px solid rgba(255,255,255,0);
+	border-bottom:3px solid rgba(255,255,255,0);
+}
+.profesionales .porcentaje .numero .habilidadtitulo:hover{
+	background: rgba(255,255,255,0.1);
+	border-right:3px solid rgba(255,255,255,0.2);
+	border-bottom:3px solid rgba(255,255,255,0.2);
+	backdrop-filter:blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+}
 
 
 /* RESPONSIVE
@@ -434,4 +563,12 @@ figure .trasera{
 @media (max-width: 270px) {
 	html{font-size:10px}
 	.vueltas{max-height: 100px;	max-width: 100px;}
+}
+@media (max-width: 240px) {
+	html{font-size:8px}
+	.caja{min-height:unset;}
+}
+@media (max-width: 180px) {
+	html{font-size:6px}
+	.vueltas{max-height: 50px;	max-width: 50px;}
 }
