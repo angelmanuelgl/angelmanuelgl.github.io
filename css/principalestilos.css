@@ -1,12 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 :root{
 	--FondoDegradado:linear-gradient(45deg, rgb(75,192,200), rgb(199,121,208), rgb(254,172,94));
 	--FondoDegradadoBajito:linear-gradient(45deg, rgba(75,192,200,0.7), rgba(199,121,208,0.7), rgba(254,172,94,0.7)); 
+	
 	/*--FondoDegradado:linear-gradient(35deg,  #ed4264, #ffedbc);
 	--FondoDegradadoBajito:linear-gradient(35deg,  #ed4264, #ffedbc);*/
-	color: re;
+	
+	/*--FondoDegradado:linear-gradient(225deg, rgba(92,192,172,1), rgba(199,121,208,1),rgba(46,165,195,1));*/
+	/*--FondoDegradadoBajito:linear-gradient(225deg,  rgba(92,192,172,0.7), rgba(199,121,208,0.7),rgba(46,165,195,0.7));*/
+	
+	--FondoDegradado:linear-gradient(45deg,rgba(92,192,172,1), rgba(46,165,195,1), rgb(199,121,208), rgb(254,172,94));
+	--FondoDegradadoBajito:linear-gradient(45deg,rgba(92,192,172,0.7), rgba(46,165,195,0.7), rgba(199,121,208,0.7), rgba(254,172,94,0.7)); 
+	
+
+	--LaAnimacion:CambioFondo 10s ease infinite;
 }
+@keyframes CambioFondo{
+	0%{background-position: 0% 50%;}
+	50%{background-position: 99% 50%;}
+	100%{background-position: 0% 50%;}
+}
+
 *{
 	padding:0;
 	margin:0;
@@ -36,12 +52,7 @@ a{
 	background: var(--FondoDegradado); /*---------------------------------------------------------*/
 
 	background-size: 400% 300%;
-	animation: CambioFondo 5s ease infinite;
-}
-@keyframes CambioFondo{
-	0%{background-position: 0% 50%;}
-	50%{background-position: 99% 50%;}
-	100%{background-position: 0% 50%;}
+	animation: var(--LaAnimacion);
 }
 
 /*----------------------------------felx---------------------------------*/
@@ -119,15 +130,19 @@ a{
 	-webkit-backdrop-filter: blur(5px);
 	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
 }
+.fondocambio{
+	background: rgba(254,172,94,0.7);  
+	background: var(--FondoDegradadoBajito); /*---------------------------------------------------------*/
+	background-size: 400% 300%;
+	animation: var(--LaAnimacion);
+}
 
-/*---------simpre se usan ------------------*/
-
-
+/*------------------------simpre se usan -----------------------*/
 .header{
 	width: 80vw;
 	height: 90px;
 	z-index: 10;
-	margin-bottom: 40px;
+	margin-bottom: 2.5rem;
 }
 
 .caja{
@@ -144,6 +159,7 @@ a{
 @media (max-width: 540px) { 
 	.caja{width: 90%; padding: 20px;}
 	.header{width: 95%;}
+	.header{height: 60px;}
 }
 .caja p{
 	font-size: 1.1rem;
@@ -155,6 +171,9 @@ a{
 	text-align: center;
 	margin-bottom: 20px;
 }
+
+/*------------------------header -----------------------*/
+
 .headercopia{
 	visibility: hidden;
 }
@@ -166,15 +185,72 @@ a{
 	background: rgb(254,172,94);  
 	background: var(--FondoDegradado); /*---------------------------------------------------------*/
 	background-size: 400% 300%;
-	animation: CambioFondo 5s ease infinite;
+	animation: var(--LaAnimacion);
+}
+.header{
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	padding: 0px 80px;
+}
+@media (max-width: 800px){
+	.header{padding: 0px 40px;}
+}
+@media (max-width: 400px){
+	.header{padding: 0px 20px;}
+}
+@media (max-width: 280px){
+	.header{padding: 0px 10px;}
 }
 
-.fondocambio{
-	background: rgba(254,172,94,0.7);  
-	background: var(--FondoDegradadoBajito); /*---------------------------------------------------------*/
-	background-size: 400% 300%;
-	animation: CambioFondo 5s ease infinite;
+.header >div{
+	height: 100%;
+	/*border:2px solid red;*/
+	min-width: 0%;
+	display:flex;
+	flex-wrap: nowrap;
+	align-items: center;
 }
+.header div{
+	height: 100%;
+}
+.header img{
+	height: 95%;
+	padding:0.1rem 1rem;
+}
+@media (max-width: 520px){
+	.header img{padding:0px 5px;height: 80%;}
+}
+@media (max-width: 250px){
+	.header img{padding:0px 0px}
+}
+.header h2{
+	margin:0px 30px;
+	font-size: 2rem;
+	font-weight: 800;
+	background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.2));
+	/*background: linear-gradient(45deg, rgba(172,62,100,1),rgba(0,141,168,1));*/
+
+	background-size: 300% 400%;
+	
+	/*transition:background 3s ease;*/
+	animation:LetrasFondo 10s ease-in-out infinite;
+
+	-webkit-text-fill-color:transparent;
+	-webkit-background-clip:text;
+	background-position: 50% 0%;
+}
+@media (max-width: 700px){
+	.header h2{font-size: 1.5rem;margin:0px 10px;}
+}
+@keyframes LetrasFondo{
+	0%{background-position: 50% 0%;}
+	50%{background-position: 50% 100%;}
+	100%{background-position: 50% 0%;}
+
+}
+
+
 /*=======================================yo soy=======================================*/
 .yosoy img{
 	height: 350px;
@@ -262,7 +338,7 @@ figure .trasera{
 	background: rgba(254,172,94,0.7);  
 	background: var(--FondoDegradadoBajito); /*---------------------------------------------------------*/ 
 	background-size: 400% 300%;
-	animation: CambioFondo 5s ease infinite;
+	animation: var(--LaAnimacion);
 }
 /*=======================================algunos trabajos=======================================*/
 .contienegeneral{
@@ -393,14 +469,18 @@ figure .trasera{
 	border-radius: 10px;
 	border:2px solid rgba(255,255,255,0.5);
 }
-.tecnicas .lashabilidades:active .progreso{
+.tecnicas:active .progreso{
 	animation: BarraDos 5s ease ;
 }
+.tecnicas .lashabilidades:hover .progreso{
+	animation: BarraDos 5s ease ;
+}
+
 @keyframes Barra{
 	0%{width:0%}
 	100%{width: var(--l)}
 }
-@keyframes Barra2{
+@keyframes BarraDos{
 	0%{width:0%}
 	100%{width: var(--l)}
 }
@@ -470,7 +550,10 @@ figure .trasera{
 	stroke: rgba(255,255,255,0.5);
 	animation: BarraCircular 5s ease;
 }
-.profesionales .lashabilidades:active circle:nth-child(2){
+.profesionales .lashabilidades:hover circle:nth-child(2){
+	animation: BarraCircularDos 5s ease;
+}
+.profesionales:active .lashabilidades circle:nth-child(2){
 	animation: BarraCircularDos 5s ease;
 }
 @keyframes BarraCircular{
