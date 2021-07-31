@@ -730,6 +730,9 @@ function muchoo(algoquehacer){
 	if(algoquehacer=="plural"&&regresame!=""){
 		regresame=regresame.slice(0,-1)+"s "
 	}
+	if(algoquehacer=="femenino-plural"&&regresame!=""){
+		regresame=regresame.slice(0,-2)+"as "
+	}
 	return regresame;
 }
 function muymuymuy(){
@@ -818,7 +821,7 @@ function ApodosHot(){
 }
 
 //funcion para facilitar la llamada de apodos
-function Apodacion(Algo){//normalmentete da un apodo hot pero si es 
+function Apodacion(Algo){//normalmentete da un apodo normal pero si el parametro es treu sera hot
 	let regresame=ApodosNormales();
 	if(Algo==true){
 		regresame=ApodosHot();	
@@ -888,14 +891,24 @@ var Arr_AlagosHot_MeEncantaTu_c=new Array().concat(Arr_AlagosHot_MeEncantaTu);
 
 var Arr_Ojala_Besarnos=new Array("besar","comer","dar","llenar");
 var Arr_Ojala_Besarnos_c=new Array().concat(Arr_Ojala_Besarnos);
-var Arr_Ojala_Abrazarnos=new Array();
+var Arr_Ojala_Abrazarnos=new Array("abrazarnos","estar abrazaditos","acurrucarnos","estar acurrucaditos","estar juntitos");
 var Arr_Ojala_Abrazarnos_c=new Array().concat(Arr_Ojala_Abrazarnos);
-var Arr_Ojala_EstarJuntos=new Array();
-var Arr_Ojala_EstarJuntos_c=new Array().concat(Arr_Ojala_EstarJuntos);
 
+var Arr_OjalaH2_Besarnos=new Array("besuquearnos","besarnos","comernos a besos","besarnos de lenguita");
+var Arr_OjalaH2_Besarnos_c=new Array().concat(Arr_OjalaH2_Besarnos);
+var Arr_OjalaH2_Besarte=new Array("besuquearte","besarte","lamerte");
+var Arr_OjalaH2_Besarte_c=new Array().concat(Arr_OjalaH2_Besarte);
+var Arr_OjalaH2_Manosearnos=new Array("manosearnos","masturbarnos","tocarnos","toquetearnos");
+var Arr_OjalaH2_Manosearnos_c=new Array().concat(Arr_OjalaH2_Manosearnos);
+var Arr_OjalaH2_Manosearte=new Array("manosearte","tocarte","masturbarte","nalgadas","agarrones","nalgearte");
+var Arr_OjalaH2_Manosearte_c=new Array().concat(Arr_OjalaH2_Manosearte);
+var Arr_OjalaH2_Hacerlo=new Array();
+var Arr_OjalaH2_Hacerlo_c=new Array().concat(Arr_OjalaH2_Hacerlo);
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
+//variables universables
+var Mayuscula=true;
 
 //esta funcion necesito que sea llamada cada vez que se valla a iniciar desde 0
 function ReiniciarFormarOraciones(){
@@ -922,13 +935,16 @@ function ReiniciarFormarOraciones(){
 
 	//------------------------------------Alagos------------------------------------------------  
 	Arr_Ojala_Besarnos=new Array("besar","comer","dar","llenar");
+	Arr_Ojala_Abrazarnos=new Array("abrazarnos","estar abrazaditos","acurrucarnos","estar acurrucaditos","estar juntitos");
+	Arr_OjalaH2_Besarnos=new Array("besuquearnos","besarnos","comernos a besos","besarnos de lenguita");
+	Arr_OjalaH2_Besarte=new Array("besuquearte","besarte","lamerte");
 
 }
 
 //funcion que me crea las opciones
 function Opciones(Tipo,UnaArray,AlgoQueObsevar,Parametro1,Observame){
-	this.tipo=Tipo;
-	this.unaarray=UnaArray;
+	this.tipo=Tipo;//random   borrar   log
+	this.unaarray=UnaArray; // la aray
 	this.observacion=AlgoQueObsevar;
 	this.parametro1=Parametro1;
 	this.observacion2=Observame;
@@ -938,6 +954,14 @@ function HacedorOraciones(UnaArrayDeArrays){
 	var regresame="";
 	for (let i = 0; i < UnaArrayDeArrays.length; i++) {
 		let apoyopararegresar="xd";
+		if(UnaArrayDeArrays[i]=="mucho"){
+			apoyopararegresar=muchoo();
+		}else if(UnaArrayDeArrays[i]=="muchas"){
+			apoyopararegresar=muchoo("femenino-plural");
+		}else if(typeof UnaArrayDeArrays[i]==="string"){
+			apoyopararegresar=UnaArrayDeArrays[i]
+		}
+			
 		if(UnaArrayDeArrays[i].tipo=="random"){
 			apoyopararegresar=RandomArray(UnaArrayDeArrays[i].unaarray)
 		}
@@ -950,6 +974,7 @@ function HacedorOraciones(UnaArrayDeArrays){
 		if(i == 0){//al orimer elemento se le pone mayusculas si asi toca
 			apoyopararegresar=MinMayus(apoyopararegresar);
 		}
+
 		if(UnaArrayDeArrays[i].observacion=="quierosisi"||UnaArrayDeArrays[i].observacion2=="quierosisi"){//si .essis=true es porque quiero que me lo ahga tipo linda->lindisisima etc
 			apoyopararegresar=sisisis(apoyopararegresar);			
 		}
@@ -959,18 +984,16 @@ function HacedorOraciones(UnaArrayDeArrays){
 		regresame=regresame+" "+apoyopararegresar;
 
 	}
-	console.log("regresame", regresame);
-	console.log("terminafor------------");
+	console.log("regresame---------", regresame);
 	return regresame;
 }
 
 //-----------------------------------------------------------------------------------------------------
-//-------------------------------------------FORMAR ORACIONES -----------------------------------------------------
+//-------------------------------------------FORMAR LAS ORACIONES -----------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 
-//variables universables
-var Mayuscula=true;
 
+//-------------------------------------------Alagos-----------------------------------------------------
 //-------------------------------------------Alagos-----------------------------------------------------
 //funcion TE AMO
 var contador_TEAMO=0;
@@ -1063,17 +1086,17 @@ function FAlagosHotMeEncantaQueSeas(){//--------Alagos_Hot_MeEncantaQueSeas--cas
 }
 
 //-------------------------------------------Ojala-----------------------------------------------------
+//-------------------------------------------Ojala-----------------------------------------------------
 
 function FOjalaBesos(){
 	if(Arr_Ojala_Besarnos.length==0){Arr_Ojala_Besarnos=new Array().concat(Arr_Ojala_Besarnos_c);}
 	let Besar=RandomArrayBorrar(Arr_Ojala_Besarnos);
 	let regresame;
-
+	
 	if(RandomBolini()){
-		regresame="ojala pudieramos "+Besar+"nos "
-	}
-	else{
-	 	let Algo=RandomArray(["ojala pudiera ","me encantaria ","quiero ","me fasinaria "]) 
+		regresame=MinMayus("ojala pudieramos "+Besar+"nos ")
+	}else{
+	 	let Algo=MinMayus(RandomArray(["ojala pudiera ","me encantaria ","quiero ","me fasinaria "]));
 		regresame=Algo+Besar+"te "
 	}
 	
@@ -1084,6 +1107,80 @@ function FOjalaBesos(){
 	if(Besar=="dar"||Besar=="llenar"){regresame=regresame+muchoo("plural")}
 	
 	if(Besar=="comer"||Besar=="dar"||Besar=="llenar"){regresame=regresame+"besitos";}
+
+	return regresame;
+}
+function FOjalaAbrazos(){
+	if(Arr_Ojala_Abrazarnos.length<=0){Arr_Ojala_Abrazarnos=new Array().concat(Arr_Ojala_Abrazarnos_c)}
+	let regresame;
+	let abrazar=RandomArrayBorrar(Arr_Ojala_Abrazarnos);
+	let ojala=MinMayus("ojala pudieramos ");
+
+	regresame=ojala+abrazar;
+	return regresame;
+}
+function FOjalaH2Besarnos(){
+	if(Arr_OjalaH2_Besarnos.length<=0){Arr_OjalaH2_Besarnos=new Array().concat(Arr_OjalaH2_Besarnos_c)}	
+	if(Arr_OjalaH2_Besarte.length<=0){Arr_OjalaH2_Besarte=new Array().concat(Arr_OjalaH2_Besarte_c)}
+	let regresame;
+	if(RandomBolini()){
+		regresame=MinMayus("ojala pudieramos "+RandomArrayBorrar(Arr_OjalaH2_Besarnos));
+	}else{
+		let Ojala=new Opciones("random",["ojala pudiera","me encantaria","quiero","me muero de ganas de","ya quiero"])
+		let abrazar=new Opciones("borrar",Arr_OjalaH2_Besarte)
+		regresame=HacedorOraciones([Ojala,abrazar,"mucho","mucho"]);
+	}
+	return regresame;
+}
+
+function FOjalaH2Manosearnos(){
+	if(Arr_OjalaH2_Manosearnos.length<=0){Arr_OjalaH2_Manosearnos=new Array().concat(Arr_OjalaH2_Manosearnos_c)}	
+	if(Arr_OjalaH2_Manosearte.length<=0){Arr_OjalaH2_Manosearte=new Array().concat(Arr_OjalaH2_Manosearte_c)}
+	let regresame;
+	if(RandomBolini()){
+		regresame=MinMayus("ojala pudieramos "+RandomArrayBorrar(Arr_OjalaH2_Manosearnos)+" "+muchoo());
+	}else{
+		let Ojala=new Opciones("random",["ojala pudiera","me encantaria","quiero","me muero de ganas de","ya quiero"])
+		let tocarte=RandomArrayBorrar(Arr_OjalaH2_Manosearte);
+		
+		if(tocarte=="nalgadas"){
+			tocarte=RandomArray(["ricas","buenas","sabrosas",""])+" nalgadas"
+			muchas=muchoo("femenino-plural");
+			if(muchas==""){muchas="unas"}
+			regresame=HacedorOraciones([Ojala,"darte",muchas,tocarte]);
+		
+		}else if(tocarte=="agarrones"){
+			tocarte=RandomArray(["ricos","buenos",""])+" agarrones"
+			muchas=muchoo("plural");
+			if(muchas==""){muchas="unos"}
+			regresame=HacedorOraciones([Ojala,"darte",muchas,tocarte]);
+		}else{
+			regresame=HacedorOraciones([Ojala,tocarte,"mucho","mucho"]);
+		}
+	}
+	return regresame;
+}
+
+function FOjalaH2Hacerlo(){
+	let regresame;
+
+	return regresame;
+}
+
+function FOjalaHLamerte(){
+	let regresame;
+
+	return regresame;
+}
+
+function FOjalaHTocarte(){
+	let regresame;
+
+	return regresame;
+}
+
+function FOjalaHEyacular(){
+	let regresame;
 
 	return regresame;
 }
@@ -1162,6 +1259,7 @@ function nivel0_revision_codigo(revisame){
 		case 'K': //--------------------------------------------------------  
 			Algo="";
 			break;
+
 		//------------------------------------Ojala-----------------------------------------------  
 		case 'L': //--------------------------------------------------------  
 			Algo="";
@@ -1170,26 +1268,27 @@ function nivel0_revision_codigo(revisame){
 			Algo=FOjalaBesos();
 			break;
 		case 'N': //--------------------------------------------------------  
-			Algo="";
-			break;
-		case 'Ñ': //--------------------------------------------------------  
-			Algo="";
-			break;
-		case 'O': //--------------------------------------------------------  
-			Algo="";
+			Algo=FOjalaAbrazos();
 			break;
 		case 'P': //--------------------------------------------------------  
-			Algo="";
+			Algo=FOjalaH2Besarnos();
 			break;
 		case 'Q': //--------------------------------------------------------  
-			Algo="";
+			Algo=FOjalaH2Manosearnos();
 			break;
 		case 'R': //--------------------------------------------------------  
-			Algo="";
+			Algo=FOjalaH2Hacerlo();
 			break;
-		case 'S': //--------------------------------------------------------  
-			Algo="";
+		case 'p': //--------------------------------------------------------  
+			Algo=FOjalaHLamerte();
 			break;
+		case 'q': //--------------------------------------------------------  
+			Algo=FOjalaHTocarte();
+			break;
+		case 'r': //--------------------------------------------------------  
+			Algo=FOjalaHEyacular();
+			break;
+
 		//------------------------------------Alagos------------------------------------------------  
 		case 'T': //--------Alagos_Teamo------------------------------------------------  
 			Algo=TEAMO_TEQUIERO(2,false);
@@ -1247,7 +1346,7 @@ nivel2_Dias_BuenosDias.onclick=function(){Text_Llama("1")}
 nivel2_Dias_BuenosDiasHot.onclick=function(){Text_Llama("2")}
 nivel3_Dias_Ojala_Besarnos.onclick=function(){Text_Llama("3")}
 nivel3_Dias_Ojala_Abrazarnos.onclick=function(){Text_Llama("4")}
-nivel3_Dias_Ojala_EstarJuntos.onclick=function(){Text_Llama("5")}
+// nivel3_Dias_Ojala_EstarJuntos.onclick=function(){Text_Llama("5")}
 nivel3_Dias_Ojala_Dormir.onclick=function(){Text_Llama("6")}
 nivel3_Dias_Ojala_Despertarte.onclick=function(){Text_Llama("7")}
 nivel3_Dias_OjalaHot_Besarnos.onclick=function(){Text_Llama("8")}
@@ -1258,7 +1357,7 @@ nivel2_Noches_BuenasNoches.onclick=function(){Text_Llama("B");}
 nivel2_Noches_BuenasNochesHot.onclick=function(){Text_Llama("C");}
 nivel3_Noches_Ojala_Besarnos.onclick=function(){Text_Llama("D");}
 nivel3_Noches_Ojala_Abrazarnos.onclick=function(){Text_Llama("E");}
-nivel3_Noches_Ojala_EstarJuntos.onclick=function(){Text_Llama("F");}
+// nivel3_Noches_Ojala_EstarJuntos.onclick=function(){Text_Llama("F");}
 nivel3_Noches_Ojala_Dormir.onclick=function(){Text_Llama("G");}
 nivel3_Noches_Ojala_Soñar.onclick=function(){Text_Llama("H");}
 nivel3_Noches_OjalaHot_Besarnos.onclick=function(){Text_Llama("I");}
@@ -1268,7 +1367,7 @@ nivel3_Noches_OjalaHot_Hacerlo.onclick=function(){Text_Llama("K");}
 nivel2_Ojala_Futuro.onclick=function(){Text_Llama("L");}
 nivel3_Ojala_Wonitos_Besarnos.onclick=function(){Text_Llama("M");}
 nivel3_Ojala_Wonitos_Abrazarnos.onclick=function(){Text_Llama("N");}
-nivel3_Ojala_Wonitos_EstarJuntos.onclick=function(){Text_Llama("O");}
+// nivel3_Ojala_Wonitos_EstarJuntos.onclick=function(){Text_Llama("O");}
 nivel3_Ojala_Hot2_Besarnos.onclick=function(){Text_Llama("P");}
 nivel3_Ojala_Hot2_Manosearnos.onclick=function(){Text_Llama("Q");}
 nivel3_Ojala_Hot2_Hacerlo.onclick=function(){Text_Llama("R");}
