@@ -344,7 +344,7 @@ nivel0_Final.onclick=function(){nivel0_contador=Patron_CantidadElementos-1;nivel
 
 nivel0_Texto_btn.onclick=function(){
 	Textos_Array[nivel0_contador]=nivel0_Texto.value;
-	//si ya estamos en la ultima linea quiero que me agreges otra line
+	//si ya estamos en la ultima linea quiero que me agreges otra linea
 	if(nivel0_contador==Patron_CantidadElementos-1){
 		Patron_CantidadElementos++;
 	}
@@ -376,12 +376,10 @@ function nivel0_actualizar(){
 	for (let i =0 ; i <=Textos_Codigo_Array.length-1; i++) {	
 		let AgregarCadena=Textos_Codigo_Array[i];
 		nivel0_UnaCadena=nivel0_UnaCadena+AgregarCadena;
-	
 	}
 	nivel0_Clave.value=nivel0_UnaCadena;
 
 	//la array de codigo lo pasa a la array detexto
-
 	for (let i =0; i < Textos_Codigo_Array.length-1; i++) {
 		let bolini=(Textos_Codigo_Array[i]=="0")
 
@@ -390,7 +388,6 @@ function nivel0_actualizar(){
 		}
 	}
 
-
 	//me escribe la posicion en que estoy y ya inicia
 	nivel0_LaPosicion.innerHTML=nivel0_contador+1+" de "+Patron_CantidadElementos;
 	EscribirArray();
@@ -398,8 +395,15 @@ function nivel0_actualizar(){
 
 //
 nivel0_Clave_btn.onclick=function(){
-	
+	//pongo la clave del input en la array de codigo
 	Textos_Codigo_Array=Array.from(nivel0_Clave.value);
+	//me aseguro que la cantidad de renglones sea la cantidad de caracteres del codigo
+	Patron_CantidadElementos=Textos_Codigo_Array.length;
+	//hago que la array de textos tenga la misma cantidad de elemtnos que las arrays de codigos
+	//es decir borro los que esten despues
+	Textos_Array.splice(Textos_Codigo_Array.length);
+	console.log("===Textos_Array", Textos_Array);
+	console.log("===Textos_Codigo_Array.length", Textos_Codigo_Array.length);
 	nivel0_actualizar();
 
 }
@@ -461,7 +465,7 @@ function EscribirArray(){
 			OtraCadena="";
 		}
 
-		let CadenaEscribir=EsCadena+OtraCadena	
+		let CadenaEscribir=EsCadena+" "+OtraCadena	
 		AgregarContenido(CadenaEscribir);
 
 		if(Patron_Direccion=="derecha"){			
