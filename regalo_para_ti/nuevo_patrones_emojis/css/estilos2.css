@@ -4,19 +4,44 @@
 	text-decoration: none;
 	font-family: Verdana;
 }
+:root{
+	--color-p-0 : rgba(195,128,178,1);
+	--color-p-1 : rgba(230,199,222,1);
+	--color-p-2 : rgba(213,164,201,1);
+	--color-p-3 : rgba(174, 94,154,1);
+	--color-p-4 : rgba(152, 63,130,1);
+
+	--color-s1-0 : rgba(251,165,170,1);
+	--color-s1-1 : rgba(253,219,221,1);
+	--color-s1-2 : rgba(252,194,197,1);
+	--color-s1-3 : rgba(232,125,131,1);
+	--color-s1-4 : rgba(203, 84, 90,1);
+
+	--color-s2-0 :rgba(149,125,181,1);
+	--color-s2-1 :rgba(209,197,224,1);
+	--color-s2-2 :rgba(180,161,204,1);
+	--color-s2-3 :rgba(122, 93,160,1);
+	--color-s2-4 :rgba( 98, 65,140,1);
+
+	--color-c-0 :rgba(223,244,161,1);
+	--color-c-1 :rgba(242,250,217,1);
+	--color-c-2 :rgba(233,247,190,1);
+	--color-c-3 :rgba(199,225,121,1);
+	--color-c-4 :rgba(168,197, 82,1);
+} 
 
 body{
 	font-size: 16px;
-	background-color: #7E61C9;
+	background-color: var(--color-p-0);
 }
 p{
 	text-align: center;
-	color:#4928A0;
+	color:var(--color-p-4);
 }
 /*--------------------------------------titulo-------------------------------------------*/
 .header>h2{
-	background: rgb(223,93,162);
-	background: linear-gradient(167deg, rgba(223,93,162,1) 24%, rgba(190, 30,114,1)72%, rgba(223,93,162,1) 87%);
+	background: var(--color-s1-0);
+	background: linear-gradient(167deg, var(--color-s1-0) 24%, var(--color-s1-4)72%, var(--color-s1-0) 87%);
 	font-size: 5rem;
 	font-weight: 900;
 	-webkit-text-fill-color:transparent;
@@ -90,7 +115,7 @@ p{
 	width:600px;
 	min-width: 98%;
 	/*border: 3px dashed red;*/
-	background-color: #7E61C9;
+	background-color: var(--color-p-0);
 	padding:3.1em 0em;
 	width: 95%;
 	margin:auto;
@@ -120,7 +145,7 @@ p{
 
 .boton{ /*particular*/
 	min-height: 2.8em;
-	background-color: #DF5DA2;
+	background-color: var(--color-s1-0);
 	width: 1000px;
 	border:none;
 	padding: 5px 5px 5px 5px;
@@ -141,12 +166,12 @@ p{
 	/*padding: 0.3rem 0.3rem;*/
 	margin:0.5em 0.3em;
 	font-size: 1.2em;
-	color: #5F63C0;
+	color: var(--color-p-0);;
 }
 
 /*------los botones que son de extras--------*/
 .cont_botones{
-	background-color: #52ACBD;
+	background-color: var(--color-s2-0);;
 	padding: 0.8em;
 	border-radius: 1.2em;
 	width: 13em;
@@ -157,7 +182,7 @@ p{
 
 .cont_botones>p{
 	text-align: center;
-	color:#4928A0;
+	color:var(--color-p-4);;
 	font-weight: 600 ;
 }
 
@@ -169,7 +194,7 @@ p{
 
 /*el lugar donde se agregara el texto*/
 .cajis{
-	background-color: #FFE86B;
+	background-color: var(--color-c-0);;
 	border-radius: 2em;
 	max-height: 500px;
 }
@@ -183,7 +208,7 @@ p{
 
 /*la linea 0*/
 .textoparrafo{
-	background-color: #52ACBD;
+	background-color: var(--color-s2-0);;
 	min-width: 220px;
 	width: 30%;
 	padding: 0.8em 0.0em;
@@ -199,7 +224,7 @@ p{
 }
 .textoparrafo>p{
 	text-align: center;
-	color:#4928A0;
+	color:var(--color-p-4);;
 	font-weight: 600 ;
 }
 
@@ -224,7 +249,7 @@ p{
 }
 .btn p{
 	text-align: center;
-	color:#4928A0;
+	color:var(--color-p-4);;
 	font-size: 1.2em;
 }
 @media (max-width: 750px) { .btn p{	font-size: 1.1em;} }
@@ -234,17 +259,17 @@ p{
 
 .boton p{
 	text-align: center;
-	color:#4928A0;
+	color:var(--color-p-4);;
 	font-weight: 700 ;
 }
 
 .boton:hover{
-	background-color: #EC84BB ;
+	background-color: var(--color-s1-2 ); ;
 	transition-duration: 0.4s;
 }
 
 .boton:active{
-	background-color: #D13E8C;
+	background-color: var(--color-s1-3);;
 	transition-duration: 0.2s;	
 }
 
@@ -253,36 +278,36 @@ p{
 	width: 2em;
 	border:none;
 	border-radius: 50%;	
-	background-color: #7AC8D7;
+	background-color: var(--color-s2-2);;
 	overflow: hidden;
 	margin: 0.3em;
 	border:0.1em solid white;
-	color:#4928A0;
+	color:var(--color-p-4);;
 	font-weight: 600;
 }
 
-.azul:hover{ background-color: #7AC8D7 }
-.azul { background-color: #52ACBD}
-.azul:active { background-color: #328EA0 }
-.azul p{ color:#4928A0}
+.azul:hover{ background-color: var(--color-s2-2); }
+.azul { background-color: var(--color-s2-0);}
+.azul:active { background-color: var(--color-s2-3); }
+.azul p{ color:var(--color-p-4);}
 
-.botonrosa {background-color: #DF5DA2}
-.botonrosa:hover {background-color: #EC84BB}
-.botonrosa:active {background-color: #D13E8C}
+.botonrosa {background-color: var(--color-s1-0)}
+.botonrosa:hover {background-color: var(--color-s1-2 );}
+.botonrosa:active {background-color: var(--color-s1-3);}
 
-.morado{background-color: #7E61C9;}
-.morado:hover{transition-duration: 0.4s; background-color:#9F87DE;}
-.morado:active{transition-duration: 0.2s; background-color:#6142B1;}
-.morado {color:#FFF4BA; text-align: center;
+.morado{background-color: var(--color-p-0);}
+.morado:hover{transition-duration: 0.4s; background-color:var(--color-p-2);;}
+.morado:active{transition-duration: 0.2s; background-color:var(--color-p-3);;}
+.morado {color:var(--color-c-1); text-align: center;
 }
 
 /*--------------------------------------Input Text y Texto---------------------------------------*/
 .input-text-g{
-	color: #4928A0;
+	color: var(--color-p-4);;
   	width: 80%;
 }
 .input-text-ch{
-  color: #4928A0;
+  color: var(--color-p-4);;
   width: 75%;
 }
 @media (max-width: 750px) {.input-text-ch {width: 65%;} }
@@ -291,24 +316,23 @@ p{
 
 .TextoChiquito{
 	text-align: center;
-	color:#4928A0;
+	color:var(--color-p-4);;
 	font-size: 0.9em;
 }
 
-
+/*este es para elimina las cosas que no van a estar en mi verion personal*/
 .noesta{
 	display: none;
 }
-
 
 /*---------------------------------------------Cosas JS--------------------------------*/
 .desaparecer{
 	display:none;
 }
 
-.estaactivado{background-color:#D13E8C;}
-.estaactivado:hover{background-color: #D13E8C;}
-.estaactivado:active{background-color: #BE1E72;}
+.estaactivado{background-color:var(--color-s1-3);;}
+.estaactivado:hover{background-color: var(--color-s1-3);;}
+.estaactivado:active{background-color: var(--color-s1-4);}
 
 /*eston no sirven de nada solo es para identificarlos*/
 .lin2{}
