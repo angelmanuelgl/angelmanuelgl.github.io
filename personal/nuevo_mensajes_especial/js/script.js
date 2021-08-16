@@ -739,9 +739,13 @@ function muchoo(algoquehacer){
 	}
 	return regresame;
 }
-function muymuymuy(){
+function muymuymuy(algo){
 	let ArrayMucho=new Array("muy","muy muy","muy muy muy", "muy muy muy muy", "muy muy muy muy muy", "muy muy muy muy muy muy");
+	if(algo=="poquito"){
+		ArrayMucho=new Array("","muy","muy muy","muy muy muy",);
+	}
 	let regresame=ElegirLog2(ArrayMucho);
+	
 	return regresame;
 }
 
@@ -906,8 +910,11 @@ var Arr_OjalaH2_Manosearnos=new Array("manosearnos","masturbarnos","tocarnos","t
 var Arr_OjalaH2_Manosearnos_c=new Array().concat(Arr_OjalaH2_Manosearnos);
 var Arr_OjalaH2_Manosearte=new Array("manosearte","tocarte","masturbarte","nalgadas","agarrones","nalgearte");
 var Arr_OjalaH2_Manosearte_c=new Array().concat(Arr_OjalaH2_Manosearte);
-var Arr_OjalaH2_Hacerlo=new Array();
+var Arr_OjalaH2_Hacerlo=new Array("hacerlo","coger","coger bien duro","coger "+muchoo(),"darnos","darnos "+muchoo(),"acostarnos","tener relaciones");
+var Arr_OjalaH2_Hacerlo_extra=new Array("todo el dia", "a cada rato","siempre","todos los dias"," ");
+var Arr_OjalaH2_Hcaertelo=new Array("hacertelo","darte","cogerte");
 var Arr_OjalaH2_Hacerlo_c=new Array().concat(Arr_OjalaH2_Hacerlo);
+var Arr_OjalaH2_Hacerlo_extra_c=new Array().concat(Arr_OjalaH2_Hacerlo_extra);
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
@@ -937,11 +944,20 @@ function ReiniciarFormarOraciones(){
 	//Algos_Hot_MeEncantanTu
 	Arr_AlagosHot_MeEncantaTu=new Array("vagina","cintura","nalgas","piernas","tetas","muslos","pechos","pezones");
 
-	//------------------------------------Alagos------------------------------------------------  
+	//------------------------------------Ojala------------------------------------------------  
 	Arr_Ojala_Besarnos=new Array("besar","comer","dar","llenar");
 	Arr_Ojala_Abrazarnos=new Array("abrazarnos","estar abrazaditos","acurrucarnos","estar acurrucaditos","estar juntitos");
+	//------------------------------------Ojala H2------------------------------------------------  
 	Arr_OjalaH2_Besarnos=new Array("besuquearnos","besarnos","comernos a besos","besarnos de lenguita");
 	Arr_OjalaH2_Besarte=new Array("besuquearte","besarte","lamerte");
+	Arr_OjalaH2_Manosearnos=new Array("manosearnos","masturbarnos","tocarnos","toquetearnos");
+	Arr_OjalaH2_Manosearte=new Array("manosearte","tocarte","masturbarte","nalgadas","agarrones","nalgearte");
+	Arr_OjalaH2_Hacerlo=new Array("hacerlo","coger","coger bien duro","coger "+muchoo(),"darnos","darnos "+muchoo(),"acostarnos","tener relaciones");
+	Arr_OjalaH2_Hacerlo_extra=new Array("todo el dia", "a cada rato","siempre","todos los dias","siempre siempre","muy seguido");
+	
+	//------------------------------------Ojala ------------------------------------------------  
+	
+	//------------------------------------noches ------------------------------------------------  
 
 }
 
@@ -1167,9 +1183,22 @@ function FOjalaH2Manosearnos(){
 
 function FOjalaH2Hacerlo(){
 	let regresame;
-
-	return regresame;
+	if(RandomBolini()){
+		if(Arr_OjalaH2_Hacerlo.length<=0){Arr_OjalaH2_Hacerlo=new Array().concat(Arr_OjalaH2_Hacerlo_c)}
+		if(Arr_OjalaH2_Hacerlo_extra.length<=0){Arr_OjalaH2_Hacerlo_extra=new Array().concat(Arr_OjalaH2_Hacerlo_extra_c)}
+		let Algo=new Opciones("borrar",Arr_OjalaH2_Hacerlo)
+		let Extra=new Opciones("borrar",Arr_OjalaH2_Hacerlo_extra)
+		return HacedorOraciones(["ojala pudieramos",Algo,Extra]);
+	}
+	else{
+		let Ojala=new Opciones("random",["ojala pudiera","me encantaria","quiero","me muero de ganas de","ya quiero"])
+		let Algo=new Opciones("random",Arr_OjalaH2_Hcaertelo);
+		let Duro=new Opciones("random",[muymuymuy("poquito")+" duro","bien duro",muymuymuy("poquito")+" rico","bien rico","mucho"],"quierosisi");
+		return HacedorOraciones([Ojala,Algo,Duro]);
+		
+	}
 }
+
 
 function FOjalaHLamerte(){
 	let regresame;
