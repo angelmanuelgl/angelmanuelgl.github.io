@@ -629,7 +629,7 @@ figure .trasera{
 }@media (max-width:250px){
 	.iconosfinal{font-size: 4px;}
 }
-.instagram div{
+.instagram>div{
 	height: 100%;
 	width: 100%;
 	background: radial-gradient(
@@ -642,7 +642,7 @@ figure .trasera{
 	border-bottom:3px solid rgba(255,255,255,0.5);
 }
 
-.instagram div::before{
+.instagram>div::before{
 	content:"";
 	border: 0.3em solid #fff;
 	border-radius: 30%;
@@ -656,7 +656,7 @@ figure .trasera{
 	bottom:0;
 	transform: translateZ(0.9em);
 }
-.instagram div::after{
+.instagram>div::after{
 	content:"";
 	border: 0.3em solid #fff;
 	border-radius: 100%;
@@ -670,7 +670,7 @@ figure .trasera{
 	bottom:0;
 	transform: translateZ(1.25em);
 }
-.instagram span{
+.instagram .unspan{
 	content:"";
 	border: 0.3em solid #fff;
 	border-radius: 100%;
