@@ -829,7 +829,7 @@ function ApodosHot(){
 }
 
 //funcion para facilitar la llamada de apodos
-function Apodacion(Algo){//normalmentete da un apodo normal pero si el parametro es treu sera hot
+function Apodacion(Algo){//normalmentete da un apodo normal pero si el parametro es true sera hot
 	let regresame=ApodosNormales();
 	if(Algo==true){
 		regresame=ApodosHot();	
@@ -879,43 +879,7 @@ function AdejtivoSustantivo(adj,sust){
 	
 	return regresame;
 }
-//-----------------------------------------------------------------------------------------------------
-//------------------------------------------------Array ORACIONES-----------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
 
-var Arr_AlagosWonitos_adj=new Array("hermosa","preciosa","chula","linda","divina","guapa");
-var Arr_AlagosWonitos_adj_p=new Array().concat(Arr_AlagosWonitos_adj);
-var Arra_AlagosWonitos_Eres=new Array("asombrosa","perfecta","increible","fantastica","espectacular","maravillosa");
-var Arra_AlagosWonitos_Eres_p=new Array().concat(Arra_AlagosWonitos_Eres);
-var Arr_AlagosWonitos_MeEncanta=new Array("cabello","cuello","voz","carita","boquita","sonrisa","ojitos","labios","cachetitos");
-var Arr_AlagosWonitos_MeEncanta_p=new Array().concat(Arr_AlagosWonitos_MeEncanta);
-
-var Arr_AlagosHot_Estas=new Array("nalgona","culona","tetona","chichona","sexy","sabrosa","rica","deliciosa","exquisita");
-var Arr_AlagosHot_Estas_c=new Array().concat(Arr_AlagosHot_Estas);
-var Arra_AlagosHot_MeEncataQueSeas=new Array("hot","horny","caliente","pervertida","sucia");
-var Arra_AlagosHot_MeEncataQueSeas_c=new Array().concat(Arra_AlagosHot_MeEncataQueSeas);
-var Arr_AlagosHot_MeEncantaTu=new Array("vagina","cintura","nalgas","piernas","tetas","muslos","pechos","pezones");
-var Arr_AlagosHot_MeEncantaTu_c=new Array().concat(Arr_AlagosHot_MeEncantaTu);
-
-var Arr_Ojala_Besarnos=new Array("besar","comer","dar","llenar");
-var Arr_Ojala_Besarnos_c=new Array().concat(Arr_Ojala_Besarnos);
-var Arr_Ojala_Abrazarnos=new Array("abrazarnos","estar abrazaditos","acurrucarnos","estar acurrucaditos","estar juntitos");
-var Arr_Ojala_Abrazarnos_c=new Array().concat(Arr_Ojala_Abrazarnos);
-
-var Arr_OjalaH2_Besarnos=new Array("besuquearnos","besarnos","comernos a besos","besarnos de lenguita");
-var Arr_OjalaH2_Besarnos_c=new Array().concat(Arr_OjalaH2_Besarnos);
-var Arr_OjalaH2_Besarte=new Array("besuquearte","besarte","lamerte");
-var Arr_OjalaH2_Besarte_c=new Array().concat(Arr_OjalaH2_Besarte);
-var Arr_OjalaH2_Manosearnos=new Array("manosearnos","masturbarnos","tocarnos","toquetearnos");
-var Arr_OjalaH2_Manosearnos_c=new Array().concat(Arr_OjalaH2_Manosearnos);
-var Arr_OjalaH2_Manosearte=new Array("manosearte","tocarte","masturbarte","nalgadas","agarrones","nalgearte");
-var Arr_OjalaH2_Manosearte_c=new Array().concat(Arr_OjalaH2_Manosearte);
-var Arr_OjalaH2_Hacerlo=new Array("hacerlo","coger","coger bien duro","coger "+muchoo(),"darnos","darnos "+muchoo(),"acostarnos","tener relaciones");
-var Arr_OjalaH2_Hacerlo_extra=new Array("todo el dia", "a cada rato","siempre","todos los dias"," ");
-var Arr_OjalaH2_Hcaertelo=new Array("hacertelo","darte","cogerte");
-var Arr_OjalaH2_Hacerlo_c=new Array().concat(Arr_OjalaH2_Hacerlo);
-var Arr_OjalaH2_Hacerlo_extra_c=new Array().concat(Arr_OjalaH2_Hacerlo_extra);
-//-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //variables universables
@@ -931,17 +895,13 @@ function ReiniciarFormarOraciones(){
 	contador_TEAMO=0;
 	contador_Megustas=0;
 	LlevaApodo_Te_Me=RandomBolini();
-	//alagos_wonitos_Estas bien_caso U
+	
 	Arr_AlagosWonitos_adj=new Array("hermosa","preciosa","chula","linda","divina","guapa");
-	//alagos_wonitos_eresmuy----Caso V
 	Arra_AlagosWonitos_Eres=new Array("asombrosa","perfecta","increible","fantastica","espectacular","maravillosa");
-	//alagos_wonitos_me encanta tu-------caso W
 	Arr_AlagosWonitos_MeEncanta=new Array("cabello","cuello","voz","carita","boquita","sonrisa","ojitos","labios","cachetitos");
-	//Alagos_Hot_Estas-----caso X-
+	
 	Arr_AlagosHot_Estas=new Array("nalgona","culona","tetona","chichona","sexy","sabrosa","rica","deliciosa","exquisita");
-	//Alahos_Hot_MeEncataQueSeas-----caso Y
 	Arra_AlagosHot_MeEncataQueSeas=new Array("hot","horny","caliente","pervertida","sucia");
-	//Algos_Hot_MeEncantanTu
 	Arr_AlagosHot_MeEncantaTu=new Array("vagina","cintura","nalgas","piernas","tetas","muslos","pechos","pezones");
 
 	//------------------------------------Ojala------------------------------------------------  
@@ -954,12 +914,53 @@ function ReiniciarFormarOraciones(){
 	Arr_OjalaH2_Manosearte=new Array("manosearte","tocarte","masturbarte","nalgadas","agarrones","nalgearte");
 	Arr_OjalaH2_Hacerlo=new Array("hacerlo","coger","coger bien duro","coger "+muchoo(),"darnos","darnos "+muchoo(),"acostarnos","tener relaciones");
 	Arr_OjalaH2_Hacerlo_extra=new Array("todo el dia", "a cada rato","siempre","todos los dias","siempre siempre","muy seguido");
+	Arr_OjalaH2_Hcaertelo=new Array("hacertelo","darte","cogerte");
+	//------------------------------------Ojala H------------------------------------------------  
 	
-	//------------------------------------Ojala ------------------------------------------------  
-	
-	//------------------------------------noches ------------------------------------------------  
 
+	//------------------------------------Dias ------------------------------------------------  
+	Arr_Dias_mientras=new Array("al despertarnos","cuando despertemos","todo el dia","al despertar","cuando despertemos","en la camita");
+	Arr_Dias_Dias_num=new Array(2,3,4,5,6);
+	Bolini_Dias_PrimeraLLamada=true;
+	//------------------------------------noches ------------------------------------------------  
+	Arr_Noches_mientras=new Array("antes de mimir","antes de dormir","en la noche","toda la noche","antes de que dormamos","toda toda la noche","en la camita")
+	Arr_Noches_Noches=new Array("duerme bien","descansa","dulces sueños");
+	Bolini_Noches_PrimeraLLamada=true;
 }
+//-----------------------------------------------------------------------------------------------------
+//------------------------------------------------Array ORACIONES-----------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+ReiniciarFormarOraciones();
+var Arr_AlagosWonitos_adj_p=new Array().concat(Arr_AlagosWonitos_adj);
+var Arra_AlagosWonitos_Eres_p=new Array().concat(Arra_AlagosWonitos_Eres);
+var Arr_AlagosWonitos_MeEncanta_p=new Array().concat(Arr_AlagosWonitos_MeEncanta);
+
+var Arr_AlagosHot_Estas_c=new Array().concat(Arr_AlagosHot_Estas);
+var Arra_AlagosHot_MeEncataQueSeas_c=new Array().concat(Arra_AlagosHot_MeEncataQueSeas);
+var Arr_AlagosHot_MeEncantaTu_c=new Array().concat(Arr_AlagosHot_MeEncantaTu);
+
+//------------------------------------Ojala------------------------------------------------  
+var Arr_Ojala_Besarnos_c=new Array().concat(Arr_Ojala_Besarnos);
+var Arr_Ojala_Abrazarnos_c=new Array().concat(Arr_Ojala_Abrazarnos);
+//------------------------------------Ojala H2------------------------------------------------  
+var Arr_OjalaH2_Besarnos_c=new Array().concat(Arr_OjalaH2_Besarnos);
+var Arr_OjalaH2_Besarte_c=new Array().concat(Arr_OjalaH2_Besarte);
+var Arr_OjalaH2_Manosearnos_c=new Array().concat(Arr_OjalaH2_Manosearnos);
+var Arr_OjalaH2_Manosearte_c=new Array().concat(Arr_OjalaH2_Manosearte);
+var Arr_OjalaH2_Hacerlo_c=new Array().concat(Arr_OjalaH2_Hacerlo);
+var Arr_OjalaH2_Hacerlo_extra_c=new Array().concat(Arr_OjalaH2_Hacerlo_extra);
+//------------------------------------Ojala H------------------------------------------------  
+	
+	
+//------------------------------------Dias ------------------------------------------------  
+var Arr_Dias_mientras_c=new Array().concat(Arr_Dias_mientras);
+var Arr_Dias_Dias_num_c=new Array().concat(Arr_Dias_Dias_num);
+//-----------------------------------------------------------------------------------------------------
+var Arr_Noches_mientras_c=new Array().concat(Arr_Noches_mientras);
+var Arr_Noches_Noches_c=new Array().concat(Arr_Noches_Noches);
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+
 
 //funcion que me crea las opciones
 function Opciones(Tipo,UnaArray,AlgoQueObsevar,Parametro1,Observame){
@@ -1004,7 +1005,7 @@ function HacedorOraciones(UnaArrayDeArrays){
 		regresame=regresame+" "+apoyopararegresar;
 
 	}
-	console.log("regresame---------", regresame);
+	// console.log("regresame---------", regresame);
 	return regresame;
 }
 
@@ -1105,8 +1106,8 @@ function FAlagosHotMeEncantaQueSeas(){//--------Alagos_Hot_MeEncantaQueSeas--cas
 	return HacedorOraciones([Eres,Bien,Alago,Unapodo]);
 }
 
-//-------------------------------------------Ojala-----------------------------------------------------
-//-------------------------------------------Ojala-----------------------------------------------------
+//-------------------------------------------Ojala-----------------------------------------------------------------------
+//-------------------------------------------Ojala-----------------------------------------------------------------------
 
 function FOjalaBesos(){
 	if(Arr_Ojala_Besarnos.length==0){Arr_Ojala_Besarnos=new Array().concat(Arr_Ojala_Besarnos_c);}
@@ -1139,6 +1140,8 @@ function FOjalaAbrazos(){
 	regresame=ojala+abrazar;
 	return regresame;
 }
+//-------------------------------------------Ojala Hot 2-----------------------------------------------------------------------
+
 function FOjalaH2Besarnos(){
 	if(Arr_OjalaH2_Besarnos.length<=0){Arr_OjalaH2_Besarnos=new Array().concat(Arr_OjalaH2_Besarnos_c)}	
 	if(Arr_OjalaH2_Besarte.length<=0){Arr_OjalaH2_Besarte=new Array().concat(Arr_OjalaH2_Besarte_c)}
@@ -1181,42 +1184,133 @@ function FOjalaH2Manosearnos(){
 	return regresame;
 }
 
-function FOjalaH2Hacerlo(){
+function FOjalaH2Hacerlo(Customizable){
 	let regresame;
 	if(RandomBolini()){
 		if(Arr_OjalaH2_Hacerlo.length<=0){Arr_OjalaH2_Hacerlo=new Array().concat(Arr_OjalaH2_Hacerlo_c)}
 		if(Arr_OjalaH2_Hacerlo_extra.length<=0){Arr_OjalaH2_Hacerlo_extra=new Array().concat(Arr_OjalaH2_Hacerlo_extra_c)}
 		let Algo=new Opciones("borrar",Arr_OjalaH2_Hacerlo)
 		let Extra=new Opciones("borrar",Arr_OjalaH2_Hacerlo_extra)
+		if(Customizable=="sinmientras"){return HacedorOraciones(["ojala pudieramos",Algo]);} //esto es para dias y noches hot
 		return HacedorOraciones(["ojala pudieramos",Algo,Extra]);
 	}
 	else{
 		let Ojala=new Opciones("random",["ojala pudiera","me encantaria","quiero","me muero de ganas de","ya quiero"])
 		let Algo=new Opciones("random",Arr_OjalaH2_Hcaertelo);
 		let Duro=new Opciones("random",[muymuymuy("poquito")+" duro","bien duro",muymuymuy("poquito")+" rico","bien rico","mucho"],"quierosisi");
-		return HacedorOraciones([Ojala,Algo,Duro]);
-		
+		return HacedorOraciones([Ojala,Algo,Duro]);		
 	}
 }
 
-
+//-------------------------------------------Ojala Hot -----------------------------------------------------------------------
 function FOjalaHLamerte(){
 	let regresame;
-
 	return regresame;
 }
-
 function FOjalaHTocarte(){
 	let regresame;
-
 	return regresame;
 }
-
 function FOjalaHEyacular(){
 	let regresame;
-
 	return regresame;
 }
+
+//-------------------------------------------Dias-----------------------------------------------------------------------
+//-------------------------------------------Dias-----------------------------------------------------------------------
+
+function FDiasOjalaBesarnos(){
+	if(Arr_Dias_mientras.length<=0){Arr_Dias_mientras=new Array().concat(Arr_Dias_mientras_c)}
+	return FOjalaBesos()+" "+RandomArrayBorrar(Arr_Dias_mientras);
+}
+function FDiasOjalaAbrazarnos(){
+	if(Arr_Dias_mientras.length<=0){Arr_Dias_mientras=new Array().concat(Arr_Dias_mientras_c)}
+	return FOjalaAbrazos()+" "+RandomArrayBorrar(Arr_Dias_mientras);
+}
+function FDiasOjalaH2Besarnos(){
+	if(Arr_Dias_mientras.length<=0){Arr_Dias_mientras=new Array().concat(Arr_Dias_mientras_c)}
+	return FOjalaH2Besarnos()+" "+RandomArrayBorrar(Arr_Dias_mientras);
+}
+function FDiasOjalaH2Manosearnos(){
+	if(Arr_Dias_mientras.length<=0){Arr_Dias_mientras=new Array().concat(Arr_Dias_mientras_c)}
+	return FOjalaH2Manosearnos()+" "+RandomArrayBorrar(Arr_Dias_mientras);
+}
+function FDiasOjalaH2Hacerlo(){
+	if(Arr_Dias_mientras.length<=0){Arr_Dias_mientras=new Array().concat(Arr_Dias_mientras_c)}
+	return FOjalaH2Hacerlo("sinmientras")+" "+RandomArrayBorrar(Arr_Dias_mientras);
+}
+function FDias(EsHot){
+	if(Arr_Dias_Dias_num.length<=0){Arr_Dias_Dias_num=new Array().concat(Arr_Dias_Dias_num_c)}
+	let QuienVa=RandomArrayBorrar(Arr_Dias_Dias_num);
+	if(Bolini_Dias_PrimeraLLamada){QuienVa=1}//si es la primera vez que se llama
+	
+	let regresame=""
+	let Apodo=Apodacion(EsHot);
+	let Pregunta="";
+	
+	switch (QuienVa) {	
+		case 1://-------------------------------------------------------- 
+			Pregunta=new Opciones("random",["buenos dias","buen dia"]);
+			regresame=HacedorOraciones([Pregunta,Apodo]);
+			break;
+		case 2://-------------------------------------------------------- 
+			Pregunta=new Opciones("random",["cómo amaneció","amaneció bien"])
+			regresame="¿"+HacedorOraciones([Pregunta,Apodo]).substr(1)+"?";	
+			break;
+		case 3://-------------------------------------------------------- 
+			Pregunta=new Opciones("random",["","bien"]);
+			regresame="¿"+HacedorOraciones(["desansó",Pregunta,Apodo]).substr(1)+"?";	
+			break;
+		case 4://-------------------------------------------------------- 
+			Pregunta=new Opciones("random",["durmio bien","cómo durmio"]);
+			regresame="¿"+HacedorOraciones([Pregunta,Apodo]).substr(1)+"?";
+			break;
+		case 5://-------------------------------------------------------- 
+			regresame="¿"+MinMayus("como está"+Apodo)+"?";
+			break;
+		case 6://-------------------------------------------------------- 
+			Pregunta=new Opciones("random",["lindo","wonito","buen","bonito"]);
+			regresame=HacedorOraciones(["espero que tengas un",Pregunta,"dia",Apodo]);
+			break;
+		}
+	Bolini_Dias_PrimeraLLamada=false
+	return regresame;
+}
+//------------------------------------------Noches-----------------------------------------------------------------------
+//------------------------------------------Noches-----------------------------------------------------------------------
+function FNochesOjalaBesarnos(){
+	if(Arr_Noches_mientras.length<=0){Arr_Noches_mientras=new Array().concat(Arr_Noches_mientras_c)}
+	return FOjalaBesos()+" "+RandomArrayBorrar(Arr_Noches_mientras);
+}
+function FNochesOjalaAbrazarnos(){
+	if(Arr_Noches_mientras.length<=0){Arr_Noches_mientras=new Array().concat(Arr_Noches_mientras_c)}
+	return FOjalaAbrazos()+" "+RandomArrayBorrar(Arr_Noches_mientras);
+}
+function FNochesOjalaH2Besarnos(){
+	if(Arr_Noches_mientras.length<=0){Arr_Noches_mientras=new Array().concat(Arr_Noches_mientras_c)}
+	return FOjalaH2Besarnos()+" "+RandomArrayBorrar(Arr_Noches_mientras);
+}
+function FNochesOjalaH2Manosearnos(){
+	if(Arr_Noches_mientras.length<=0){Arr_Noches_mientras=new Array().concat(Arr_Noches_mientras_c)}
+	return FOjalaH2Manosearnos()+" "+RandomArrayBorrar(Arr_Noches_mientras);
+}
+function FNochesOjalaH2Hacerlo(){
+	if(Arr_Noches_mientras.length<=0){Arr_Noches_mientras=new Array().concat(Arr_Noches_mientras_c)}
+	return FOjalaH2Hacerlo("sinmientras")+" "+RandomArrayBorrar(Arr_Noches_mientras);
+}
+function FNoches(EsHot){
+	if(Arr_Noches_Noches.length<=0){Arr_Noches_Noches=new Array().concat(Arr_Noches_Noches_c)}
+	let regresame=""
+	let Apodo=Apodacion(EsHot);
+	Pregunta=new Opciones("borrar",Arr_Noches_Noches);
+	regresame=HacedorOraciones([Pregunta,Apodo]);
+	//si es la primera vez que se llama
+	if(Bolini_Noches_PrimeraLLamada){regresame=HacedorOraciones(["buenas noches",Apodo])}
+	Bolini_Noches_PrimeraLLamada=false
+	return regresame;
+}
+
+
 
 
 //-----------------------------------------------------------------------------------------------------
@@ -1232,97 +1326,94 @@ function nivel0_revision_codigo(revisame){
 		case '0'://-------------------------------------------------------- 
 			Algo="algoandamal"
 			break;
-		case '1': //--------------------------------------------------------
-			Algo="buenos dias amorcito"
+		//------------------------------------Dias------------------------------------------------  
+		case '1': //----------------------------Dias_BuenosDias----------------------------
+			Algo=FDias(false);
 			break;
-		case '2': //--------------------------------------------------------
-			Algo="buenos dias mi novia chichona";
+		case '2': //----------------------------Dias_BuenosDiasHot----------------------------
+			Algo=FDias(true);
 			break;
-		case '3': //--------------------------------------------------------
-			Algo="ojala pudieera llenarte de muchos besitos al despertar";
+		case '3': //----------------------------Dias_Ojala_Besarnos----------------------------
+			Algo=FDiasOjalaBesarnos();
 			break;
-		case '4': //--------------------------------------------------------
-			Algo="ojala pudieramos estar abrazaditos en la camita todo el dia";
+		case '4': //----------------------------Dias_Ojala_Abrazarnos----------------------------
+			Algo=FDiasOjalaAbrazarnos();
 			break;										
-		case '5'://--------------------------------------------------------
-			Algo="ojala pudieramos estar juntitos todo el dia";
+		case '6': //----------------------------Dias_Ojala_Dormir------------NOTERMINADO----------------
+			Algo="";
 			break;
-		case '6': //--------------------------------------------------------
-			Algo="ojala pudieramos dormir hasta tarde"
+		case '7': //----------------------------Dias_Ojala_Despertarte-------NOTERMINADO---------------------
+			Algo="";
 			break;
-		case '7': //--------------------------------------------------------
-			Algo="me encataria despertarte con muchos besitos"
+		case '8': //----------------------------Dias_OjalaHot_Besarnos----------------------------
+			Algo=FDiasOjalaH2Besarnos();
 			break;
-		case '8': //--------------------------------------------------------
-			Algo="ojala pudiera llenar toido tu cuerpo de besos al despertar";
+		case '9': //----------------------------Dias_OjalaHot_Manosearnos----------------------------
+			Algo=FDiasOjalaH2Manosearnos();
 			break;
-		case '9': //--------------------------------------------------------
-			Algo="ojala pudieramos manosearnos al despertarnos";
-			break;
-		case 'A': //--------------------------------------------------------
-			Algo="ojala pudieramos hacerlo todas las mañanas";
+		case 'A': //----------------------------Dias_OjalaHot_Hacerlo-----------------------------
+			Algo=FDiasOjalaH2Hacerlo(); 
 			break;										
-		case 'B'://--------------------------------------------------------
-			Algo="ojala pudieramos estar juntitos todo el dia";
+		
+		//------------------------------------Noches------------------------------------------------  
+		case 'B'://-------------------------------Noches_BuenasNoches-------------------------
+			Algo=FNoches(false);
 			break;
-		case 'C': //--------------------------------------------------------  
+		case 'C': //------------------------------Noches_BuenasNochesHot--------------------------  
+			Algo=FNoches(true);
+			break;
+		case 'D': //------------------------------Noches_Ojala_Besarnos--------------------------  
+			Algo=FNochesOjalaBesarnos();
+			break;
+		case 'E': //-------------------------------Noches_Ojala_Abrazarnos-------------------------  
+			Algo=FNochesOjalaAbrazarnos();
+			break;
+		case 'G': //------------------------------Noches_Ojala_Dormir-----------------NOTERMINADO---------  
 			Algo="";
 			break;
-		case 'D': //--------------------------------------------------------  
+		case 'H': //------------------------------Noches_Ojala_Soñar------------------NOTERMINADO--------  
 			Algo="";
 			break;
-		case 'E': //--------------------------------------------------------  
-			Algo="";
+		case 'I': //------------------------------Noches_OjalaHot_Besarnos--------------------------  
+			Algo=FNochesOjalaH2Besarnos();
 			break;
-		case 'F': //--------------------------------------------------------  
-			Algo="";
+		case 'J': //------------------------------Noches_OjalaHot_Manosearnos--------------------------  
+			Algo=FNochesOjalaH2Manosearnos();
 			break;
-		case 'G': //--------------------------------------------------------  
-			Algo="";
-			break;
-		case 'H': //--------------------------------------------------------  
-			Algo="";
-			break;
-		case 'I': //--------------------------------------------------------  
-			Algo="";
-			break;
-		case 'J': //--------------------------------------------------------  
-			Algo="";
-			break;
-		case 'K': //--------------------------------------------------------  
-			Algo="";
+		case 'K': //------------------------------Noches_OjalaHot_Hacerlo--------------------------  
+			Algo=FNochesOjalaH2Hacerlo(); 
 			break;
 
 		//------------------------------------Ojala-----------------------------------------------  
-		case 'L': //--------------------------------------------------------  
+		case 'L': //---------------------Ojala_Futuro---------------------NOTERMINADO-------------  
 			Algo="";
 			break;
-		case 'M': //--------------------------------------------------------  
+		case 'M': //---------------------Ojala_Wonitos_Besarnos------------------------------  
 			Algo=FOjalaBesos();
 			break;
-		case 'N': //--------------------------------------------------------  
+		case 'N': //---------------------Ojala_Wonitos_Abrazarnos------------------------------  
 			Algo=FOjalaAbrazos();
 			break;
-		case 'P': //--------------------------------------------------------  
+		case 'P': //---------------------Ojala_Hot2_Besarnos------------------------------  
 			Algo=FOjalaH2Besarnos();
 			break;
-		case 'Q': //--------------------------------------------------------  
+		case 'Q': //---------------------Ojala_Hot2_Manosearnos------------------------------  
 			Algo=FOjalaH2Manosearnos();
 			break;
-		case 'R': //--------------------------------------------------------  
+		case 'R': //----------------------Ojala_Hot2_Hacerlo-----------------------------  
 			Algo=FOjalaH2Hacerlo();
 			break;
-		case 'p': //--------------------------------------------------------  
+		case 'p': //----------------------Ojala_Hot_Lamerte------------------NOTERMINADO---------------  
 			Algo=FOjalaHLamerte();
 			break;
-		case 'q': //--------------------------------------------------------  
+		case 'q': //----------------------Ojala_Hot_Tocarte------------------NOTERMINADO----------------  
 			Algo=FOjalaHTocarte();
 			break;
-		case 'r': //--------------------------------------------------------  
+		case 'r': //----------------------Ojala_Hot_Eyacular------------------NOTERMINADO-------------  
 			Algo=FOjalaHEyacular();
 			break;
 
-		//------------------------------------Alagos------------------------------------------------  
+		//------------------------------------Alagos-------COMPLETAMENTE TERMINADO-----------------------------------------  
 		case 'T': //--------Alagos_Teamo------------------------------------------------  
 			Algo=TEAMO_TEQUIERO(2,false);
 			break;
