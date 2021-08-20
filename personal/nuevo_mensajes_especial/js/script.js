@@ -584,10 +584,17 @@ var EmojisSeries_Elementos=new Array();
 var Ext_EmojisSeries_OtroSerie_Contador=0;
 
 Ext_EmojisSeries_OtroSerie_btn.onclick=function(){	
-	let Algo=Array.from(Ext_EmojisSeries_OtraSerie.value);	
-	let LaClase="";
+	let Algo=Ext_EmojisSeries_OtraSerie.value.split(",");
+	if(Algo.length<=1){//--------------------------poor si no se separa con comas
+		Algo=Array.from(Ext_EmojisSeries_OtraSerie.value)
+	}
+	for (var i = 0; i < Algo.length; i++) {//------por si dejo espacios vacios entre comas
+		if(Algo[i]==""){Algo[i]="  "}
+	}
+	console.log("Algo", Algo);
 	
-	if(Algo[0]==","||Algo[0]=="$"||Algo[0]=="."){			
+	let LaClase="";
+	if(Algo[0]=="-"||Algo[0]=="$"||Algo[0]=="."){			
 		Algo.shift();
 		let otro= ArrayCreator(Algo);
 		EmojisSeries_Array_Arrays.push(otro);
@@ -596,6 +603,7 @@ Ext_EmojisSeries_OtroSerie_btn.onclick=function(){
 		EmojisSeries_Array_Arrays.push(Algo);
 		LaClase="botonrosa"
 	}
+	console.log("EmojisSeries_Array_Arrays", EmojisSeries_Array_Arrays);
 
 	let LaId="btn_serie_"+Ext_EmojisSeries_OtroSerie_Contador;
 	let boton=document.createElement("button")
@@ -608,6 +616,7 @@ Ext_EmojisSeries_OtroSerie_btn.onclick=function(){
 	let Elemento=document.getElementById(LaId)
 	EmojisSeries_Elementos.push(Elemento);
 	console.log("EmojisSeries_Elementos", EmojisSeries_Elementos);
+	console.log();
 
 	//se agrega el onclick
 	EmojisSeries_Elementos[Ext_EmojisSeries_OtroSerie_Contador].onclick=function(){
@@ -1266,7 +1275,7 @@ function FDias(EsHot){
 			regresame="¿"+HacedorOraciones([Pregunta,Apodo]).substr(1)+"?";
 			break;
 		case 5://-------------------------------------------------------- 
-			regresame="¿"+MinMayus("como está"+Apodo)+"?";
+			regresame="¿"+MinMayus("como está "+Apodo)+"?";
 			break;
 		case 6://-------------------------------------------------------- 
 			Pregunta=new Opciones("random",["lindo","wonito","buen","bonito"]);
@@ -1456,7 +1465,7 @@ function nivel0_revision_codigo(revisame){
 
 //funcion para facilitar la llamadas
 function Text_Llama(codigo){
-	console.log("codigo", codigo);
+	console.log("codigo", codigo); 
 	Textos_Codigo_Array[nivel0_contador]=codigo;
 	//si ya estamos en la ultima linea quiero que me agreges otra line
 	if(nivel0_contador==Patron_CantidadElementos-1){
