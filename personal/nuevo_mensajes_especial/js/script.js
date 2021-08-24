@@ -279,7 +279,7 @@ var Emojis_Estrellas=new Array ("✨","⭐","🌟","💫");
 var Emojis_Espacio=new Array ("☄️","🌙","🌕","🪐");
 var Emojis_Flores=new Array ("🌸","🌼","🌷","🌹","🌺","🌻");
 var Emojis_Dias=new Array("☀️","🌤️","🌅","🌄","🌈","☁️");
-var Emojis_Otros=new Array ("⛱️","💎","💍","🥰","🥺","🦋","🪁","🎀","♥️");
+var Emojis_Otros=new Array ("💎","💍","🥰","🥺","⛱️","🦋","🪁","🎀","🧸","🍁","♥️");
 var Emoji_Co=new Array("♥️");
 var Emojis_Corazones_Colores=new Array("❤️","🧡","💛","💚","💙","💜");
 var Emojis_Corazones_Rojos=new Array("💘","❣️","💓");
@@ -333,7 +333,7 @@ nivel0_Borrar.onclick=function(){
 nivel0_BorrarTodos.onclick=function(){
 	Textos_Array=new Array();
 	Textos_Codigo_Array=new Array();
-	nivel0_contador=1;
+	nivel0_contador=0;
 	nivel0_actualizar();
 }
 
@@ -566,7 +566,7 @@ Ext_EmojisSeries_OtroEmoji_btn.onclick=function(){
 	boton.classList.add("mini"); 
 	boton.innerHTML=Ext_EmojisSeries_OtroEmoji.value;
 	boton.setAttribute("id",LaId);	
-	document.getElementById("contEmojis").appendChild(boton);
+	document.getElementById("contEmojisvd").appendChild(boton);
 	
 	document.getElementById(LaId).onclick=function(){
 		Patron_Array.push(document.getElementById(LaId).innerHTML);
@@ -611,7 +611,7 @@ Ext_EmojisSeries_OtroSerie_btn.onclick=function(){
 	boton.classList.add("mini"); 
 	boton.setAttribute("id",LaId);
 	boton.innerHTML=EmojisSeries_Array_Arrays[Ext_EmojisSeries_OtroSerie_Contador][0];	
-	document.getElementById("contEmojis").appendChild(boton);
+	document.getElementById("contEmojisvd").appendChild(boton);
 
 	let Elemento=document.getElementById(LaId)
 	EmojisSeries_Elementos.push(Elemento);
@@ -673,6 +673,8 @@ function CambiarEmojiDelBotonRandom(){
 }
 
 setInterval(CambiarEmojiDelBotonRandom,1000);
+
+//function ReiniciarFormarOraciones(){}//esto es para el otro documento donde no queiro funciones de textos personales
 
 
 
