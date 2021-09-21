@@ -3,19 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="https://angelmanuelgl.github.io/img/logoAX.ico" >
+	<link rel="stylesheet" href="styles.css">
 	<title>Numeros Random</title>
 </head>
 <body>
-	<h2>Numero random</h2>
-	<p> Se tiene que elegir dos numeros, y se dará un numero random entre estos dos </p>
-	<br>
-	<input type="number" class="input-text"  id="minnum" placeholder="0"> </input>
-	<input type="number" class="input-text"  id="maxnum" placeholder="999"> </input>
-	<br>
-	<button class="Boton" id="boton">Calcular</button>
-	<p ><b id="elnumero">Numero</b></p>
-	<br>
-	<p> Hecho por Angel</p>
+<section class="esflex">
+	<div class="box">
+		<div class="cuadrado" style="--i:4;"></div>
+		<div class="cuadrado" style="--i:0;"></div>
+		<div class="cuadrado" style="--i:7;"></div>
+		<div class="cuadrado" style="--i:5;"></div>
+		<div class="cuadrado" style="--i:3;"></div>
+
+		<div class="contenedor esflex">
+			<h2>Numero random</h2>
+			<p> Se elijen dos numeros enteros, y como resultado te dara un numero aleatorio entre estos dos (incluidos)</p>
+			<br>
+			<input type="number" class="input"  id="minnum" placeholder="0"></input>
+			<input type="number" class="input"  id="maxnum" placeholder="100"> </input>
+			<br>
+			<button class="Boton" id="boton">Calcular</button>
+			<p ><b id="elnumero">Numero</b></p>
+			<br>
+			<p> Hecho por Angel</p>
+		</div>
+	</div>
+</section>
+	
 </body>
 	<script src="main.js"></script>
 </html>
