@@ -342,6 +342,11 @@ figure .trasera{
 	background-size: 400% 300%;
 	animation: var(--LaAnimacion);
 }
+
+figure .trasera p{
+	font-size: 1rem;
+	text-align: center;
+}
 /*=======================================algunos trabajos=======================================*/
 .contienegeneral{
 	width:100%;
