@@ -47,7 +47,7 @@ a{
 .elcontiene{
 	position: absolute;
 	width: 100%;
-	/*min-height: 100vh;*/
+	min-height: 100vh;
 	/*background: rgb(254,172,94);  */
 	background: var(--FondoDegradado); /*---------------------------------------------------------*/
 
@@ -282,14 +282,13 @@ a{
  	background: #000;
  }
 .vueltas{
-	max-height: 150px;
-	max-width: 150px;
+	max-height: 140px;
+	max-width: 140px;
 	box-shadow: 2px 25px 45px rgba(0,0,0,0.2);
 	border-right:4px solid rgba(255,255,255,0.2);
 	border-bottom:4px solid rgba(255,255,255,0.2);
 	margin:5px 10px;
 	border-radius: 50%;
-
 }
 .vueltas figure{
 	position: relative;
@@ -344,7 +343,7 @@ figure .trasera{
 }
 
 figure .trasera p{
-	font-size: 1rem;
+	font-size: 0.9rem;
 	text-align: center;
 }
 /*=======================================algunos trabajos=======================================*/
