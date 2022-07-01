@@ -30,9 +30,9 @@ body{
 /* contiene nombres de participantes*/
 .Posiciones>div>div{
 	border: 1px solid blue;
-	min-width: 20%;
+	min-width: 16vw;
 	margin:10px 2px 10px 2px;
-	padding: 0px 0.6rem;
+	padding: 0.3rem 0.6rem;
 
 	text-align: center;
 	display: flex;
@@ -45,9 +45,12 @@ body{
 	transform-style: preserve-3d;
 }
 
-.Posiciones>div>div.p{
-
+/* la parte de enfrente de dos parrafos */
+.Posiciones>div>div p{
+	margin:2px 2px;
 }
+
+
 
 /* èl mecanismo de volteado*/
 .Posiciones>div>div:hover,
@@ -66,19 +69,32 @@ body{
 }
 .a{
 	position: absolute;
-	top:0%;
+	top:50%;
+
 	transform-style: preserve-3d;
-	transform: perspective(600px) rotateY(180deg);
+	transform: perspective(600px) rotateY(180deg) translateY(-50%);
 	
 	backface-visibility: hidden;
 }
 
 
 /*colores*/
-.uno>div{background: gold;}
-.dos>div{background: silver;}
-.tres>div{background: brown;}
-.cuatro>div{background: blue;}
+.uno>div{
+	background: #FFEB3B;
+	color:#F57F17;
+}
+.dos>div{
+	background: #90A4AE;
+	color:#263238;
+}
+.tres>div{
+	background: #FF8A65;
+	color:#BF360C;
+}
+.cuatro>div{
+	background: #B2EBF2;
+	color:#01579B;
+}
 
 
 
