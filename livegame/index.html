@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Live game</title>
+</head>
+<body>
+	<div id="filascolumas">
+		<h2>El juego de la vida de conway</h2>
+		<p> Se elijen dos numeros enteros, y como resultado te dara un numero aleatorio entre estos dos (incluidos)</p>
+		<br>
+		<input type="number" class="input"  id="fila" placeholder="0" min="10" max="80"></input>
+		<input type="number" class="input"  id="columna" placeholder="100" min="10" max="80"> </input>
+		<br>
+		<input type="button" value="Generar" onclick="genera_tabla()">
+	</div>
+	<div id="opciones">
+		<input type="button" value="Pasosiguiente" onclick="pasosiguiente()">
+		<input type="button" value="Avanzar" onclick="Avanzar()">
+		<input type="button" value="Detener" onclick="Detener()">
+		<a href="" >recargar</a>
+
+	</div>
+	<div id="contienetabla">
+		
+	</div>
+
+
+<!-- 	<table>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+</table> -->
+	
+</body>
+
+
+
+<script src="main.js"></script>
+
+<style>
+.desaparece{
+	display:none;
+}
+
+table {
+   /*width: 100%;*/
+   border: 1px solid #000;
+}
+ td {
+ 	width: 1.3rem;
+ 	height: 1.3rem;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   background: red;
+}
+
+.vivo{
+	background-color: #fff;
+}
+.muerto{
+	background-color: #000;
+}
+
+
+#contienetabla{
+	width: 100%;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	border: red 2px solid;
+}
+</style>
+</html>
