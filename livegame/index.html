@@ -8,18 +8,20 @@
 <body>
 	<div id="filascolumas">
 		<h2>El juego de la vida de conway</h2>
-		<p> Se elijen dos numeros enteros, y como resultado te dara un numero aleatorio entre estos dos (incluidos)</p>
+		<p> Elegir la longitd del ancho y largo del tablero que se desea</p>
 		<br>
 		<input type="number" class="input"  id="fila" placeholder="0" min="10" max="80"></input>
 		<input type="number" class="input"  id="columna" placeholder="100" min="10" max="80"> </input>
 		<br>
 		<input type="button" value="Generar" onclick="genera_tabla()">
 	</div>
-	<div id="opciones">
+	<div id="opciones" class="desaparece">
 		<input type="button" value="Pasosiguiente" onclick="pasosiguiente()">
-		<input type="button" value="Avanzar" onclick="Avanzar()">
-		<input type="button" value="Detener" onclick="Detener()">
-		<a href="" >recargar</a>
+		<input type="button" id="Play" class=""
+				value=" &#9724 Play  " onclick="Avanzar()">
+		<input type="button" id="Stop" class="desaparece" 
+				value="&#10073&#10073 Stop" onclick="Detener()">
+		<a href="" > &#8634 recargar</a>
 
 	</div>
 	<div id="contienetabla">
@@ -61,8 +63,8 @@ table {
    border: 1px solid #000;
 }
  td {
- 	width: 1.3rem;
- 	height: 1.3rem;
+ 	width: 1.2rem;
+ 	height: 1.2rem;
    text-align: left;
    vertical-align: top;
    border: 1px solid #000;

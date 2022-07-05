@@ -12,6 +12,8 @@ function genera_tabla() {
 	console.log("estoy llamadno ala funcion que genera tabla");
 	// desaprece el objeto
 	document.getElementById('filascolumas').classList.add("desaparece")
+	document.getElementById('opciones').classList.remove("desaparece")
+
 	//se asegura de que no esten vacios
 	if(botonfila.value==""){
 		botonfila.value=20;
@@ -22,7 +24,7 @@ function genera_tabla() {
 	cantfila=botonfila.value;
   	cantcolumna=botoncolumna.value;
 
-  	// Obtener la referencia del elemento body
+  	// Obtener la referencia del div que contendra la tabla
   	var contenedor = document.getElementById('contienetabla');
 
   	// Crea un elemento <table> y un elemento <tbody>
@@ -147,20 +149,18 @@ var OtraMatrizCopia=[];
 function pasosiguiente(){	
 	
 	// copia la matiz solo si no se habia copiado antes
-	// para saber si se ha copiado antes 
-	// revisamos que el ultimo elemneto no sea undefined
-	if(  (OtraMatrizCopia[LaMatriz.length-1]===undefined ) ) {
-  		for (var i = 0; i < LaMatriz.length; i++) {
-    		// Crea las hileras de la tabla y de la array 
-    		var ArrayColumna=[]
-    		for (var j = 0; j < LaMatriz[i].length; j++) { 	
-      			ArrayColumna.push(LaMatriz[i][j]);	 	
-    		}
-    		// agrega a la array cada hilera
-    		OtraMatrizCopia.push(ArrayColumna)
-		}
-		console.log("traMatrizCopia", OtraMatrizCopia);
+	OtraMatrizCopia=[];
+  	for (var i = 0; i < LaMatriz.length; i++) {
+    	// Crea las hileras de la tabla y de la array 
+    	var ArrayColumna=[]
+    	for (var j = 0; j < LaMatriz[i].length; j++) { 	
+      		ArrayColumna.push(LaMatriz[i][j]);	 	
+    	}
+    	// agrega a la array cada hilera
+    	OtraMatrizCopia.push(ArrayColumna)
 	}
+	console.log("traMatrizCopia", OtraMatrizCopia);
+	
 
 	// revisa las reglas y pone los resultados en la patriz de la copia
 	for (var i = 0; i < LaMatriz.length; i++) {
@@ -201,11 +201,18 @@ function pasosiguiente(){
 }
 
 var IdentificadorIntervalo;
+var contador=true;
 function Avanzar(){
 	IdentificadorIntervalo=setInterval(pasosiguiente, 400);
+	
+	document.getElementById("Play").classList.add("desaparece");
+	document.getElementById("Stop").classList.remove("desaparece");
 }
 	
-
 function Detener(){
-	clearInterval(IdentificadorIntervalo)
+	clearInterval(IdentificadorIntervalo);
+	document.getElementById("Stop").classList.add("desaparece");
+	document.getElementById("Play").classList.remove("desaparece");
+
+
 }
