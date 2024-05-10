@@ -19,6 +19,14 @@
             align-items: center;
             margin-bottom: 20px;
         }
+        .cont{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
         .input-container div {
             margin: 0 10px;
         }
@@ -33,18 +41,25 @@
             display: block;
             margin-bottom: 20px;
         }
-        #vectorFieldSVG {
+         #vectorFieldSVG {
             display: block;
             margin: 0 auto;
+            max-width: 90%;
+            min-width: none;
         }
-        #resultados{
-
+        .input-container input[type="number"] {
+            width: 80px; /* Ajusta el ancho según tu preferencia */
+        }
+         @media only screen and (max-width: 600px) {
+            .input-container div {
+                max-width: 50%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="input-container">
-    <h1>Ecuaciones diferenciales 2x2</h1>
+    <div class="cont">
+    <h1> <center>Ecuaciones diferenciales 2x2</center></h1>
     </div>
    
     <div class="input-container">
@@ -74,7 +89,7 @@
     <div id="resultados"></div>
     </div>
 
-    <svg id="vectorFieldSVG" width="1200" height="600" style="border: 1px solid black;"></svg>
+    <svg id="vectorFieldSVG" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet"></svg>
 
     <script>
 
