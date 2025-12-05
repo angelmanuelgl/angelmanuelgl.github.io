@@ -1,0 +1,252 @@
+/* 1. PALETA Y BASE (Nuevos Colores Solicitados) */
+        :root {
+            /* Colores Base */
+            --color-bg-dark: #151E26;              /* Azul-Gris Oscuro (Base del sistema) */
+            --color-intermed: #364F59;             /* Azul Grisáceo Intermedio (Para transparencia y bordes) */
+            --color-accent: #4BF2F2;               /* Cian Brillante (Acentos principales, títulos, hover) */
+            --color-subtitle: #3CA6A6;             /* Cian Opaco/Verdoso (Secundario, subtítulos) */
+            --color-text: #CFF8FF;                 /* Blanco-cian desaturado (Texto principal) */
+
+            /* Colores de Cristal y Relleno Interno */
+            --color-glass-bg: rgba(54, 88, 117, 0.123); /* Transparencia de BG Dark (Header/Footer) */
+            --color-card-inner-fill: rgba(80, 106, 121, 0.164); /* Transparencia de Intermed (Relleno de tarjeta) */
+            --border-radius-card: 6px;
+
+            --font-code: 'Fira Code', monospace;
+            --font-text: 'Inter', sans-serif;
+        }
+
+        /* Animación para el borde giratorio (VUELVE A OPACITY 1 EN HOVER) */
+        @keyframes borderSpin {
+            to { transform: rotate(360deg); }
+        }
+        /* Animación para el cursor del título */
+        @keyframes blink-caret {
+            from, to { opacity: 0 }
+            50% { opacity: 1 }
+        }
+
+        /* 2. FONDO DINÁMICO: IMAGEN DE FONDO (Cyberpunk City/Data Grid) */
+    body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('sources/img/fondo.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    filter: blur(5px);
+    transform: scale(1.1);
+}
+
+/* Capa animada de color */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    /* Color inicial (cian suave) */
+    background: rgba(0, 255, 200, 0.135);
+
+    /* Mezcla estética estilo cyberpunk */
+    mix-blend-mode: overlay;
+
+    /* Animación lenta */
+    animation: colorShift 10s ease-in-out infinite alternate;
+}
+
+/* Animación de transición de colores */
+@keyframes colorShift {
+    0% {
+        background: rgba(0, 255, 191, 0.543); /* Cian */
+    }
+    100% {
+        background: rgba(7, 102, 196, 0.506); /* Verde-agua */
+    }
+} 
+    body {
+        background-color: var(--color-bg-dark);
+        color: var(--color-text);
+    }
+
+        h1, h2, h3 {
+            font-family: var(--font-code);
+            font-weight: 700;
+        }
+
+        /* 3. HEADER (Bloque de Cristal con Transparencia) */
+        .info-block {
+            background-color: var(--color-glass-bg); /* Transparencia base */
+            backdrop-filter: blur(10px); /* Efecto cristal aumentado */
+            /* Se mantiene un borde de acento en la parte inferior */
+            border-bottom: 3px solid var(--color-accent); 
+            padding: 2.5rem 1rem;
+            margin-bottom: 2rem;
+            /* Sombra profunda */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); 
+            position: relative;
+        }
+
+        .main-title {
+            color: var(--color-text);
+            position: relative;
+            display: inline-block;
+            padding-right: 20px;
+        }
+
+        .main-title::after {
+            content: '_';
+            color: var(--color-accent);
+            animation: blink-caret 1s step-end infinite;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .header-subtitle {
+            margin-top: 0.5rem;
+            color: var(--color-subtitle);
+            font-weight: 500;
+        }
+
+        /* 4. TÍTULO DE SECCIÓN */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            /* Borde inferior usando el color intermedio */
+            border-bottom: 2px solid var(--color-intermed); 
+            padding-bottom: 0.75rem;
+            color: var(--color-accent);
+        }
+
+        /* 5. TARJETAS DE PROYECTO (Bloques de Cristal Pulido con Transparencia) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--color-glass-bg); /* Transparencia */
+            backdrop-filter: blur(6px); /* Efecto cristal */
+            padding: 2rem;
+            border-radius: var(--border-radius-card);
+            /* Borde estático sutil usando el color intermedio */
+            border: 1px solid var(--color-intermed); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden; 
+        }
+
+        /* 5.1 Elemento que crea el borde giratorio (::before) - Usando Cian Brillante */
+        /* .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            /* Degradado cónico que simula una luz de circuito giratoria */
+            background: conic-gradient(
+                transparent,
+                transparent,
+                transparent,
+                var(--color-accent) /* Cian Brillante */
+            );
+            opacity: 0; /* Oculto por defecto */
+            transform: rotate(0deg);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        } */
+
+        /* 5.2 Elemento que rellena el centro (::after) - Fondo semi-transparente del color intermedio */
+        .project-card::after {
+            content: '';
+            position: absolute;
+            inset: 1px; 
+            background-color: var(--color-card-inner-fill); /* Relleno con transparencia */
+            border-radius: var(--border-radius-card);
+            z-index: 0;
+        }
+
+        /* 5.3 El contenido del card debe estar sobre los efectos de borde */
+        .project-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 5.4 Estado Hover: Elevación y Borde Giratorio (Versión Anterior - Opacidad Completa) */
+        .project-card:hover {
+            transform: translateY(-7px); 
+            /* border-color: transparent;  */
+            /* Sombra profunda para contrastar el brillo */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9); 
+            z-index: 10;
+        }
+
+        .project-card:hover::before {
+            opacity: 1; /* Muestra el borde con opacidad completa (como la versión anterior) */
+            animation: borderSpin 2s linear infinite; /* Animación de giro */
+        }
+        
+        .card-subtitle {
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            color: var(--color-subtitle); /* Usamos el cian opaco */
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .card-link {
+            font-family: var(--font-code);
+            color: var(--color-accent);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 1rem;
+            transition: color 0.2s;
+        }
+
+        .card-link:hover {
+            color: var(--color-subtitle);
+            text-decoration: underline;
+        }
+
+        .highlight {
+            font-family: var(--font-code);
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        /* 6. ENLACES Y TEXTO GENERAL */
+        p a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        p a:hover {
+            color: var(--color-subtitle);
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* 7. RESPONSIVENESS */
+        @media (min-width: 768px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .projects-grid { grid-template-columns: repeat(3, 1fr); }
+        }
