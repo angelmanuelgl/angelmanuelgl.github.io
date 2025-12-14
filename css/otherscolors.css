@@ -1,0 +1,134 @@
+:root {
+    /* --- Colores Base --- */
+    --color-bg-dark: #151E26;       /* Azul-Gris Oscuro (Base del sistema) */
+    --color-intermed: #364F59;      /* Azul Grisáceo Intermedio (Para transparencia y bordes) */
+    --color-accent: #4BF2F2;        /* Cian Brillante (Acentos principales, títulos, hover) */
+    --color-subtitle: #3CA6A6;      /* Cian Opaco/Verdoso (Secundario, subtítulos) */
+    --color-text: #CFF8FF;          /* Blanco-cian desaturado (Texto principal) */
+
+    /* --- Fondos Transparentes (Ajusta la opacidad si cambias el color base) --- */
+    --color-glass-bg: rgba(54, 88, 117, 0.123); /* Transparencia de BG Dark (Header/Footer) */
+    --color-card-inner-fill: rgba(80, 106, 121, 0.164); /* Transparencia de Intermed (Relleno de tarjeta) */
+    
+    /* --- Acento Transparente (NUEVAS VARIABLES para enlaces/brillos) --- */
+    /* Usadas para backgrounds muy sutiles, bordes y el efecto de "barrido" */
+    --color-accent-transparent-low: rgba(75, 242, 242, 0.1);    /* 10% de opacidad para fondos */
+    --color-accent-transparent-medium: rgba(75, 242, 242, 0.4); /* 40% de opacidad para el barrido y bordes */
+    --color-accent-transparent-high: rgba(75, 242, 242, 0.05);  /* 5% de opacidad para background de hover */
+
+    /* --- Valores Fijos --- */
+    --border-radius-card: 6px;
+    --font-code: 'Fira Code', monospace;
+    --font-text: 'Inter', sans-serif;
+} 
+
+
+    --color-dark-cyan: rgb(32, 87, 130);
+    --color-light-blue: #92C4D6;
+    --color-champagne-pink: #F6E3D6;
+    --color-earth-yellow: #E7C395;
+    --color-cocoa-brown: #D6B8A3;
+
+:root {
+    --color-dark-cyan: rgb(32, 135, 142);
+  --color-light-blue: rgb(146, 196, 198);
+  --color-champagne-pink: rgb(246, 227, 214);
+  --color-earth-yellow: rgb(243, 195, 117);
+  --color-cocoa-brown: rgb(214, 111, 41);
+    /* --- Mapeo de Colores Base (Invertidos para Fondo Claro) --- */
+    
+    /* El color más claro es el fondo */
+    --color-bg-dark: rgb(246, 227, 214);       /* Fondo CLARO: Champagne Pink */
+    --color-intermed: rgb(146, 196, 198);      /* Intermedio: Light Blue */
+    --color-accent: rgb(214, 111, 41);        /* Acento Principal: Cocoa Brown */
+    --color-subtitle: rgb(32, 135, 142);      /* Subtítulo: Dark Cyan */
+    --color-text:rgb(32, 135, 142) ;          /* Texto Principal: Earth Yellow (Necesita contraste, pero siguiendo la paleta) */
+   
+    /* --- Fondos SÓLIDOS y Detalles (Sin Transparencias) --- */
+    /* Usamos colores que contrasten con el fondo claro */
+    --color-glass-bg: var(--color-light-blue);        /* Fondo sólido para bloques (Light Blue) */
+    --color-card-inner-fill: var(--color-light-blue);  /* Relleno de tarjeta (Champagne Pink) */
+    
+    /* --- Acento SÓLIDO (Para los efectos de enlace) --- */
+    /* Usamos los acentos sólidos */
+    --color-accent-transparent-low: var(--color-bg-dark);    
+    --color-accent-transparent-medium: var(--color-subtitle); 
+    --color-accent-transparent-high: var(--color-intermed);
+
+    /* --- Valores Fijos --- */
+    --border-radius-card: 6px;
+    --font-code: 'Fira Code', monospace;
+    --font-text: 'Inter', sans-serif;
+}
+
+:root {
+    --color-dark-cyan: rgb(32, 135, 142);
+    --color-light-blue: rgb(146, 196, 198);
+    --color-champagne-pink: rgb(246, 227, 214);
+    --color-earth-yellow: rgb(243, 195, 117);
+    --color-cocoa-brown: rgb(214, 111, 41);
+    /* --- Mapeo de Colores Base (Invertidos para Fondo Claro) --- */
+    
+    /* El color más claro es el fondo */
+    --color-bg-dark: var(--color-champagne-pink);      /* Fondo CLARO: Champagne Pink */
+    --color-intermed: rgb(146, 196, 198);      /* Intermedio: Light Blue */
+    --color-accent: var(--color-earth-yellow);        /* Acento Principal: Cocoa Brown */
+    --color-subtitle: var(--color-champagne-pink);       /* Subtítulo: Dark Cyan */
+    --color-text: var(--color-champagne-pink);        /* Texto Principal: Earth Yellow (Necesita contraste, pero siguiendo la paleta) */
+   
+    /* --- Fondos SÓLIDOS y Detalles (Sin Transparencias) --- */
+    /* Usamos colores que contrasten con el fondo claro */
+    --color-glass-bg: var(--color-dark-cyan);        /* Fondo sólido para bloques (Light Blue) */
+    --color-card-inner-fill: var(--color-dark-cyan);  /* Relleno de tarjeta (Champagne Pink) */
+    
+    /* --- Acento SÓLIDO (Para los efectos de enlace) --- */
+    /* Usamos los acentos sólidos */
+    --color-accent-transparent-low: var(--color-bg-dark);    
+    --color-accent-transparent-medium: var(--color-subtitle); 
+    --color-accent-transparent-high: var(--color-intermed);
+
+    /* --- Valores Fijos --- */
+    --border-radius-card: 6px;
+    --font-code: 'Fira Code', monospace;
+    --font-text: 'Inter', sans-serif;
+}
+
+
+
+/*
+Tipo calido con azul y arena, pero formalito, aunque no tanto, 
+se ve como para divulagacion op algo o dar clase spara estuiantes de primaria o algo asi 
+
+*/
+:root {
+    --color-dark-cyan: rgb(32, 135, 142);
+    --color-light-blue: rgb(146, 196, 198);
+    --color-champagne-pink: rgb(246, 227, 214);
+    --color-earth-yellow: rgb(243, 195, 117);
+    --color-cocoa-brown: rgb(214, 111, 41);
+    /* --- Mapeo de Colores Base (Invertidos para Fondo Claro) --- */
+    
+    /* El color más claro es el fondo */
+    --color-bg-dark: var(--color-champagne-pink);      /* Fondo CLARO: Champagne Pink */
+    --color-intermed: rgb(146, 196, 198);      /* Intermedio: Light Blue */
+    --color-accent: var(--color-cocoa-brown);        /* Subtítulo: Dark Cyan */
+    
+    --color-text: var(--color-dark-cyan);        /* Texto Principal: Earth Yellow (Necesita contraste, pero siguiendo la paleta) */
+    --color-titulo: var(--color-champagne-pink);  
+    --color-subtitle: var(--color-champagne-pink);  
+    /* --- Fondos SÓLIDOS y Detalles (Sin Transparencias) --- */
+    /* Usamos colores que contrasten con el fondo claro */
+    --color-glass-bg: var(--color-dark-cyan);        /* Fondo sólido para bloques (Light Blue) */
+    --color-card-inner-fill: var(--color-earth-yellow);  /* Relleno de tarjeta (Champagne Pink) */
+    
+    /* --- Acento SÓLIDO (Para los efectos de enlace) --- */
+    /* Usamos los acentos sólidos */
+    --color-accent-transparent-low: var(--color-bg-dark);    
+    --color-accent-transparent-medium: var(--color-subtitle); 
+    --color-accent-transparent-high: var(--color-intermed);
+
+    /* --- Valores Fijos --- */
+    --border-radius-card: 6px;
+    --font-code: 'Fira Code', monospace;
+    --font-text: 'Inter', sans-serif;
+}

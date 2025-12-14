@@ -1,0 +1,302 @@
+/* ================================================= */
+/* 1. PALETA Y BASE (Centralización de Colores)      */
+/* ¡NUEVA PALETA APLICADA! (Neutral y SÓLIDA)        */
+/* ================================================= */
+/* ================================================= */
+/* 1. PALETA Y BASE (Centralización de Colores)      */
+/* ¡NUEVA PALETA APLICADA! (Neutral y SÓLIDA - Fondo CLARO) */
+/* ================================================= */
+
+:root{
+    /* --- Colores Base --- */
+    --color-bg-dark: #111030;       /* Azul-Gris Oscuro (Base del sistema) */
+    --color-intermed: #364F59;      /* Azul Grisáceo Intermedio (Para transparencia y bordes) */
+    --color-accent: #4BF2F2;        /* Cian Brillante (Acentos principales, títulos, hover) */
+    --color-subtitle: rgb(60, 166, 166);      /* Cian Opaco/Verdoso (Secundario, subtítulos) */
+    --color-text: #ffffff;          /* Blanco-cian desaturado (Texto principal) */
+
+    /* --- Fondos Transparentes (Ajusta la opacidad si cambias el color base) --- */
+    --color-glass-bg: rgba(54, 88, 117, 0.123); /* Transparencia de BG Dark (Header/Footer) */
+    --color-card-inner-fill: rgba(80, 106, 121, 0.164); /* Transparencia de Intermed (Relleno de tarjeta) */
+    
+    /* --- Acento Transparente (NUEVAS VARIABLES para enlaces/brillos) --- */
+    /* Usadas para backgrounds muy sutiles, bordes y el efecto de "barrido" */
+    --color-accent-transparent-low: rgba(75, 242, 242, 0.1);    /* 10% de opacidad para fondos */
+    --color-accent-transparent-medium: rgba(75, 242, 242, 0.5); /* 40% de opacidad para el barrido y bordes */
+    --color-accent-transparent-high: rgba(75, 242, 242, 1.0);  /* 5% de opacidad para background de hover */
+
+    --color-glass-bg: var(--color-light-blue);        /* Fondo sólido para bloques (Light Blue) */
+    --color-card-inner-fill: rgba(60, 166, 166, 0.1);  
+
+    /* --- Valores Fijos --- */
+    --border-radius-card: 6px;
+    --font-code: 'Fira Code', monospace;
+    --font-text: 'Inter', sans-serif;
+} 
+
+/* Animación para el borde giratorio (VUELVE A OPACITY 1 EN HOVER) */
+@keyframes borderSpin {
+    to { transform: rotate(360deg); }
+}
+/* Animación para el cursor del título */
+@keyframes blink-caret {
+    from, to { opacity: 0 }
+    50% { opacity: 1 }
+}
+
+/* Animación de transición de colores del fondo (Hardcoded para el efecto cyberpunk) */
+@keyframes colorShift {
+    0% {
+        background: rgba(0, 255, 191, 0.543); /* Cian de inicio */
+    }
+    100% {
+        background: rgba(7, 102, 196, 0.506); /* Verde-agua de fin */
+    }
+} 
+
+
+/* ================================================= */
+/* 2. FONDO DINÁMICO                                 */
+/* ================================================= */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/img/fondo.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    filter: blur(5px);
+    transform: scale(1.1);
+}
+
+/* Capa animada de color */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    /* USA VARIABLE ADAPTADA */
+    background: var(--color-accent-transparent-low); 
+
+    /* mix-blend-mode: overlay; */
+
+    /* animation: colorShift 10s ease-in-out infinite alternate; */
+}
+
+body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-code);
+    font-weight: 700;
+}
+
+/* ================================================= */
+/* 3. HEADER (Bloque de Cristal con Transparencia)   */
+/* ================================================= */
+.info-block {
+    background-color: var(--color-glass-bg); /* Transparencia base */
+    backdrop-filter: blur(10px); /* Efecto cristal aumentado */
+    border-bottom: 3px solid var(--color-accent); /* Acento */
+    padding: 2.5rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); 
+    position: relative;
+}
+
+.main-title {
+    color: var(--color-titulo);
+    position: relative;
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.main-title::after {
+    content: '_';
+    color: var(--color-titulo); /* Acento */
+    animation: blink-caret 1s step-end infinite;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.header-subtitle {
+    margin-top: 0.5rem;
+    color: var(--color-subtitle);
+    font-weight: 500;
+}
+
+/* ================================================= */
+/* 4. TÍTULO DE SECCIÓN                              */
+/* ================================================= */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--color-intermed); /* Intermedio */
+    padding-bottom: 0.75rem;
+    color: var(--color-accent); /* Acento */
+}
+
+/* ================================================= */
+/* 5. TARJETAS DE PROYECTO                           */
+/* ================================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--color-card-inner-fill); /* Transparencia */
+    backdrop-filter: blur(6px); /* Efecto cristal */
+    padding: 2rem;
+    border-radius: var(--border-radius-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden; 
+}
+
+/* Elemento que rellena el centro */
+.project-card::after {
+    content: '';
+    position: absolute;
+    inset: 1px; 
+    background-color: var(--color-card-inner-fill); /* Relleno con transparencia */
+    border-radius: var(--border-radius-card);
+    z-index: 0;
+}
+
+/* El contenido del card debe estar sobre los efectos de borde */
+.project-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estado Hover: Elevación y Borde Giratorio */
+.project-card:hover {
+    transform: translateY(-7px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9); 
+    z-index: 10;
+}
+
+.project-card:hover::before {
+    opacity: 1; 
+    animation: borderSpin 2s linear infinite; 
+}
+
+.card-subtitle {
+    font-family: var(--font-code);
+    font-size: 0.9rem;
+    color: var(--color-subtitle); /* Subtítulo */
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+
+.highlight {
+    font-family: var(--font-code);
+    font-weight: 700;
+    color: var(--color-accent); /* Acento */
+}
+
+/* ================================================= */
+/* 6. ENLACES Y TEXTO GENERAL                        */
+/* ================================================= */
+p a {
+    color: var(--color-accent); /* Acento */
+    text-decoration: underline;
+    font-weight: 500;
+}
+p a:hover {
+    color: var(--color-subtitle); /* Subtítulo */
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* ================================================= */
+/* 7. ENLACES DE TARJETA (EFECTO NEÓN Y SWIPE)       */
+/* ================================================= */
+
+.card-link {
+    /* Estado Base: Texto neón */
+    font-family: var(--font-code);
+    color: var(--color-accent); /* Acento (¡OK!) */
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1rem;
+    transition: color 0.2s;
+    
+    padding: 0.5rem 0.75rem; 
+    position: relative; 
+    overflow: hidden; 
+    transition: color 0.3s ease; 
+    border-radius: 4px; 
+    z-index: 1;
+}
+
+/* 7.1 El Barrido de Luz (Pseudo-elemento ::before) */
+.card-link::before {
+    content: '';
+    position: absolute;
+    top: -150%; 
+    left: -20%; 
+    width: 150%;
+    height: 100%;
+    
+    /* USA VARIABLE ADAPTADA: media transparencia para el barrido */
+    background: linear-gradient(
+        0deg, 
+        transparent, 
+        transparent 30%, 
+        var(--color-accent-transparent-medium)
+    );
+    
+    transform: rotate(30deg);
+    transition: all 0.5s ease-out;
+    opacity: 0; 
+    z-index: 0; 
+}
+
+
+/* 7.2 Efecto Hover (Activación del barrido y brillo sutil) */
+.card-link:hover {
+    color: var(--color-text); 
+    transform: translateY(-1px); 
+    
+    /* USA VARIABLES ADAPTADAS: borde y fondo muy sutiles */
+    border: 1px solid var(--color-accent-transparent-medium); 
+    background-color: var(--color-accent-transparent-high);
+}
+
+.card-link:hover::before {
+    opacity: 1; 
+    transform: rotate(30deg) translateY(400%); 
+}
+
+
+/* ================================================= */
+/* 8. RESPONSIVENESS                                 */
+/* ================================================= */
+@media (min-width: 768px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+    .projects-grid { grid-template-columns: repeat(3, 1fr); }
+}

@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Título más limpio y menos cargado -->
-    <title>PORTAFOLIO DE CÓMPUTO CIENTÍFICO</title>
+    <title>PORTAFOLIO DE MATEMATICAS COMPUTACIONALES</title>
+    
+    
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fuentes para la combinación Technical Grid (Monospace + Sans) -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- Cabecera / Banner principal (Bloque de información de Cristal) -->
     <header class="info-block">
-        <div class="main-container max-w-7xl px-4 py-4">
+        <div class="main-container  max-w-7xl px-4 py-4">
             <!-- Título simplificado -->
-            <h1 class="text-3xl md:text-5xl font-extrabold main-title">Ángel Manuel González López</h1>
+            <h1 class="text-3xl md:text-5xl font-extrabold header-subtitle">Ángel Manuel González López</h1>
             <h1 class="text-3xl md:text-3xl font-extrabold main-title">PORTAFOLIO DE MATEMATICAS CÓMPUTACIONALES </h1>
             <p class="header-subtitle text-lg md:text-xl"> Estudiante del CIMAT </p>
         </div>
+
     </header>
 
     <!-- Contenedor Principal -->
@@ -32,7 +37,7 @@
 
 
             <!-- Grid de Proyectos con el efecto Terminal Holográfico -->
-            <<div class="projects-grid">
+            <div class="projects-grid">
 
     <!-- PROYECTO 1 -->
     <div class="project-card">
@@ -40,20 +45,35 @@
         <p class="card-subtitle">[VERANO DE LA CIENCIA UG 2025]</p>
         <p>
             El artículo se enfoca en el análisis de
-            sistemas complejos (mercados financieros, colonias biológicas) mediante <span class="highlight">modelos matemáticos</span> y 
+            sistemas complejos (mercados financieros, colonias biológicas) mediante <span class="highlight">modelos matemáticos</span>(incluyendo una variación del modelo SIR) y 
             simulaciones computacionales.
+            <br><br>
+            Desarrollamos un sistema de ecuaciones diferenciables que rige las tasas de transición de individuos entre diferentes roles.
+            Determinamoslos <span class="highlight">puntos de equilibrio estables del sistema</span> para predecir la distribución óptima de la población.
+
         </p>
+        <a href="https://www.jovenesenlaciencia.ugto.mx/index.php/jovenesenlaciencia/article/view/4873" target="_blank" class="card-link">
+            [Leer Articulo]
+        </a>
     </div>
+
 
     <!-- PROYECTO 2 -->
     <div class="project-card">
-        <h3 class="text-xl font-bold mb-3">Geometría Computacional y Visualización</h3>
-        <p class="card-subtitle">[PROCESSING / JAVA]</p>
+        <h3 class="text-xl font-bold mb-3">Animacion: Ruido Perlin 2D</h3>
+        <p class="card-subtitle">[PYTHON / 350+ lineas codigo / Modular]</p>
         <p>
-            Desarrollo de animaciones visuales que ilustran los pasos de algoritmos clave de Geometría Computacional, 
-            incluyendo el cálculo de <span class="highlight">Convex Hull</span>, el Problema de la Galería de Arte y 
-            la generación de <span class="highlight">Perlin Noise</span>.
-        </p>
+            El proyecto se centró en la creación de una animación de barrido paso a paso 
+            (usando <span class="highlight">NumPy</span>    y <span class="highlight">FuncAnimation</span>). 
+            Realice mas de 350 lienas de codigo y organizacion modular.
+            <br><br>
+            Para descomponer visualmente el proceso, se mostró la contribución de los vectores de gradiente y tambien se compararon diferentes resultados
+            incluyendo el cálculo por promedio, la interpolación lineal, y la función de suavizado polinomial (fade).  (Disponible en GitHub).
+        </p><a href="/proyectos/PerlinNoiseAnimaciones/" 
+        class="card-link font-semibold mt-4 inline-block">
+        Ver Detalles
+        </a>
+        
     </div>
 
     <!-- PROYECTO 3 -->
